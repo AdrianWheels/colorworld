@@ -7,6 +7,10 @@ const ToolBarHorizontal = ({
   onColorChange, 
   onClearCanvas, 
   onPrintCanvas,
+  onUndo,
+  onRedo,
+  canUndo = false,
+  canRedo = false,
   currentTool = 'brush',
   currentColor = '#000000',
   currentBrushSize = 5
@@ -64,6 +68,33 @@ const ToolBarHorizontal = ({
           title="Goma de borrar"
         >
           🧽
+        </button>
+        <button 
+          className={`tool-btn ${currentTool === 'eyedropper' ? 'active' : ''}`}
+          onClick={() => handleToolChange('eyedropper')}
+          title="Cuenta gotas - Seleccionar color del lienzo"
+        >
+          💧
+        </button>
+      </div>
+
+      {/* Botones de undo/redo */}
+      <div className="toolbar-section undo-redo-section">
+        <button 
+          className={`tool-btn ${!canUndo ? 'disabled' : ''}`}
+          onClick={onUndo}
+          disabled={!canUndo}
+          title="Deshacer"
+        >
+          ↶
+        </button>
+        <button 
+          className={`tool-btn ${!canRedo ? 'disabled' : ''}`}
+          onClick={onRedo}
+          disabled={!canRedo}
+          title="Rehacer"
+        >
+          ↷
         </button>
       </div>
 

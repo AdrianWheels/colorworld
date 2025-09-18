@@ -1,0 +1,59 @@
+.drawing-canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.drawing-canvas {
+  border: 2px solid #333;
+  border-radius: 8px;
+  cursor: crosshair;
+  background: white;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.drawing-canvas:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .drawing-canvas-container {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .drawing-canvas {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Estilos específicos para el canvas simple */
+.canvas-layers-container {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.zoom-indicator {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  background: rgba(139, 90, 158, 0.9);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 100;
+  user-select: none;
+}

@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import DrawingCanvasSimple from './components/DrawingCanvasSimple';
 import ToolBarHorizontal from './components/ToolBarHorizontal';
 import DrawingHistory from './components/DrawingHistory';
@@ -11,6 +11,8 @@ function App() {
   const [brushColor, setBrushColor] = useState('#000000');
   const [canvasData, setCanvasData] = useState(null);
   const [activeNavItem, setActiveNavItem] = useState('Home');
+  const [canUndo, setCanUndo] = useState(false);
+  const [canRedo, setCanRedo] = useState(false);
   
   const canvasRef = useRef(null);
   const { 
@@ -23,10 +25,6 @@ function App() {
   } = useDrawing();
 
   const navigationItems = ['About', 'Shop', 'Discount', 'Product', 'Home', 'Account'];
-
-  const handleCanvasChange = useCallback((dataUrl) => {
-    setCanvasData(dataUrl);
-  }, []);
 
   const handleClearCanvas = useCallback(() => {
     if (canvasRef.current && canvasRef.current.clearCanvas) {
@@ -50,6 +48,77 @@ function App() {
       }
     }
   }, [canvasData, saveColoredDrawing]);
+
+  const updateUndoRedoState = useCallback(() => {
+    if (canvasRef.current) {
+      const canUndo = canvasRef.current.canUndo ? canvasRef.current.canUndo() : false;
+      const canRedo = canvasRef.current.canRedo ? canvasRef.current.canRedo() : false;
+      
+      // Solo log si hay cambios
+      if (canUndo !== canUndo || canRedo !== canRedo) {
+        console.log('🔄 ACTUALIZANDO estado UI undo/redo:', { canUndo, canRedo });
+      }
+      
+      setCanUndo(canUndo);
+      setCanRedo(canRedo);
+    }
+  }, []);
+
+  const handleUndo = useCallback(() => {
+    if (canvasRef.current && canvasRef.current.undo) {
+      canvasRef.current.undo();
+      updateUndoRedoState();
+    }
+  }, [updateUndoRedoState]);
+
+  const handleRedo = useCallback(() => {
+    if (canvasRef.current && canvasRef.current.redo) {
+      canvasRef.current.redo();
+      updateUndoRedoState();
+    }
+  }, [updateUndoRedoState]);
+
+  // Actualizar estado de undo/redo cuando cambie el canvas
+  const handleCanvasChangeWithUndoUpdate = useCallback((dataUrl) => {
+    console.log('📸 CANVAS CAMBIÓ - actualizando datos y estado undo/redo');
+    setCanvasData(dataUrl);
+    // Debounce para evitar demasiadas actualizaciones
+    setTimeout(() => {
+      if (canvasRef.current) {
+        const canUndo = canvasRef.current.canUndo ? canvasRef.current.canUndo() : false;
+        const canRedo = canvasRef.current.canRedo ? canvasRef.current.canRedo() : false;
+        
+        console.log('🔄 ACTUALIZANDO estado UI undo/redo:', { canUndo, canRedo });
+        
+        setCanUndo(canUndo);
+        setCanRedo(canRedo);
+      }
+    }, 200); // Aumentado el delay
+  }, []);
+
+  const handleColorPicked = useCallback((color) => {
+    setBrushColor(color);
+    // Cambiar automáticamente a pincel después de seleccionar color
+    setCurrentTool('brush');
+  }, []);
+
+  // Agregar atajos de teclado para undo/redo
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        if (e.key === 'z' && !e.shiftKey) {
+          e.preventDefault();
+          handleUndo();
+        } else if ((e.key === 'y') || (e.key === 'z' && e.shiftKey)) {
+          e.preventDefault();
+          handleRedo();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleUndo, handleRedo]);
 
   const getCurrentDate = () => {
     const today = new Date();
@@ -156,6 +225,10 @@ function App() {
               onColorChange={setBrushColor}
               onClearCanvas={handleClearCanvas}
               onPrintCanvas={handlePrintCanvas}
+              onUndo={handleUndo}
+              onRedo={handleRedo}
+              canUndo={canUndo}
+              canRedo={canRedo}
               currentTool={currentTool}
               currentColor={brushColor}
               currentBrushSize={brushSize}
@@ -169,7 +242,8 @@ function App() {
                   brushColor={brushColor}
                   tool={currentTool}
                   backgroundImage="/conejoprueba.png"
-                  onCanvasChange={handleCanvasChange}
+                  onCanvasChange={handleCanvasChangeWithUndoUpdate}
+                  onColorPicked={handleColorPicked}
                 />
               </div>
             </div>
