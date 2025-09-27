@@ -665,18 +665,20 @@ const DrawingCanvasSimple = forwardRef(({
     tempCanvas.height = canvasSize.height;
     const tempCtx = tempCanvas.getContext('2d');
 
-    // Fondo blanco sólido
+    // ORDEN CORRECTO DE CAPAS:
+    
+    // Capa 1: Fondo blanco sólido
     tempCtx.fillStyle = '#FFFFFF';
     tempCtx.fillRect(0, 0, canvasSize.width, canvasSize.height);
 
-    // Capa 1: Imagen de fondo (background)
-    if (backgroundCanvasRef.current) {
-      tempCtx.drawImage(backgroundCanvasRef.current, 0, 0);
-    }
-
-    // Capa 2: Dibujo del usuario
+    // Capa 2: Dibujo del usuario (colores DEBAJO de las líneas)
     if (drawingCanvasRef.current) {
       tempCtx.drawImage(drawingCanvasRef.current, 0, 0);
+    }
+
+    // Capa 3: Líneas negras ENCIMA (backgroundCanvas)
+    if (backgroundCanvasRef.current) {
+      tempCtx.drawImage(backgroundCanvasRef.current, 0, 0);
     }
 
     // Retornar como data URL PNG

@@ -3,6 +3,7 @@ import DrawingCanvasSimple from './components/DrawingCanvasSimple';
 import ToolBarHorizontal from './components/ToolBarHorizontal';
 import DrawingHistory from './components/DrawingHistory';
 import ControlsModal from './components/ControlsModal';
+import HelpModal from './components/HelpModal';
 import DayNavigation from './components/DayNavigation';
 import CanvasActions from './components/CanvasActions';
 import GeminiGenerator from './components/GeminiGenerator';
@@ -18,6 +19,7 @@ function App() {
   const [brushSize, setBrushSize] = useState(5);
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
+  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   
   const canvasRef = useRef(null);
   
@@ -52,10 +54,8 @@ function App() {
     handleSaveDrawing
   } = useCanvasActions(canvasRef, saveColoredDrawing);
 
-  const handlePrintCanvas = useCallback(() => {
-    if (canvasRef.current && canvasRef.current.printCanvas) {
-      canvasRef.current.printCanvas();
-    }
+  const handleShowHelp = useCallback(() => {
+    setIsHelpModalOpen(true);
   }, []);
 
   const handleColorPicked = useCallback((color) => {
@@ -158,7 +158,7 @@ function App() {
               onBrushSizeChange={setBrushSize}
               onColorChange={setBrushColor}
               onClearCanvas={handleClearCanvas}
-              onPrintCanvas={handlePrintCanvas}
+              onShowHelp={handleShowHelp}
               onUndo={handleUndo}
               onRedo={handleRedo}
               canUndo={canUndo}
@@ -189,14 +189,14 @@ function App() {
               canSave={!!canvasData}
               isGenerating={false}
             />
-          </div>
-          
-          <div className="generator-section">
-            <GeminiGenerator
-              onGenerate={onGenerateWithGemini}
-              isGenerating={isGeneratingWithGemini}
-              selectedDate={selectedDate}
-            />
+            
+            <div className="generator-section">
+              <GeminiGenerator
+                onGenerate={onGenerateWithGemini}
+                isGenerating={isGeneratingWithGemini}
+                selectedDate={selectedDate}
+              />
+            </div>
           </div>
         </div>
 
@@ -216,6 +216,12 @@ function App() {
       <ControlsModal 
         isOpen={isControlsModalOpen}
         onClose={() => setIsControlsModalOpen(false)}
+      />
+      
+      {/* Modal de ayuda */}
+      <HelpModal 
+        isOpen={isHelpModalOpen}
+        onClose={() => setIsHelpModalOpen(false)}
       />
     </div>
   );

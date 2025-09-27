@@ -6,7 +6,7 @@ const ToolBarHorizontal = ({
   onBrushSizeChange, 
   onColorChange, 
   onClearCanvas, 
-  onPrintCanvas,
+  onShowHelp,
   onUndo,
   onRedo,
   canUndo = false,
@@ -183,11 +183,11 @@ const ToolBarHorizontal = ({
           🗑️
         </button>
         <button 
-          className="action-btn save-btn"
-          onClick={onPrintCanvas}
-          title="Guardar/Imprimir"
+          className="action-btn help-btn"
+          onClick={onShowHelp}
+          title="Ver controles y ayuda"
         >
-          �
+          💾
         </button>
       </div>
     </div>
