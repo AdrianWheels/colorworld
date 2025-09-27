@@ -1,0 +1,75 @@
+.canvas-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  background: linear-gradient(145deg, #8a2be2, #9932cc);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
+  min-width: 140px;
+}
+
+.action-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(138, 43, 226, 0.4);
+}
+
+.action-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.action-btn:disabled {
+  background: linear-gradient(145deg, #cccccc, #aaaaaa);
+  cursor: not-allowed;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.save-btn {
+  background: linear-gradient(145deg, #28a745, #20c997);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.save-btn:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+}
+
+.generate-btn {
+  background: linear-gradient(145deg, #007bff, #0056b3);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.generate-btn:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+}
+
+.help-btn {
+  background: linear-gradient(145deg, #ffc107, #e0a800);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.help-btn:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(255, 193, 7, 0.4);
+}
+
+@media (max-width: 600px) {
+  .canvas-actions {
+    gap: 12px;
+  }
+  
+  .action-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+}

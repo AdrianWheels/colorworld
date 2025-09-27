@@ -94,10 +94,10 @@ const DrawingCanvasSimple = forwardRef(({
         compositeCtx.fillStyle = 'white';
         compositeCtx.fillRect(0, 0, canvasSize.width, canvasSize.height);
         
-        // Segundo: dibujar la capa del usuario (colores atrás)
+        // Segundo: dibujar la capa del usuario (colores debajo)
         compositeCtx.drawImage(drawingCanvasRef.current, 0, 0);
         
-        // Tercero: dibujar la capa de fondo (líneas negras adelante)
+        // Tercero: dibujar las líneas negras (ENCIMA e intocables)
         compositeCtx.drawImage(backgroundCanvasRef.current, 0, 0);
       }
       
@@ -121,10 +121,10 @@ const DrawingCanvasSimple = forwardRef(({
       compositeCtx.fillStyle = 'white';
       compositeCtx.fillRect(0, 0, canvasSize.width, canvasSize.height);
       
-      // Segundo: dibujar la capa del usuario (colores atrás)
+      // Segundo: dibujar la capa del usuario (colores debajo)
       compositeCtx.drawImage(drawingCanvasRef.current, 0, 0);
       
-      // Tercero: dibujar la capa de fondo (líneas negras adelante)
+      // Tercero: dibujar las líneas negras (ENCIMA e intocables)
       compositeCtx.drawImage(backgroundCanvasRef.current, 0, 0);
       
       // Notificar cambio
@@ -580,16 +580,120 @@ const DrawingCanvasSimple = forwardRef(({
     printWindow.print();
   }, []);
 
+  // Función para cargar una nueva imagen de fondo dinámicamente
+  const loadBackgroundImage = useCallback((newImageUrl) => {
+    console.log('🖼️ Cargando nueva imagen de fondo:', newImageUrl);
+    
+    if (!backgroundCanvasRef.current) return;
+    
+    const bgCtx = backgroundCanvasRef.current.getContext('2d', { willReadFrequently: true });
+    const img = new Image();
+    
+    img.onload = () => {
+      // Limpiar el canvas de fondo
+      bgCtx.clearRect(0, 0, canvasSize.width, canvasSize.height);
+      
+      // Crear un canvas temporal para procesar la imagen
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
+      tempCanvas.width = canvasSize.width;
+      tempCanvas.height = canvasSize.height;
+      
+      // Dibujar la imagen escalada al tamaño del canvas
+      tempCtx.drawImage(img, 0, 0, canvasSize.width, canvasSize.height);
+      
+      // Procesar la imagen para optimizar las líneas negras con transparencia
+      const imageData = tempCtx.getImageData(0, 0, canvasSize.width, canvasSize.height);
+      const data = imageData.data;
+      
+      // Procesar cada píxel para hacer transparentes los fondos blancos
+      // pero mantener las líneas negras opacas
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        
+        // Si el píxel es muy claro (fondo blanco/gris claro), hacerlo transparente
+        const brightness = (r + g + b) / 3;
+        if (brightness > 240) {
+          data[i + 3] = 0; // Hacer transparente
+        } else if (brightness < 100) {
+          // Líneas oscuras: asegurar que sean completamente opacas y negras
+          data[i] = 0;     // R = 0
+          data[i + 1] = 0; // G = 0 
+          data[i + 2] = 0; // B = 0
+          data[i + 3] = 255; // Alpha = 255 (opaco)
+        } else {
+          // Tonos medios: reducir opacidad gradualmente
+          const alpha = Math.max(0, 255 - brightness);
+          data[i + 3] = alpha;
+        }
+      }
+      
+      // Aplicar los cambios al canvas temporal
+      tempCtx.putImageData(imageData, 0, 0);
+      
+      // Copiar al canvas de fondo con las líneas optimizadas
+      bgCtx.drawImage(tempCanvas, 0, 0);
+      
+      // Actualizar la visualización compuesta
+      requestCompositeUpdate();
+      
+      console.log('✅ Nueva imagen de fondo cargada');
+    };
+    
+    img.onerror = () => {
+      console.error('❌ Error cargando la nueva imagen de fondo');
+    };
+    
+    // Manejar tanto URLs de blob como data URLs
+    img.crossOrigin = 'anonymous';
+    img.src = newImageUrl;
+  }, [canvasSize, requestCompositeUpdate]);
+
   // Exponer métodos al componente padre
+  // Función para exportar imagen combinada con todas las capas
+  const exportCombinedImage = useCallback(() => {
+    if (!backgroundCanvasRef.current || !drawingCanvasRef.current) {
+      console.warn('❌ Canvas no disponibles para exportar');
+      return null;
+    }
+
+    // Crear un canvas temporal para combinar todas las capas
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = canvasSize.width;
+    tempCanvas.height = canvasSize.height;
+    const tempCtx = tempCanvas.getContext('2d');
+
+    // Fondo blanco sólido
+    tempCtx.fillStyle = '#FFFFFF';
+    tempCtx.fillRect(0, 0, canvasSize.width, canvasSize.height);
+
+    // Capa 1: Imagen de fondo (background)
+    if (backgroundCanvasRef.current) {
+      tempCtx.drawImage(backgroundCanvasRef.current, 0, 0);
+    }
+
+    // Capa 2: Dibujo del usuario
+    if (drawingCanvasRef.current) {
+      tempCtx.drawImage(drawingCanvasRef.current, 0, 0);
+    }
+
+    // Retornar como data URL PNG
+    return tempCanvas.toDataURL('image/png', 1.0);
+  }, [canvasSize]);
+
   useImperativeHandle(ref, () => ({
     clearCanvas,
     printCanvas,
     getCanvas: () => compositeCanvasRef.current,
+    exportCombinedImage,
     undo,
     redo,
     canUndo: () => undoStack.length > 0,
-    canRedo: () => redoStack.length > 0
-  }), [clearCanvas, printCanvas, undo, redo, undoStack, redoStack]);
+    canRedo: () => redoStack.length > 0,
+    loadBackgroundImage
+  }), [clearCanvas, printCanvas, exportCombinedImage, undo, redo, undoStack, redoStack, loadBackgroundImage]);
 
   // Manejar eventos táctiles
   const handleTouchStart = (e) => {

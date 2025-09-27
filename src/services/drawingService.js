@@ -1,15 +1,43 @@
 // AI Drawing Service
-// This service handles generating daily drawings using AI
+// This service handles generating daily drawings using Gemini 2.5 Flash Image Preview
+
+import { GoogleGenAI } from '@google/genai';
+import promptsManager from './promptsManager.js';
+import persistentStorage from './persistentStorage.js';
 
 class DrawingService {
   constructor() {
-    this.apiKey = null; // To be set by user
-    this.cache = new Map(); // Cache for generated drawings
+    // Usar variable de entorno para la API key
+    this.apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    this.genAI = null;
+    this.model = 'gemini-2.5-flash-image-preview'; // Modelo actualizado
+    this.cache = new Map();
+    this.generatedImagesPath = '/generated-images/';
+    this.initializeGemini();
   }
 
-  // Set the Gemini API key
+  // Initialize Gemini API
+  initializeGemini() {
+    try {
+      if (!this.apiKey) {
+        console.error('❌ API key no encontrada. Asegúrate de configurar VITE_GEMINI_API_KEY en .env');
+        return;
+      }
+      
+      this.genAI = new GoogleGenAI({
+        apiKey: this.apiKey,
+      });
+      
+      console.log('✅ Gemini 2.5 Flash Image Preview inicializada correctamente');
+    } catch (error) {
+      console.error('❌ Error inicializando Gemini API:', error);
+    }
+  }
+
+  // Set the Gemini API key (opcional, ya está en .env)
   setApiKey(apiKey) {
     this.apiKey = apiKey;
+    this.initializeGemini();
   }
 
   // Get today's date as a string (YYYY-MM-DD)
@@ -44,108 +72,374 @@ class DrawingService {
     return drawings.sort((a, b) => new Date(b.date) - new Date(a.date));
   }
 
-  // Generate drawing prompts for coloring book style
+  // Get random coloring prompt from CSV data
   getColoringPrompts() {
-    const themes = [
-      'Un gato adorable jugando con una pelota de estambre',
-      'Una casa de campo con jardín lleno de flores',
-      'Un árbol mágico con frutas de diferentes formas',
-      'Un robot amigable en un parque',
-      'Una princesa en un castillo encantado',
-      'Un barco pirata navegando por el océano',
-      'Una familia de búhos en un bosque',
-      'Un dragón bebé durmiendo en una cueva',
-      'Una bicicleta decorada con flores',
-      'Un helado gigante con muchos sabores',
-      'Una mariposa volando entre flores',
-      'Un cohete espacial viajando a las estrellas',
-      'Una sirena nadando con peces coloridos',
-      'Un elefante bebé jugando en el agua',
-      'Una ciudad futurista con edificios cristal'
-    ];
-
-    const today = new Date();
-    const dayIndex = today.getDate() % themes.length;
-    return themes[dayIndex];
-  }
-
-  // Mock function to simulate AI-generated drawing
-  // In production, this would call the Gemini API
-  async generateMockDrawing() {
-    const prompt = this.getColoringPrompts();
-    
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Create a simple SVG drawing as a placeholder
-    const svgContent = this.createSimpleSVG(prompt);
-    
+    const promptData = promptsManager.getRandomPrompt();
     return {
-      prompt,
-      svgContent,
-      imageUrl: this.svgToDataUrl(svgContent),
-      generatedAt: new Date().toISOString()
+      animal: promptData.animal,
+      prompt: promptData.prompt_es,
+      promptData: promptData
     };
   }
 
-  // Create a simple SVG based on the prompt
-  createSimpleSVG(prompt = '') {
-    const svgs = {
-      'gato': `<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="180" r="80" fill="none" stroke="black" stroke-width="3"/>
-        <circle cx="170" cy="160" r="8" fill="black"/>
-        <circle cx="230" cy="160" r="8" fill="black"/>
-        <path d="M 180 190 Q 200 210 220 190" fill="none" stroke="black" stroke-width="2"/>
-        <polygon points="150,120 160,80 140,90" fill="none" stroke="black" stroke-width="3"/>
-        <polygon points="250,120 260,80 240,90" fill="none" stroke="black" stroke-width="3"/>
-        <circle cx="200" cy="280" r="60" fill="none" stroke="black" stroke-width="3"/>
-        <circle cx="120" cy="300" r="30" fill="none" stroke="black" stroke-width="3"/>
-        <circle cx="280" cy="300" r="30" fill="none" stroke="black" stroke-width="3"/>
-        <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16">¡Coloréame!</text>
-      </svg>`,
-      'casa': `<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="200,80 120,160 280,160" fill="none" stroke="black" stroke-width="3"/>
-        <rect x="140" y="160" width="120" height="100" fill="none" stroke="black" stroke-width="3"/>
-        <rect x="170" y="190" width="30" height="40" fill="none" stroke="black" stroke-width="2"/>
-        <rect x="210" y="180" width="25" height="25" fill="none" stroke="black" stroke-width="2"/>
-        <circle cx="100" cy="300" r="20" fill="none" stroke="black" stroke-width="2"/>
-        <circle cx="300" cy="300" r="20" fill="none" stroke="black" stroke-width="2"/>
-        <circle cx="130" cy="320" r="15" fill="none" stroke="black" stroke-width="2"/>
-        <circle cx="270" cy="320" r="15" fill="none" stroke="black" stroke-width="2"/>
-        <text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16">¡Coloréame!</text>
-      </svg>`,
-      'default': `<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="150" r="80" fill="none" stroke="black" stroke-width="3"/>
-        <circle cx="180" cy="130" r="10" fill="black"/>
-        <circle cx="220" cy="130" r="10" fill="black"/>
-        <path d="M 170 170 Q 200 190 230 170" fill="none" stroke="black" stroke-width="3"/>
-        <rect x="160" y="230" width="80" height="100" fill="none" stroke="black" stroke-width="3"/>
-        <circle cx="120" cy="350" r="25" fill="none" stroke="black" stroke-width="3"/>
-        <circle cx="280" cy="350" r="25" fill="none" stroke="black" stroke-width="3"/>
-        <text x="200" y="390" text-anchor="middle" font-family="Arial" font-size="16">¡Coloréame!</text>
-      </svg>`
+  // Get specific animal prompt
+  getAnimalPrompt(animalName) {
+    const promptData = promptsManager.getPromptByAnimal(animalName);
+    if (!promptData) {
+      return this.getColoringPrompts(); // Fallback to random
+    }
+    return {
+      animal: promptData.animal,
+      prompt: promptData.prompt_es,
+      promptData: promptData
     };
-
-    if (prompt.includes('gato')) return svgs.gato;
-    if (prompt.includes('casa')) return svgs.casa;
-    return svgs.default;
   }
 
-  // Convert SVG to data URL
-  svgToDataUrl(svgContent) {
-    const encoded = encodeURIComponent(svgContent);
-    return `data:image/svg+xml,${encoded}`;
-  }
-
-  // Future: Integrate with Gemini API
-  async generateWithGemini() {
-    if (!this.apiKey) {
-      throw new Error('API key not configured');
+  // Generate image using Gemini 2.5 Flash Image Preview with optimized prompts
+  async generateImageWithGemini(forDateKey = null) {
+    if (!this.genAI) {
+      console.error('❌ Gemini API no está inicializada');
+      return this.generateMockDrawing();
     }
 
-    // This would integrate with Google's Gemini API
-    // For now, we'll use the mock function
-    return this.generateMockDrawing();
+    try {
+      const promptInfo = this.getColoringPrompts();
+      const targetDate = forDateKey || new Date().toISOString().split('T')[0];
+      console.log('🎨 Prompt seleccionado:', promptInfo.animal, 'para el día:', targetDate);
+      
+      // Usar el prompt optimizado del promptsManager
+      const enhancedPrompt = promptsManager.buildEnhancedPrompt(promptInfo.promptData);
+
+      console.log('🤖 Generando imagen con Gemini 2.5...');
+      console.log('🗺️ Prompt optimizado:', enhancedPrompt.substring(0, 100) + '...');
+      
+      const config = {
+        responseModalities: ['IMAGE'],
+      };
+      
+      const contents = [
+        {
+          role: 'user',
+          parts: [
+            {
+              text: enhancedPrompt,
+            },
+          ],
+        },
+      ];
+
+      const response = await this.genAI.models.generateContentStream({
+        model: this.model,
+        config,
+        contents,
+      });
+
+      let imageData = null;
+      
+      for await (const chunk of response) {
+        if (!chunk.candidates || !chunk.candidates[0]?.content?.parts) {
+          continue;
+        }
+        
+        // Procesar imagen
+        if (chunk.candidates[0]?.content?.parts?.[0]?.inlineData) {
+          const inlineData = chunk.candidates[0].content.parts[0].inlineData;
+          imageData = {
+            data: inlineData.data,
+            mimeType: inlineData.mimeType || 'image/png'
+          };
+          console.log('✅ Imagen generada por Gemini recibida');
+          break; // Solo necesitamos la primera imagen
+        }
+      }
+      
+      if (imageData) {
+        // Guardar la imagen localmente para el día especificado
+        const savedImagePath = await this.saveGeneratedImage(imageData, promptInfo.prompt, targetDate);
+        
+        return {
+          prompt: promptInfo.prompt,
+          animal: promptInfo.animal,
+          imageUrl: savedImagePath,
+          imageData: imageData,
+          generatedAt: new Date().toISOString(),
+          source: 'gemini-2.5',
+          mimeType: imageData.mimeType,
+          promptData: promptInfo.promptData
+        };
+      } else {
+        console.log('⚠️ No se generó imagen con Gemini, usando SVG de respaldo');
+        return this.generateMockDrawing(promptInfo.animal);
+      }
+      
+    } catch (error) {
+      console.error('❌ Error generando con Gemini 2.5:', error);
+      
+      // Manejo específico de error de cuota
+      if (error.code === 429) {
+        throw new Error('Cuota de Gemini agotada. Inténtalo más tarde.');
+      }
+      
+      throw error;
+    }
+  }
+
+  // Save generated image locally with day-based organization
+  async saveGeneratedImage(imageData, prompt, forDateKey = null) {
+    try {
+      const dateKey = forDateKey || new Date().toISOString().split('T')[0]; // Usar fecha especificada o actual
+      const timestamp = Date.now();
+      const cleanPrompt = prompt.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').substring(0, 30);
+      
+      // Crear nombre de archivo con fecha y animal
+      const fileName = `${dateKey}_${cleanPrompt}_${timestamp}`;
+      
+      // Determinar extensión basada en mimeType
+      let extension = 'png';
+      if (imageData.mimeType?.includes('jpeg')) extension = 'jpg';
+      else if (imageData.mimeType?.includes('webp')) extension = 'webp';
+      
+      const fullFileName = `${fileName}.${extension}`;
+      const animal = this.extractAnimalFromPrompt(prompt);
+      
+      console.log(`💾 Guardando imagen: ${fullFileName} para el día ${dateKey}`);
+      
+      // Intentar guardar en servidor persistente, con fallback a localStorage
+      const saveResult = await persistentStorage.saveImage(
+        imageData.data,
+        fullFileName,
+        dateKey,
+        prompt,
+        animal
+      );
+      
+      if (saveResult.success) {
+        // Crear información completa de la imagen
+        const imageInfo = {
+          fileName: fullFileName,
+          prompt: prompt,
+          dateKey: dateKey,
+          timestamp: timestamp,
+          mimeType: imageData.mimeType,
+          size: imageData.data.length,
+          blobUrl: saveResult.url,
+          animal: animal,
+          generatedAt: new Date().toISOString(),
+          source: saveResult.source || 'server'
+        };
+        
+        // También guardar en el sistema local para compatibilidad
+        this.saveDailyImage(dateKey, imageInfo);
+        
+        console.log(`✅ Imagen guardada exitosamente (${saveResult.source || 'server'}): ${fullFileName}`);
+        
+        return saveResult.url;
+      } else {
+        throw new Error(saveResult.error || 'Error guardando imagen');
+      }
+      
+    } catch (error) {
+      console.error('❌ Error guardando imagen:', error);
+      // Fallback: retornar data URL directamente
+      return `data:${imageData.mimeType};base64,${imageData.data}`;
+    }
+  }
+
+  // Extract animal name from prompt for organization
+  extractAnimalFromPrompt(prompt) {
+    const animals = ['conejo', 'gatito', 'gato', 'elefante', 'mariposa', 'tortuga', 'perro', 'pato', 'oso'];
+    for (const animal of animals) {
+      if (prompt.toLowerCase().includes(animal)) {
+        return animal;
+      }
+    }
+    return 'animal'; // fallback
+  }
+
+  // Save image for specific day
+  saveDailyImage(dateKey, imageInfo) {
+    // Obtener imágenes existentes para este día
+    const dayImages = JSON.parse(localStorage.getItem(`daily_images_${dateKey}`) || '[]');
+    
+    // Agregar la nueva imagen
+    dayImages.push(imageInfo);
+    
+    // Guardar de vuelta
+    localStorage.setItem(`daily_images_${dateKey}`, JSON.stringify(dayImages));
+    
+    // Actualizar índice de días con imágenes
+    const daysWithImages = JSON.parse(localStorage.getItem('days_with_images') || '[]');
+    if (!daysWithImages.includes(dateKey)) {
+      daysWithImages.push(dateKey);
+      daysWithImages.sort().reverse(); // Más recientes primero
+      localStorage.setItem('days_with_images', JSON.stringify(daysWithImages));
+    }
+  }
+
+  // Get images for specific day
+  getImagesForDay(dateKey) {
+    return JSON.parse(localStorage.getItem(`daily_images_${dateKey}`) || '[]');
+  }
+
+  // Get current day's image (or generate if doesn't exist)
+  async getDailyImage(dateKey = null) {
+    if (!dateKey) {
+      dateKey = new Date().toISOString().split('T')[0];
+    }
+    
+    console.log('🔍 Buscando imagen para el día:', dateKey);
+    
+    // Primero intentar obtener desde el servidor
+    try {
+      const serverImages = await persistentStorage.getImagesForDay(dateKey);
+      
+      if (serverImages.length > 0) {
+        const imageInfo = serverImages[0];
+        console.log('🌐 Imagen encontrada en servidor:', imageInfo.fileName);
+        
+        return {
+          fileName: imageInfo.fileName,
+          prompt: imageInfo.prompt,
+          animal: imageInfo.animal,
+          dateKey: dateKey,
+          blobUrl: imageInfo.url, // URL del servidor
+          source: 'server',
+          generatedAt: imageInfo.savedAt
+        };
+      }
+    } catch (error) {
+      console.warn('⚠️ No se pudo conectar al servidor, intentando localStorage:', error);
+    }
+    
+    // Fallback a localStorage solo si el servidor no está disponible
+    const dayImages = this.getImagesForDay(dateKey);
+    
+    if (dayImages.length > 0) {
+      const imageInfo = dayImages[0];
+      console.log('� Imagen encontrada en localStorage:', imageInfo.fileName);
+      
+      // SIEMPRE recrear el blob URL desde localStorage para garantizar que funcione
+      const imageData = localStorage.getItem(`image_data_${imageInfo.timestamp}`);
+      if (imageData) {
+        try {
+          const parsedData = JSON.parse(imageData);
+          const buffer = Uint8Array.from(atob(parsedData.data), c => c.charCodeAt(0));
+          const blob = new Blob([buffer], { type: parsedData.mimeType });
+          const newBlobUrl = URL.createObjectURL(blob);
+          
+          console.log('✅ Blob URL recreado desde localStorage');
+          
+          // Actualizar la información con el nuevo blob URL
+          imageInfo.blobUrl = newBlobUrl;
+          imageInfo.source = 'localStorage';
+          
+          return imageInfo;
+        } catch (error) {
+          console.error('❌ Error recreando blob:', error);
+          return null;
+        }
+      }
+    }
+    
+    console.log('📅 No hay imagen guardada para este día');
+    return null; // No hay imagen para este día
+  }
+
+  // Get all days with images
+  getDaysWithImages() {
+    return JSON.parse(localStorage.getItem('days_with_images') || '[]');
+  }
+
+  // Clean up old localStorage blob URLs when server is available
+  cleanupLocalStorage() {
+    console.log('🧹 Limpiando localStorage obsoleto...');
+    
+    // Limpiar blob URLs antiguos
+    const keys = Object.keys(localStorage);
+    let cleanedCount = 0;
+    
+    keys.forEach(key => {
+      if (key.startsWith('generated_images') || key.startsWith('daily_images_')) {
+        try {
+          const data = JSON.parse(localStorage.getItem(key));
+          if (Array.isArray(data)) {
+            data.forEach(item => {
+              if (item.blobUrl && item.blobUrl.startsWith('blob:')) {
+                URL.revokeObjectURL(item.blobUrl);
+                cleanedCount++;
+              }
+            });
+          }
+          localStorage.removeItem(key);
+        } catch {
+          // Ignorar errores de parsing
+        }
+      }
+    });
+    
+    console.log(`✅ Limpiado ${cleanedCount} blob URLs obsoletos`);
+  }
+  
+  // Get list of generated images
+  getGeneratedImages() {
+    try {
+      return JSON.parse(localStorage.getItem('generated_images') || '[]');
+    } catch (error) {
+      console.error('❌ Error obteniendo imágenes:', error);
+      return [];
+    }
+  }
+  
+  // Restore image from localStorage
+  restoreImageFromStorage(timestamp) {
+    try {
+      const imageDataStr = localStorage.getItem(`image_data_${timestamp}`);
+      if (!imageDataStr) return null;
+      
+      const imageData = JSON.parse(imageDataStr);
+      const buffer = Uint8Array.from(atob(imageData.data), c => c.charCodeAt(0));
+      const blob = new Blob([buffer], { type: imageData.mimeType });
+      return URL.createObjectURL(blob);
+    } catch (error) {
+      console.error('❌ Error restaurando imagen:', error);
+      return null;
+    }
+  }
+  
+  // Clear old generated images to save space
+  clearOldImages(daysOld = 7) {
+    try {
+      const cutoffDate = Date.now() - (daysOld * 24 * 60 * 60 * 1000);
+      const savedImages = this.getGeneratedImages();
+      
+      // Filtrar imágenes recientes
+      const recentImages = savedImages.filter(img => img.timestamp > cutoffDate);
+      
+      // Liberar URLs de imágenes antiguas
+      savedImages.forEach(img => {
+        if (img.timestamp <= cutoffDate && img.blobUrl) {
+          URL.revokeObjectURL(img.blobUrl);
+          localStorage.removeItem(`image_data_${img.timestamp}`);
+        }
+      });
+      
+      localStorage.setItem('generated_images', JSON.stringify(recentImages));
+      console.log(`🧹 Limpieza completada: ${savedImages.length - recentImages.length} imágenes eliminadas`);
+      
+    } catch (error) {
+      console.error('❌ Error en limpieza:', error);
+    }
+  }
+
+
+
+
+
+
+
+  // Main function: Generate with Gemini
+  async generateWithGemini(customPrompt = null) {
+    return await this.generateImageWithGemini(customPrompt);
   }
 
   // Get or generate today's drawing
@@ -154,21 +448,32 @@ class DrawingService {
     
     if (!todayDrawing) {
       try {
-        todayDrawing = await this.generateMockDrawing();
+        console.log('🎨 Generando nuevo dibujo del día...');
+        todayDrawing = await this.generateWithGemini();
         this.saveDrawing(todayDrawing);
+        console.log('✅ Dibujo generado y guardado');
       } catch (error) {
-        console.error('Error generating drawing:', error);
-        // Fallback to a default drawing
-        todayDrawing = {
-          prompt: 'Dibujo del día - ¡Usa tu imaginación!',
-          svgContent: this.createSimpleSVG('default'),
-          imageUrl: this.svgToDataUrl(this.createSimpleSVG('default')),
-          generatedAt: new Date().toISOString()
-        };
+        console.error('❌ Error generating drawing:', error);
+        throw error;
       }
     }
     
     return todayDrawing;
+  }
+
+  // New function: Generate custom drawing with Gemini
+  async generateCustomDrawing(userPrompt) {
+    console.log('🎨 Generando dibujo personalizado:', userPrompt);
+    try {
+      const drawing = await this.generateWithGemini(userPrompt);
+      // Optionally save custom drawings too
+      const customKey = `custom_${Date.now()}`;
+      localStorage.setItem(`drawing_${customKey}`, JSON.stringify(drawing));
+      return drawing;
+    } catch (error) {
+      console.error('❌ Error generando dibujo personalizado:', error);
+      throw error;
+    }
   }
 }
 

@@ -2,98 +2,60 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import DrawingCanvasSimple from './components/DrawingCanvasSimple';
 import ToolBarHorizontal from './components/ToolBarHorizontal';
 import DrawingHistory from './components/DrawingHistory';
+import ControlsModal from './components/ControlsModal';
+import DayNavigation from './components/DayNavigation';
+import CanvasActions from './components/CanvasActions';
+import GeminiGenerator from './components/GeminiGenerator';
 import { useDrawing } from './hooks/useDrawing';
+import { useDayNavigation } from './hooks/useDayNavigation';
+import { useGeminiGenerator } from './hooks/useGeminiGenerator';
+import { useCanvasActions } from './hooks/useCanvasActions';
+import drawingService from './services/drawingService';
 import './App.css';
 
 function App() {
   const [currentTool, setCurrentTool] = useState('brush');
   const [brushSize, setBrushSize] = useState(5);
   const [brushColor, setBrushColor] = useState('#000000');
-  const [canvasData, setCanvasData] = useState(null);
-  const [activeNavItem, setActiveNavItem] = useState('Home');
-  const [canUndo, setCanUndo] = useState(false);
-  const [canRedo, setCanRedo] = useState(false);
+  const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
   
   const canvasRef = useRef(null);
+  
+  // Hooks modulares
   const { 
-    dailyDrawing, 
     isLoading, 
     error, 
     coloredDrawings, 
     saveColoredDrawing, 
     generateNewDrawing 
   } = useDrawing();
-
-  const navigationItems = ['About', 'Shop', 'Discount', 'Product', 'Home', 'Account'];
-
-  const handleClearCanvas = useCallback(() => {
-    if (canvasRef.current && canvasRef.current.clearCanvas) {
-      canvasRef.current.clearCanvas();
-    }
-  }, []);
+  
+  const {
+    selectedDate,
+    dayImageStatus,
+    setDayImageStatus,
+    loadDayImage,
+    goToPreviousDay,
+    goToNextDay
+  } = useDayNavigation();
+  
+  const { isGeneratingWithGemini, handleGenerateWithGemini } = useGeminiGenerator();
+  
+  const {
+    canvasData,
+    canUndo,
+    canRedo,
+    handleUndo,
+    handleRedo,
+    handleClearCanvas,
+    handleCanvasChangeWithUndoUpdate,
+    handleSaveDrawing
+  } = useCanvasActions(canvasRef, saveColoredDrawing);
 
   const handlePrintCanvas = useCallback(() => {
     if (canvasRef.current && canvasRef.current.printCanvas) {
       canvasRef.current.printCanvas();
     }
-  }, []);
-
-  const handleSaveDrawing = useCallback(() => {
-    if (canvasData) {
-      const success = saveColoredDrawing(canvasData);
-      if (success) {
-        alert('¡Dibujo guardado exitosamente!');
-      } else {
-        alert('Error al guardar el dibujo');
-      }
-    }
-  }, [canvasData, saveColoredDrawing]);
-
-  const updateUndoRedoState = useCallback(() => {
-    if (canvasRef.current) {
-      const canUndo = canvasRef.current.canUndo ? canvasRef.current.canUndo() : false;
-      const canRedo = canvasRef.current.canRedo ? canvasRef.current.canRedo() : false;
-      
-      // Solo log si hay cambios
-      if (canUndo !== canUndo || canRedo !== canRedo) {
-        console.log('🔄 ACTUALIZANDO estado UI undo/redo:', { canUndo, canRedo });
-      }
-      
-      setCanUndo(canUndo);
-      setCanRedo(canRedo);
-    }
-  }, []);
-
-  const handleUndo = useCallback(() => {
-    if (canvasRef.current && canvasRef.current.undo) {
-      canvasRef.current.undo();
-      updateUndoRedoState();
-    }
-  }, [updateUndoRedoState]);
-
-  const handleRedo = useCallback(() => {
-    if (canvasRef.current && canvasRef.current.redo) {
-      canvasRef.current.redo();
-      updateUndoRedoState();
-    }
-  }, [updateUndoRedoState]);
-
-  // Actualizar estado de undo/redo cuando cambie el canvas
-  const handleCanvasChangeWithUndoUpdate = useCallback((dataUrl) => {
-    console.log('📸 CANVAS CAMBIÓ - actualizando datos y estado undo/redo');
-    setCanvasData(dataUrl);
-    // Debounce para evitar demasiadas actualizaciones
-    setTimeout(() => {
-      if (canvasRef.current) {
-        const canUndo = canvasRef.current.canUndo ? canvasRef.current.canUndo() : false;
-        const canRedo = canvasRef.current.canRedo ? canvasRef.current.canRedo() : false;
-        
-        console.log('🔄 ACTUALIZANDO estado UI undo/redo:', { canUndo, canRedo });
-        
-        setCanUndo(canUndo);
-        setCanRedo(canRedo);
-      }
-    }, 200); // Aumentado el delay
   }, []);
 
   const handleColorPicked = useCallback((color) => {
@@ -102,8 +64,34 @@ function App() {
     setCurrentTool('brush');
   }, []);
 
+  // Funciones de manejo para conectar los hooks
+  const onGenerateWithGemini = useCallback(async () => {
+    const result = await handleGenerateWithGemini(selectedDate, canvasRef, setDayImageStatus);
+    if (result.success) {
+      alert(result.message);
+    } else {
+      alert(result.message);
+    }
+  }, [handleGenerateWithGemini, selectedDate, canvasRef, setDayImageStatus]);
+
+  const onSaveDrawing = useCallback(() => {
+    const result = handleSaveDrawing();
+    alert(result.message);
+  }, [handleSaveDrawing]);
+
+  // Effect para cargar imagen cuando cambia la fecha seleccionada
+  useEffect(() => {
+    loadDayImage(canvasRef);
+    
+    // Limpiar localStorage obsoleto al cambiar de día
+    drawingService.cleanupLocalStorage();
+  }, [loadDayImage, canvasRef]);
+
   // Agregar atajos de teclado para undo/redo
   useEffect(() => {
+    // Limpiar localStorage obsoleto al iniciar la app
+    drawingService.cleanupLocalStorage();
+    
     const handleKeyDown = (e) => {
       if (e.ctrlKey || e.metaKey) {
         if (e.key === 'z' && !e.shiftKey) {
@@ -120,27 +108,11 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleUndo, handleRedo]);
 
-  const getCurrentDate = () => {
-    const today = new Date();
-    return `${today.getDate().toString().padStart(2, '0')}/${(today.getMonth() + 1).toString().padStart(2, '0')}/${today.getFullYear().toString().slice(-2)}`;
-  };
-
   if (isLoading) {
     return (
       <div className="app">
         <header className="app-header">
           <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
-          <nav className="main-navigation">
-            {navigationItems.map(item => (
-              <button 
-                key={item}
-                className={`nav-pill ${activeNavItem === item ? 'active' : ''}`}
-                onClick={() => setActiveNavItem(item)}
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
           <p>Cargando el dibujo del día...</p>
         </header>
         <div className="loading-container">
@@ -156,17 +128,6 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
-          <nav className="main-navigation">
-            {navigationItems.map(item => (
-              <button 
-                key={item}
-                className={`nav-pill ${activeNavItem === item ? 'active' : ''}`}
-                onClick={() => setActiveNavItem(item)}
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
           <p className="error-message">{error}</p>
           <button onClick={generateNewDrawing} className="retry-btn">
             Intentar de nuevo
@@ -180,44 +141,17 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
-        <nav className="main-navigation">
-          {navigationItems.map(item => (
-            <button 
-              key={item}
-              className={`nav-pill ${activeNavItem === item ? 'active' : ''}`}
-              onClick={() => setActiveNavItem(item)}
-            >
-              {item}
-            </button>
-          ))}
-        </nav>
         
-        <div className="drawing-of-day-section">
-          <h2 className="drawing-title">Drawing of the day</h2>
-          <div className="date-navigation">
-            <button className="date-nav-btn">❮</button>
-            <span className="current-date">{getCurrentDate()}</span>
-            <button className="date-nav-btn">❯</button>
-          </div>
-          {dailyDrawing && (
-            <div className="daily-prompt">
-              <p>"{dailyDrawing.prompt}"</p>
-            </div>
-          )}
-        </div>
+        <DayNavigation
+          selectedDate={selectedDate}
+          onPreviousDay={goToPreviousDay}
+          onNextDay={goToNextDay}
+          dayImageStatus={dayImageStatus}
+        />
       </header>
 
       <main className="app-main">
         <div className="drawing-section">
-          <div className="side-buttons">
-            <div className="side-button-container">
-              <button className="side-action-btn print-btn">
-                <div className="btn-icon">🖨️</div>
-                <span>Print of the day</span>
-              </button>
-            </div>
-          </div>
-
           <div className="canvas-and-tools">
             <ToolBarHorizontal
               onToolChange={setCurrentTool}
@@ -248,33 +182,21 @@ function App() {
               </div>
             </div>
             
-            <div className="canvas-actions">
-              <button 
-                onClick={handleSaveDrawing}
-                className="save-btn"
-                disabled={!canvasData}
-                title="Guardar dibujo coloreado"
-              >
-                💾 Guardar Dibujo
-              </button>
-              <button 
-                onClick={generateNewDrawing}
-                className="new-drawing-btn"
-                title="Generar nuevo dibujo"
-              >
-                🎲 Nuevo Dibujo
-              </button>
-            </div>
+            <CanvasActions
+              onSave={onSaveDrawing}
+              onGenerate={generateNewDrawing}
+              onShowHelp={() => setIsControlsModalOpen(true)}
+              canSave={!!canvasData}
+              isGenerating={false}
+            />
           </div>
-
-          <div className="side-buttons">
-            <div className="side-button-container">
-              <button className="side-action-btn palette-btn">
-                <div className="btn-icon">🎨</div>
-                <span>LET'S GO!</span>
-                <small>Drawing palette</small>
-              </button>
-            </div>
+          
+          <div className="generator-section">
+            <GeminiGenerator
+              onGenerate={onGenerateWithGemini}
+              isGenerating={isGeneratingWithGemini}
+              selectedDate={selectedDate}
+            />
           </div>
         </div>
 
@@ -289,6 +211,12 @@ function App() {
         </p>
         <p className="footer-share">Share it on social media #coloreveryday</p>
       </footer>
+      
+      {/* Modal de controles */}
+      <ControlsModal 
+        isOpen={isControlsModalOpen}
+        onClose={() => setIsControlsModalOpen(false)}
+      />
     </div>
   );
 }

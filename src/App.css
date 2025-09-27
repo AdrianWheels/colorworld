@@ -293,9 +293,10 @@ body {
   gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
 }
 
-.save-btn, .new-drawing-btn {
+.save-btn, .new-drawing-btn, .gemini-btn, .generate-btn, .surprise-btn, .help-btn {
   background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
   color: white;
   border: none;
@@ -305,17 +306,81 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
 }
 
-.save-btn:hover, .new-drawing-btn:hover {
+.gemini-btn {
+  background: linear-gradient(45deg, #9c88ff, #ff8a80);
+}
+
+.generate-btn {
+  background: linear-gradient(45deg, #4ecdc4, #44bd32);
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+.surprise-btn {
+  background: linear-gradient(45deg, #ffa726, #ff7043);
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+.save-btn:hover, .new-drawing-btn:hover, .gemini-btn:hover, .generate-btn:hover, .surprise-btn:hover, .help-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.save-btn:disabled {
+.save-btn:disabled, .gemini-btn:disabled, .generate-btn:disabled, .surprise-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+}
+
+/* Estilos para el input de prompt personalizado */
+.prompt-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.prompt-input {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.prompt-input:focus {
+  border-color: #4ecdc4;
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.prompt-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive para los botones de Gemini */
+@media (max-width: 768px) {
+  .prompt-input-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+  
+  .generate-btn, .surprise-btn {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
 }
 
 /* Footer */
@@ -483,5 +548,189 @@ body {
   .current-date {
     font-size: 1.2rem;
     padding: 6px 15px;
+  }
+}
+
+/* Botón simplificado de Gemini */
+.gemini-btn-simple {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 250px;
+  box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4);
+}
+
+.gemini-btn-simple:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 154, 158, 0.6);
+}
+
+.gemini-btn-simple:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Navegación por días */
+.day-navigation-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.day-info {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.day-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.date-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.nav-date-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-date-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.current-date-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.day-indicator {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.image-status {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+
+.image-status.loading {
+  background: rgba(255, 193, 7, 0.3);
+  color: #fff;
+}
+
+.image-status.available {
+  background: rgba(40, 167, 69, 0.3);
+  color: #fff;
+}
+
+.image-status.empty {
+  background: rgba(108, 117, 125, 0.3);
+  color: #fff;
+}
+
+.image-status.error {
+  background: rgba(220, 53, 69, 0.3);
+  color: #fff;
+}
+
+/* Generator section */
+.generator-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Canvas container styles */
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.canvas-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .day-navigation-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .day-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .date-display {
+    gap: 1rem;
+  }
+  
+  .nav-date-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .date-text {
+    font-size: 1.2rem;
+  }
+  
+  .generator-section {
+    margin: 15px 0;
   }
 }
