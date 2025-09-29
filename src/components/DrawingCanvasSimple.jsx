@@ -42,6 +42,7 @@ const DrawingCanvasSimple = forwardRef(({
   const [touchStartDistance, setTouchStartDistance] = useState(0);
   const [initialZoom, setInitialZoom] = useState(1);
   const [initialPan, setInitialPan] = useState({ x: 0, y: 0 });
+  const [zoomCenter, setZoomCenter] = useState({ x: 0, y: 0 });
   
   // Estados para zoom y pan - Zoom inicial basado en dispositivo
   const [zoom, setZoom] = useState(getInitialZoomByScreenSize());
@@ -541,6 +542,21 @@ const DrawingCanvasSimple = forwardRef(({
     };
   }, []);
 
+  // Convertir coordenadas de pantalla a coordenadas del canvas
+  const screenToCanvasCoordinates = useCallback((clientX, clientY) => {
+    const canvas = compositeCanvasRef.current;
+    if (!canvas) return { x: 0, y: 0 };
+    
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY
+    };
+  }, []);
+
   const handleTouchStart = useCallback((e) => {
     e.preventDefault();
     
@@ -595,14 +611,16 @@ const DrawingCanvasSimple = forwardRef(({
       
       const distance = getTouchDistance(touches[0], touches[1]);
       const center = getTouchCenter(touches[0], touches[1]);
+      const canvasCenter = screenToCanvasCoordinates(center.x, center.y);
       
       setTouchStartDistance(distance);
       setInitialZoom(zoom);
       setInitialPan(pan);
       setLastPanPoint(center);
+      setZoomCenter(canvasCenter);
       setIsPanning(true);
     }
-  }, [startDrawing, getTouchDistance, getTouchCenter, zoom, pan, isDrawing, stopDrawing, isPanning]);
+  }, [startDrawing, getTouchDistance, getTouchCenter, screenToCanvasCoordinates, zoom, pan, isDrawing, stopDrawing, isPanning]);
 
   const handleTouchMove = useCallback((e) => {
     e.preventDefault();
@@ -658,20 +676,25 @@ const DrawingCanvasSimple = forwardRef(({
         const zoomFactor = distance / touchStartDistance;
         const newZoom = Math.max(0.1, Math.min(5, initialZoom * zoomFactor));
         
-        // Calcular pan
+        // Calcular el offset necesario para mantener el punto de zoom centrado
+        const zoomDelta = newZoom - initialZoom;
+        const offsetX = zoomCenter.x * zoomDelta;
+        const offsetY = zoomCenter.y * zoomDelta;
+        
+        // Calcular pan con compensación del zoom centrado
         const deltaX = center.x - lastPanPoint.x;
         const deltaY = center.y - lastPanPoint.y;
         
         const newPan = {
-          x: initialPan.x + deltaX,
-          y: initialPan.y + deltaY
+          x: initialPan.x + deltaX - offsetX,
+          y: initialPan.y + deltaY - offsetY
         };
         
         setZoom(newZoom);
         setPan(newPan);
       }
     }
-  }, [draw, isPanning, getTouchDistance, getTouchCenter, touchStartDistance, initialZoom, initialPan, lastPanPoint, isDrawing, stopDrawing]);
+  }, [draw, isPanning, getTouchDistance, getTouchCenter, touchStartDistance, initialZoom, initialPan, lastPanPoint, zoomCenter, isDrawing, stopDrawing]);
 
   const handleTouchEnd = useCallback((e) => {
     e.preventDefault();
