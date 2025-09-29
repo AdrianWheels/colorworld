@@ -1,13 +1,8 @@
-# Workflow para actualizar el índice de imágenes cuando se modifican archivos estáticos
+# Workflow para actualizar el índice de imágenes manualmente o cuando sea necesario
 name: Update Images Index
 
 on:
-  push:
-    paths:
-      - 'public/generated-images/**/*.png'
-      - 'public/generated-images/**/*.jpg'
-      - 'public/generated-images/**/*.jpeg'
-  workflow_dispatch: # Permite ejecutar manualmente
+  workflow_dispatch: # Solo permite ejecutar manualmente
 
 jobs:
   update-index:
@@ -47,12 +42,4 @@ jobs:
         git add public/generated-images/images-index.json
         git commit -m "🤖 Auto-update images index [skip ci]"
         git push
-
-    - name: Deploy to Vercel
-      if: steps.verify-changed-files.outputs.changed == 'true'
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.ORG_ID }}
-        vercel-project-id: ${{ secrets.PROJECT_ID }}
-        vercel-args: '--prod'
+        echo "✅ Índice actualizado y pusheado. Vercel hará deploy automáticamente."
