@@ -1,4 +1,6 @@
 // API Service for persistent image storage
+import staticImageService from './staticImageService.js';
+
 class PersistentStorageService {
   constructor() {
     this.apiUrl = 'http://localhost:3001/api';
@@ -99,6 +101,13 @@ class PersistentStorageService {
   // Get images for a specific day
   async getImagesForDay(dateKey) {
     if (!this.isServerAvailable) {
+      // Primero intentar cargar imagen estática
+      const staticImage = await staticImageService.getImageForDate(dateKey);
+      if (staticImage) {
+        console.log('✅ Imagen estática encontrada:', staticImage.url);
+        return [staticImage];
+      }
+      // Fallback a localStorage
       return this.getFromLocalStorage(dateKey);
     }
 
