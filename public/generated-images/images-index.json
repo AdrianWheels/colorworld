@@ -1,7 +1,24 @@
 {
-  "lastUpdated": "2025-09-29T20:27:51.781Z",
-  "images": {},
-  "daysByMonth": {},
-  "totalImages": 0,
-  "totalDays": 0
+  "lastUpdated": "2025-09-29T20:28:35.593Z",
+  "images": {
+    "2025-09-29": [
+      {
+        "fileName": "2025-09-29_MandalaFrutasVerano_1759177715518.png",
+        "url": "/generated-images/2025-09/2025-09-29_MandalaFrutasVerano_1759177715518.png",
+        "theme": "MandalaFrutasVerano",
+        "dateKey": "2025-09-29",
+        "timestamp": 1759177715518,
+        "extension": "png",
+        "fileSize": 1735707,
+        "lastModified": "2025-09-29T20:28:35.525Z"
+      }
+    ]
+  },
+  "daysByMonth": {
+    "2025-09": [
+      "2025-09-29"
+    ]
+  },
+  "totalImages": 1,
+  "totalDays": 1
 }
