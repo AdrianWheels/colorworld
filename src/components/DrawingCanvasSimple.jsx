@@ -642,12 +642,17 @@ const DrawingCanvasSimple = forwardRef(({
       console.log('✅ Nueva imagen de fondo cargada');
     };
     
-    img.onerror = () => {
+    img.onerror = (error) => {
       console.error('❌ Error cargando la nueva imagen de fondo');
+      console.error('🔍 Detalles del error:', error);
+      console.error('🔍 URL que falló:', newImageUrl);
     };
     
-    // Manejar tanto URLs de blob como data URLs
-    img.crossOrigin = 'anonymous';
+    // Solo aplicar CORS para URLs externas, no para imágenes estáticas del mismo dominio
+    if (newImageUrl.startsWith('http') && !newImageUrl.includes(window.location.hostname)) {
+      img.crossOrigin = 'anonymous';
+    }
+    
     img.src = newImageUrl;
   }, [canvasSize, requestCompositeUpdate]);
 

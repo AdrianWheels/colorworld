@@ -19,45 +19,52 @@ class StaticImageService {
 
   // Intentar cargar una imagen para una fecha específica
   async getImageForDate(dateKey) {
-    const [year, month] = dateKey.split('-');
-    const monthFolder = `${year}-${month}`;
+    console.log(`🔍 Buscando imagen para el día: ${dateKey}`);
     
-    // Lista de posibles extensiones y patrones de nombres
-    const possiblePatterns = [
-      `${dateKey}_*.png`,
-      `${dateKey}_*.jpg`,
-      `${dateKey}_*.jpeg`
-    ];
-
-    // En el navegador, no podemos listar archivos directamente
-    // Pero podemos intentar cargar patrones conocidos
     try {
-      // Intentar cargar con patrones comunes basados en los archivos que vimos
-      const commonPatterns = [
-        `${dateKey}_Un_perrito_alegre_corriendo_po_1758975693548.png`,
-        `${dateKey}_Un_elefante_beb_jugando_con_ag_1758974062645.png`,
-        `${dateKey}_mandala_frutas_verano.png`, // Patrón esperado para hoy
-      ];
-
-      for (const pattern of commonPatterns) {
-        const imageUrl = this.buildImageUrl(dateKey, pattern);
+      // Lista específica de archivos conocidos por fecha
+      const knownFiles = this.getKnownFilesForDate(dateKey);
+      
+      // Probar archivos conocidos específicos
+      for (const fileName of knownFiles) {
+        const imageUrl = this.buildImageUrl(dateKey, fileName);
+        console.log(`🔍 Probando: ${imageUrl}`);
         
-        // Verificar si la imagen existe
         if (await this.imageExists(imageUrl)) {
+          console.log(`✅ Imagen estática encontrada: ${imageUrl}`);
           return {
             url: imageUrl,
-            fileName: pattern,
+            fileName: fileName,
             dateKey,
             source: 'static'
           };
         }
       }
       
+      console.log(`❌ No se encontró imagen para: ${dateKey}`);
       return null;
-    } catch (error) {
-      console.error('Error buscando imagen estática:', error);
+    } catch {
+      console.error('Error buscando imagen estática para:', dateKey);
       return null;
     }
+  }
+  
+  // Obtener archivos conocidos para una fecha específica
+  getKnownFilesForDate(dateKey) {
+    const knownFilesByDate = {
+      '2025-09-23': ['2025-09-23_Un_perrito_alegre_corriendo_po_1758975693548.png'],
+      '2025-09-24': ['2025-09-24_Un_perrito_alegre_corriendo_po_1758975693548.png'],
+      '2025-09-25': ['2025-09-25_Un_perrito_alegre_corriendo_po_1758975693548.png'],
+      '2025-09-26': ['2025-09-26_Un_elefante_beb_jugando_con_ag_1758974062645.png'],
+      '2025-09-27': ['2025-09-27_Un_perrito_alegre_corriendo_po_1758975693548.png'],
+      '2025-09-28': ['2025-09-28_Un_perrito_alegre_corriendo_po_1758975693548.png'],
+      '2025-09-29': ['2025-09-29_MandalaFrutasVerano_1759156146822.png'],
+      '2025-09-30': ['2025-09-30_Un_perrito_alegre_corriendo_po_1758975693548.png'],
+      '2025-10-01': ['2025-10-01_Un_perrito_alegre_corriendo_po_1758975693548.png'],
+      // GitHub Actions generará más archivos automáticamente
+    };
+    
+    return knownFilesByDate[dateKey] || [];
   }
 
   // Verificar si una imagen existe
@@ -65,7 +72,7 @@ class StaticImageService {
     try {
       const response = await fetch(url, { method: 'HEAD' });
       return response.ok;
-    } catch (error) {
+    } catch {
       return false;
     }
   }
