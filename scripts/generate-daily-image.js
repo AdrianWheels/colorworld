@@ -240,30 +240,36 @@ IMPORTANT: Generate the actual image file now, do not describe it.`;
   }
 
   // Main generation function
-  async generateDailyImage() {
+  async generateDailyImage(customDate = null) {
     try {
-      const today = new Date();
-      const promptData = this.getPromptForDate(today);
+      // Usar fecha personalizada si se proporciona, sino usar hoy
+      const targetDate = customDate ? new Date(customDate) : new Date();
+      const promptData = this.getPromptForDate(targetDate);
       
       console.log('🎯 Iniciando generación de imagen diaria...');
-      console.log('📅 Fecha:', today.toISOString().split('T')[0]);
+      console.log('📅 Fecha:', targetDate.toISOString().split('T')[0]);
       console.log('🎨 Temática del día:', promptData.tematica);
       
-      // Check if image already exists
-      if (await this.checkExistingImage(today)) {
-        console.log('⏭️ Imagen ya existe, saltando generación');
-        return;
+      // Si es regeneración, no verificar imagen existente
+      if (!customDate) {
+        // Check if image already exists
+        if (await this.checkExistingImage(targetDate)) {
+          console.log('⏭️ Imagen ya existe, saltando generación');
+          return;
+        }
+      } else {
+        console.log('🔄 Regenerando imagen (sobrescribirá existente)');
       }
       
       // Generate image
-      const imageData = await this.generateImage(promptData, today);
+      const imageData = await this.generateImage(promptData, targetDate);
       
       if (!imageData) {
         throw new Error('No se pudo generar la imagen');
       }
       
       // Save image
-      const result = await this.saveImage(imageData, promptData, today);
+      const result = await this.saveImage(imageData, promptData, targetDate);
       
       console.log('🎉 ¡Imagen diaria generada exitosamente!');
       console.log('📊 Resumen:');
@@ -280,9 +286,23 @@ IMPORTANT: Generate the actual image file now, do not describe it.`;
 
 // Execute daily generation
 const generator = new DailyImageGenerator();
-generator.generateDailyImage().then(() => {
-  console.log('✅ Proceso completado');
-}).catch((error) => {
-  console.error('❌ Error fatal:', error);
-  process.exit(1);
-});
+
+// Verificar si se pasó una fecha como argumento
+const customDate = process.argv[2];
+
+if (customDate) {
+  console.log(`🔄 Regenerando imagen para fecha: ${customDate}`);
+  generator.generateDailyImage(customDate).then(() => {
+    console.log('✅ Regeneración completada');
+  }).catch((error) => {
+    console.error('❌ Error en regeneración:', error);
+    process.exit(1);
+  });
+} else {
+  generator.generateDailyImage().then(() => {
+    console.log('✅ Proceso completado');
+  }).catch((error) => {
+    console.error('❌ Error fatal:', error);
+    process.exit(1);
+  });
+}

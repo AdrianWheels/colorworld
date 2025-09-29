@@ -31,6 +31,19 @@
   transform: translateY(0);
 }
 
+.nav-btn.disabled,
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: linear-gradient(145deg, #ccc, #999);
+}
+
+.nav-btn.disabled:hover,
+.nav-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(138, 43, 226, 0.3);
+}
+
 .current-day {
   text-align: center;
   flex: 1;

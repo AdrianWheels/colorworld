@@ -36,9 +36,18 @@ export const useDayNavigation = () => {
   }, [navigateToDay]);
 
   const goToNextDay = useCallback(() => {
-    // Permitir navegar al futuro para fechas sin generar (hasta que GitHub Actions genere a las 6:00 AM)
-    navigateToDay(1);
-  }, [navigateToDay]);
+    // ❌ NO PERMITIR IR AL FUTURO - Solo días pasados desde hoy
+    const today = new Date();
+    const nextDate = new Date(selectedDate);
+    nextDate.setDate(nextDate.getDate() + 1);
+    
+    // Solo permitir si la siguiente fecha no es futura
+    if (nextDate <= today) {
+      navigateToDay(1);
+    } else {
+      console.log('🚫 No se puede navegar al futuro desde hoy');
+    }
+  }, [navigateToDay, selectedDate]);
 
   // ✅ CARGAR IMAGEN DEL DÍA ACTUAL AL INICIO
   useEffect(() => {

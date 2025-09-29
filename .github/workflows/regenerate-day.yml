@@ -1,0 +1,89 @@
+name: Regenerate Specific Day Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Fecha a regenerar (YYYY-MM-DD)'
+        required: true
+        default: '2025-09-29'
+      backup_old:
+        description: 'Mover imagen anterior a carpeta discard'
+        type: boolean
+        default: true
+
+jobs:
+  regenerate-day:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: 🔄 Checkout code
+      uses: actions/checkout@v4
+    
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: 📥 Install dependencies
+      run: npm ci
+    
+    - name: 🗂️ Create discard directory if needed
+      if: ${{ inputs.backup_old }}
+      run: |
+        mkdir -p public/generated-images-discard/$(echo ${{ inputs.date }} | cut -d'-' -f1-2)
+    
+    - name: 🗃️ Backup existing image to discard folder
+      if: ${{ inputs.backup_old }}
+      run: |
+        DATE_FOLDER=$(echo ${{ inputs.date }} | cut -d'-' -f1-2)
+        DISCARD_PATH="public/generated-images-discard/${DATE_FOLDER}"
+        SOURCE_PATH="public/generated-images/${DATE_FOLDER}"
+        
+        echo "🔍 Buscando archivos existentes para ${{ inputs.date }}..."
+        
+        # Buscar archivos que empiecen con la fecha
+        if find "${SOURCE_PATH}" -name "${{ inputs.date }}_*" -type f 2>/dev/null | grep -q .; then
+          echo "📦 Moviendo archivos existentes a carpeta discard..."
+          find "${SOURCE_PATH}" -name "${{ inputs.date }}_*" -type f -exec mv {} "${DISCARD_PATH}/" \;
+          echo "✅ Archivos movidos a ${DISCARD_PATH}/"
+        else
+          echo "ℹ️ No se encontraron archivos existentes para ${{ inputs.date }}"
+        fi
+      continue-on-error: true
+    
+    - name: 🎨 Generate new image for specific date
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: |
+        echo "🎯 Regenerando imagen para ${{ inputs.date }}..."
+        node scripts/generate-daily-image.js "${{ inputs.date }}"
+    
+    - name: 📝 Commit and push new image
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Regenerate"
+        
+        git add .
+        
+        if git diff --staged --quiet; then
+          echo "ℹ️ No hay cambios para commitear"
+        else
+          git commit -m "🔄 Regenerar imagen para ${{ inputs.date }}
+          
+          - Fecha: ${{ inputs.date }}
+          - Backup anterior: ${{ inputs.backup_old }}
+          - Generado por: GitHub Action manual
+          - Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          
+          git push
+          echo "✅ Nueva imagen commiteada y pusheada"
+        fi
+    
+    - name: 🚀 Trigger Vercel deployment
+      run: |
+        echo "🚀 Vercel detectará los cambios automáticamente y hará redeploy"
+        echo "✅ Proceso completado para ${{ inputs.date }}"

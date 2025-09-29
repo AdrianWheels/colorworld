@@ -52,20 +52,9 @@ class StaticImageService {
   // Obtener archivos conocidos para una fecha específica
   getKnownFilesForDate(dateKey) {
     const knownFilesByDate = {
-      '2025-09-23': ['2025-09-23_Un_perrito_alegre_corriendo_po_1758975693548.png'],
-      '2025-09-24': ['2025-09-24_Un_perrito_alegre_corriendo_po_1758975693548.png'],
-      '2025-09-25': ['2025-09-25_Un_perrito_alegre_corriendo_po_1758975693548.png'],
-      '2025-09-26': ['2025-09-26_Un_elefante_beb_jugando_con_ag_1758974062645.png'],
-      '2025-09-27': ['2025-09-27_Un_perrito_alegre_corriendo_po_1758975693548.png'],
-      // 2025-09-28: No existe imagen (normal)
-      '2025-09-29': [
-        // Usar la imagen que realmente está en Vercel según la captura
-        '2025-09-29_MandalaFrutasVerano_1759156265294.png',
-        '2025-09-29_MandalaFrutasVerano_1759156146822.png'
-      ],
-      // Las siguientes fechas tendrán imágenes generadas automáticamente
-      '2025-09-30': [], // Se agregará cuando GitHub Actions genere
-      '2025-10-01': [], // Se agregará cuando GitHub Actions genere
+      // GitHub Actions generará archivos automáticamente con el patrón:
+      // YYYY-MM-DD_TematicaPrompt_timestamp.png
+      // Esta lista se actualizará dinámicamente conforme se generen imágenes
     };
     
     return knownFilesByDate[dateKey] || [];

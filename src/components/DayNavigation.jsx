@@ -16,6 +16,14 @@ const DayNavigation = ({
     }).format(date);
   };
 
+  // Verificar si se puede ir al día siguiente (no futuro)
+  const canGoToNextDay = () => {
+    const today = new Date();
+    const nextDate = new Date(selectedDate);
+    nextDate.setDate(nextDate.getDate() + 1);
+    return nextDate <= today;
+  };
+
   const getStatusIcon = () => {
     switch (dayImageStatus) {
       case 'loading': return '⏳';
@@ -56,8 +64,9 @@ const DayNavigation = ({
       
       <button 
         onClick={onNextDay}
-        className="nav-btn next-btn"
-        title="Día siguiente"
+        className={`nav-btn next-btn ${!canGoToNextDay() ? 'disabled' : ''}`}
+        disabled={!canGoToNextDay()}
+        title={canGoToNextDay() ? "Día siguiente" : "No se puede ir al futuro"}
       >
         Siguiente →
       </button>
