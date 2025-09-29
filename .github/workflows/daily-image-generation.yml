@@ -2,8 +2,8 @@ name: Daily Image Generation
 
 on:
   schedule:
-    # Ejecutar todos los días a las 6:00 AM UTC (7:00 AM CET)
-    - cron: '0 6 * * *'
+    # Ejecutar todos los días a las 1:00 AM UTC (3:00 AM hora de España)
+    - cron: '0 1 * * *'
   workflow_dispatch: # Permite ejecutar manualmente
 
 permissions:
