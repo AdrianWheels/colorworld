@@ -53,7 +53,7 @@ console.log(`✅ Parseados ${prompts.length} prompts del CSV`);
 
 // Generar el código JavaScript para incluir en promptsManager.js
 const jsCode = `// 365 prompts del CSV, uno para cada día del año
-const DAILY_PROMPTS = ${JSON.stringify(prompts, null, 2)};`;
+export const DAILY_PROMPTS = ${JSON.stringify(prompts, null, 2)};`;
 
 // Guardar en un archivo separado
 const outputPath = path.join(__dirname, '../src/data/daily-prompts.js');

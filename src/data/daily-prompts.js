@@ -1,5 +1,5 @@
 // 365 prompts del CSV, uno para cada día del año
-const DAILY_PROMPTS = [
+export const DAILY_PROMPTS = [
   {
     "id": 1,
     "day": 1,
