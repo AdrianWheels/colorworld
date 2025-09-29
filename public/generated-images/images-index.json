@@ -1,7 +1,24 @@
 {
-  "lastUpdated": "2025-09-29T20:53:50.346Z",
-  "images": {},
-  "daysByMonth": {},
-  "totalImages": 0,
-  "totalDays": 0
+  "lastUpdated": "2025-09-29T20:58:37.974Z",
+  "images": {
+    "2025-09-29": [
+      {
+        "fileName": "2025-09-29_FiestaMagica_1759179517908.png",
+        "url": "/generated-images/2025-09/2025-09-29_FiestaMagica_1759179517908.png",
+        "theme": "FiestaMagica",
+        "dateKey": "2025-09-29",
+        "timestamp": 1759179517908,
+        "extension": "png",
+        "fileSize": 1639143,
+        "lastModified": "2025-09-29T20:58:37.917Z"
+      }
+    ]
+  },
+  "daysByMonth": {
+    "2025-09": [
+      "2025-09-29"
+    ]
+  },
+  "totalImages": 1,
+  "totalDays": 1
 }
