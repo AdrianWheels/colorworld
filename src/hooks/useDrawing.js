@@ -17,11 +17,33 @@ export const useDrawing = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const drawing = await drawingService.getTodayDrawingOrGenerate();
-      setDailyDrawing(drawing);
+      
+      // Intentar cargar imagen existente primero
+      const existingImage = await drawingService.getDailyImage();
+      if (existingImage) {
+        setDailyDrawing({
+          prompt: existingImage.prompt || 'Dibujo del día',
+          imageUrl: existingImage.blobUrl,
+          source: existingImage.source
+        });
+        return;
+      }
+      
+      // Si no hay imagen, la web debe cargar igual sin imagen
+      setDailyDrawing({
+        prompt: 'No hay imagen disponible para hoy',
+        imageUrl: null,
+        source: 'none'
+      });
+      
     } catch (err) {
-      setError('Error al cargar el dibujo del día');
-      console.error('Error loading daily drawing:', err);
+      // Si hay error, la web debe cargar con placeholder
+      console.warn('No se pudo cargar imagen del día:', err);
+      setDailyDrawing({
+        prompt: 'Imagen no disponible',
+        imageUrl: null,
+        source: 'error'
+      });
     } finally {
       setIsLoading(false);
     }
@@ -30,9 +52,10 @@ export const useDrawing = () => {
   const loadColoredDrawings = () => {
     try {
       const drawings = drawingService.getAllDrawings();
-      setColoredDrawings(drawings);
+      setColoredDrawings(drawings || []);
     } catch (err) {
-      console.error('Error loading colored drawings:', err);
+      console.warn('Error loading colored drawings:', err);
+      setColoredDrawings([]);
     }
   };
 
@@ -45,7 +68,19 @@ export const useDrawing = () => {
         coloredAt: new Date().toISOString()
       };
       
-      localStorage.setItem(`colored_${todayKey}`, JSON.stringify(coloredDrawing));
+      // Intentar guardar, pero si falla por cuota, limpiar primero
+      try {
+        localStorage.setItem(`colored_${todayKey}`, JSON.stringify(coloredDrawing));
+      } catch (quotaError) {
+        if (quotaError.name === 'QuotaExceededError') {
+          console.warn('localStorage lleno, limpiando datos antiguos...');
+          drawingService.clearOldImages(3); // Limpiar imágenes de más de 3 días
+          localStorage.setItem(`colored_${todayKey}`, JSON.stringify(coloredDrawing));
+        } else {
+          throw quotaError;
+        }
+      }
+      
       loadColoredDrawings();
       
       return true;

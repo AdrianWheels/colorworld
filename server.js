@@ -29,10 +29,15 @@ async function ensureImagesDir() {
 // Endpoint para guardar imagen
 app.post('/api/save-image', async (req, res) => {
   try {
-    const { imageData, fileName, dateKey, prompt, animal } = req.body;
+    const { imageData, fileName, dateKey, prompt, theme } = req.body;
     
     if (!imageData || !fileName) {
       return res.status(400).json({ error: 'Faltan datos requeridos' });
+    }
+
+    // Validar dateKey
+    if (!dateKey || !dateKey.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      return res.status(400).json({ error: 'dateKey inválido' });
     }
 
     // Asegurar que la carpeta existe
@@ -57,8 +62,8 @@ app.post('/api/save-image', async (req, res) => {
     const metadata = {
       fileName,
       dateKey,
-      prompt,
-      animal,
+      prompt: prompt || 'Sin prompt',
+      theme: theme || 'Sin tema',
       savedAt: new Date().toISOString(),
       fileSize: imageBuffer.length
     };
@@ -74,7 +79,10 @@ app.post('/api/save-image', async (req, res) => {
 
   } catch (error) {
     console.error('❌ Error guardando imagen:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    res.status(500).json({ 
+      error: 'Error interno del servidor',
+      details: error.message 
+    });
   }
 });
 

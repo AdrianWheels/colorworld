@@ -72,24 +72,25 @@ class DrawingService {
     return drawings.sort((a, b) => new Date(b.date) - new Date(a.date));
   }
 
-  // Get random coloring prompt from CSV data
-  getColoringPrompts() {
-    const promptData = promptsManager.getRandomPrompt();
+  // Get coloring prompts based on date
+  getColoringPrompts(forDate = null) {
+    const targetDate = forDate || new Date();
+    const promptData = promptsManager.getPromptForDate(targetDate);
     return {
-      animal: promptData.animal,
+      theme: promptData.tematica,
       prompt: promptData.prompt_es,
       promptData: promptData
     };
   }
 
-  // Get specific animal prompt
-  getAnimalPrompt(animalName) {
-    const promptData = promptsManager.getPromptByAnimal(animalName);
+  // Get specific theme prompt
+  getThemePrompt(themeName) {
+    const promptData = promptsManager.getPromptByTheme(themeName);
     if (!promptData) {
-      return this.getColoringPrompts(); // Fallback to random
+      return this.getColoringPrompts(); // Fallback to today's prompt
     }
     return {
-      animal: promptData.animal,
+      theme: promptData.tematica,
       prompt: promptData.prompt_es,
       promptData: promptData
     };
@@ -103,9 +104,11 @@ class DrawingService {
     }
 
     try {
-      const promptInfo = this.getColoringPrompts();
-      const targetDate = forDateKey || new Date().toISOString().split('T')[0];
-      console.log('🎨 Prompt seleccionado:', promptInfo.animal, 'para el día:', targetDate);
+      const targetDate = forDateKey ? new Date(forDateKey) : new Date();
+      const dateKey = targetDate.toISOString().split('T')[0];
+      const promptInfo = this.getColoringPrompts(targetDate);
+      
+      console.log('🎨 Prompt seleccionado:', promptInfo.theme, 'para el día:', dateKey);
       
       // Usar el prompt optimizado del promptsManager
       const enhancedPrompt = promptsManager.buildEnhancedPrompt(promptInfo.promptData);
@@ -155,11 +158,11 @@ class DrawingService {
       
       if (imageData) {
         // Guardar la imagen localmente para el día especificado
-        const savedImagePath = await this.saveGeneratedImage(imageData, promptInfo.prompt, targetDate);
+        const savedImagePath = await this.saveGeneratedImage(imageData, promptInfo.prompt, dateKey);
         
         return {
           prompt: promptInfo.prompt,
-          animal: promptInfo.animal,
+          theme: promptInfo.theme,
           imageUrl: savedImagePath,
           imageData: imageData,
           generatedAt: new Date().toISOString(),
@@ -169,7 +172,7 @@ class DrawingService {
         };
       } else {
         console.log('⚠️ No se generó imagen con Gemini, usando SVG de respaldo');
-        return this.generateMockDrawing(promptInfo.animal);
+        return this.generateMockDrawing(promptInfo.theme);
       }
       
     } catch (error) {
@@ -187,11 +190,11 @@ class DrawingService {
   // Save generated image locally with day-based organization
   async saveGeneratedImage(imageData, prompt, forDateKey = null) {
     try {
-      const dateKey = forDateKey || new Date().toISOString().split('T')[0]; // Usar fecha especificada o actual
+      const dateKey = forDateKey || new Date().toISOString().split('T')[0];
       const timestamp = Date.now();
       const cleanPrompt = prompt.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').substring(0, 30);
       
-      // Crear nombre de archivo con fecha y animal
+      // Crear nombre de archivo con fecha y tema
       const fileName = `${dateKey}_${cleanPrompt}_${timestamp}`;
       
       // Determinar extensión basada en mimeType
@@ -200,60 +203,48 @@ class DrawingService {
       else if (imageData.mimeType?.includes('webp')) extension = 'webp';
       
       const fullFileName = `${fileName}.${extension}`;
-      const animal = this.extractAnimalFromPrompt(prompt);
+      const theme = this.extractThemeFromPrompt(prompt);
       
       console.log(`💾 Guardando imagen: ${fullFileName} para el día ${dateKey}`);
       
-      // Intentar guardar en servidor persistente, con fallback a localStorage
-      const saveResult = await persistentStorage.saveImage(
-        imageData.data,
-        fullFileName,
-        dateKey,
-        prompt,
-        animal
-      );
-      
-      if (saveResult.success) {
-        // Crear información completa de la imagen
-        const imageInfo = {
-          fileName: fullFileName,
-          prompt: prompt,
-          dateKey: dateKey,
-          timestamp: timestamp,
-          mimeType: imageData.mimeType,
-          size: imageData.data.length,
-          blobUrl: saveResult.url,
-          animal: animal,
-          generatedAt: new Date().toISOString(),
-          source: saveResult.source || 'server'
-        };
+      // Intentar guardar en servidor persistente
+      try {
+        const saveResult = await persistentStorage.saveImage(
+          imageData.data,
+          fullFileName,
+          dateKey,
+          prompt,
+          theme
+        );
         
-        // También guardar en el sistema local para compatibilidad
-        this.saveDailyImage(dateKey, imageInfo);
-        
-        console.log(`✅ Imagen guardada exitosamente (${saveResult.source || 'server'}): ${fullFileName}`);
-        
-        return saveResult.url;
-      } else {
-        throw new Error(saveResult.error || 'Error guardando imagen');
+        if (saveResult.success) {
+          console.log(`✅ Imagen guardada exitosamente en servidor: ${fullFileName}`);
+          return saveResult.url;
+        }
+      } catch (serverError) {
+        console.warn('⚠️ Error guardando en servidor, continuando sin guardar:', serverError.message);
       }
       
+      // Si falla el servidor, retornar data URL directamente sin intentar localStorage
+      console.log('📱 Usando data URL directamente (sin persistencia)');
+      return `data:${imageData.mimeType};base64,${imageData.data}`;
+      
     } catch (error) {
-      console.error('❌ Error guardando imagen:', error);
+      console.error('❌ Error en saveGeneratedImage:', error);
       // Fallback: retornar data URL directamente
       return `data:${imageData.mimeType};base64,${imageData.data}`;
     }
   }
 
-  // Extract animal name from prompt for organization
-  extractAnimalFromPrompt(prompt) {
-    const animals = ['conejo', 'gatito', 'gato', 'elefante', 'mariposa', 'tortuga', 'perro', 'pato', 'oso'];
-    for (const animal of animals) {
-      if (prompt.toLowerCase().includes(animal)) {
-        return animal;
+  // Extract theme from prompt for organization
+  extractThemeFromPrompt(prompt) {
+    const themes = ['calabaza', 'murciélago', 'fantasma', 'bruja', 'esqueleto', 'araña', 'gato', 'sombrero', 'castillo', 'zombie'];
+    for (const theme of themes) {
+      if (prompt.toLowerCase().includes(theme)) {
+        return theme;
       }
     }
-    return 'animal'; // fallback
+    return 'dibujo'; // fallback
   }
 
   // Save image for specific day
@@ -300,7 +291,7 @@ class DrawingService {
         return {
           fileName: imageInfo.fileName,
           prompt: imageInfo.prompt,
-          animal: imageInfo.animal,
+          theme: imageInfo.theme,
           dateKey: dateKey,
           blobUrl: imageInfo.url, // URL del servidor
           source: 'server',

@@ -6,10 +6,8 @@ import ControlsModal from './components/ControlsModal';
 import HelpModal from './components/HelpModal';
 import DayNavigation from './components/DayNavigation';
 import CanvasActions from './components/CanvasActions';
-import GeminiGenerator from './components/GeminiGenerator';
 import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
-import { useGeminiGenerator } from './hooks/useGeminiGenerator';
 import { useCanvasActions } from './hooks/useCanvasActions';
 import drawingService from './services/drawingService';
 import './App.css';
@@ -35,13 +33,10 @@ function App() {
   const {
     selectedDate,
     dayImageStatus,
-    setDayImageStatus,
     loadDayImage,
     goToPreviousDay,
     goToNextDay
   } = useDayNavigation();
-  
-  const { isGeneratingWithGemini, handleGenerateWithGemini } = useGeminiGenerator();
   
   const {
     canvasData,
@@ -63,16 +58,6 @@ function App() {
     // Cambiar automáticamente a pincel después de seleccionar color
     setCurrentTool('brush');
   }, []);
-
-  // Funciones de manejo para conectar los hooks
-  const onGenerateWithGemini = useCallback(async () => {
-    const result = await handleGenerateWithGemini(selectedDate, canvasRef, setDayImageStatus);
-    if (result.success) {
-      alert(result.message);
-    } else {
-      alert(result.message);
-    }
-  }, [handleGenerateWithGemini, selectedDate, canvasRef, setDayImageStatus]);
 
   const onSaveDrawing = useCallback(() => {
     const result = handleSaveDrawing();
@@ -189,14 +174,6 @@ function App() {
               canSave={!!canvasData}
               isGenerating={false}
             />
-            
-            <div className="generator-section">
-              <GeminiGenerator
-                onGenerate={onGenerateWithGemini}
-                isGenerating={isGeneratingWithGemini}
-                selectedDate={selectedDate}
-              />
-            </div>
           </div>
         </div>
 

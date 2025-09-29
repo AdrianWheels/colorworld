@@ -9,7 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
-    "dev:full": "concurrently \"npm run server\" \"npm run dev\""
+    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "generate-today": "node scripts/generate-daily-image.js",
+    "parse-csv": "node scripts/parse-csv.js",
+    "test-prompt": "node scripts/test-prompt.js",
+    "test-leap-year": "node scripts/test-leap-year.js",
+    "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
     "@google/genai": "^1.21.0",

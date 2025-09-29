@@ -1,0 +1,70 @@
+name: Generate Daily Coloring Image
+
+on:
+  schedule:
+    # Ejecutar todos los días a las 6:00 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Permite ejecución manual
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Generate today's image
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: |
+        node -e "
+        const drawingService = require('./src/services/drawingService.js');
+        const path = require('path');
+        const fs = require('fs');
+        
+        async function generateTodayImage() {
+          try {
+            console.log('🎨 Generando imagen para', new Date().toISOString().split('T')[0]);
+            
+            const result = await drawingService.generateImageWithGemini();
+            
+            if (result.success) {
+              console.log('✅', result.message);
+              console.log('📁 Imagen guardada en:', result.imagePath);
+            } else {
+              console.error('❌ Error:', result.message);
+              process.exit(1);
+            }
+          } catch (error) {
+            console.error('💥 Error fatal:', error.message);
+            process.exit(1);
+          }
+        }
+        
+        generateTodayImage();
+        "
+        
+    - name: Commit and push if changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add public/generated-images/
+        
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🎨 Generate daily coloring image for $(date '+%Y-%m-%d')"
+          git push
+        fi

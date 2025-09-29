@@ -1,0 +1,37 @@
+name: Daily Image Generation
+
+on:
+  schedule:
+    # Ejecutar todos los días a las 6:00 AM UTC (7:00 AM CET)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Permite ejecutar manualmente
+
+jobs:
+  generate-daily-image:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Generate today's image
+      env:
+        VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: node scripts/generate-daily-image.js
+      
+    - name: Commit and push if changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add public/generated-images/
+        git diff --staged --quiet || git commit -m "🎨 Generate daily image for $(date +'%Y-%m-%d')"
+        git push

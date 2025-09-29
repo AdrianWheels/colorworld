@@ -19,10 +19,6 @@ dist-ssr
 .env.test
 .env.production
 
-# Generated images (local storage)
-public/generated-images/
-src/assets/generated-images/
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
