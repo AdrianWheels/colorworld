@@ -15,10 +15,19 @@
   box-sizing: border-box;
 }
 
+/* Mejoras para dispositivos táctiles */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  touch-action: manipulation;
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  height: 100%;
   background: linear-gradient(45deg, 
     #ff6b6b 0%, 
     #4ecdc4 14%, 
@@ -30,6 +39,13 @@ body {
     #5f27cd 100%);
   background-size: 400% 400%;
   animation: colorEverydayGradient 15s ease infinite;
+  overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes colorEverydayGradient {
@@ -48,10 +64,11 @@ body {
 .app-header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 10px 20px;
+  padding: 8px 15px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-bottom: none;
+  flex-shrink: 0;
 }
 
 .coloreveryday-title {
@@ -168,8 +185,9 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  gap: 20px;
+  padding: 5px;
+  gap: 5px;
+  min-height: 0; /* Permite que flex funcione correctamente */
 }
 
 .drawing-section {
@@ -177,8 +195,9 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
   flex: 1;
+  min-height: 0; /* Permite que flex funcione correctamente */
 }
 
 /* Botones laterales */
@@ -252,11 +271,15 @@ body {
   background: white;
   border: 4px solid #333;
   border-radius: 15px;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   position: relative;
-  max-width: calc(100vw - 200px);
-  max-height: calc(100vh - 300px);
+  width: 100%;
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .comic-panel::before {
@@ -276,9 +299,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  max-width: 100%;
+  gap: 8px;
+  width: 100%;
   flex: 1;
+  min-height: 0;
 }
 
 /* Sección del generador */
@@ -402,6 +426,7 @@ body {
   text-align: center;
   border-top: none;
   flex-shrink: 0;
+  margin-top: auto; /* Empuja el footer hacia abajo */
 }
 
 .footer-text {
@@ -711,29 +736,105 @@ body {
 }
 
 @media (max-width: 768px) {
-  .day-navigation-section {
-    padding: 1.5rem 1rem;
+  .app-main {
+    padding: 5px;
+    gap: 5px;
   }
   
-  .day-title {
+  .app-header {
+    padding: 6px 10px;
+  }
+  
+  .coloreveryday-title {
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    margin: 0;
+  }
+  
+  .main-navigation {
+    gap: 8px;
+    margin: 8px 0;
+  }
+  
+  .nav-pill {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+  
+  .drawing-section {
+    gap: 8px;
+  }
+  
+  .canvas-and-tools {
+    gap: 6px;
+  }
+  
+  .comic-panel {
+    padding: 3px;
+    border-width: 3px;
+    border-radius: 10px;
+  }
+  
+  .comic-panel::before {
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .app-main {
+    padding: 2px;
+    gap: 2px;
+  }
+  
+  .drawing-section {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-main {
+    padding: 1px;
+    gap: 1px;
+  }
+  
+  .drawing-section {
+    gap: 1px;
+  }
+  
+  .app-header {
+    padding: 4px 8px;
+  }
+  
+  .coloreveryday-title {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
   }
   
-  .date-display {
-    gap: 1rem;
+  .main-navigation {
+    gap: 6px;
+    margin: 6px 0;
   }
   
-  .nav-date-btn {
-    width: 40px;
-    height: 40px;
+  .nav-pill {
+    padding: 4px 8px;
+    font-size: 0.7rem;
   }
   
-  .date-text {
-    font-size: 1.2rem;
+  .drawing-section {
+    gap: 5px;
   }
   
-  .generator-section {
-    margin: 15px 0;
+  .canvas-and-tools {
+    gap: 4px;
+  }
+  
+  .comic-panel {
+    padding: 2px;
+    border-width: 2px;
+    border-radius: 8px;
   }
 }

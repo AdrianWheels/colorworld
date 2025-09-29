@@ -1,5 +1,27 @@
-import { useState, useRef, useEffect, forwardRef, useImperativeHandle, useCallback } from 'react';
+﻿import { useState, useRef, useEffect, forwardRef, useImperativeHandle, useCallback } from 'react';
 import '../styles/DrawingCanvasSimple.css';
+
+// Constantes del canvas
+const CANVAS_WIDTH = 1024;
+const CANVAS_HEIGHT = 1024;
+
+// Función para obtener zoom inicial basado únicamente en tamaño de pantalla
+const getInitialZoomByScreenSize = () => {
+  const screenWidth = window.innerWidth;
+  
+  // Móvil: pantallas pequeñas (hasta 768px)
+  if (screenWidth <= 768) {
+    return 0.33; // 33% en móvil
+  }
+  
+  // Tablet: pantallas medianas (769px - 1024px)
+  if (screenWidth <= 1024) {
+    return 0.66; // 66% en tablet
+  }
+  
+  // Desktop: pantallas grandes (más de 1024px)
+  return 1.0; // 100% en desktop
+};
 
 const DrawingCanvasSimple = forwardRef(({ 
   brushSize = 5, 
@@ -8,19 +30,21 @@ const DrawingCanvasSimple = forwardRef(({
   backgroundImage = null,
   onCanvasChange,
   onColorPicked,
-  onCanvasReady // Nuevo callback cuando el canvas esté listo
+  onCanvasReady // Nuevo callback cuando el canvas estÃ© listo
 }, ref) => {
   const containerRef = useRef(null);
   const backgroundCanvasRef = useRef(null);
   const drawingCanvasRef = useRef(null);
   const compositeCanvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [canvasSize] = useState({ width: 800, height: 600 });
   const updateRequestRef = useRef(null);
   const lastDataUrlRef = useRef(null);
+  const [touchStartDistance, setTouchStartDistance] = useState(0);
+  const [initialZoom, setInitialZoom] = useState(1);
+  const [initialPan, setInitialPan] = useState({ x: 0, y: 0 });
   
-  // Estados para zoom y pan
-  const [zoom, setZoom] = useState(1);
+  // Estados para zoom y pan - Zoom inicial basado en dispositivo
+  const [zoom, setZoom] = useState(getInitialZoomByScreenSize());
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
   const [lastPanPoint, setLastPanPoint] = useState({ x: 0, y: 0 });
@@ -32,19 +56,44 @@ const DrawingCanvasSimple = forwardRef(({
   const hasDrawnInCurrentStroke = useRef(false);
   const isSavingState = useRef(false); // Guard para evitar doble guardado
 
+  // Detectar cambios de dispositivo y ajustar zoom inicial
+  useEffect(() => {
+    const currentZoom = getInitialZoomByScreenSize();
+    console.log(`🔍 Zoom inicial configurado: ${(currentZoom * 100).toFixed(0)}% para dispositivo detectado`);
+    
+    const handleResize = () => {
+      const newInitialZoom = getInitialZoomByScreenSize();
+      // Solo cambiar si es significativamente diferente para evitar ajustes menores
+      if (Math.abs(zoom - newInitialZoom) > 0.1) {
+        console.log(`🔄 Cambio de zoom por redimensión: ${(newInitialZoom * 100).toFixed(0)}%`);
+        setZoom(newInitialZoom);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, [zoom]);
+
+
+
   // Función simple para llamar onCanvasChange cuando sea necesario
   const notifyCanvasChange = useCallback(() => {
     if (onCanvasChange && compositeCanvasRef.current) {
       const newDataUrl = compositeCanvasRef.current.toDataURL();
       if (newDataUrl !== lastDataUrlRef.current) {
         lastDataUrlRef.current = newDataUrl;
-        console.log('📸 CANVAS CAMBIÓ - notificando cambio');
+        console.log('ðŸ“¸ CANVAS CAMBIÃ“ - notificando cambio');
         onCanvasChange(newDataUrl);
       }
     }
   }, [onCanvasChange]);
 
-  // Función para manejar el zoom
+  // FunciÃ³n para manejar el zoom
   const handleWheel = useCallback((e) => {
     e.preventDefault();
     
@@ -66,7 +115,7 @@ const DrawingCanvasSimple = forwardRef(({
     setPan(newPan);
   }, [zoom, pan]);
 
-  // Función para transformar coordenadas del mouse a coordenadas del canvas
+  // FunciÃ³n para transformar coordenadas del mouse a coordenadas del canvas
   const transformMouseCoords = useCallback((clientX, clientY) => {
     const rect = containerRef.current.getBoundingClientRect();
     const mouseX = clientX - rect.left;
@@ -79,34 +128,34 @@ const DrawingCanvasSimple = forwardRef(({
     return { x: canvasX, y: canvasY };
   }, [zoom, pan]);
 
-  // Función throttled para actualizar el canvas - SEPARAR visual de onCanvasChange
+  // FunciÃ³n throttled para actualizar el canvas - SEPARAR visual de onCanvasChange
   const requestCompositeUpdate = useCallback(() => {
     if (updateRequestRef.current) {
-      return; // Ya hay una actualización pendiente
+      return; // Ya hay una actualizaciÃ³n pendiente
     }
     
     updateRequestRef.current = requestAnimationFrame(() => {
       // SIEMPRE actualizar el canvas visual
       if (compositeCanvasRef.current && backgroundCanvasRef.current && drawingCanvasRef.current) {
         const compositeCtx = compositeCanvasRef.current.getContext('2d');
-        compositeCtx.clearRect(0, 0, canvasSize.width, canvasSize.height);
+        compositeCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         
         // Primero poner fondo blanco
         compositeCtx.fillStyle = 'white';
-        compositeCtx.fillRect(0, 0, canvasSize.width, canvasSize.height);
+        compositeCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         
         // Segundo: dibujar la capa del usuario (colores debajo)
         compositeCtx.drawImage(drawingCanvasRef.current, 0, 0);
         
-        // Tercero: dibujar las líneas negras (ENCIMA e intocables)
+        // Tercero: dibujar las lÃ­neas negras (ENCIMA e intocables)
         compositeCtx.drawImage(backgroundCanvasRef.current, 0, 0);
       }
       
       updateRequestRef.current = null;
     });
-  }, [canvasSize]);
+  }, []);
 
-  // Función para actualizar inmediatamente (para cuando termine de dibujar)
+  // FunciÃ³n para actualizar inmediatamente (para cuando termine de dibujar)
   const updateImmediately = useCallback(() => {
     if (updateRequestRef.current) {
       cancelAnimationFrame(updateRequestRef.current);
@@ -116,24 +165,24 @@ const DrawingCanvasSimple = forwardRef(({
     // Actualizar canvas compuesto inmediatamente
     if (compositeCanvasRef.current && backgroundCanvasRef.current && drawingCanvasRef.current) {
       const compositeCtx = compositeCanvasRef.current.getContext('2d');
-      compositeCtx.clearRect(0, 0, canvasSize.width, canvasSize.height);
+      compositeCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       
       // Primero poner fondo blanco
       compositeCtx.fillStyle = 'white';
-      compositeCtx.fillRect(0, 0, canvasSize.width, canvasSize.height);
+      compositeCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       
       // Segundo: dibujar la capa del usuario (colores debajo)
       compositeCtx.drawImage(drawingCanvasRef.current, 0, 0);
       
-      // Tercero: dibujar las líneas negras (ENCIMA e intocables)
+      // Tercero: dibujar las lÃ­neas negras (ENCIMA e intocables)
       compositeCtx.drawImage(backgroundCanvasRef.current, 0, 0);
       
       // Notificar cambio
       notifyCanvasChange();
     }
-  }, [canvasSize, notifyCanvasChange]);
+  }, [ notifyCanvasChange]);
 
-  // Función para obtener el color en una posición específica
+  // FunciÃ³n para obtener el color en una posiciÃ³n especÃ­fica
   const getColorAtPosition = useCallback((x, y) => {
     if (!compositeCanvasRef.current) return null;
     
@@ -166,7 +215,7 @@ const DrawingCanvasSimple = forwardRef(({
     }
   }, []);
 
-  // Funciones de dibujo básicas (deben definirse antes de los manejadores)
+  // Funciones de dibujo bÃ¡sicas (deben definirse antes de los manejadores)
   const startDrawing = useCallback((e) => {
     if (!drawingCanvasRef.current || !containerRef.current) return;
     
@@ -174,7 +223,7 @@ const DrawingCanvasSimple = forwardRef(({
     
     // Si es herramienta cuenta gotas, seleccionar color y cambiar a pincel
     if (tool === 'eyedropper') {
-      console.log('🎨 CUENTA GOTAS: seleccionando color en', coords);
+      console.log('ðŸŽ¨ CUENTA GOTAS: seleccionando color en', coords);
       const pickedColor = getColorAtPosition(coords.x, coords.y);
       if (pickedColor && onColorPicked) {
         onColorPicked(pickedColor);
@@ -182,7 +231,7 @@ const DrawingCanvasSimple = forwardRef(({
       return;
     }
     
-    console.log('🖊️ INICIANDO DIBUJO:', { tool, coords });
+    console.log('ðŸ–Šï¸ INICIANDO DIBUJO:', { tool, coords });
     setIsDrawing(true);
     hasDrawnInCurrentStroke.current = false; // Reset de la bandera
     const ctx = drawingCanvasRef.current.getContext('2d');
@@ -216,7 +265,7 @@ const DrawingCanvasSimple = forwardRef(({
     
     // Marcar que se ha dibujado algo en este trazo
     if (!hasDrawnInCurrentStroke.current) {
-      console.log('✏️ PRIMER TRAZO detectado - marcando hasDrawnInCurrentStroke = true');
+      console.log('âœï¸ PRIMER TRAZO detectado - marcando hasDrawnInCurrentStroke = true');
       hasDrawnInCurrentStroke.current = true;
     }
     
@@ -228,24 +277,24 @@ const DrawingCanvasSimple = forwardRef(({
   const saveCanvasState = useCallback(() => {
     if (!drawingCanvasRef.current) return;
     
-    // Guard para evitar doble ejecución
+    // Guard para evitar doble ejecuciÃ³n
     if (isSavingState.current) {
-      console.log('⚠️ EVITANDO doble guardado - ya se está guardando');
+      console.log('âš ï¸ EVITANDO doble guardado - ya se estÃ¡ guardando');
       return;
     }
     
     isSavingState.current = true;
     
-    const imageData = drawingCanvasRef.current.getContext('2d').getImageData(0, 0, canvasSize.width, canvasSize.height);
+    const imageData = drawingCanvasRef.current.getContext('2d').getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     
     setUndoStack(prevStack => {
       const newStack = [...prevStack, imageData];
-      const limitedStack = newStack.slice(-20); // Mantener solo los últimos 20 estados
+      const limitedStack = newStack.slice(-20); // Mantener solo los Ãºltimos 20 estados
       
       // Debug: Log cuando se guarda un estado
-      console.log('🔸 GUARDANDO ESTADO para UNDO/REDO:');
+      console.log('ðŸ”¸ GUARDANDO ESTADO para UNDO/REDO:');
       console.log('  - Stack size antes:', prevStack.length);
-      console.log('  - Stack size después:', limitedStack.length);
+      console.log('  - Stack size despuÃ©s:', limitedStack.length);
       console.log('  - hasDrawnInCurrentStroke:', hasDrawnInCurrentStroke.current);
       console.log('  - isPerformingUndoRedo:', isPerformingUndoRedo.current);
       console.log('  - tool actual:', tool);
@@ -253,19 +302,19 @@ const DrawingCanvasSimple = forwardRef(({
       return limitedStack;
     });
     
-    // Limpiar el redo stack cuando se hace una nueva acción
+    // Limpiar el redo stack cuando se hace una nueva acciÃ³n
     setRedoStack([]);
     
-    // Reset del guard después de un pequeño delay
+    // Reset del guard despuÃ©s de un pequeÃ±o delay
     setTimeout(() => {
       isSavingState.current = false;
     }, 50);
-  }, [canvasSize, tool]);
+  }, [ tool]);
 
   const stopDrawing = useCallback(() => {
     if (!isDrawing) return;
     
-    console.log('🛑 PARANDO DIBUJO:');
+    console.log('ðŸ›‘ PARANDO DIBUJO:');
     console.log('  - hasDrawnInCurrentStroke:', hasDrawnInCurrentStroke.current);
     console.log('  - isPerformingUndoRedo:', isPerformingUndoRedo.current);
     console.log('  - tool:', tool);
@@ -280,12 +329,12 @@ const DrawingCanvasSimple = forwardRef(({
     // Actualizar inmediatamente al terminar de dibujar para asegurar el estado final
     updateImmediately();
     
-    // Guardar estado para undo/redo solo si realmente se dibujó algo
+    // Guardar estado para undo/redo solo si realmente se dibujÃ³ algo
     if (!isPerformingUndoRedo.current && hasDrawnInCurrentStroke.current) {
-      console.log('💾 GUARDANDO estado porque se dibujó algo');
+      console.log('ðŸ’¾ GUARDANDO estado porque se dibujÃ³ algo');
       saveCanvasState();
     } else {
-      console.log('❌ NO guardando estado:', {
+      console.log('âŒ NO guardando estado:', {
         isPerformingUndoRedo: isPerformingUndoRedo.current,
         hasDrawnInCurrentStroke: hasDrawnInCurrentStroke.current
       });
@@ -294,37 +343,37 @@ const DrawingCanvasSimple = forwardRef(({
 
   const undo = useCallback(() => {
     if (undoStack.length <= 1) {
-      console.log('❌ UNDO: No hay estados suficientes para deshacer (necesario al menos 2)');
+      console.log('âŒ UNDO: No hay estados suficientes para deshacer (necesario al menos 2)');
       return;
     }
     
-    // Guard para evitar doble ejecución
+    // Guard para evitar doble ejecuciÃ³n
     if (isPerformingUndoRedo.current) {
-      console.log('⚠️ EVITANDO doble UNDO - ya se está ejecutando');
+      console.log('âš ï¸ EVITANDO doble UNDO - ya se estÃ¡ ejecutando');
       return;
     }
     
-    console.log('↶ EJECUTANDO UNDO:');
+    console.log('â†¶ EJECUTANDO UNDO:');
     console.log('  - Estados disponibles:', undoStack.length);
     console.log('  - Redo stack antes:', redoStack.length);
     
     isPerformingUndoRedo.current = true;
     
-    // El estado actual es el último del stack, necesitamos el anterior
+    // El estado actual es el Ãºltimo del stack, necesitamos el anterior
     const currentState = undoStack[undoStack.length - 1]; // Estado actual
     const previousState = undoStack[undoStack.length - 2]; // Estado anterior al que queremos volver
     
     // Mover el estado actual al redo stack
     setRedoStack(prevStack => {
       const newStack = [...prevStack, currentState];
-      console.log('  - Redo stack después:', newStack.length);
+      console.log('  - Redo stack despuÃ©s:', newStack.length);
       return newStack;
     });
     
     // Remover el estado actual del undo stack
     setUndoStack(prevStack => {
       const newStack = prevStack.slice(0, -1);
-      console.log('  - Undo stack después:', newStack.length);
+      console.log('  - Undo stack despuÃ©s:', newStack.length);
       return newStack;
     });
     
@@ -334,41 +383,41 @@ const DrawingCanvasSimple = forwardRef(({
     
     setTimeout(() => {
       isPerformingUndoRedo.current = false;
-      console.log('  - UNDO completado ✅');
+      console.log('  - UNDO completado âœ…');
     }, 150);
   }, [undoStack, redoStack, updateImmediately]);
 
   const redo = useCallback(() => {
     if (redoStack.length === 0) {
-      console.log('❌ REDO: No hay estados para rehacer');
+      console.log('âŒ REDO: No hay estados para rehacer');
       return;
     }
     
-    // Guard para evitar doble ejecución
+    // Guard para evitar doble ejecuciÃ³n
     if (isPerformingUndoRedo.current) {
-      console.log('⚠️ EVITANDO doble REDO - ya se está ejecutando');
+      console.log('âš ï¸ EVITANDO doble REDO - ya se estÃ¡ ejecutando');
       return;
     }
     
-    console.log('↷ EJECUTANDO REDO:');
+    console.log('â†· EJECUTANDO REDO:');
     console.log('  - Estados disponibles:', redoStack.length);
     console.log('  - Undo stack antes:', undoStack.length);
     
     isPerformingUndoRedo.current = true;
     
     // Guardar el estado actual en el undo stack y aplicar el estado del redo
-    const currentState = drawingCanvasRef.current.getContext('2d').getImageData(0, 0, canvasSize.width, canvasSize.height);
+    const currentState = drawingCanvasRef.current.getContext('2d').getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     const nextState = redoStack[redoStack.length - 1];
     
     setUndoStack(prevStack => {
       const newStack = [...prevStack, currentState];
-      console.log('  - Undo stack después:', newStack.length);
+      console.log('  - Undo stack despuÃ©s:', newStack.length);
       return newStack;
     });
     
     setRedoStack(prevStack => {
       const newStack = prevStack.slice(0, -1);
-      console.log('  - Redo stack después:', newStack.length);
+      console.log('  - Redo stack despuÃ©s:', newStack.length);
       return newStack;
     });
     
@@ -377,21 +426,21 @@ const DrawingCanvasSimple = forwardRef(({
     
     setTimeout(() => {
       isPerformingUndoRedo.current = false;
-      console.log('  - REDO completado ✅');
+      console.log('  - REDO completado âœ…');
     }, 150);
-  }, [redoStack, undoStack, canvasSize, updateImmediately]);
+  }, [redoStack, undoStack, updateImmediately]);
 
   // Guardar estado inicial cuando se inicializa el canvas - Solo una vez
   const hasInitialized = useRef(false);
   useEffect(() => {
     if (drawingCanvasRef.current && !hasInitialized.current && !isSavingState.current) {
-      console.log('🏁 INICIALIZANDO: Guardando estado inicial del canvas');
+      console.log('ðŸ INICIALIZANDO: Guardando estado inicial del canvas');
       hasInitialized.current = true;
       setTimeout(() => {
         saveCanvasState();
-        // Notificar que el canvas está listo
+        // Notificar que el canvas estÃ¡ listo
         if (onCanvasReady) {
-          console.log('🎯 CANVAS LISTO: Notificando al padre');
+          console.log('ðŸŽ¯ CANVAS LISTO: Notificando al padre');
           onCanvasReady();
         }
       }, 100);
@@ -414,16 +463,16 @@ const DrawingCanvasSimple = forwardRef(({
     };
   }, [handleWheel]);
 
-  // Funciones para el pan con botón secundario
+  // Funciones para el pan con botÃ³n secundario
   const handleMouseDown = useCallback((e) => {
-    if (e.button === 2) { // Botón secundario (derecho)
+    if (e.button === 2) { // BotÃ³n secundario (derecho)
       e.preventDefault();
       setIsPanning(true);
       setLastPanPoint({ x: e.clientX, y: e.clientY });
       return;
     }
     
-    // Botón primario - dibujar
+    // BotÃ³n primario - dibujar
     if (e.button === 0 && !isPanning) {
       startDrawing(e);
     }
@@ -451,61 +500,157 @@ const DrawingCanvasSimple = forwardRef(({
   }, [isPanning, lastPanPoint, draw]);
 
   const handleMouseUp = useCallback((e) => {
-    if (e.button === 2) { // Botón secundario
+    if (e.button === 2) { // BotÃ³n secundario
       setIsPanning(false);
       return;
     }
     
-    // Botón primario
+    // BotÃ³n primario
     if (e.button === 0) {
       stopDrawing();
     }
   }, [stopDrawing]);
 
   const handleContextMenu = useCallback((e) => {
-    e.preventDefault(); // Prevenir el menú contextual
+    e.preventDefault(); // Prevenir el menÃº contextual
   }, []);
+
+  // Funciones para manejar gestos tÃ¡ctiles
+  const getTouchDistance = useCallback((touch1, touch2) => {
+    const dx = touch1.clientX - touch2.clientX;
+    const dy = touch1.clientY - touch2.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }, []);
+
+  const getTouchCenter = useCallback((touch1, touch2) => {
+    return {
+      x: (touch1.clientX + touch2.clientX) / 2,
+      y: (touch1.clientY + touch2.clientY) / 2
+    };
+  }, []);
+
+  const handleTouchStart = useCallback((e) => {
+    e.preventDefault();
+    
+    const touches = e.touches;
+    
+    if (touches.length === 1) {
+      // Un dedo - dibujar
+      const touch = touches[0];
+      const mouseEvent = {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+        button: 0
+      };
+      startDrawing(mouseEvent);
+    } else if (touches.length === 2) {
+      // Dos dedos - zoom/pan
+      const distance = getTouchDistance(touches[0], touches[1]);
+      const center = getTouchCenter(touches[0], touches[1]);
+      
+      setTouchStartDistance(distance);
+      setInitialZoom(zoom);
+      setInitialPan(pan);
+      setLastPanPoint(center);
+      setIsPanning(true);
+    }
+  }, [startDrawing, getTouchDistance, getTouchCenter, zoom, pan]);
+
+  const handleTouchMove = useCallback((e) => {
+    e.preventDefault();
+    
+    const touches = e.touches;
+    
+    if (touches.length === 1 && !isPanning) {
+      // Un dedo - dibujar
+      const touch = touches[0];
+      const mouseEvent = {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      };
+      draw(mouseEvent);
+    } else if (touches.length === 2) {
+      // Dos dedos - zoom/pan
+      const distance = getTouchDistance(touches[0], touches[1]);
+      const center = getTouchCenter(touches[0], touches[1]);
+      
+      if (touchStartDistance > 0) {
+        // Calcular zoom
+        const zoomFactor = distance / touchStartDistance;
+        const newZoom = Math.max(0.1, Math.min(5, initialZoom * zoomFactor));
+        
+        // Calcular pan
+        const deltaX = center.x - lastPanPoint.x;
+        const deltaY = center.y - lastPanPoint.y;
+        
+        const newPan = {
+          x: initialPan.x + deltaX,
+          y: initialPan.y + deltaY
+        };
+        
+        setZoom(newZoom);
+        setPan(newPan);
+      }
+    }
+  }, [draw, isPanning, getTouchDistance, getTouchCenter, touchStartDistance, initialZoom, initialPan, lastPanPoint]);
+
+  const handleTouchEnd = useCallback((e) => {
+    e.preventDefault();
+    
+    if (e.touches.length === 0) {
+      // No hay mÃ¡s dedos
+      stopDrawing();
+      setIsPanning(false);
+      setTouchStartDistance(0);
+    } else if (e.touches.length === 1) {
+      // Queda un dedo, pasar de zoom/pan a dibujo
+      setIsPanning(false);
+      setTouchStartDistance(0);
+    }
+  }, [stopDrawing]);
 
   // Inicializar canvas
   useEffect(() => {
     if (backgroundCanvasRef.current && drawingCanvasRef.current && compositeCanvasRef.current) {
-      // Configurar tamaños y optimización para lecturas frecuentes
+      // Configurar tamaÃ±os y optimizaciÃ³n para lecturas frecuentes
       [backgroundCanvasRef.current, drawingCanvasRef.current, compositeCanvasRef.current].forEach(canvas => {
-        canvas.width = canvasSize.width;
-        canvas.height = canvasSize.height;
+        canvas.width = CANVAS_WIDTH;
+        canvas.height = CANVAS_HEIGHT;
         
         // Optimizar para lecturas frecuentes de getImageData
         canvas.getContext('2d', { willReadFrequently: true });
       });
 
-      // El canvas de fondo será transparente inicialmente
-      // Se llenará cuando se cargue la imagen
+      // El canvas de fondo serÃ¡ transparente inicialmente
+      // Se llenarÃ¡ cuando se cargue la imagen
       
-      // El canvas de dibujo del usuario también comienza transparente
+      // El canvas de dibujo del usuario tambiÃ©n comienza transparente
       // para que el usuario pueda pintar colores
 
       requestCompositeUpdate();
     }
-  }, [canvasSize, requestCompositeUpdate]);
+  }, [ requestCompositeUpdate]);
 
-  // Cargar imagen de fondo
+  // Cargar imagen de fondo - TamaÃ±o fijo 1024x1024
   useEffect(() => {
     if (backgroundImage && backgroundCanvasRef.current) {
       const bgCtx = backgroundCanvasRef.current.getContext('2d');
       const img = new Image();
       
       img.onload = () => {
+        console.log('ðŸ“ Imagen cargada, procesando para 1024x1024');
+        
         // Crear un canvas temporal para procesar la imagen
         const tempCanvas = document.createElement('canvas');
         const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
-        tempCanvas.width = canvasSize.width;
-        tempCanvas.height = canvasSize.height;
+        tempCanvas.width = 1024;
+        tempCanvas.height = 1024;
         
-        // Dibujar la imagen original en el canvas temporal
-        tempCtx.drawImage(img, 0, 0, canvasSize.width, canvasSize.height);
+        // Dibujar la imagen redimensionada al tamaÃ±o fijo
+        tempCtx.drawImage(img, 0, 0, 1024, 1024);
         
         // Obtener los datos de la imagen
-        const imageData = tempCtx.getImageData(0, 0, canvasSize.width, canvasSize.height);
+        const imageData = tempCtx.getImageData(0, 0, 1024, 1024);
         const data = imageData.data;
         
         // Procesar cada pixel para hacer transparente el fondo blanco
@@ -518,7 +663,7 @@ const DrawingCanvasSimple = forwardRef(({
           if (r > 240 && g > 240 && b > 240) {
             data[i + 3] = 0; // Hacer transparente
           } else {
-            // Convertir colores oscuros a negro para las líneas
+            // Convertir colores oscuros a negro para las lÃ­neas
             data[i] = 0;     // R
             data[i + 1] = 0; // G
             data[i + 2] = 0; // B
@@ -529,11 +674,11 @@ const DrawingCanvasSimple = forwardRef(({
         // Poner los datos procesados de vuelta en el canvas temporal
         tempCtx.putImageData(imageData, 0, 0);
         
-        // Limpiar el canvas de fondo y poner fondo transparente
-        bgCtx.clearRect(0, 0, canvasSize.width, canvasSize.height);
-        
-        // Dibujar la imagen procesada (solo líneas negras con fondo transparente)
+        // Limpiar el canvas de fondo y dibujar la imagen procesada
+        bgCtx.clearRect(0, 0, 1024, 1024);
         bgCtx.drawImage(tempCanvas, 0, 0);
+        
+        // Actualizar el composite canvas
         requestCompositeUpdate();
       };
       
@@ -541,26 +686,26 @@ const DrawingCanvasSimple = forwardRef(({
         console.error('Error cargando imagen:', error);
       };
       
-      img.crossOrigin = 'anonymous'; // Para evitar problemas de CORS
+      img.crossOrigin = 'anonymous';
       img.src = backgroundImage;
     }
-  }, [backgroundImage, canvasSize, requestCompositeUpdate]);
+  }, [backgroundImage, requestCompositeUpdate]);
 
   const clearCanvas = useCallback(() => {
     if (!drawingCanvasRef.current) return;
     
     const ctx = drawingCanvasRef.current.getContext('2d');
-    ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     updateImmediately();
     
-    // Limpiar también los stacks de undo/redo y guardar el estado limpio
+    // Limpiar tambiÃ©n los stacks de undo/redo y guardar el estado limpio
     setUndoStack([]);
     setRedoStack([]);
     // Guardar el estado del canvas limpio
     setTimeout(() => {
       saveCanvasState();
     }, 100);
-  }, [canvasSize, updateImmediately, saveCanvasState]);
+  }, [ updateImmediately, saveCanvasState]);
 
   const printCanvas = useCallback(() => {
     if (!compositeCanvasRef.current) return;
@@ -586,9 +731,9 @@ const DrawingCanvasSimple = forwardRef(({
     printWindow.print();
   }, []);
 
-  // Función para cargar una nueva imagen de fondo dinámicamente
+  // FunciÃ³n para cargar una nueva imagen de fondo dinÃ¡micamente - TamaÃ±o fijo 1024x1024
   const loadBackgroundImage = useCallback((newImageUrl) => {
-    console.log('🖼️ Cargando nueva imagen de fondo:', newImageUrl);
+    console.log('ðŸ–¼ï¸ Cargando nueva imagen de fondo:', newImageUrl);
     
     if (!backgroundCanvasRef.current) return;
     
@@ -596,35 +741,37 @@ const DrawingCanvasSimple = forwardRef(({
     const img = new Image();
     
     img.onload = () => {
+      console.log('ðŸ“ Nueva imagen cargada, procesando para 1024x1024');
+      
       // Limpiar el canvas de fondo
-      bgCtx.clearRect(0, 0, canvasSize.width, canvasSize.height);
+      bgCtx.clearRect(0, 0, 1024, 1024);
       
       // Crear un canvas temporal para procesar la imagen
       const tempCanvas = document.createElement('canvas');
       const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
-      tempCanvas.width = canvasSize.width;
-      tempCanvas.height = canvasSize.height;
+      tempCanvas.width = 1024;
+      tempCanvas.height = 1024;
       
-      // Dibujar la imagen escalada al tamaño del canvas
-      tempCtx.drawImage(img, 0, 0, canvasSize.width, canvasSize.height);
+      // Dibujar la imagen redimensionada al tamaÃ±o fijo
+      tempCtx.drawImage(img, 0, 0, 1024, 1024);
       
-      // Procesar la imagen para optimizar las líneas negras con transparencia
-      const imageData = tempCtx.getImageData(0, 0, canvasSize.width, canvasSize.height);
+      // Procesar la imagen para optimizar las lÃ­neas negras con transparencia
+      const imageData = tempCtx.getImageData(0, 0, 1024, 1024);
       const data = imageData.data;
       
-      // Procesar cada píxel para hacer transparentes los fondos blancos
-      // pero mantener las líneas negras opacas
+      // Procesar cada pÃ­xel para hacer transparentes los fondos blancos
+      // pero mantener las lÃ­neas negras opacas
       for (let i = 0; i < data.length; i += 4) {
         const r = data[i];
         const g = data[i + 1];
         const b = data[i + 2];
         
-        // Si el píxel es muy claro (fondo blanco/gris claro), hacerlo transparente
+        // Si el pÃ­xel es muy claro (fondo blanco/gris claro), hacerlo transparente
         const brightness = (r + g + b) / 3;
         if (brightness > 240) {
           data[i + 3] = 0; // Hacer transparente
         } else if (brightness < 100) {
-          // Líneas oscuras: asegurar que sean completamente opacas y negras
+          // LÃ­neas oscuras: asegurar que sean completamente opacas y negras
           data[i] = 0;     // R = 0
           data[i + 1] = 0; // G = 0 
           data[i + 2] = 0; // B = 0
@@ -639,62 +786,62 @@ const DrawingCanvasSimple = forwardRef(({
       // Aplicar los cambios al canvas temporal
       tempCtx.putImageData(imageData, 0, 0);
       
-      // Copiar al canvas de fondo con las líneas optimizadas
+      // Copiar al canvas de fondo con las lÃ­neas optimizadas
       bgCtx.drawImage(tempCanvas, 0, 0);
       
-      // Actualizar la visualización compuesta
+      // Actualizar la visualizaciÃ³n compuesta
       requestCompositeUpdate();
       
-      console.log('✅ Nueva imagen de fondo cargada');
+      console.log('âœ… Nueva imagen de fondo cargada');
     };
     
     img.onerror = (error) => {
-      console.error('❌ Error cargando la nueva imagen de fondo');
-      console.error('🔍 Detalles del error:', error);
-      console.error('🔍 URL que falló:', newImageUrl);
+      console.error('âŒ Error cargando la nueva imagen de fondo');
+      console.error('ðŸ” Detalles del error:', error);
+      console.error('ðŸ” URL que fallÃ³:', newImageUrl);
     };
     
-    // Solo aplicar CORS para URLs externas, no para imágenes estáticas del mismo dominio
+    // Solo aplicar CORS para URLs externas, no para imÃ¡genes estÃ¡ticas del mismo dominio
     if (newImageUrl.startsWith('http') && !newImageUrl.includes(window.location.hostname)) {
       img.crossOrigin = 'anonymous';
     }
     
     img.src = newImageUrl;
-  }, [canvasSize, requestCompositeUpdate]);
+  }, [requestCompositeUpdate]);
 
-  // Exponer métodos al componente padre
-  // Función para exportar imagen combinada con todas las capas
+  // Exponer mÃ©todos al componente padre
+  // FunciÃ³n para exportar imagen combinada con todas las capas
   const exportCombinedImage = useCallback(() => {
     if (!backgroundCanvasRef.current || !drawingCanvasRef.current) {
-      console.warn('❌ Canvas no disponibles para exportar');
+      console.warn('âŒ Canvas no disponibles para exportar');
       return null;
     }
 
     // Crear un canvas temporal para combinar todas las capas
     const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = canvasSize.width;
-    tempCanvas.height = canvasSize.height;
+    tempCanvas.width = CANVAS_WIDTH;
+    tempCanvas.height = CANVAS_HEIGHT;
     const tempCtx = tempCanvas.getContext('2d');
 
     // ORDEN CORRECTO DE CAPAS:
     
-    // Capa 1: Fondo blanco sólido
+    // Capa 1: Fondo blanco sÃ³lido
     tempCtx.fillStyle = '#FFFFFF';
-    tempCtx.fillRect(0, 0, canvasSize.width, canvasSize.height);
+    tempCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-    // Capa 2: Dibujo del usuario (colores DEBAJO de las líneas)
+    // Capa 2: Dibujo del usuario (colores DEBAJO de las lÃ­neas)
     if (drawingCanvasRef.current) {
       tempCtx.drawImage(drawingCanvasRef.current, 0, 0);
     }
 
-    // Capa 3: Líneas negras ENCIMA (backgroundCanvas)
+    // Capa 3: LÃ­neas negras ENCIMA (backgroundCanvas)
     if (backgroundCanvasRef.current) {
       tempCtx.drawImage(backgroundCanvasRef.current, 0, 0);
     }
 
     // Retornar como data URL PNG
     return tempCanvas.toDataURL('image/png', 1.0);
-  }, [canvasSize]);
+  }, []);
 
   useImperativeHandle(ref, () => ({
     clearCanvas,
@@ -708,32 +855,6 @@ const DrawingCanvasSimple = forwardRef(({
     loadBackgroundImage
   }), [clearCanvas, printCanvas, exportCombinedImage, undo, redo, undoStack, redoStack, loadBackgroundImage]);
 
-  // Manejar eventos táctiles
-  const handleTouchStart = (e) => {
-    e.preventDefault();
-    const touch = e.touches[0];
-    const mouseEvent = new MouseEvent('mousedown', {
-      clientX: touch.clientX,
-      clientY: touch.clientY
-    });
-    startDrawing(mouseEvent);
-  };
-
-  const handleTouchMove = (e) => {
-    e.preventDefault();
-    const touch = e.touches[0];
-    const mouseEvent = new MouseEvent('mousemove', {
-      clientX: touch.clientX,
-      clientY: touch.clientY
-    });
-    draw(mouseEvent);
-  };
-
-  const handleTouchEnd = (e) => {
-    e.preventDefault();
-    stopDrawing();
-  };
-
   return (
     <div className="drawing-canvas-container">
       {/* Indicador de zoom */}
@@ -746,8 +867,10 @@ const DrawingCanvasSimple = forwardRef(({
         className="canvas-layers-container"
         style={{
           position: 'relative',
-          width: canvasSize.width,
-          height: canvasSize.height,
+          width: '100%',
+          height: '100%',
+          maxWidth: CANVAS_WIDTH,
+          maxHeight: CANVAS_HEIGHT,
           border: '3px solid #333',
           borderRadius: '12px',
           cursor: isPanning ? 'grabbing' : (tool === 'brush' ? 'crosshair' : tool === 'eyedropper' ? 'copy' : 'pointer'),
@@ -768,11 +891,11 @@ const DrawingCanvasSimple = forwardRef(({
             transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
             transformOrigin: '0 0',
             position: 'relative',
-            width: canvasSize.width,
-            height: canvasSize.height,
+            width: CANVAS_WIDTH,
+            height: CANVAS_HEIGHT,
           }}
         >
-          {/* Canvas de fondo - líneas del dibujo (invisible, solo para trabajo) */}
+          {/* Canvas de fondo - lÃ­neas del dibujo (invisible, solo para trabajo) */}
           <canvas
             ref={backgroundCanvasRef}
             style={{

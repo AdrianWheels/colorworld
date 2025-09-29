@@ -2,16 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 12px 20px;
+  padding: 12px 15px;
   border-radius: 25px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin: 15px auto;
-  max-width: 90vw;
+  max-width: calc(100vw - 20px);
   overflow: visible;
   border: 2px solid rgba(139, 90, 158, 0.2);
+  flex-wrap: wrap;
 }
 
 .toolbar-section {
@@ -343,45 +344,45 @@
 /* Responsive */
 @media (max-width: 768px) {
   .toolbar-horizontal {
-    gap: 20px;
-    padding: 10px 15px;
-    overflow-x: auto;
-    overflow-y: visible;
-    scrollbar-width: thin;
+    gap: 8px;
+    padding: 8px 12px;
+    margin: 8px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible; /* Sin scroll horizontal */
+    max-width: calc(100vw - 16px);
   }
 
-  .toolbar-horizontal::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .toolbar-horizontal::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 2px;
-  }
-
-  .toolbar-horizontal::-webkit-scrollbar-thumb {
-    background: #8b5a9e;
-    border-radius: 2px;
+  .toolbar-section {
+    gap: 6px;
+    min-width: auto;
+    flex-shrink: 1;
   }
 
   .section-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    min-width: auto;
   }
 
   .size-slider {
-    width: 80px;
+    width: 70px;
   }
 
   .tool-btn, .action-btn, .current-color-btn {
     min-width: 36px;
     height: 36px;
     font-size: 1rem;
+    padding: 6px;
+  }
+
+  .size-value {
+    font-size: 0.7rem;
+    min-width: 20px;
   }
 
   .color-palette {
-    grid-template-columns: repeat(3, 1fr);
-    min-width: 150px;
-    /* En móviles, mantener la posición relativa al botón */
+    grid-template-columns: repeat(4, 1fr);
+    min-width: 160px;
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -390,19 +391,81 @@
 
 @media (max-width: 480px) {
   .toolbar-horizontal {
-    gap: 15px;
-    padding: 8px 12px;
+    gap: 6px;
+    padding: 6px 8px;
+    margin: 6px auto;
+    border-radius: 15px;
+    max-width: calc(100vw - 12px);
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   .toolbar-section {
-    gap: 6px;
+    gap: 4px;
+    flex: 0 1 auto;
+  }
+
+  .tools-section {
+    order: 1;
+    flex: 0 1 auto;
+  }
+
+  .brush-size-slider {
+    order: 2;
+    flex: 0 1 auto;
+  }
+
+  .color-picker-container {
+    order: 3;
+    flex: 0 1 auto;
+  }
+
+  .actions-section {
+    order: 4;
+    flex: 0 1 auto;
+  }
+
+  .tool-btn, .action-btn, .current-color-btn {
+    min-width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    padding: 4px;
   }
 
   .size-slider {
-    width: 60px;
+    width: 50px;
+  }
+
+  .size-value {
+    font-size: 0.65rem;
+    min-width: 18px;
   }
 
   .section-label {
-    display: none;
+    display: none; /* Ocultar labels en móviles pequeños */
+  }
+
+  .color-palette {
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 120px;
+    gap: 6px;
+  }
+
+  .color-swatch {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Mejoras para landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .toolbar-horizontal {
+    padding: 6px 12px;
+    gap: 12px;
+  }
+  
+  .tool-btn, .action-btn, .current-color-btn {
+    min-width: 35px;
+    height: 35px;
   }
 }
