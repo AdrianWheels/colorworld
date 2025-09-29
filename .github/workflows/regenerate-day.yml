@@ -62,7 +62,12 @@ jobs:
         echo "🎯 Regenerando imagen para ${{ inputs.date }}..."
         node scripts/generate-daily-image.js "${{ inputs.date }}"
     
-    - name: 📝 Commit and push new image
+    - name: � Update images index
+      run: |
+        echo "📋 Actualizando índice de imágenes..."
+        node scripts/update-images-index.js
+    
+    - name: �📝 Commit and push new image
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action Regenerate"

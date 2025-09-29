@@ -1,20 +1,45 @@
-// Servicio para cargar imágenes estáticas desde Vercel
+// Servicio para cargar imágenes estáticas desde Vercel usando índice dinámico
 class StaticImageService {
   constructor() {
     this.baseImagePath = '/generated-images';
+    this.indexUrl = '/generated-images/images-index.json';
+    this.indexCache = null;
+    this.lastIndexUpdate = null;
+    this.cacheExpiry = 5 * 60 * 1000; // 5 minutos
   }
 
-  // Construir la URL de la imagen para una fecha específica
-  buildImageUrl(dateKey, fileName = null) {
-    const [year, month] = dateKey.split('-');
-    const monthFolder = `${year}-${month}`;
-    
-    if (fileName) {
-      return `${this.baseImagePath}/${monthFolder}/${fileName}`;
+  // Cargar el índice de imágenes dinámicamente
+  async loadImagesIndex() {
+    try {
+      // Usar caché si está disponible y no ha expirado
+      if (this.indexCache && this.lastIndexUpdate && 
+          (Date.now() - this.lastIndexUpdate < this.cacheExpiry)) {
+        return this.indexCache;
+      }
+
+      console.log('🔄 Cargando índice de imágenes...');
+      const response = await fetch(this.indexUrl);
+      
+      if (!response.ok) {
+        throw new Error(`Error cargando índice: ${response.status}`);
+      }
+      
+      const index = await response.json();
+      this.indexCache = index;
+      this.lastIndexUpdate = Date.now();
+      
+      console.log('✅ Índice de imágenes cargado:', Object.keys(index.images).length, 'días disponibles');
+      return index;
+      
+    } catch (error) {
+      console.warn('⚠️ Error cargando índice de imágenes:', error);
+      // Fallback: devolver estructura vacía
+      return {
+        lastUpdated: new Date().toISOString(),
+        images: {},
+        daysByMonth: {}
+      };
     }
-    
-    // Si no tenemos fileName, devolvemos la URL base de la carpeta
-    return `${this.baseImagePath}/${monthFolder}`;
   }
 
   // Intentar cargar una imagen para una fecha específica
@@ -22,42 +47,52 @@ class StaticImageService {
     console.log(`🔍 Buscando imagen para el día: ${dateKey}`);
     
     try {
-      // Lista específica de archivos conocidos por fecha
-      const knownFiles = this.getKnownFilesForDate(dateKey);
+      const index = await this.loadImagesIndex();
+      const dayImages = index.images[dateKey];
       
-      // Probar archivos conocidos específicos
-      for (const fileName of knownFiles) {
-        const imageUrl = this.buildImageUrl(dateKey, fileName);
-        console.log(`🔍 Probando: ${imageUrl}`);
-        
-        if (await this.imageExists(imageUrl)) {
-          console.log(`✅ Imagen estática encontrada: ${imageUrl}`);
-          return {
-            url: imageUrl,
-            fileName: fileName,
-            dateKey,
-            source: 'static'
-          };
-        }
+      if (!dayImages || dayImages.length === 0) {
+        console.log(`📭 No hay imágenes disponibles para: ${dateKey}, usando fallback`);
+        return this.getFallbackImage();
       }
       
-      console.log(`❌ No se encontró imagen para: ${dateKey}`);
-      return null;
-    } catch {
-      console.error('Error buscando imagen estática para:', dateKey);
-      return null;
+      // Tomar la primera imagen disponible para el día
+      const imageInfo = dayImages[0];
+      
+      // Verificar que la imagen realmente existe
+      if (await this.imageExists(imageInfo.url)) {
+        console.log(`✅ Imagen estática encontrada: ${imageInfo.url}`);
+        return {
+          url: imageInfo.url,
+          fileName: imageInfo.fileName,
+          dateKey: imageInfo.dateKey,
+          theme: imageInfo.theme,
+          timestamp: imageInfo.timestamp,
+          source: 'static'
+        };
+      } else {
+        console.log(`❌ Imagen en índice no existe físicamente: ${imageInfo.url}, usando fallback`);
+        return this.getFallbackImage();
+      }
+      
+    } catch (error) {
+      console.error('❌ Error buscando imagen estática para:', dateKey, error);
+      console.log('🐰 Usando imagen de fallback');
+      return this.getFallbackImage();
     }
   }
-  
-  // Obtener archivos conocidos para una fecha específica
-  getKnownFilesForDate(dateKey) {
-    const knownFilesByDate = {
-      // GitHub Actions generará archivos automáticamente con el patrón:
-      // YYYY-MM-DD_TematicaPrompt_timestamp.png
-      // Esta lista se actualizará dinámicamente conforme se generen imágenes
+
+  // Obtener imagen de fallback (conejo)
+  getFallbackImage() {
+    return {
+      url: '/conejoprueba.png',
+      fileName: 'conejoprueba.png',
+      dateKey: 'fallback',
+      theme: 'Conejo de prueba',
+      prompt: 'Imagen de fallback del conejo',
+      timestamp: 0,
+      source: 'fallback',
+      lastModified: new Date().toISOString()
     };
-    
-    return knownFilesByDate[dateKey] || [];
   }
 
   // Verificar si una imagen existe
@@ -70,31 +105,50 @@ class StaticImageService {
     }
   }
 
-  // Obtener todas las imágenes conocidas (basado en patrones)
+  // Obtener todas las imágenes disponibles del índice
   async getAllKnownImages() {
-    const knownImages = [
-      { dateKey: '2025-09-23', fileName: '2025-09-23_Un_perrito_alegre_corriendo_po_1758975693548.png' },
-      { dateKey: '2025-09-24', fileName: '2025-09-24_Un_perrito_alegre_corriendo_po_1758975693548.png' },
-      { dateKey: '2025-09-25', fileName: '2025-09-25_Un_perrito_alegre_corriendo_po_1758975693548.png' },
-      { dateKey: '2025-09-26', fileName: '2025-09-26_Un_elefante_beb_jugando_con_ag_1758974062645.png' },
-      { dateKey: '2025-09-27', fileName: '2025-09-27_Un_perrito_alegre_corriendo_po_1758975693548.png' },
-      { dateKey: '2025-09-29', fileName: '2025-09-29_Un_perrito_alegre_corriendo_po_1758975693548 - copia.png' }
-    ];
-
-    const availableImages = [];
-    
-    for (const image of knownImages) {
-      const imageUrl = this.buildImageUrl(image.dateKey, image.fileName);
-      if (await this.imageExists(imageUrl)) {
-        availableImages.push({
-          ...image,
-          url: imageUrl,
-          source: 'static'
-        });
+    try {
+      const index = await this.loadImagesIndex();
+      const allImages = [];
+      
+      // Convertir el objeto de imágenes a un array plano
+      for (const [, dayImages] of Object.entries(index.images)) {
+        for (const imageInfo of dayImages) {
+          allImages.push({
+            ...imageInfo,
+            source: 'static'
+          });
+        }
       }
+      
+      // Ordenar por fecha (más recientes primero)
+      allImages.sort((a, b) => new Date(b.dateKey) - new Date(a.dateKey));
+      
+      console.log(`📋 ${allImages.length} imágenes disponibles en total`);
+      return allImages;
+      
+    } catch (error) {
+      console.error('❌ Error obteniendo todas las imágenes:', error);
+      return [];
     }
-    
-    return availableImages;
+  }
+
+  // Obtener días disponibles para un mes específico
+  async getDaysForMonth(yearMonth) {
+    try {
+      const index = await this.loadImagesIndex();
+      return index.daysByMonth[yearMonth] || [];
+    } catch (error) {
+      console.error('❌ Error obteniendo días del mes:', yearMonth, error);
+      return [];
+    }
+  }
+
+  // Invalidar caché (útil para desarrollo)
+  invalidateCache() {
+    this.indexCache = null;
+    this.lastIndexUpdate = null;
+    console.log('🗑️ Caché de índice invalidado');
   }
 }
 

@@ -7,7 +7,8 @@ const DrawingCanvasSimple = forwardRef(({
   tool = 'brush',
   backgroundImage = null,
   onCanvasChange,
-  onColorPicked
+  onColorPicked,
+  onCanvasReady // Nuevo callback cuando el canvas esté listo
 }, ref) => {
   const containerRef = useRef(null);
   const backgroundCanvasRef = useRef(null);
@@ -388,9 +389,14 @@ const DrawingCanvasSimple = forwardRef(({
       hasInitialized.current = true;
       setTimeout(() => {
         saveCanvasState();
+        // Notificar que el canvas está listo
+        if (onCanvasReady) {
+          console.log('🎯 CANVAS LISTO: Notificando al padre');
+          onCanvasReady();
+        }
       }, 100);
     }
-  }, [saveCanvasState]);
+  }, [saveCanvasState, onCanvasReady]);
 
   // Registrar evento wheel de manera no-pasiva para evitar el error de preventDefault
   useEffect(() => {

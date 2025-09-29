@@ -12,23 +12,52 @@ export const useDayNavigation = () => {
   }, [selectedDate]);
 
   const loadDayImage = useCallback(async (canvasRef) => {
-    try {
-      setDayImageStatus('loading');
-      const dateKey = selectedDate.toISOString().split('T')[0];
-      const dayImage = await drawingService.getDailyImage(dateKey);
-      
-      if (dayImage && canvasRef.current) {
-        await canvasRef.current.loadBackgroundImage(dayImage.blobUrl);
-        setDayImageStatus('available');
-        console.log('✅ Imagen cargada para el día:', dateKey);
-      } else {
-        setDayImageStatus('empty');
-        console.log('📭 No hay imagen para el día:', dateKey);
+    const MAX_RETRIES = 5;
+    const RETRY_DELAY = 100; // 100ms entre reintentos
+    
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        setDayImageStatus('loading');
+        const dateKey = selectedDate.toISOString().split('T')[0];
+        
+        console.log(`🎯 Intento ${attempt}/${MAX_RETRIES} - Cargando imagen para: ${dateKey}`);
+        const dayImage = await drawingService.getDailyImage(dateKey);
+        
+        console.log('🔍 DEBUG - dayImage recibido:', dayImage);
+        console.log('🔍 DEBUG - canvasRef.current:', !!canvasRef.current);
+        console.log('🔍 DEBUG - dayImage.blobUrl:', dayImage?.blobUrl);
+        
+        if (dayImage && dayImage.blobUrl) {
+          if (canvasRef.current) {
+            console.log('🖼️ Intentando cargar imagen:', dayImage.blobUrl);
+            await canvasRef.current.loadBackgroundImage(dayImage.blobUrl);
+            setDayImageStatus('available');
+            console.log('✅ Imagen cargada para el día:', dateKey);
+            return; // Éxito, salir del loop
+          } else {
+            console.log(`⏳ Intento ${attempt}/${MAX_RETRIES} - Canvas no está listo, reintentando en ${RETRY_DELAY}ms...`);
+            if (attempt < MAX_RETRIES) {
+              await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+              continue; // Reintentar
+            }
+          }
+        } else {
+          console.log('📭 No hay imagen disponible para el día:', dateKey);
+          setDayImageStatus('empty');
+          return;
+        }
+      } catch (error) {
+        console.error(`❌ Error en intento ${attempt}/${MAX_RETRIES}:`, error);
+        if (attempt === MAX_RETRIES) {
+          setDayImageStatus('empty');
+          return;
+        }
       }
-    } catch (error) {
-      console.error('❌ Error cargando imagen del día:', error);
-      setDayImageStatus('empty');
     }
+    
+    // Si llegamos aquí, todos los intentos fallaron
+    console.log('❌ Todos los intentos fallaron - Canvas no se inicializó correctamente');
+    setDayImageStatus('empty');
   }, [selectedDate]);
 
   const goToPreviousDay = useCallback(() => {

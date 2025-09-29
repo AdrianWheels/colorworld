@@ -289,13 +289,13 @@ class DrawingService {
         console.log('🌐 Imagen encontrada en servidor:', imageInfo.fileName);
         
         return {
-          fileName: imageInfo.fileName,
-          prompt: imageInfo.prompt,
-          theme: imageInfo.theme,
+          fileName: imageInfo.fileName || 'imagen.png',
+          prompt: imageInfo.prompt || imageInfo.theme || 'Sin prompt',
+          theme: imageInfo.theme || 'Sin tema',
           dateKey: dateKey,
-          blobUrl: imageInfo.url, // URL del servidor
-          source: 'server',
-          generatedAt: imageInfo.savedAt
+          blobUrl: imageInfo.url, // URL del servidor o estática
+          source: imageInfo.source || 'static',
+          generatedAt: imageInfo.savedAt || imageInfo.lastModified || new Date().toISOString()
         };
       }
     } catch (error) {

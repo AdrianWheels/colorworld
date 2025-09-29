@@ -59,6 +59,11 @@ function App() {
     setCurrentTool('brush');
   }, []);
 
+  const handleCanvasReady = useCallback(() => {
+    console.log('🎯 Canvas listo, cargando imagen del día');
+    loadDayImage(canvasRef);
+  }, [loadDayImage]);
+
   const onSaveDrawing = useCallback(() => {
     const result = handleSaveDrawing();
     if (result.success) {
@@ -74,13 +79,20 @@ function App() {
     setTodayTheme(todayPrompt.tematica || 'something magical');
   }, []);
 
-  // Effect para cargar imagen cuando cambia la fecha seleccionada
+  // Effect para limpiar localStorage cuando cambia la fecha
   useEffect(() => {
-    loadDayImage(canvasRef);
-    
     // Limpiar localStorage obsoleto al cambiar de día
     drawingService.cleanupLocalStorage();
-  }, [loadDayImage, canvasRef]);
+  }, [selectedDate]);
+
+  // Effect para cargar nueva imagen cuando cambia la fecha seleccionada
+  useEffect(() => {
+    // Solo cargar si el canvas ya está inicializado
+    if (canvasRef.current) {
+      console.log('📅 Fecha cambiada, recargando imagen...');
+      loadDayImage(canvasRef);
+    }
+  }, [selectedDate, loadDayImage]);
 
   // Agregar atajos de teclado para undo/redo
   useEffect(() => {
@@ -172,6 +184,7 @@ function App() {
                   backgroundImage="/conejoprueba.png"
                   onCanvasChange={handleCanvasChangeWithUndoUpdate}
                   onColorPicked={handleColorPicked}
+                  onCanvasReady={handleCanvasReady}
                 />
               </div>
             </div>
