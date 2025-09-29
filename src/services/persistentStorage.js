@@ -3,20 +3,32 @@ import staticImageService from './staticImageService.js';
 
 class PersistentStorageService {
   constructor() {
-    this.apiUrl = 'http://localhost:3001/api';
+    // Solo usar servidor API en desarrollo, nunca en producción
+    this.apiUrl = import.meta.env.DEV ? 'http://localhost:3001/api' : null;
     this.isServerAvailable = false;
-    this.checkServerStatus();
+    
+    // Solo verificar servidor en desarrollo
+    if (import.meta.env.DEV && this.apiUrl) {
+      this.checkServerStatus();
+    } else {
+      console.log('🔧 Modo producción: usando solo almacenamiento estático');
+    }
   }
 
-  // Check if the API server is running
+  // Check if the API server is running (solo en desarrollo)
   async checkServerStatus() {
+    if (!import.meta.env.DEV || !this.apiUrl) {
+      this.isServerAvailable = false;
+      return;
+    }
+    
     try {
       const response = await fetch(`${this.apiUrl}/health`);
       if (response.ok) {
         this.isServerAvailable = true;
-        console.log('✅ Servidor API disponible');
+        console.log('✅ Servidor API disponible (desarrollo)');
       }
-    } catch (error) {
+    } catch {
       this.isServerAvailable = false;
       console.log('⚠️ Servidor API no disponible, usando localStorage como fallback');
     }
