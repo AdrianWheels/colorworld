@@ -18,13 +18,8 @@
   },
   "dependencies": {
     "@google/genai": "^1.21.0",
-    "@google/generative-ai": "^0.24.1",
-    "canvas": "^2.11.2",
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
     "fabric": "^6.7.1",
     "html2canvas": "^1.4.1",
-    "mime": "^4.1.0",
     "react": "^19.1.1",
     "react-color-palette": "^7.3.1",
     "react-dom": "^19.1.1"
