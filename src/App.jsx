@@ -3,13 +3,15 @@ import DrawingCanvasSimple from './components/DrawingCanvasSimple';
 import ToolBarHorizontal from './components/ToolBarHorizontal';
 import DrawingHistory from './components/DrawingHistory';
 import ControlsModal from './components/ControlsModal';
-import HelpModal from './components/HelpModal';
 import DayNavigation from './components/DayNavigation';
 import CanvasActions from './components/CanvasActions';
+import ToastContainer from './components/ToastContainer';
 import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
 import { useCanvasActions } from './hooks/useCanvasActions';
+import { useToast } from './hooks/useToast';
 import drawingService from './services/drawingService';
+import promptsManager from './services/promptsManager';
 import './App.css';
 
 function App() {
@@ -17,17 +19,19 @@ function App() {
   const [brushSize, setBrushSize] = useState(5);
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
-  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+  const [todayTheme, setTodayTheme] = useState('');
   
   const canvasRef = useRef(null);
+  
+  // Hook para notificaciones
+  const { toasts, showSuccess, showError, removeToast } = useToast();
   
   // Hooks modulares
   const { 
     isLoading, 
     error, 
     coloredDrawings, 
-    saveColoredDrawing, 
-    generateNewDrawing 
+    saveColoredDrawing 
   } = useDrawing();
   
   const {
@@ -49,10 +53,6 @@ function App() {
     handleSaveDrawing
   } = useCanvasActions(canvasRef, saveColoredDrawing);
 
-  const handleShowHelp = useCallback(() => {
-    setIsHelpModalOpen(true);
-  }, []);
-
   const handleColorPicked = useCallback((color) => {
     setBrushColor(color);
     // Cambiar automáticamente a pincel después de seleccionar color
@@ -61,8 +61,18 @@ function App() {
 
   const onSaveDrawing = useCallback(() => {
     const result = handleSaveDrawing();
-    alert(result.message);
-  }, [handleSaveDrawing]);
+    if (result.success) {
+      showSuccess(result.message);
+    } else {
+      showError(result.message);
+    }
+  }, [handleSaveDrawing, showSuccess, showError]);
+
+  // Obtener la temática del día actual
+  useEffect(() => {
+    const todayPrompt = promptsManager.getPromptForToday();
+    setTodayTheme(todayPrompt.tematica || 'something magical');
+  }, []);
 
   // Effect para cargar imagen cuando cambia la fecha seleccionada
   useEffect(() => {
@@ -114,9 +124,6 @@ function App() {
         <header className="app-header">
           <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
           <p className="error-message">{error}</p>
-          <button onClick={generateNewDrawing} className="retry-btn">
-            Intentar de nuevo
-          </button>
         </header>
       </div>
     );
@@ -143,11 +150,13 @@ function App() {
               onBrushSizeChange={setBrushSize}
               onColorChange={setBrushColor}
               onClearCanvas={handleClearCanvas}
-              onShowHelp={handleShowHelp}
+              onShowControls={() => setIsControlsModalOpen(true)}
+              onSave={onSaveDrawing}
               onUndo={handleUndo}
               onRedo={handleRedo}
               canUndo={canUndo}
               canRedo={canRedo}
+              canSave={!!canvasData}
               currentTool={currentTool}
               currentColor={brushColor}
               currentBrushSize={brushSize}
@@ -169,10 +178,7 @@ function App() {
             
             <CanvasActions
               onSave={onSaveDrawing}
-              onGenerate={generateNewDrawing}
-              onShowHelp={() => setIsControlsModalOpen(true)}
               canSave={!!canvasData}
-              isGenerating={false}
             />
           </div>
         </div>
@@ -184,7 +190,7 @@ function App() {
 
       <footer className="app-footer">
         <p className="footer-text">
-          <strong>¡UN DÍA CON MI CONEJO!</strong>
+          <strong>Dreaming about {todayTheme}!</strong>
         </p>
         <p className="footer-share">Share it on social media #coloreveryday</p>
       </footer>
@@ -195,11 +201,8 @@ function App() {
         onClose={() => setIsControlsModalOpen(false)}
       />
       
-      {/* Modal de ayuda */}
-      <HelpModal 
-        isOpen={isHelpModalOpen}
-        onClose={() => setIsHelpModalOpen(false)}
-      />
+      {/* Toast notifications */}
+      <ToastContainer toasts={toasts} onRemoveToast={removeToast} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import enhancedDrawingStorage from '../services/enhancedDrawingStorage.js';
+import { notify } from '../utils/notifications.js';
 import '../styles/DrawingManager.css';
 
 const DrawingManager = ({ isOpen, onClose }) => {
@@ -26,13 +27,14 @@ const DrawingManager = ({ isOpen, onClose }) => {
   };
 
   const handleDeleteDrawing = (drawingId) => {
-    if (confirm('¿Estás seguro de que quieres eliminar este dibujo?')) {
+    if (notify.confirm('¿Estás seguro de que quieres eliminar este dibujo?')) {
       const result = enhancedDrawingStorage.deleteDrawing(drawingId);
       if (result.success) {
         loadDrawings();
         loadStats();
+        notify.success('Dibujo eliminado exitosamente');
       } else {
-        alert('Error al eliminar el dibujo');
+        notify.error('Error al eliminar el dibujo');
       }
     }
   };
@@ -40,9 +42,9 @@ const DrawingManager = ({ isOpen, onClose }) => {
   const handleExportAll = () => {
     const result = enhancedDrawingStorage.exportAllDrawings();
     if (result.success) {
-      alert(`Exportados ${result.count} dibujos exitosamente`);
+      notify.success(`Exportados ${result.count} dibujos exitosamente`);
     } else {
-      alert('Error al exportar dibujos');
+      notify.error('Error al exportar dibujos');
     }
   };
 
@@ -51,25 +53,25 @@ const DrawingManager = ({ isOpen, onClose }) => {
     if (file) {
       enhancedDrawingStorage.importDrawings(file).then(result => {
         if (result.success) {
-          alert(`Importados ${result.imported} de ${result.total} dibujos`);
+          notify.success(`Importados ${result.imported} de ${result.total} dibujos`);
           loadDrawings();
           loadStats();
         } else {
-          alert('Error al importar dibujos');
+          notify.error('Error al importar dibujos');
         }
       });
     }
   };
 
   const handleClearAll = () => {
-    if (confirm('¿Estás seguro de que quieres eliminar TODOS los dibujos? Esta acción no se puede deshacer.')) {
+    if (notify.confirm('¿Estás seguro de que quieres eliminar TODOS los dibujos? Esta acción no se puede deshacer.')) {
       const result = enhancedDrawingStorage.clearAllColoredDrawings();
       if (result.success) {
-        alert(`Eliminados ${result.deleted} dibujos`);
+        notify.success(`Eliminados ${result.deleted} dibujos`);
         loadDrawings();
         loadStats();
       } else {
-        alert('Error al limpiar dibujos');
+        notify.error('Error al limpiar dibujos');
       }
     }
   };

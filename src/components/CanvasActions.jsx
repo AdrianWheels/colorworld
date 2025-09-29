@@ -3,10 +3,7 @@ import '../styles/CanvasActions.css';
 
 const CanvasActions = ({ 
   onSave, 
-  onGenerate, 
-  onShowHelp, 
-  canSave = true, 
-  isGenerating = false 
+  canSave = true
 }) => {
   return (
     <div className="canvas-actions">
@@ -17,23 +14,6 @@ const CanvasActions = ({
         title="Guardar dibujo coloreado"
       >
         💾 Guardar Dibujo
-      </button>
-      
-      <button 
-        onClick={onGenerate}
-        className="action-btn generate-btn"
-        disabled={isGenerating}
-        title="Generar nuevo dibujo"
-      >
-        {isGenerating ? '🔄 Generando...' : '🎲 Nuevo Dibujo'}
-      </button>
-      
-      <button 
-        onClick={onShowHelp}
-        className="action-btn help-btn"
-        title="Ver controles y ayuda"
-      >
-        ❓ Ayuda
       </button>
     </div>
   );

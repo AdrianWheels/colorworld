@@ -6,11 +6,13 @@ const ToolBarHorizontal = ({
   onBrushSizeChange, 
   onColorChange, 
   onClearCanvas, 
-  onShowHelp,
+  onShowControls,
+  onSave,
   onUndo,
   onRedo,
   canUndo = false,
   canRedo = false,
+  canSave = false,
   currentTool = 'brush',
   currentColor = '#000000',
   currentBrushSize = 5
@@ -176,6 +178,14 @@ const ToolBarHorizontal = ({
       {/* Acciones */}
       <div className="toolbar-section actions-section">
         <button 
+          className={`action-btn save-btn ${!canSave ? 'disabled' : ''}`}
+          onClick={onSave}
+          disabled={!canSave}
+          title="Guardar dibujo coloreado"
+        >
+          💾
+        </button>
+        <button 
           className="action-btn clear-btn"
           onClick={onClearCanvas}
           title="Limpiar lienzo"
@@ -183,11 +193,11 @@ const ToolBarHorizontal = ({
           🗑️
         </button>
         <button 
-          className="action-btn help-btn"
-          onClick={onShowHelp}
-          title="Ver controles y ayuda"
+          className="action-btn controls-btn"
+          onClick={onShowControls}
+          title="Ver controles y configuración"
         >
-          💾
+          ⚙️
         </button>
       </div>
     </div>
