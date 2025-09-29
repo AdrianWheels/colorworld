@@ -49,6 +49,18 @@ const DrawingCanvasSimple = forwardRef(({
   const [isPanning, setIsPanning] = useState(false);
   const [lastPanPoint, setLastPanPoint] = useState({ x: 0, y: 0 });
 
+  // Estados para detección inteligente de gestos
+  const touchStartTime = useRef(0);
+  const touchStartPosition = useRef({ x: 0, y: 0 });
+  const isGesturing = useRef(false);
+  const drawingDelay = useRef(null);
+  const hasMovedSignificantly = useRef(false);
+  
+  // Constantes para detección de gestos
+  const DRAWING_DELAY_MS = 150; // Delay antes de empezar a dibujar
+  const MIN_MOVEMENT_THRESHOLD = 10; // Píxeles mínimos para considerar movimiento significativo
+  const GESTURE_TIMEOUT_MS = 100; // Tiempo máximo para detectar gesto multi-touch
+
   // Estados para undo/redo
   const [undoStack, setUndoStack] = useState([]);
   const [redoStack, setRedoStack] = useState([]);
@@ -533,18 +545,54 @@ const DrawingCanvasSimple = forwardRef(({
     e.preventDefault();
     
     const touches = e.touches;
+    const now = Date.now();
+    
+    // Limpiar delay anterior si existe
+    if (drawingDelay.current) {
+      clearTimeout(drawingDelay.current);
+      drawingDelay.current = null;
+    }
     
     if (touches.length === 1) {
-      // Un dedo - dibujar
+      // Un dedo - POSIBLE dibujo (con delay)
       const touch = touches[0];
-      const mouseEvent = {
-        clientX: touch.clientX,
-        clientY: touch.clientY,
-        button: 0
+      
+      // Guardar posición y tiempo inicial
+      touchStartTime.current = now;
+      touchStartPosition.current = {
+        x: touch.clientX,
+        y: touch.clientY
       };
-      startDrawing(mouseEvent);
+      hasMovedSignificantly.current = false;
+      isGesturing.current = false;
+      
+      // Delay antes de empezar a dibujar para detectar si es un gesto
+      drawingDelay.current = setTimeout(() => {
+        // Solo dibujar si no se ha detectado gesto y no se ha movido mucho
+        if (!isGesturing.current && !isPanning) {
+          const mouseEvent = {
+            clientX: touch.clientX,
+            clientY: touch.clientY,
+            button: 0
+          };
+          startDrawing(mouseEvent);
+        }
+        drawingDelay.current = null;
+      }, DRAWING_DELAY_MS);
+      
     } else if (touches.length === 2) {
-      // Dos dedos - zoom/pan
+      // Dos dedos - zoom/pan (cancelar cualquier intento de dibujo)
+      isGesturing.current = true;
+      if (drawingDelay.current) {
+        clearTimeout(drawingDelay.current);
+        drawingDelay.current = null;
+      }
+      
+      // Parar cualquier dibujo en curso
+      if (isDrawing) {
+        stopDrawing();
+      }
+      
       const distance = getTouchDistance(touches[0], touches[1]);
       const center = getTouchCenter(touches[0], touches[1]);
       
@@ -554,7 +602,7 @@ const DrawingCanvasSimple = forwardRef(({
       setLastPanPoint(center);
       setIsPanning(true);
     }
-  }, [startDrawing, getTouchDistance, getTouchCenter, zoom, pan]);
+  }, [startDrawing, getTouchDistance, getTouchCenter, zoom, pan, isDrawing, stopDrawing, isPanning]);
 
   const handleTouchMove = useCallback((e) => {
     e.preventDefault();
@@ -562,13 +610,44 @@ const DrawingCanvasSimple = forwardRef(({
     const touches = e.touches;
     
     if (touches.length === 1 && !isPanning) {
-      // Un dedo - dibujar
       const touch = touches[0];
-      const mouseEvent = {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      };
-      draw(mouseEvent);
+      
+      // Verificar si se ha movido significativamente desde el inicio
+      if (touchStartPosition.current && !hasMovedSignificantly.current) {
+        const deltaX = Math.abs(touch.clientX - touchStartPosition.current.x);
+        const deltaY = Math.abs(touch.clientY - touchStartPosition.current.y);
+        const totalMovement = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        if (totalMovement > MIN_MOVEMENT_THRESHOLD) {
+          hasMovedSignificantly.current = true;
+          
+          // Si el movimiento es muy rápido o grande, probablemente es pan/scroll
+          const timeElapsed = Date.now() - touchStartTime.current;
+          const velocity = totalMovement / Math.max(timeElapsed, 1);
+          
+          if (velocity > 2 || totalMovement > 50) {
+            // Movimiento muy rápido o grande - cancelar dibujo
+            isGesturing.current = true;
+            if (drawingDelay.current) {
+              clearTimeout(drawingDelay.current);
+              drawingDelay.current = null;
+            }
+            if (isDrawing) {
+              stopDrawing();
+            }
+            return;
+          }
+        }
+      }
+      
+      // Solo dibujar si no estamos esperando delay y no es un gesto
+      if (!drawingDelay.current && !isGesturing.current) {
+        const mouseEvent = {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        };
+        draw(mouseEvent);
+      }
     } else if (touches.length === 2) {
       // Dos dedos - zoom/pan
       const distance = getTouchDistance(touches[0], touches[1]);
@@ -592,20 +671,43 @@ const DrawingCanvasSimple = forwardRef(({
         setPan(newPan);
       }
     }
-  }, [draw, isPanning, getTouchDistance, getTouchCenter, touchStartDistance, initialZoom, initialPan, lastPanPoint]);
+  }, [draw, isPanning, getTouchDistance, getTouchCenter, touchStartDistance, initialZoom, initialPan, lastPanPoint, isDrawing, stopDrawing]);
 
   const handleTouchEnd = useCallback((e) => {
     e.preventDefault();
     
+    // Limpiar delay si existe
+    if (drawingDelay.current) {
+      clearTimeout(drawingDelay.current);
+      drawingDelay.current = null;
+    }
+    
     if (e.touches.length === 0) {
-      // No hay mÃ¡s dedos
+      // No hay más dedos - resetear todo
       stopDrawing();
       setIsPanning(false);
       setTouchStartDistance(0);
+      
+      // Resetear estados de detección
+      isGesturing.current = false;
+      hasMovedSignificantly.current = false;
+      touchStartTime.current = 0;
+      touchStartPosition.current = { x: 0, y: 0 };
+      
     } else if (e.touches.length === 1) {
       // Queda un dedo, pasar de zoom/pan a dibujo
       setIsPanning(false);
       setTouchStartDistance(0);
+      
+      // Resetear para permitir nuevo dibujo con el dedo restante
+      isGesturing.current = false;
+      const touch = e.touches[0];
+      touchStartTime.current = Date.now();
+      touchStartPosition.current = {
+        x: touch.clientX,
+        y: touch.clientY
+      };
+      hasMovedSignificantly.current = false;
     }
   }, [stopDrawing]);
 
