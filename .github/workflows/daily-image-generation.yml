@@ -6,6 +6,10 @@ on:
     - cron: '0 6 * * *'
   workflow_dispatch: # Permite ejecutar manualmente
 
+permissions:
+  contents: write  # Permite escribir en el repositorio
+  actions: read    # Permite leer el estado de las actions
+
 jobs:
   generate-daily-image:
     runs-on: ubuntu-latest
@@ -13,7 +17,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
