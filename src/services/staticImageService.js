@@ -58,7 +58,10 @@ class StaticImageService {
       '2025-09-26': ['2025-09-26_Un_elefante_beb_jugando_con_ag_1758974062645.png'],
       '2025-09-27': ['2025-09-27_Un_perrito_alegre_corriendo_po_1758975693548.png'],
       '2025-09-28': ['2025-09-28_Un_perrito_alegre_corriendo_po_1758975693548.png'],
-      '2025-09-29': ['2025-09-29_MandalaFrutasVerano_1759156146822.png'],
+      '2025-09-29': [
+        '2025-09-29_MandalaFrutasVerano_1759156146822.png',
+        '2025-09-29_MandalaFrutasVerano_1759156265294.png'
+      ],
       '2025-09-30': ['2025-09-30_Un_perrito_alegre_corriendo_po_1758975693548.png'],
       '2025-10-01': ['2025-10-01_Un_perrito_alegre_corriendo_po_1758975693548.png'],
       // GitHub Actions generará más archivos automáticamente
