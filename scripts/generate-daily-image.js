@@ -91,6 +91,8 @@ class DailyImageGenerator {
       console.log('🤖 Generando imagen con Gemini...');
       console.log('📅 Fecha:', targetDate.toISOString().split('T')[0]);
       console.log('🎨 Temática:', promptData.tematica);
+      console.log('🔑 API Key disponible:', this.apiKey ? 'SÍ' : 'NO');
+      console.log('📝 Prompt length:', enhancedPrompt.length);
       
       const config = {
         responseModalities: ['IMAGE'],
@@ -107,6 +109,7 @@ class DailyImageGenerator {
         },
       ];
 
+      console.log('📡 Enviando request a Gemini...');
       const response = await this.genAI.models.generateContentStream({
         model: this.model,
         config,
@@ -114,9 +117,30 @@ class DailyImageGenerator {
       });
 
       let imageData = null;
+      let chunkCount = 0;
       
+      console.log('📥 Procesando respuesta de Gemini...');
       for await (const chunk of response) {
-        if (!chunk.candidates || !chunk.candidates[0]?.content?.parts) {
+        chunkCount++;
+        console.log(`📦 Chunk ${chunkCount} recibido`);
+        
+        if (!chunk.candidates) {
+          console.log('⚠️ Chunk sin candidates');
+          continue;
+        }
+        
+        if (!chunk.candidates[0]) {
+          console.log('⚠️ Chunk sin candidates[0]');
+          continue;
+        }
+        
+        if (!chunk.candidates[0].content) {
+          console.log('⚠️ Chunk sin content');
+          continue;
+        }
+        
+        if (!chunk.candidates[0].content.parts) {
+          console.log('⚠️ Chunk sin parts');
           continue;
         }
         
@@ -127,8 +151,21 @@ class DailyImageGenerator {
             mimeType: inlineData.mimeType || 'image/png'
           };
           console.log('✅ Imagen generada exitosamente');
+          console.log('📊 Tamaño de datos:', inlineData.data.length, 'caracteres');
           break;
+        } else {
+          console.log('⚠️ Chunk sin inlineData');
+          if (chunk.candidates[0]?.content?.parts?.[0]) {
+            console.log('🔍 Parte disponible:', Object.keys(chunk.candidates[0].content.parts[0]));
+          }
         }
+      }
+      
+      console.log(`📊 Total chunks procesados: ${chunkCount}`);
+      
+      if (!imageData) {
+        console.log('❌ No se encontró imageData en ningún chunk');
+        return null;
       }
       
       return imageData;
