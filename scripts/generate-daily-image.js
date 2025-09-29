@@ -56,25 +56,20 @@ class DailyImageGenerator {
   buildEnhancedPrompt(promptData, language = 'es') {
     const basePrompt = language === 'es' ? promptData.prompt_es : promptData.prompt_en;
     
-    return `
-      Crea una imagen de libro para colorear de: ${basePrompt}
-      
-      REQUISITOS ESPECÍFICOS:
-      - SOLO líneas negras gruesas (stroke 3-5px) sobre fondo completamente blanco
-      - Sin colores, sin grises, sin sombras, sin degradados
-      - Estilo viñeta: elementos contenidos en un marco visual claro
-      - Formas simples y claras, perfectas para colorear
-      - Espacios amplios entre líneas para facilitar el coloreado
-      - Contornos bien definidos y cerrados
-      - Estilo cartoon amigable para niños
-      - El elemento principal debe estar centrado
-      - Elementos decorativos simples alrededor (flores, hojas, etc.)
-      - Imagen cuadrada, composición equilibrada
-      
-      La imagen debe parecer sacada directamente de un libro para colorear tradicional.
-      Temática: ${promptData.tematica}
-      Dificultad: ${promptData.difficulty}
-    `;
+    return `GENERATE IMAGE NOW. CREATE A COLORING PAGE.
+
+Subject: ${basePrompt}
+Theme: ${promptData.tematica}
+
+GENERATE A BLACK AND WHITE COLORING PAGE IMAGE:
+- Black outlines only on pure white background
+- Simple line art suitable for children
+- No text, no descriptions, ONLY THE IMAGE
+- Clear, thick black lines
+- Large areas for coloring
+- Cartoon style
+
+IMPORTANT: Generate the actual image file now, do not describe it.`;
   }
 
   // Ensure directory exists
@@ -97,11 +92,10 @@ class DailyImageGenerator {
       console.log('🔑 API Key disponible:', this.apiKey ? 'SÍ' : 'NO');
       console.log('📝 Prompt length:', enhancedPrompt.length);
       
-      // ✅ Usar exactamente el mismo código que Google AI Studio
+      // ✅ Forzar SOLO imagen, sin texto
       const config = {
         responseModalities: [
           'IMAGE',
-          'TEXT',
         ],
       };
       
