@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 
-// Script para generar la imagen diaria de forma automática
+// Generador de imágenes diarias usando Gemini 2.5 Flash Image Preview  
+// Basado en el código oficial de Google AI Studio
 // Se ejecuta desde GitHub Actions cada día
 
 import { GoogleGenAI } from '@google/genai';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { Buffer } from 'buffer';
+import process from 'process';
 import { DAILY_PROMPTS } from '../src/data/daily-prompts.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,7 +19,7 @@ class DailyImageGenerator {
   constructor() {
     this.apiKey = process.env.VITE_GEMINI_API_KEY;
     this.genAI = null;
-    this.model = 'gemini-2.5-flash-image-preview';
+    this.model = 'gemini-2.5-flash-image-preview'; // ✅ Modelo correcto para imágenes
     this.baseDir = path.resolve(__dirname, '../public/generated-images');
     this.initializeGemini();
   }
@@ -78,7 +81,7 @@ class DailyImageGenerator {
   async ensureDir(dirPath) {
     try {
       await fs.access(dirPath);
-    } catch (error) {
+    } catch {
       await fs.mkdir(dirPath, { recursive: true });
     }
   }
@@ -88,14 +91,18 @@ class DailyImageGenerator {
     try {
       const enhancedPrompt = this.buildEnhancedPrompt(promptData);
       
-      console.log('🤖 Generando imagen con Gemini...');
+      console.log('🤖 Generando imagen con Gemini 2.5 Flash Image Preview...');
       console.log('📅 Fecha:', targetDate.toISOString().split('T')[0]);
       console.log('🎨 Temática:', promptData.tematica);
       console.log('🔑 API Key disponible:', this.apiKey ? 'SÍ' : 'NO');
       console.log('📝 Prompt length:', enhancedPrompt.length);
       
+      // ✅ Usar exactamente el mismo código que Google AI Studio
       const config = {
-        responseModalities: ['IMAGE'],
+        responseModalities: [
+          'IMAGE',
+          'TEXT',
+        ],
       };
       
       const contents = [
@@ -109,7 +116,7 @@ class DailyImageGenerator {
         },
       ];
 
-      console.log('📡 Enviando request a Gemini...');
+      console.log('📡 Enviando request a Gemini 2.5 Flash Image Preview...');
       const response = await this.genAI.models.generateContentStream({
         model: this.model,
         config,
@@ -119,44 +126,33 @@ class DailyImageGenerator {
       let imageData = null;
       let chunkCount = 0;
       
-      console.log('📥 Procesando respuesta de Gemini...');
+      console.log('📥 Procesando respuesta...');
       for await (const chunk of response) {
         chunkCount++;
-        console.log(`📦 Chunk ${chunkCount} recibido`);
+        console.log(`� Chunk ${chunkCount} recibido`);
         
-        if (!chunk.candidates) {
-          console.log('⚠️ Chunk sin candidates');
+        // ✅ Usar exactamente la misma lógica que Google AI Studio
+        if (!chunk.candidates || !chunk.candidates[0].content || !chunk.candidates[0].content.parts) {
+          console.log('⚠️ Chunk sin candidates/content/parts - continuando...');
           continue;
         }
         
-        if (!chunk.candidates[0]) {
-          console.log('⚠️ Chunk sin candidates[0]');
-          continue;
-        }
-        
-        if (!chunk.candidates[0].content) {
-          console.log('⚠️ Chunk sin content');
-          continue;
-        }
-        
-        if (!chunk.candidates[0].content.parts) {
-          console.log('⚠️ Chunk sin parts');
-          continue;
-        }
-        
-        if (chunk.candidates[0]?.content?.parts?.[0]?.inlineData) {
+        if (chunk.candidates?.[0]?.content?.parts?.[0]?.inlineData) {
           const inlineData = chunk.candidates[0].content.parts[0].inlineData;
           imageData = {
             data: inlineData.data,
             mimeType: inlineData.mimeType || 'image/png'
           };
-          console.log('✅ Imagen generada exitosamente');
+          console.log('✅ Imagen encontrada!');
+          console.log('📊 MIME Type:', inlineData.mimeType);
           console.log('📊 Tamaño de datos:', inlineData.data.length, 'caracteres');
           break;
         } else {
-          console.log('⚠️ Chunk sin inlineData');
-          if (chunk.candidates[0]?.content?.parts?.[0]) {
-            console.log('🔍 Parte disponible:', Object.keys(chunk.candidates[0].content.parts[0]));
+          // Si hay texto en lugar de imagen
+          if (chunk.text) {
+            console.log('📝 Texto recibido:', chunk.text);
+          } else {
+            console.log('⚠️ Chunk sin inlineData ni texto');
           }
         }
       }
@@ -164,7 +160,7 @@ class DailyImageGenerator {
       console.log(`📊 Total chunks procesados: ${chunkCount}`);
       
       if (!imageData) {
-        console.log('❌ No se encontró imageData en ningún chunk');
+        console.log('❌ No se encontró imagen en ningún chunk');
         return null;
       }
       
@@ -172,6 +168,10 @@ class DailyImageGenerator {
       
     } catch (error) {
       console.error('❌ Error generando imagen:', error);
+      console.error('🔍 Detalles del error:', error.message);
+      if (error.response) {
+        console.error('📡 Respuesta del servidor:', error.response);
+      }
       throw error;
     }
   }
@@ -238,7 +238,7 @@ class DailyImageGenerator {
         console.log(`📸 Imagen ya existe para ${dateKey}: ${existingImage}`);
         return true;
       }
-    } catch (error) {
+    } catch {
       // Directory doesn't exist, no existing image
     }
     
