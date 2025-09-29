@@ -1,4 +1,4 @@
-// AI Drawing Service
+﻿// AI Drawing Service
 // This service handles generating daily drawings using Gemini 2.5 Flash Image Preview
 
 import { GoogleGenAI } from '@google/genai';

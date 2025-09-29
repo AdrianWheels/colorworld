@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build artifacts (except dist/)
+.vite/
+coverage/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backend files (not needed for frontend deploy)
+server.js
+scripts/
+legacy/
+
+# Development and testing files
+*.test.js
+*.test.jsx
+*.spec.js
+*.spec.jsx
+
+# Documentation (optional, keep README.md)
+AUTOMATION_README.md
+PROBLEMAS_SOLUCIONADOS.md
+SETUP.md
+SYSTEM_OVERVIEW.md
+USAGE_GUIDE.md
+VERCEL_DEPLOY_GUIDE.md
+
+# Git
+.git/
+.gitignore
+
+# GitHub Actions (not needed for frontend deploy)
+.github/
