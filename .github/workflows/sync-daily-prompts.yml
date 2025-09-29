@@ -1,0 +1,67 @@
+name: Sync Daily Prompts
+
+on:
+  # Ejecutar cuando se modifique el archivo CSV
+  push:
+    paths:
+      - 'src/data/365 promts.csv'
+  # También permitir ejecución manual
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-prompts:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🔄 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 📥 Install dependencies
+      run: npm ci
+      
+    - name: 🔄 Sync daily prompts from CSV
+      run: |
+        echo "🔄 Sincronizando prompts del CSV..."
+        node scripts/parse-csv.js
+        echo "✅ Prompts sincronizados correctamente"
+      
+    - name: 📝 Commit and push if changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Sync"
+        
+        # Verificar si hay cambios en el archivo daily-prompts.js
+        if git diff --quiet src/data/daily-prompts.js; then
+          echo "ℹ️ No hay cambios en daily-prompts.js"
+        else
+          echo "📝 Cambios detectados en daily-prompts.js"
+          git add src/data/daily-prompts.js
+          git commit -m "🔄 Sync daily-prompts.js from CSV changes
+          
+          - Archivo actualizado automáticamente desde CSV
+          - Cambios en: src/data/365 promts.csv
+          - Generado por: GitHub Action
+          - Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          
+          git push
+          echo "✅ daily-prompts.js actualizado y pusheado"
+        fi
+        
+    - name: 📊 Summary
+      run: |
+        echo "📊 Resumen de la sincronización:"
+        echo "- CSV procesado: src/data/365 promts.csv"
+        echo "- JS generado: src/data/daily-prompts.js"
+        echo "- Prompts totales: $(grep -c "day" src/data/daily-prompts.js)"
+        echo "✅ Sincronización completada"
