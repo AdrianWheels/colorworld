@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-09-29T20:58:37.974Z",
+  "lastUpdated": "2025-09-30T02:21:59.926Z",
   "images": {
     "2025-09-29": [
       {
@@ -10,15 +10,28 @@
         "timestamp": 1759179517908,
         "extension": "png",
         "fileSize": 1639143,
-        "lastModified": "2025-09-29T20:58:37.917Z"
+        "lastModified": "2025-09-30T02:21:36.472Z"
+      }
+    ],
+    "2025-09-30": [
+      {
+        "fileName": "2025-09-30_ArcoirisCole2_1759198919861.png",
+        "url": "/generated-images/2025-09/2025-09-30_ArcoirisCole2_1759198919861.png",
+        "theme": "ArcoirisCole2",
+        "dateKey": "2025-09-30",
+        "timestamp": 1759198919861,
+        "extension": "png",
+        "fileSize": 1260724,
+        "lastModified": "2025-09-30T02:21:59.866Z"
       }
     ]
   },
   "daysByMonth": {
     "2025-09": [
-      "2025-09-29"
+      "2025-09-29",
+      "2025-09-30"
     ]
   },
-  "totalImages": 1,
-  "totalDays": 1
+  "totalImages": 2,
+  "totalDays": 2
 }
