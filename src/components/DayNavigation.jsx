@@ -24,6 +24,14 @@ const DayNavigation = ({
     return nextDate <= today;
   };
 
+  // Verificar si se puede ir al día anterior (no antes del 1 de octubre de 2025)
+  const canGoToPreviousDay = () => {
+    const launchDate = new Date('2025-10-01');
+    const previousDate = new Date(selectedDate);
+    previousDate.setDate(previousDate.getDate() - 1);
+    return previousDate >= launchDate;
+  };
+
   const getStatusIcon = () => {
     switch (dayImageStatus) {
       case 'loading': return '⏳';
@@ -46,8 +54,9 @@ const DayNavigation = ({
     <div className="day-navigation">
       <button 
         onClick={onPreviousDay}
-        className="nav-btn prev-btn"
-        title="Día anterior"
+        className={`nav-btn prev-btn ${!canGoToPreviousDay() ? 'disabled' : ''}`}
+        disabled={!canGoToPreviousDay()}
+        title={canGoToPreviousDay() ? "Día anterior" : "No se puede ir antes del lanzamiento (1 oct 2025)"}
       >
         ← Anterior
       </button>

@@ -62,8 +62,18 @@ export const useDayNavigation = () => {
   }, [selectedDate]);
 
   const goToPreviousDay = useCallback(() => {
-    navigateToDay(-1);
-  }, [navigateToDay]);
+    // ❌ NO PERMITIR IR ANTES DEL 1 DE OCTUBRE DE 2025 (LANZAMIENTO)
+    const launchDate = new Date('2025-10-01');
+    const previousDate = new Date(selectedDate);
+    previousDate.setDate(previousDate.getDate() - 1);
+    
+    // Solo permitir si la fecha anterior no es antes del lanzamiento
+    if (previousDate >= launchDate) {
+      navigateToDay(-1);
+    } else {
+      Logger.log('🚫 No se puede navegar antes del día de lanzamiento (1 oct 2025)');
+    }
+  }, [navigateToDay, selectedDate]);
 
   const goToNextDay = useCallback(() => {
     // ❌ NO PERMITIR IR AL FUTURO - Solo días pasados desde hoy
