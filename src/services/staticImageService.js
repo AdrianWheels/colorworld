@@ -1,4 +1,6 @@
 // Servicio para cargar imágenes estáticas desde Vercel usando índice dinámico
+import Logger from '../utils/logger.js';
+
 class StaticImageService {
   constructor() {
     this.baseImagePath = '/generated-images';
@@ -17,7 +19,7 @@ class StaticImageService {
         return this.indexCache;
       }
 
-      console.log('🔄 Cargando índice de imágenes...');
+      Logger.log('🔄 Cargando índice de imágenes...');
       const response = await fetch(this.indexUrl);
       
       if (!response.ok) {
@@ -28,11 +30,11 @@ class StaticImageService {
       this.indexCache = index;
       this.lastIndexUpdate = Date.now();
       
-      console.log('✅ Índice de imágenes cargado:', Object.keys(index.images).length, 'días disponibles');
+            Logger.log('✅ Índice cargado:', index.totalImages, 'imágenes disponibles');
       return index;
       
     } catch (error) {
-      console.warn('⚠️ Error cargando índice de imágenes:', error);
+      Logger.warn('⚠️ Error cargando índice de imágenes:', error);
       // Fallback: devolver estructura vacía
       return {
         lastUpdated: new Date().toISOString(),
@@ -44,14 +46,14 @@ class StaticImageService {
 
   // Intentar cargar una imagen para una fecha específica
   async getImageForDate(dateKey) {
-    console.log(`🔍 Buscando imagen para el día: ${dateKey}`);
+    Logger.log(`🔍 Buscando imagen para el día: ${dateKey}`);
     
     try {
       const index = await this.loadImagesIndex();
       const dayImages = index.images[dateKey];
       
       if (!dayImages || dayImages.length === 0) {
-        console.log(`📭 No hay imágenes disponibles para: ${dateKey}, usando fallback`);
+        Logger.log(`📭 No hay imágenes disponibles para: ${dateKey}, usando fallback`);
         return this.getFallbackImage();
       }
       
@@ -60,7 +62,7 @@ class StaticImageService {
       
       // Verificar que la imagen realmente existe
       if (await this.imageExists(imageInfo.url)) {
-        console.log(`✅ Imagen estática encontrada: ${imageInfo.url}`);
+        Logger.log(`✅ Imagen estática encontrada: ${imageInfo.url}`);
         return {
           url: imageInfo.url,
           fileName: imageInfo.fileName,
@@ -70,13 +72,13 @@ class StaticImageService {
           source: 'static'
         };
       } else {
-        console.log(`❌ Imagen en índice no existe físicamente: ${imageInfo.url}, usando fallback`);
+        Logger.log(`❌ Imagen en índice no existe físicamente: ${imageInfo.url}, usando fallback`);
         return this.getFallbackImage();
       }
       
     } catch (error) {
-      console.error('❌ Error buscando imagen estática para:', dateKey, error);
-      console.log('🐰 Usando imagen de fallback');
+      Logger.error('❌ Error buscando imagen estática para:', dateKey, error);
+      Logger.log('🐰 Usando imagen de fallback');
       return this.getFallbackImage();
     }
   }
@@ -124,11 +126,11 @@ class StaticImageService {
       // Ordenar por fecha (más recientes primero)
       allImages.sort((a, b) => new Date(b.dateKey) - new Date(a.dateKey));
       
-      console.log(`📋 ${allImages.length} imágenes disponibles en total`);
+      Logger.log(`📋 ${allImages.length} imágenes disponibles en total`);
       return allImages;
       
     } catch (error) {
-      console.error('❌ Error obteniendo todas las imágenes:', error);
+      Logger.error('❌ Error obteniendo todas las imágenes:', error);
       return [];
     }
   }
@@ -139,7 +141,7 @@ class StaticImageService {
       const index = await this.loadImagesIndex();
       return index.daysByMonth[yearMonth] || [];
     } catch (error) {
-      console.error('❌ Error obteniendo días del mes:', yearMonth, error);
+      Logger.error('❌ Error obteniendo días del mes:', yearMonth, error);
       return [];
     }
   }
@@ -148,7 +150,7 @@ class StaticImageService {
   invalidateCache() {
     this.indexCache = null;
     this.lastIndexUpdate = null;
-    console.log('🗑️ Caché de índice invalidado');
+    Logger.log('🗑️ Caché de índice invalidado');
   }
 }
 

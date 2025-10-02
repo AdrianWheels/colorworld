@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import drawingService from '../services/drawingService';
+import Logger from '../utils/logger.js';
 
 export const useDayNavigation = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -20,34 +21,34 @@ export const useDayNavigation = () => {
         setDayImageStatus('loading');
         const dateKey = selectedDate.toISOString().split('T')[0];
         
-        console.log(`🎯 Intento ${attempt}/${MAX_RETRIES} - Cargando imagen para: ${dateKey}`);
+        Logger.log(`🎯 Intento ${attempt}/${MAX_RETRIES} - Cargando imagen para: ${dateKey}`);
         const dayImage = await drawingService.getDailyImage(dateKey);
         
-        console.log('🔍 DEBUG - dayImage recibido:', dayImage);
-        console.log('🔍 DEBUG - canvasRef.current:', !!canvasRef.current);
-        console.log('🔍 DEBUG - dayImage.blobUrl:', dayImage?.blobUrl);
+        Logger.log('🔍 DEBUG - dayImage recibido:', dayImage);
+        Logger.log('🔍 DEBUG - canvasRef.current:', !!canvasRef.current);
+        Logger.log('🔍 DEBUG - dayImage.blobUrl:', dayImage?.blobUrl);
         
         if (dayImage && dayImage.blobUrl) {
           if (canvasRef.current) {
-            console.log('🖼️ Intentando cargar imagen:', dayImage.blobUrl);
+            Logger.log('🖼️ Intentando cargar imagen:', dayImage.blobUrl);
             await canvasRef.current.loadBackgroundImage(dayImage.blobUrl);
             setDayImageStatus('available');
-            console.log('✅ Imagen cargada para el día:', dateKey);
+            Logger.log('✅ Imagen cargada para el día:', dateKey);
             return; // Éxito, salir del loop
           } else {
-            console.log(`⏳ Intento ${attempt}/${MAX_RETRIES} - Canvas no está listo, reintentando en ${RETRY_DELAY}ms...`);
+            Logger.log(`⏳ Intento ${attempt}/${MAX_RETRIES} - Canvas no está listo, reintentando en ${RETRY_DELAY}ms...`);
             if (attempt < MAX_RETRIES) {
               await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
               continue; // Reintentar
             }
           }
         } else {
-          console.log('📭 No hay imagen disponible para el día:', dateKey);
+          Logger.log('📭 No hay imagen disponible para el día:', dateKey);
           setDayImageStatus('empty');
           return;
         }
       } catch (error) {
-        console.error(`❌ Error en intento ${attempt}/${MAX_RETRIES}:`, error);
+        Logger.error(`❌ Error en intento ${attempt}/${MAX_RETRIES}:`, error);
         if (attempt === MAX_RETRIES) {
           setDayImageStatus('empty');
           return;
@@ -56,7 +57,7 @@ export const useDayNavigation = () => {
     }
     
     // Si llegamos aquí, todos los intentos fallaron
-    console.log('❌ Todos los intentos fallaron - Canvas no se inicializó correctamente');
+    Logger.log('❌ Todos los intentos fallaron - Canvas no se inicializó correctamente');
     setDayImageStatus('empty');
   }, [selectedDate]);
 
@@ -74,13 +75,13 @@ export const useDayNavigation = () => {
     if (nextDate <= today) {
       navigateToDay(1);
     } else {
-      console.log('🚫 No se puede navegar al futuro desde hoy');
+      Logger.log('🚫 No se puede navegar al futuro desde hoy');
     }
   }, [navigateToDay, selectedDate]);
 
   // ✅ CARGAR IMAGEN DEL DÍA ACTUAL AL INICIO
   useEffect(() => {
-    console.log('🎯 Hook montado - fecha inicial:', selectedDate.toISOString().split('T')[0]);
+    Logger.log('🎯 Hook montado - fecha inicial:', selectedDate.toISOString().split('T')[0]);
     // El useEffect de App.jsx se encargará de cargar la imagen automáticamente
   }, [selectedDate]); // Observar cambios en selectedDate
 

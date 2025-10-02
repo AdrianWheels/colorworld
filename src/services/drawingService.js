@@ -1,9 +1,10 @@
-﻿// AI Drawing Service
+// AI Drawing Service
 // This service handles generating daily drawings using Gemini 2.5 Flash Image Preview
 
 import { GoogleGenAI } from '@google/genai';
 import promptsManager from './promptsManager.js';
 import persistentStorage from './persistentStorage.js';
+import Logger from '../utils/logger.js';
 
 class DrawingService {
   constructor() {
@@ -20,7 +21,7 @@ class DrawingService {
   initializeGemini() {
     try {
       if (!this.apiKey) {
-        console.error('❌ API key no encontrada. Asegúrate de configurar VITE_GEMINI_API_KEY en .env');
+        Logger.error('? API key no encontrada. Aseg�rate de configurar VITE_GEMINI_API_KEY en .env');
         return;
       }
       
@@ -28,13 +29,13 @@ class DrawingService {
         apiKey: this.apiKey,
       });
       
-      console.log('✅ Gemini 2.5 Flash Image Preview inicializada correctamente');
+      Logger.log('? Gemini 2.5 Flash Image Preview inicializada correctamente');
     } catch (error) {
-      console.error('❌ Error inicializando Gemini API:', error);
+      Logger.error('? Error inicializando Gemini API:', error);
     }
   }
 
-  // Set the Gemini API key (opcional, ya está en .env)
+  // Set the Gemini API key (opcional, ya est� en .env)
   setApiKey(apiKey) {
     this.apiKey = apiKey;
     this.initializeGemini();
@@ -99,7 +100,7 @@ class DrawingService {
   // Generate image using Gemini 2.5 Flash Image Preview with optimized prompts
   async generateImageWithGemini(forDateKey = null) {
     if (!this.genAI) {
-      console.error('❌ Gemini API no está inicializada');
+      Logger.error('? Gemini API no est� inicializada');
       return this.generateMockDrawing();
     }
 
@@ -108,13 +109,13 @@ class DrawingService {
       const dateKey = targetDate.toISOString().split('T')[0];
       const promptInfo = this.getColoringPrompts(targetDate);
       
-      console.log('🎨 Prompt seleccionado:', promptInfo.theme, 'para el día:', dateKey);
+      Logger.log('?? Prompt seleccionado:', promptInfo.theme, 'para el d�a:', dateKey);
       
       // Usar el prompt optimizado del promptsManager
       const enhancedPrompt = promptsManager.buildEnhancedPrompt(promptInfo.promptData);
 
-      console.log('🤖 Generando imagen con Gemini 2.5...');
-      console.log('🗺️ Prompt optimizado:', enhancedPrompt.substring(0, 100) + '...');
+      Logger.log('?? Generando imagen con Gemini 2.5...');
+      Logger.log('??? Prompt optimizado:', enhancedPrompt.substring(0, 100) + '...');
       
       const config = {
         responseModalities: ['IMAGE'],
@@ -151,13 +152,13 @@ class DrawingService {
             data: inlineData.data,
             mimeType: inlineData.mimeType || 'image/png'
           };
-          console.log('✅ Imagen generada por Gemini recibida');
+          Logger.log('? Imagen generada por Gemini recibida');
           break; // Solo necesitamos la primera imagen
         }
       }
       
       if (imageData) {
-        // Guardar la imagen localmente para el día especificado
+        // Guardar la imagen localmente para el d�a especificado
         const savedImagePath = await this.saveGeneratedImage(imageData, promptInfo.prompt, dateKey);
         
         return {
@@ -171,16 +172,16 @@ class DrawingService {
           promptData: promptInfo.promptData
         };
       } else {
-        console.log('⚠️ No se generó imagen con Gemini, usando SVG de respaldo');
+        Logger.log('?? No se gener� imagen con Gemini, usando SVG de respaldo');
         return this.generateMockDrawing(promptInfo.theme);
       }
       
     } catch (error) {
-      console.error('❌ Error generando con Gemini 2.5:', error);
+      Logger.error('? Error generando con Gemini 2.5:', error);
       
-      // Manejo específico de error de cuota
+      // Manejo espec�fico de error de cuota
       if (error.code === 429) {
-        throw new Error('Cuota de Gemini agotada. Inténtalo más tarde.');
+        throw new Error('Cuota de Gemini agotada. Int�ntalo m�s tarde.');
       }
       
       throw error;
@@ -197,7 +198,7 @@ class DrawingService {
       // Crear nombre de archivo con fecha y tema
       const fileName = `${dateKey}_${cleanPrompt}_${timestamp}`;
       
-      // Determinar extensión basada en mimeType
+      // Determinar extensi�n basada en mimeType
       let extension = 'png';
       if (imageData.mimeType?.includes('jpeg')) extension = 'jpg';
       else if (imageData.mimeType?.includes('webp')) extension = 'webp';
@@ -205,7 +206,7 @@ class DrawingService {
       const fullFileName = `${fileName}.${extension}`;
       const theme = this.extractThemeFromPrompt(prompt);
       
-      console.log(`💾 Guardando imagen: ${fullFileName} para el día ${dateKey}`);
+      Logger.log(`?? Guardando imagen: ${fullFileName} para el d�a ${dateKey}`);
       
       // Intentar guardar en servidor persistente
       try {
@@ -218,19 +219,19 @@ class DrawingService {
         );
         
         if (saveResult.success) {
-          console.log(`✅ Imagen guardada exitosamente en servidor: ${fullFileName}`);
+          Logger.log(`? Imagen guardada exitosamente en servidor: ${fullFileName}`);
           return saveResult.url;
         }
       } catch (serverError) {
-        console.warn('⚠️ Error guardando en servidor, continuando sin guardar:', serverError.message);
+        Logger.warn('?? Error guardando en servidor, continuando sin guardar:', serverError.message);
       }
       
       // Si falla el servidor, retornar data URL directamente sin intentar localStorage
-      console.log('📱 Usando data URL directamente (sin persistencia)');
+      Logger.log('?? Usando data URL directamente (sin persistencia)');
       return `data:${imageData.mimeType};base64,${imageData.data}`;
       
     } catch (error) {
-      console.error('❌ Error en saveGeneratedImage:', error);
+      Logger.error('? Error en saveGeneratedImage:', error);
       // Fallback: retornar data URL directamente
       return `data:${imageData.mimeType};base64,${imageData.data}`;
     }
@@ -238,7 +239,7 @@ class DrawingService {
 
   // Extract theme from prompt for organization
   extractThemeFromPrompt(prompt) {
-    const themes = ['calabaza', 'murciélago', 'fantasma', 'bruja', 'esqueleto', 'araña', 'gato', 'sombrero', 'castillo', 'zombie'];
+    const themes = ['calabaza', 'murci�lago', 'fantasma', 'bruja', 'esqueleto', 'ara�a', 'gato', 'sombrero', 'castillo', 'zombie'];
     for (const theme of themes) {
       if (prompt.toLowerCase().includes(theme)) {
         return theme;
@@ -249,7 +250,7 @@ class DrawingService {
 
   // Save image for specific day
   saveDailyImage(dateKey, imageInfo) {
-    // Obtener imágenes existentes para este día
+    // Obtener im�genes existentes para este d�a
     const dayImages = JSON.parse(localStorage.getItem(`daily_images_${dateKey}`) || '[]');
     
     // Agregar la nueva imagen
@@ -258,11 +259,11 @@ class DrawingService {
     // Guardar de vuelta
     localStorage.setItem(`daily_images_${dateKey}`, JSON.stringify(dayImages));
     
-    // Actualizar índice de días con imágenes
+    // Actualizar �ndice de d�as con im�genes
     const daysWithImages = JSON.parse(localStorage.getItem('days_with_images') || '[]');
     if (!daysWithImages.includes(dateKey)) {
       daysWithImages.push(dateKey);
-      daysWithImages.sort().reverse(); // Más recientes primero
+      daysWithImages.sort().reverse(); // M�s recientes primero
       localStorage.setItem('days_with_images', JSON.stringify(daysWithImages));
     }
   }
@@ -278,7 +279,7 @@ class DrawingService {
       dateKey = new Date().toISOString().split('T')[0];
     }
     
-    console.log('🔍 Buscando imagen para el día:', dateKey);
+    Logger.log('?? Buscando imagen para el d�a:', dateKey);
     
     // Primero intentar obtener desde el servidor
     try {
@@ -286,28 +287,28 @@ class DrawingService {
       
       if (serverImages.length > 0) {
         const imageInfo = serverImages[0];
-        console.log('🌐 Imagen encontrada en servidor:', imageInfo.fileName);
+        Logger.log('?? Imagen encontrada en servidor:', imageInfo.fileName);
         
         return {
           fileName: imageInfo.fileName || 'imagen.png',
           prompt: imageInfo.prompt || imageInfo.theme || 'Sin prompt',
           theme: imageInfo.theme || 'Sin tema',
           dateKey: dateKey,
-          blobUrl: imageInfo.url, // URL del servidor o estática
+          blobUrl: imageInfo.url, // URL del servidor o est�tica
           source: imageInfo.source || 'static',
           generatedAt: imageInfo.savedAt || imageInfo.lastModified || new Date().toISOString()
         };
       }
     } catch (error) {
-      console.warn('⚠️ No se pudo conectar al servidor, intentando localStorage:', error);
+      Logger.warn('?? No se pudo conectar al servidor, intentando localStorage:', error);
     }
     
-    // Fallback a localStorage solo si el servidor no está disponible
+    // Fallback a localStorage solo si el servidor no est� disponible
     const dayImages = this.getImagesForDay(dateKey);
     
     if (dayImages.length > 0) {
       const imageInfo = dayImages[0];
-      console.log('� Imagen encontrada en localStorage:', imageInfo.fileName);
+      Logger.log('? Imagen encontrada en localStorage:', imageInfo.fileName);
       
       // SIEMPRE recrear el blob URL desde localStorage para garantizar que funcione
       const imageData = localStorage.getItem(`image_data_${imageInfo.timestamp}`);
@@ -318,22 +319,22 @@ class DrawingService {
           const blob = new Blob([buffer], { type: parsedData.mimeType });
           const newBlobUrl = URL.createObjectURL(blob);
           
-          console.log('✅ Blob URL recreado desde localStorage');
+          Logger.log('? Blob URL recreado desde localStorage');
           
-          // Actualizar la información con el nuevo blob URL
+          // Actualizar la informaci�n con el nuevo blob URL
           imageInfo.blobUrl = newBlobUrl;
           imageInfo.source = 'localStorage';
           
           return imageInfo;
         } catch (error) {
-          console.error('❌ Error recreando blob:', error);
+          Logger.error('? Error recreando blob:', error);
           return null;
         }
       }
     }
     
-    console.log('📅 No hay imagen guardada para este día');
-    return null; // No hay imagen para este día
+    Logger.log('?? No hay imagen guardada para este d�a');
+    return null; // No hay imagen para este d�a
   }
 
   // Get all days with images
@@ -343,7 +344,7 @@ class DrawingService {
 
   // Clean up old localStorage blob URLs when server is available
   cleanupLocalStorage() {
-    console.log('🧹 Limpiando localStorage obsoleto...');
+    Logger.log('?? Limpiando localStorage obsoleto...');
     
     // Limpiar blob URLs antiguos
     const keys = Object.keys(localStorage);
@@ -368,7 +369,7 @@ class DrawingService {
       }
     });
     
-    console.log(`✅ Limpiado ${cleanedCount} blob URLs obsoletos`);
+    Logger.log(`? Limpiado ${cleanedCount} blob URLs obsoletos`);
   }
   
   // Get list of generated images
@@ -376,7 +377,7 @@ class DrawingService {
     try {
       return JSON.parse(localStorage.getItem('generated_images') || '[]');
     } catch (error) {
-      console.error('❌ Error obteniendo imágenes:', error);
+      Logger.error('? Error obteniendo im�genes:', error);
       return [];
     }
   }
@@ -392,7 +393,7 @@ class DrawingService {
       const blob = new Blob([buffer], { type: imageData.mimeType });
       return URL.createObjectURL(blob);
     } catch (error) {
-      console.error('❌ Error restaurando imagen:', error);
+      Logger.error('? Error restaurando imagen:', error);
       return null;
     }
   }
@@ -403,10 +404,10 @@ class DrawingService {
       const cutoffDate = Date.now() - (daysOld * 24 * 60 * 60 * 1000);
       const savedImages = this.getGeneratedImages();
       
-      // Filtrar imágenes recientes
+      // Filtrar im�genes recientes
       const recentImages = savedImages.filter(img => img.timestamp > cutoffDate);
       
-      // Liberar URLs de imágenes antiguas
+      // Liberar URLs de im�genes antiguas
       savedImages.forEach(img => {
         if (img.timestamp <= cutoffDate && img.blobUrl) {
           URL.revokeObjectURL(img.blobUrl);
@@ -415,10 +416,10 @@ class DrawingService {
       });
       
       localStorage.setItem('generated_images', JSON.stringify(recentImages));
-      console.log(`🧹 Limpieza completada: ${savedImages.length - recentImages.length} imágenes eliminadas`);
+      Logger.log(`?? Limpieza completada: ${savedImages.length - recentImages.length} im�genes eliminadas`);
       
     } catch (error) {
-      console.error('❌ Error en limpieza:', error);
+      Logger.error('? Error en limpieza:', error);
     }
   }
 
@@ -439,12 +440,12 @@ class DrawingService {
     
     if (!todayDrawing) {
       try {
-        console.log('🎨 Generando nuevo dibujo del día...');
+        Logger.log('?? Generando nuevo dibujo del d�a...');
         todayDrawing = await this.generateWithGemini();
         this.saveDrawing(todayDrawing);
-        console.log('✅ Dibujo generado y guardado');
+        Logger.log('? Dibujo generado y guardado');
       } catch (error) {
-        console.error('❌ Error generating drawing:', error);
+        Logger.error('? Error generating drawing:', error);
         throw error;
       }
     }
@@ -454,7 +455,7 @@ class DrawingService {
 
   // New function: Generate custom drawing with Gemini
   async generateCustomDrawing(userPrompt) {
-    console.log('🎨 Generando dibujo personalizado:', userPrompt);
+    Logger.log('?? Generando dibujo personalizado:', userPrompt);
     try {
       const drawing = await this.generateWithGemini(userPrompt);
       // Optionally save custom drawings too
@@ -462,7 +463,7 @@ class DrawingService {
       localStorage.setItem(`drawing_${customKey}`, JSON.stringify(drawing));
       return drawing;
     } catch (error) {
-      console.error('❌ Error generando dibujo personalizado:', error);
+      Logger.error('? Error generando dibujo personalizado:', error);
       throw error;
     }
   }
