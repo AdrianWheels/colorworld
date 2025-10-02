@@ -44,9 +44,9 @@ const DayNavigation = ({
   const getStatusText = () => {
     switch (dayImageStatus) {
       case 'loading': return 'Cargando...';
-      case 'available': return 'Imagen disponible';
+      case 'available': return ''; // Quitar texto, solo mostrar ícono
       case 'empty': return 'Sin imagen';
-      default: return 'Selecciona un día';
+      default: return '';
     }
   };
 
@@ -64,7 +64,7 @@ const DayNavigation = ({
       <div className="current-day">
         <div className="day-status">
           <span className="status-icon">{getStatusIcon()}</span>
-          <span className="status-text">{getStatusText()}</span>
+          {getStatusText() && <span className="status-text">{getStatusText()}</span>}
         </div>
         <div className="day-date">
           {formatDate(selectedDate)}

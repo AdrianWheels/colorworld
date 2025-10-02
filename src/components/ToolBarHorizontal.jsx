@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import '../styles/ToolBarHorizontal.css';
 
 const ToolBarHorizontal = ({ 
@@ -21,9 +22,21 @@ const ToolBarHorizontal = ({
   const [previewColor, setPreviewColor] = useState(null);
 
   const colors = [
-    '#000000', '#FFFFFF', '#FF0000', '#00FF00', '#0000FF',
-    '#FFFF00', '#FF00FF', '#00FFFF', '#FFA500', '#800080',
-    '#FFC0CB', '#A52A2A', '#808080', '#90EE90', '#FFB6C1'
+    '#000000', // Negro clásico
+    '#FF6600', // Naranja calabaza
+    '#8B0000', // Rojo sangre
+    '#4B0082', // Índigo oscuro
+    '#FF8C00', // Naranja oscuro
+    '#800080', // Púrpura
+    '#228B22', // Verde bosque
+    '#FFD700', // Dorado
+    '#8B4513', // Marrón saddle
+    '#2F4F4F', // Gris pizarra oscuro
+    '#DC143C', // Carmesí
+    '#9932CC', // Violeta oscuro
+    '#B8860B', // Dorado oscuro
+    '#556B2F', // Verde oliva oscuro
+    '#FFFFFF'  // Blanco fantasma
   ];
 
   const handleToolChange = (tool) => {
@@ -127,7 +140,7 @@ const ToolBarHorizontal = ({
             title="Seleccionar color"
           />
           
-          {showColorPicker && (
+          {showColorPicker && createPortal(
             <>
               <div 
                 className="color-palette-overlay" 
@@ -157,20 +170,27 @@ const ToolBarHorizontal = ({
                     title={`Color ${color}`}
                   />
                 ))}
-                <input
-                  type="color"
-                  value={previewColor || currentColor}
-                  onChange={(e) => {
-                    handleColorPreview(e.target.value);
-                  }}
-                  onBlur={(e) => {
-                    handleColorConfirm(e.target.value);
-                  }}
-                  className="custom-color-input"
-                  title="Color personalizado"
-                />
+                <div className="custom-color-section">
+                  <label htmlFor="custom-color" className="custom-color-label">
+                    🎨 ¡Crea tu color!
+                  </label>
+                  <input
+                    id="custom-color"
+                    type="color"
+                    value={previewColor || currentColor}
+                    onChange={(e) => {
+                      handleColorPreview(e.target.value);
+                    }}
+                    onBlur={(e) => {
+                      handleColorConfirm(e.target.value);
+                    }}
+                    className="custom-color-input"
+                    title="Selecciona cualquier color personalizado"
+                  />
+                </div>
               </div>
-            </>
+            </>,
+            document.body
           )}
         </div>
       </div>

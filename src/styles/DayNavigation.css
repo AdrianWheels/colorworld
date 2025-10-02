@@ -4,8 +4,8 @@
   justify-content: space-between;
   background: linear-gradient(145deg, #f8f9ff, #e8e9f3);
   border-radius: 12px;
-  padding: 16px 24px;
-  margin: 16px 0;
+  padding: 8px 16px; /* Más compacto */
+  margin: 8px 0; /* Menos margen */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(138, 43, 226, 0.1);
 }
@@ -14,10 +14,11 @@
   background: linear-gradient(145deg, #8a2be2, #9932cc);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 6px 16px; /* Más compacto */
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 0.85rem; /* Texto más pequeño */
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(138, 43, 226, 0.3);
 }
@@ -47,29 +48,29 @@
 .current-day {
   text-align: center;
   flex: 1;
-  margin: 0 20px;
+  margin: 0 16px; /* Menos margen */
 }
 
 .day-status {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: 6px; /* Menos gap */
+  margin-bottom: 2px; /* Menos margen */
 }
 
 .status-icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem; /* Más pequeño */
 }
 
 .status-text {
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Más pequeño */
   color: #666;
   font-weight: 500;
 }
 
 .day-date {
-  font-size: 1.1rem;
+  font-size: 1rem; /* Más pequeño */
   font-weight: 700;
   color: #333;
   text-transform: capitalize;
@@ -77,20 +78,66 @@
 
 @media (max-width: 600px) {
   .day-navigation {
-    padding: 12px 16px;
-    margin: 12px 0;
+    padding: 8px 12px;
+    margin: 8px 0;
   }
   
   .nav-btn {
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    padding: 6px 10px;
+    font-size: 0.85rem;
   }
   
   .current-day {
-    margin: 0 12px;
+    margin: 0 8px;
   }
   
   .day-date {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Optimización para dispositivos muy pequeños */
+@media (max-width: 480px) {
+  .day-navigation {
+    padding: 6px 8px;
+    margin: 6px 0;
+  }
+  
+  .nav-btn {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .current-day {
+    margin: 0 6px;
+  }
+  
+  .day-date {
+    font-size: 0.9rem;
+  }
+}
+
+/* Optimización para altura muy pequeña (móvil horizontal) */
+@media (max-height: 500px) {
+  .day-navigation {
+    padding: 4px 6px;
+    margin: 4px 0;
+  }
+  
+  .nav-btn {
+    padding: 3px 6px;
+    font-size: 0.75rem;
+  }
+  
+  .current-day {
+    margin: 0 4px;
+  }
+  
+  .day-date {
+    font-size: 0.85rem;
+  }
+  
+  .status-text {
+    font-size: 0.8rem;
   }
 }

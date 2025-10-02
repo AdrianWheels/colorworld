@@ -69,18 +69,32 @@ const DrawingCanvasSimple = forwardRef(({
   const isPerformingUndoRedo = useRef(false);
   const hasDrawnInCurrentStroke = useRef(false);
   const isSavingState = useRef(false); // Guard para evitar doble guardado
+  
+  // Flag para preservar zoom manual del usuario
+  const hasUserInteractedWithZoom = useRef(false);
 
   // Detectar cambios de dispositivo y ajustar zoom inicial
   useEffect(() => {
-    const currentZoom = getInitialZoomByScreenSize();
-    Logger.log(`?? Zoom inicial configurado: ${(currentZoom * 100).toFixed(0)}% para dispositivo detectado`);
+    // Solo aplicar zoom automático en la primera carga
+    if (!hasUserInteractedWithZoom.current) {
+      const currentZoom = getInitialZoomByScreenSize();
+      Logger.log(`🔍 Zoom inicial configurado: ${(currentZoom * 100).toFixed(0)}% para dispositivo detectado`);
+      setZoom(currentZoom);
+    }
     
     const handleResize = () => {
-      const newInitialZoom = getInitialZoomByScreenSize();
-      // Solo cambiar si es significativamente diferente para evitar ajustes menores
-      if (Math.abs(zoom - newInitialZoom) > 0.1) {
-        Logger.log(`?? Cambio de zoom por redimensi�n: ${(newInitialZoom * 100).toFixed(0)}%`);
-        setZoom(newInitialZoom);
+      // Solo ajustar zoom automático si el usuario NO ha interactuado manualmente
+      if (!hasUserInteractedWithZoom.current) {
+        const newInitialZoom = getInitialZoomByScreenSize();
+        // Solo cambiar si es significativamente diferente para evitar ajustes menores
+        if (Math.abs(zoom - newInitialZoom) > 0.1) {
+          Logger.log(`🔍 Cambio de zoom por redimensión: ${(newInitialZoom * 100).toFixed(0)}%`);
+          setZoom(newInitialZoom);
+        }
+      } else {
+        // Si el usuario ya interactuó, solo verificar límites mínimos/máximos
+        setZoom(currentZoom => Math.max(0.1, Math.min(5, currentZoom)));
+        Logger.log(`🔍 Zoom preservado del usuario: ${(zoom * 100).toFixed(0)}%`);
       }
     };
 
@@ -111,6 +125,9 @@ const DrawingCanvasSimple = forwardRef(({
   const handleWheel = useCallback((e) => {
     e.preventDefault();
     
+    // Marcar que el usuario ha interactuado manualmente con el zoom
+    hasUserInteractedWithZoom.current = true;
+    
     const rect = containerRef.current.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
@@ -125,6 +142,7 @@ const DrawingCanvasSimple = forwardRef(({
       y: mouseY - (mouseY - pan.y) * zoomRatio
     };
     
+    Logger.log(`🔍 Zoom manual (wheel): ${(newZoom * 100).toFixed(0)}%`);
     setZoom(newZoom);
     setPan(newPan);
   }, [zoom, pan]);
@@ -673,6 +691,9 @@ const DrawingCanvasSimple = forwardRef(({
       const center = getTouchCenter(touches[0], touches[1]);
       
       if (touchStartDistance > 0) {
+        // Marcar que el usuario ha interactuado manualmente con el zoom
+        hasUserInteractedWithZoom.current = true;
+        
         // Calcular zoom
         const zoomFactor = distance / touchStartDistance;
         const newZoom = Math.max(0.1, Math.min(5, initialZoom * zoomFactor));
@@ -1024,6 +1045,8 @@ const DrawingCanvasSimple = forwardRef(({
           {/* Canvas de fondo - líneas del dibujo (invisible, solo para trabajo) */}
           <canvas
             ref={backgroundCanvasRef}
+            width={CANVAS_WIDTH}
+            height={CANVAS_HEIGHT}
             style={{
               position: 'absolute',
               top: 0,
@@ -1036,6 +1059,8 @@ const DrawingCanvasSimple = forwardRef(({
           {/* Canvas de dibujo del usuario - colores (invisible, solo para trabajo) */}
           <canvas
             ref={drawingCanvasRef}
+            width={CANVAS_WIDTH}
+            height={CANVAS_HEIGHT}
             style={{
               position: 'absolute',
               top: 0,
@@ -1047,6 +1072,8 @@ const DrawingCanvasSimple = forwardRef(({
           {/* Canvas compuesto - el que se muestra al usuario */}
           <canvas
             ref={compositeCanvasRef}
+            width={CANVAS_WIDTH}
+            height={CANVAS_HEIGHT}
             style={{
               position: 'absolute',
               top: 0,

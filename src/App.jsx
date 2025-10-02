@@ -24,6 +24,7 @@ function App() {
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(true); // Estado para footer colapsable
   const [todayTheme, setTodayTheme] = useState('');
   
   const canvasRef = useRef(null);
@@ -219,7 +220,17 @@ function App() {
         </aside>
       </main>
 
-      <footer className="app-footer">
+      {/* Botón para mostrar/ocultar footer */}
+      <button 
+        className="footer-toggle-btn"
+        onClick={() => setIsFooterVisible(!isFooterVisible)}
+        title={isFooterVisible ? "Ocultar información" : "Mostrar información"}
+      >
+        {isFooterVisible ? '⬇️' : '⬆️'} {todayTheme}
+      </button>
+
+      {/* Footer colapsable */}
+      <footer className={`app-footer ${isFooterVisible ? 'visible' : 'hidden'}`}>
         <p className="footer-text">
           <strong>Dreaming about {todayTheme}!</strong>
         </p>
