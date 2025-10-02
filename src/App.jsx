@@ -6,6 +6,9 @@ import ControlsModal from './components/ControlsModal';
 import DayNavigation from './components/DayNavigation';
 import CanvasActions from './components/CanvasActions';
 import ToastContainer from './components/ToastContainer';
+import StructuredData from './components/StructuredData';
+import SEOHead from './components/SEOHead';
+import AboutModal from './components/AboutModal';
 import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
 import { useCanvasActions } from './hooks/useCanvasActions';
@@ -20,6 +23,7 @@ function App() {
   const [brushSize, setBrushSize] = useState(5);
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [todayTheme, setTodayTheme] = useState('');
   
   const canvasRef = useRef(null);
@@ -144,6 +148,19 @@ function App() {
 
   return (
     <div className="app">
+      {/* Structured Data para SEO - invisible al usuario */}
+      <StructuredData 
+        todayTheme={todayTheme}
+        selectedDate={selectedDate}
+        dayImageStatus={dayImageStatus}
+      />
+      
+      {/* SEO Head dinámico */}
+      <SEOHead 
+        currentTheme={todayTheme}
+        currentDate={selectedDate}
+      />
+      
       <header className="app-header">
         <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
         
@@ -206,13 +223,28 @@ function App() {
         <p className="footer-text">
           <strong>Dreaming about {todayTheme}!</strong>
         </p>
-        <p className="footer-share">Share it on social media #coloreveryday</p>
+        <p className="footer-share">
+          Share it on social media #coloreveryday{' '}
+          <button 
+            className="about-link" 
+            onClick={() => setIsAboutModalOpen(true)}
+            aria-label="Acerca de ColorEveryday"
+          >
+            ℹ️
+          </button>
+        </p>
       </footer>
       
       {/* Modal de controles */}
       <ControlsModal 
         isOpen={isControlsModalOpen}
         onClose={() => setIsControlsModalOpen(false)}
+      />
+      
+      {/* Modal About Us */}
+      <AboutModal 
+        isOpen={isAboutModalOpen}
+        onClose={() => setIsAboutModalOpen(false)}
       />
       
       {/* Toast notifications */}

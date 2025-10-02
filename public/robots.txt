@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /generated-images/
+Disallow: /api/
+Disallow: /scripts/
+Disallow: /_next/
+Disallow: /assets/
+
+# Permitir indexación de imágenes generadas
+User-agent: Googlebot-Image
+Allow: /generated-images/
+Allow: /public/generated-images/
+
+# Sitemap
+Sitemap: https://coloreveryday.vercel.app/sitemap.xml
+
+# Información adicional
+# Crawl-delay: 1
