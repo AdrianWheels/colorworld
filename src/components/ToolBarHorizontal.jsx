@@ -78,6 +78,13 @@ const ToolBarHorizontal = ({
           🖌️
         </button>
         <button 
+          className={`tool-btn ${currentTool === 'bucket' ? 'active' : ''}`}
+          onClick={() => handleToolChange('bucket')}
+          title="Balde de pintura - Llenar área cerrada"
+        >
+          🪣
+        </button>
+        <button 
           className={`tool-btn ${currentTool === 'eraser' ? 'active' : ''}`}
           onClick={() => handleToolChange('eraser')}
           title="Goma de borrar"

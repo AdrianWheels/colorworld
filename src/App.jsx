@@ -24,7 +24,7 @@ function App() {
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [isFooterVisible, setIsFooterVisible] = useState(true); // Estado para footer colapsable
+  const [isFooterVisible, setIsFooterVisible] = useState(false); // Estado para footer colapsable - oculto por defecto
   const [todayTheme, setTodayTheme] = useState('');
   
   const canvasRef = useRef(null);

@@ -102,3 +102,37 @@
     min-width: 70px;
   }
 }
+
+/* Móviles en orientación vertical */
+@media (max-width: 480px) and (min-height: 800px) {
+  .canvas-actions {
+    gap: 6px;
+    margin: 6px 0;
+  }
+  
+  .action-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    min-width: 100px;
+  }
+}
+
+/* Resoluciones estrechas en orientación vertical - botón más compacto pero visible */
+@media (max-width: 750px) and (min-height: 1000px) {
+  .canvas-actions {
+    gap: 8px;
+    margin: 8px 0;
+  }
+  
+  .action-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    min-width: 110px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .save-btn {
+    border: 2px solid rgba(40, 167, 69, 0.3);
+    font-weight: 700;
+  }
+}

@@ -19,12 +19,53 @@
 .canvas-layers-container {
   width: 100%;
   height: 100%;
-  max-width: min(100%, 100vh - 200px); /* Limitar por viewport */
-  max-height: min(100%, 100vh - 200px); /* Limitar por viewport */
+  /* Tamaño adaptativo mejorado - reservar espacio para botón CanvasActions */
+  max-width: min(calc(100vw - 40px), calc(100vh - 400px));
+  max-height: min(calc(100vw - 40px), calc(100vh - 400px));
   aspect-ratio: 1 / 1; /* Mantener relación cuadrada */
-  overflow: hidden; /* Evitar scroll interno */
   min-width: 200px; /* Tamaño mínimo funcional */
   min-height: 200px; /* Tamaño mínimo funcional */
+  overflow: hidden;
+  border: 3px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Tablet - Canvas un poco más pequeño */
+@media (max-width: 1024px) and (min-width: 481px) {
+  .canvas-layers-container {
+    max-width: min(100%, 55vh);
+    max-height: min(100%, 55vh);
+  }
+}
+
+/* Móvil - Canvas más compacto para dejar espacio al botón */
+@media (max-width: 480px) {
+  .canvas-layers-container {
+    max-width: min(100%, 65vh);
+    max-height: min(100%, 65vh);
+    min-width: 180px;
+    min-height: 180px;
+  }
+  
+  .drawing-canvas-container {
+    padding: 1px;
+  }
+  
+  .drawing-canvas {
+    border-width: 1px;
+    border-radius: 4px;
+  }
+}
+
+/* Resoluciones estrechas y altas como 704x1165 - Canvas aún más compacto */
+@media (max-width: 750px) and (min-height: 1000px) {
+  .canvas-layers-container {
+    max-width: min(100%, 40vh); /* Reducido a 40vh para dar mucho más espacio al botón */
+    max-height: min(100%, 40vh);
+    min-width: 160px;
+    min-height: 160px;
+  }
 }
 
 .drawing-canvas {
@@ -65,16 +106,16 @@
   flex: 1;
   min-height: 0;
   height: 100%; /* Usar altura disponible */
-  overflow: hidden; /* Evitar scroll */
+  overflow: hidden; /* Restaurado */
 }
 
 .canvas-layers-container {
   width: 100%;
   height: 100%;
-  max-width: min(calc(100vw - 40px), calc(100vh - 180px)); /* Mejor control de límites */
-  max-height: min(calc(100vw - 40px), calc(100vh - 180px)); /* Mejor control de límites */
+  max-width: min(calc(100vw - 20px), calc(100vh - 220px)); /* Más espacio para UI */
+  max-height: min(calc(100vw - 20px), calc(100vh - 220px)); /* Más espacio para UI */
   aspect-ratio: 1 / 1; /* Mantener relación cuadrada */
-  overflow: hidden; /* Evitar scroll interno */
+  /* overflow: hidden; Removido para diagnosticar */
   min-width: 150px; /* Tamaño mínimo más pequeño */
   min-height: 150px; /* Tamaño mínimo más pequeño */
   border: 3px solid #333;
@@ -126,8 +167,8 @@
   }
   
   .canvas-layers-container {
-    max-width: min(98vw, 98vh - 120px); /* Usar más espacio */
-    max-height: min(98vw, 98vh - 120px); /* Usar más espacio */
+    max-width: min(calc(100vw - 10px), calc(100vh - 160px)); /* Más espacio vertical */
+    max-height: min(calc(100vw - 10px), calc(100vh - 160px)); /* Más espacio vertical */
     min-width: 150px;
     min-height: 150px;
     border-width: 2px;
@@ -143,6 +184,22 @@
   }
 }
 
+/* Tablet: 481px a 1024px */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .canvas-layers-container {
+    max-width: min(calc(100vw - 30px), calc(100vh - 250px)); /* Más espacio para toolbar */
+    max-height: min(calc(100vw - 30px), calc(100vh - 250px)); /* Más espacio para toolbar */
+  }
+}
+
+/* Desktop: más de 1024px */
+@media (min-width: 1025px) {
+  .canvas-layers-container {
+    max-width: min(calc(100vw - 40px), calc(100vh - 280px)); /* Suficiente espacio para UI */
+    max-height: min(calc(100vw - 40px), calc(100vh - 280px)); /* Suficiente espacio para UI */
+  }
+}
+
 /* Móvil horizontal: altura pequeña */
 @media (max-height: 500px) {
   .drawing-canvas-container {
@@ -151,8 +208,8 @@
   }
   
   .canvas-layers-container {
-    max-width: min(90vw, 90vh - 80px); /* Mucho menos espacio reservado */
-    max-height: min(90vw, 90vh - 80px); /* Mucho menos espacio reservado */
+    max-width: min(calc(90vw), calc(100vh - 120px)); /* Menos espacio reservado para UI */
+    max-height: min(calc(90vw), calc(100vh - 120px)); /* Menos espacio reservado para UI */
     min-width: 120px;
     min-height: 120px;
     border-width: 1px;
@@ -177,8 +234,9 @@
   }
   
   .canvas-layers-container {
-    max-width: min(calc(100vw - 60px), calc(100vh - 140px)); /* Mejor control */
-    max-height: min(calc(100vw - 60px), calc(100vh - 140px)); /* Mejor control */
+    /* Reservar más espacio para CanvasActions en tablet */
+    max-width: min(calc(100vw - 60px), calc(100vh - 400px));
+    max-height: min(calc(100vw - 60px), calc(100vh - 400px));
     min-width: 180px;
     min-height: 180px;
     border-width: 3px;
@@ -203,8 +261,9 @@
   }
   
   .canvas-layers-container {
-    max-width: min(calc(100vw - 80px), calc(100vh - 160px)); /* Mejor control */
-    max-height: min(calc(100vw - 80px), calc(100vh - 160px)); /* Mejor control */
+    /* Reservar más espacio para CanvasActions en desktop */
+    max-width: min(calc(100vw - 80px), calc(100vh - 500px));
+    max-height: min(calc(100vw - 80px), calc(100vh - 500px));
     min-width: 300px;
     min-height: 300px;
     border-width: 3px;

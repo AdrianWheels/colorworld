@@ -15,6 +15,100 @@
   flex-wrap: wrap;
 }
 
+/* Móviles - toolbar más compacta */
+@media (max-width: 480px) {
+  .toolbar-horizontal {
+    gap: 8px;
+    padding: 6px 10px;
+    margin: 8px auto;
+    border-radius: 18px;
+  }
+  
+  .toolbar-section {
+    gap: 6px;
+  }
+  
+  .section-label {
+    font-size: 0.7rem;
+  }
+  
+  .tool-btn {
+    padding: 6px;
+    font-size: 1rem;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+  
+  .size-slider {
+    width: 80px;
+    height: 5px;
+  }
+  
+  .size-slider::-webkit-slider-thumb,
+  .size-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .size-value {
+    font-size: 0.7rem;
+    min-width: 25px;
+  }
+  
+  .color-picker {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Resoluciones estrechas en orientación vertical - toolbar muy compacta */
+@media (max-width: 750px) and (min-height: 1000px) {
+  .toolbar-horizontal {
+    gap: 6px;
+    padding: 5px 8px;
+    margin: 5px auto;
+    border-radius: 15px;
+  }
+  
+  .toolbar-section {
+    gap: 4px;
+  }
+  
+  .section-label {
+    font-size: 0.65rem;
+  }
+  
+  .tool-btn {
+    padding: 5px;
+    font-size: 0.95rem;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+  
+  .size-slider {
+    width: 70px;
+    height: 4px;
+  }
+  
+  .size-slider::-webkit-slider-thumb,
+  .size-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .size-value {
+    font-size: 0.65rem;
+    min-width: 22px;
+  }
+  
+  .color-picker {
+    width: 26px;
+    height: 26px;
+  }
+}
+
 .toolbar-section {
   display: flex;
   align-items: center;
