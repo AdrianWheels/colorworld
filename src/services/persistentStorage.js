@@ -1,5 +1,6 @@
 // API Service for persistent image storage
 import staticImageService from './staticImageService.js';
+import Logger from '../utils/logger.js';
 
 class PersistentStorageService {
   constructor() {
@@ -11,7 +12,7 @@ class PersistentStorageService {
     if (import.meta.env.DEV && this.apiUrl) {
       this.checkServerStatus();
     } else {
-      console.log('🔧 Modo producción: usando solo almacenamiento estático');
+      Logger.log('🔧 Modo producción: usando solo almacenamiento estático');
     }
   }
 
@@ -26,18 +27,18 @@ class PersistentStorageService {
       const response = await fetch(`${this.apiUrl}/health`);
       if (response.ok) {
         this.isServerAvailable = true;
-        console.log('✅ Servidor API disponible (desarrollo)');
+        Logger.log('✅ Servidor API disponible (desarrollo)');
       }
     } catch {
       this.isServerAvailable = false;
-      console.log('⚠️ Servidor API no disponible, usando localStorage como fallback');
+      Logger.log('⚠️ Servidor API no disponible, usando localStorage como fallback');
     }
   }
 
   // Save image to persistent storage
   async saveImage(imageData, fileName, dateKey, prompt, animal) {
     if (!this.isServerAvailable) {
-      console.log('💾 Guardando en localStorage (servidor no disponible)');
+      Logger.log('💾 Guardando en localStorage (servidor no disponible)');
       return this.saveToLocalStorage(imageData, fileName, dateKey, prompt, animal);
     }
 
@@ -58,7 +59,7 @@ class PersistentStorageService {
 
       if (response.ok) {
         const result = await response.json();
-        console.log('✅ Imagen guardada en servidor:', result.filePath);
+        Logger.log('✅ Imagen guardada en servidor:', result.filePath);
         return {
           success: true,
           url: `http://localhost:3001${result.filePath}`,
@@ -69,7 +70,7 @@ class PersistentStorageService {
         throw new Error(`Error del servidor: ${response.status}`);
       }
     } catch (error) {
-      console.error('❌ Error guardando en servidor, usando localStorage:', error);
+      Logger.error('❌ Error guardando en servidor, usando localStorage:', error);
       return this.saveToLocalStorage(imageData, fileName, dateKey, prompt, animal);
     }
   }
@@ -105,7 +106,7 @@ class PersistentStorageService {
         source: 'localStorage'
       };
     } catch (error) {
-      console.error('❌ Error guardando en localStorage:', error);
+      Logger.error('❌ Error guardando en localStorage:', error);
       return { success: false, error: error.message };
     }
   }
@@ -116,7 +117,7 @@ class PersistentStorageService {
       // Primero intentar cargar imagen estática
       const staticImage = await staticImageService.getImageForDate(dateKey);
       if (staticImage) {
-        console.log('✅ Imagen estática encontrada:', staticImage.url);
+        Logger.log('✅ Imagen estática encontrada:', staticImage.url);
         return [staticImage];
       }
       // Fallback a localStorage
@@ -136,7 +137,7 @@ class PersistentStorageService {
         throw new Error(`Error del servidor: ${response.status}`);
       }
     } catch (error) {
-      console.error('❌ Error obteniendo imágenes del servidor, usando localStorage:', error);
+      Logger.error('❌ Error obteniendo imágenes del servidor, usando localStorage:', error);
       return this.getFromLocalStorage(dateKey);
     }
   }
@@ -150,7 +151,7 @@ class PersistentStorageService {
         source: 'localStorage'
       }));
     } catch (error) {
-      console.error('❌ Error obteniendo de localStorage:', error);
+      Logger.error('❌ Error obteniendo de localStorage:', error);
       return [];
     }
   }

@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import drawingService from '../services/drawingService';
+import Logger from '../utils/logger.js';
 
 export const useGeminiGenerator = () => {
   const [isGeneratingWithGemini, setIsGeneratingWithGemini] = useState(false);
@@ -26,7 +27,7 @@ export const useGeminiGenerator = () => {
         return { success: false, message: 'Error al generar la imagen. Inténtalo de nuevo.' };
       }
     } catch (error) {
-      console.error('❌ Error generando con Gemini:', error);
+      Logger.error('❌ Error generando con Gemini:', error);
       return { 
         success: false, 
         message: error.message || 'Error al generar la imagen. Verifica tu conexión e inténtalo de nuevo.' 

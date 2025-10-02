@@ -1,6 +1,8 @@
 // Enhanced Drawing Storage Service for Frontend-Only Mode
 // Provides local storage with better organization and export capabilities
 
+import Logger from '../utils/logger.js';
+
 class EnhancedDrawingStorage {
   constructor() {
     this.STORAGE_KEY_PREFIX = 'coloreveryday_';
@@ -34,7 +36,7 @@ class EnhancedDrawingStorage {
       this.clearAllColoredDrawings();
       toKeep.forEach(drawing => this.saveColoredDrawing(drawing, false));
       
-      console.log(`🧹 Limpieza automática: manteniendo ${toKeep.length} dibujos más recientes`);
+      Logger.log(`🧹 Limpieza automática: manteniendo ${toKeep.length} dibujos más recientes`);
     }
   }
 
@@ -63,7 +65,7 @@ class EnhancedDrawingStorage {
       // Update drawing history index
       this.updateDrawingHistory(drawingInfo);
       
-      console.log(`💾 Dibujo guardado: ${drawingInfo.id}`);
+      Logger.log(`💾 Dibujo guardado: ${drawingInfo.id}`);
       return { success: true, id: drawingInfo.id };
       
     } catch (error) {
@@ -78,7 +80,7 @@ class EnhancedDrawingStorage {
           return { success: false, error: 'Almacenamiento lleno. Elimina algunos dibujos antiguos.' };
         }
       }
-      console.error('Error guardando dibujo:', error);
+      Logger.error('Error guardando dibujo:', error);
       return { success: false, error: error.message };
     }
   }
@@ -109,7 +111,7 @@ class EnhancedDrawingStorage {
       localStorage.setItem(historyKey, JSON.stringify(limitedHistory));
       
     } catch (error) {
-      console.warn('Error actualizando historial:', error);
+      Logger.warn('Error actualizando historial:', error);
     }
   }
 
@@ -126,7 +128,7 @@ class EnhancedDrawingStorage {
       }
       return drawings.sort((a, b) => new Date(b.coloredAt) - new Date(a.coloredAt));
     } catch (error) {
-      console.error('Error obteniendo dibujos:', error);
+      Logger.error('Error obteniendo dibujos:', error);
       return [];
     }
   }
@@ -147,7 +149,7 @@ class EnhancedDrawingStorage {
       const drawingData = localStorage.getItem(storageKey);
       return drawingData ? JSON.parse(drawingData) : null;
     } catch (error) {
-      console.error('Error obteniendo dibujo:', error);
+      Logger.error('Error obteniendo dibujo:', error);
       return null;
     }
   }
@@ -164,10 +166,10 @@ class EnhancedDrawingStorage {
       const updatedHistory = history.filter(item => item.id !== drawingId);
       localStorage.setItem(historyKey, JSON.stringify(updatedHistory));
       
-      console.log(`🗑️ Dibujo eliminado: ${drawingId}`);
+      Logger.log(`🗑️ Dibujo eliminado: ${drawingId}`);
       return { success: true };
     } catch (error) {
-      console.error('Error eliminando dibujo:', error);
+      Logger.error('Error eliminando dibujo:', error);
       return { success: false, error: error.message };
     }
   }
@@ -196,7 +198,7 @@ class EnhancedDrawingStorage {
       
       return { success: true, count: allDrawings.length };
     } catch (error) {
-      console.error('Error exportando dibujos:', error);
+      Logger.error('Error exportando dibujos:', error);
       return { success: false, error: error.message };
     }
   }
@@ -219,11 +221,11 @@ class EnhancedDrawingStorage {
         }
       }
       
-      console.log(`📥 Importados ${importedCount} dibujos`);
+      Logger.log(`📥 Importados ${importedCount} dibujos`);
       return { success: true, imported: importedCount, total: importData.drawings.length };
       
     } catch (error) {
-      console.error('Error importando dibujos:', error);
+      Logger.error('Error importando dibujos:', error);
       return { success: false, error: error.message };
     }
   }
@@ -245,11 +247,11 @@ class EnhancedDrawingStorage {
       const historyKey = `${this.STORAGE_KEY_PREFIX}${this.DRAWING_HISTORY_KEY}`;
       localStorage.removeItem(historyKey);
       
-      console.log(`🧹 Eliminados ${keysToRemove.length} dibujos`);
+      Logger.log(`🧹 Eliminados ${keysToRemove.length} dibujos`);
       return { success: true, deleted: keysToRemove.length };
       
     } catch (error) {
-      console.error('Error limpiando dibujos:', error);
+      Logger.error('Error limpiando dibujos:', error);
       return { success: false, error: error.message };
     }
   }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import drawingService from '../services/drawingService';
+import Logger from '../utils/logger.js';
 
 export const useDrawing = () => {
   const [dailyDrawing, setDailyDrawing] = useState(null);
@@ -38,7 +39,7 @@ export const useDrawing = () => {
       
     } catch (err) {
       // Si hay error, la web debe cargar con placeholder
-      console.warn('No se pudo cargar imagen del día:', err);
+      Logger.warn('No se pudo cargar imagen del día:', err);
       setDailyDrawing({
         prompt: 'Imagen no disponible',
         imageUrl: null,
@@ -54,7 +55,7 @@ export const useDrawing = () => {
       const drawings = drawingService.getAllDrawings();
       setColoredDrawings(drawings || []);
     } catch (err) {
-      console.warn('Error loading colored drawings:', err);
+      Logger.warn('Error loading colored drawings:', err);
       setColoredDrawings([]);
     }
   };
@@ -73,7 +74,7 @@ export const useDrawing = () => {
         localStorage.setItem(`colored_${todayKey}`, JSON.stringify(coloredDrawing));
       } catch (quotaError) {
         if (quotaError.name === 'QuotaExceededError') {
-          console.warn('localStorage lleno, limpiando datos antiguos...');
+          Logger.warn('localStorage lleno, limpiando datos antiguos...');
           drawingService.clearOldImages(3); // Limpiar imágenes de más de 3 días
           localStorage.setItem(`colored_${todayKey}`, JSON.stringify(coloredDrawing));
         } else {
@@ -85,7 +86,7 @@ export const useDrawing = () => {
       
       return true;
     } catch (err) {
-      console.error('Error saving colored drawing:', err);
+      Logger.error('Error saving colored drawing:', err);
       return false;
     }
   };
@@ -104,7 +105,7 @@ export const useDrawing = () => {
       setDailyDrawing(newDrawing);
     } catch (err) {
       setError('Error al generar nuevo dibujo');
-      console.error('Error generating new drawing:', err);
+      Logger.error('Error generating new drawing:', err);
     } finally {
       setIsLoading(false);
     }

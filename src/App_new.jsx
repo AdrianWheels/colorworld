@@ -4,6 +4,7 @@ import ToolBarHorizontal from './components/ToolBarHorizontal';
 import DrawingHistory from './components/DrawingHistory';
 import { useDrawing } from './hooks/useDrawing';
 import drawingService from './services/drawingService';
+import Logger from './utils/logger.js';
 import './App.css';
 
 function App() {
@@ -94,7 +95,7 @@ function App() {
   const handleGenerateWithGemini = useCallback(async () => {
     try {
       setIsGeneratingWithGemini(true);
-      console.log('🎨 Generando imagen aleatoria...');
+      Logger.log('🎨 Generando imagen aleatoria...');
       
       const result = await drawingService.generateImageWithGemini();
       
@@ -106,7 +107,7 @@ function App() {
       }
       
     } catch (error) {
-      console.error('❌ Error al generar:', error);
+      Logger.error('❌ Error al generar:', error);
       alert('Error al generar la imagen. 😔');
     } finally {
       setIsGeneratingWithGemini(false);

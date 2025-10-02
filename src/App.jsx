@@ -12,6 +12,7 @@ import { useCanvasActions } from './hooks/useCanvasActions';
 import { useToast } from './hooks/useToast';
 import drawingService from './services/drawingService';
 import promptsManager from './services/promptsManager';
+import Logger from './utils/logger.js';
 import './App.css';
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
   }, []);
 
   const handleCanvasReady = useCallback(() => {
-    console.log('🎯 Canvas listo, cargando imagen del día');
+    Logger.log('🎯 Canvas listo, cargando imagen del día');
     loadDayImage(canvasRef);
   }, [loadDayImage]);
 
@@ -89,7 +90,7 @@ function App() {
   useEffect(() => {
     // Solo cargar si el canvas ya está inicializado
     if (canvasRef.current) {
-      console.log('📅 Fecha cambiada, recargando imagen...');
+      Logger.log('📅 Fecha cambiada, recargando imagen...');
       loadDayImage(canvasRef);
     }
   }, [selectedDate, loadDayImage]);

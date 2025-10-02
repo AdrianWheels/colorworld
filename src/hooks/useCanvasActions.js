@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import Logger from '../utils/logger.js';
 
 export const useCanvasActions = (canvasRef, saveColoredDrawing) => {
   const [canvasData, setCanvasData] = useState(null);
@@ -67,7 +68,7 @@ export const useCanvasActions = (canvasRef, saveColoredDrawing) => {
           throw new Error('No se pudo generar la imagen combinada');
         }
       } catch (error) {
-        console.error('Error al guardar dibujo:', error);
+        Logger.error('Error al guardar dibujo:', error);
         return { success: false, message: 'Error al guardar el dibujo' };
       }
     } else if (canvasData && saveColoredDrawing) {

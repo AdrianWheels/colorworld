@@ -21,7 +21,7 @@ class DrawingService {
   initializeGemini() {
     try {
       if (!this.apiKey) {
-        Logger.error('? API key no encontrada. Asegúrate de configurar VITE_GEMINI_API_KEY en .env');
+        Logger.error('? API key no encontrada. Asegï¿½rate de configurar VITE_GEMINI_API_KEY en .env');
         return;
       }
       
@@ -35,7 +35,7 @@ class DrawingService {
     }
   }
 
-  // Set the Gemini API key (opcional, ya está en .env)
+  // Set the Gemini API key (opcional, ya estï¿½ en .env)
   setApiKey(apiKey) {
     this.apiKey = apiKey;
     this.initializeGemini();
@@ -100,7 +100,7 @@ class DrawingService {
   // Generate image using Gemini 2.5 Flash Image Preview with optimized prompts
   async generateImageWithGemini(forDateKey = null) {
     if (!this.genAI) {
-      Logger.error('? Gemini API no está inicializada');
+      Logger.error('? Gemini API no estï¿½ inicializada');
       return this.generateMockDrawing();
     }
 
@@ -109,7 +109,7 @@ class DrawingService {
       const dateKey = targetDate.toISOString().split('T')[0];
       const promptInfo = this.getColoringPrompts(targetDate);
       
-      Logger.log('?? Prompt seleccionado:', promptInfo.theme, 'para el día:', dateKey);
+      Logger.log('?? Prompt seleccionado:', promptInfo.theme, 'para el dï¿½a:', dateKey);
       
       // Usar el prompt optimizado del promptsManager
       const enhancedPrompt = promptsManager.buildEnhancedPrompt(promptInfo.promptData);
@@ -158,7 +158,7 @@ class DrawingService {
       }
       
       if (imageData) {
-        // Guardar la imagen localmente para el día especificado
+        // Guardar la imagen localmente para el dï¿½a especificado
         const savedImagePath = await this.saveGeneratedImage(imageData, promptInfo.prompt, dateKey);
         
         return {
@@ -172,16 +172,16 @@ class DrawingService {
           promptData: promptInfo.promptData
         };
       } else {
-        Logger.log('?? No se generó imagen con Gemini, usando SVG de respaldo');
+        Logger.log('?? No se generï¿½ imagen con Gemini, usando SVG de respaldo');
         return this.generateMockDrawing(promptInfo.theme);
       }
       
     } catch (error) {
       Logger.error('? Error generando con Gemini 2.5:', error);
       
-      // Manejo específico de error de cuota
+      // Manejo especï¿½fico de error de cuota
       if (error.code === 429) {
-        throw new Error('Cuota de Gemini agotada. Inténtalo más tarde.');
+        throw new Error('Cuota de Gemini agotada. Intï¿½ntalo mï¿½s tarde.');
       }
       
       throw error;
@@ -198,7 +198,7 @@ class DrawingService {
       // Crear nombre de archivo con fecha y tema
       const fileName = `${dateKey}_${cleanPrompt}_${timestamp}`;
       
-      // Determinar extensión basada en mimeType
+      // Determinar extensiï¿½n basada en mimeType
       let extension = 'png';
       if (imageData.mimeType?.includes('jpeg')) extension = 'jpg';
       else if (imageData.mimeType?.includes('webp')) extension = 'webp';
@@ -206,7 +206,7 @@ class DrawingService {
       const fullFileName = `${fileName}.${extension}`;
       const theme = this.extractThemeFromPrompt(prompt);
       
-      Logger.log(`?? Guardando imagen: ${fullFileName} para el día ${dateKey}`);
+      Logger.log(`?? Guardando imagen: ${fullFileName} para el dï¿½a ${dateKey}`);
       
       // Intentar guardar en servidor persistente
       try {
@@ -239,7 +239,7 @@ class DrawingService {
 
   // Extract theme from prompt for organization
   extractThemeFromPrompt(prompt) {
-    const themes = ['calabaza', 'murciélago', 'fantasma', 'bruja', 'esqueleto', 'araña', 'gato', 'sombrero', 'castillo', 'zombie'];
+    const themes = ['calabaza', 'murciï¿½lago', 'fantasma', 'bruja', 'esqueleto', 'araï¿½a', 'gato', 'sombrero', 'castillo', 'zombie'];
     for (const theme of themes) {
       if (prompt.toLowerCase().includes(theme)) {
         return theme;
@@ -250,7 +250,7 @@ class DrawingService {
 
   // Save image for specific day
   saveDailyImage(dateKey, imageInfo) {
-    // Obtener imágenes existentes para este día
+    // Obtener imï¿½genes existentes para este dï¿½a
     const dayImages = JSON.parse(localStorage.getItem(`daily_images_${dateKey}`) || '[]');
     
     // Agregar la nueva imagen
@@ -259,11 +259,11 @@ class DrawingService {
     // Guardar de vuelta
     localStorage.setItem(`daily_images_${dateKey}`, JSON.stringify(dayImages));
     
-    // Actualizar índice de días con imágenes
+    // Actualizar ï¿½ndice de dï¿½as con imï¿½genes
     const daysWithImages = JSON.parse(localStorage.getItem('days_with_images') || '[]');
     if (!daysWithImages.includes(dateKey)) {
       daysWithImages.push(dateKey);
-      daysWithImages.sort().reverse(); // Más recientes primero
+      daysWithImages.sort().reverse(); // Mï¿½s recientes primero
       localStorage.setItem('days_with_images', JSON.stringify(daysWithImages));
     }
   }
@@ -279,7 +279,7 @@ class DrawingService {
       dateKey = new Date().toISOString().split('T')[0];
     }
     
-    Logger.log('?? Buscando imagen para el día:', dateKey);
+    Logger.log('?? Buscando imagen para el dï¿½a:', dateKey);
     
     // Primero intentar obtener desde el servidor
     try {
@@ -294,7 +294,7 @@ class DrawingService {
           prompt: imageInfo.prompt || imageInfo.theme || 'Sin prompt',
           theme: imageInfo.theme || 'Sin tema',
           dateKey: dateKey,
-          blobUrl: imageInfo.url, // URL del servidor o estática
+          blobUrl: imageInfo.url, // URL del servidor o estï¿½tica
           source: imageInfo.source || 'static',
           generatedAt: imageInfo.savedAt || imageInfo.lastModified || new Date().toISOString()
         };
@@ -303,7 +303,7 @@ class DrawingService {
       Logger.warn('?? No se pudo conectar al servidor, intentando localStorage:', error);
     }
     
-    // Fallback a localStorage solo si el servidor no está disponible
+    // Fallback a localStorage solo si el servidor no estï¿½ disponible
     const dayImages = this.getImagesForDay(dateKey);
     
     if (dayImages.length > 0) {
@@ -321,7 +321,7 @@ class DrawingService {
           
           Logger.log('? Blob URL recreado desde localStorage');
           
-          // Actualizar la información con el nuevo blob URL
+          // Actualizar la informaciï¿½n con el nuevo blob URL
           imageInfo.blobUrl = newBlobUrl;
           imageInfo.source = 'localStorage';
           
@@ -333,8 +333,8 @@ class DrawingService {
       }
     }
     
-    Logger.log('?? No hay imagen guardada para este día');
-    return null; // No hay imagen para este día
+    Logger.log('?? No hay imagen guardada para este dï¿½a');
+    return null; // No hay imagen para este dï¿½a
   }
 
   // Get all days with images
@@ -377,7 +377,7 @@ class DrawingService {
     try {
       return JSON.parse(localStorage.getItem('generated_images') || '[]');
     } catch (error) {
-      Logger.error('? Error obteniendo imágenes:', error);
+      Logger.error('? Error obteniendo imï¿½genes:', error);
       return [];
     }
   }
@@ -404,10 +404,10 @@ class DrawingService {
       const cutoffDate = Date.now() - (daysOld * 24 * 60 * 60 * 1000);
       const savedImages = this.getGeneratedImages();
       
-      // Filtrar imágenes recientes
+      // Filtrar imï¿½genes recientes
       const recentImages = savedImages.filter(img => img.timestamp > cutoffDate);
       
-      // Liberar URLs de imágenes antiguas
+      // Liberar URLs de imï¿½genes antiguas
       savedImages.forEach(img => {
         if (img.timestamp <= cutoffDate && img.blobUrl) {
           URL.revokeObjectURL(img.blobUrl);
@@ -416,7 +416,7 @@ class DrawingService {
       });
       
       localStorage.setItem('generated_images', JSON.stringify(recentImages));
-      Logger.log(`?? Limpieza completada: ${savedImages.length - recentImages.length} imágenes eliminadas`);
+      Logger.log(`?? Limpieza completada: ${savedImages.length - recentImages.length} imï¿½genes eliminadas`);
       
     } catch (error) {
       Logger.error('? Error en limpieza:', error);
@@ -440,7 +440,7 @@ class DrawingService {
     
     if (!todayDrawing) {
       try {
-        Logger.log('?? Generando nuevo dibujo del día...');
+        Logger.log('?? Generando nuevo dibujo del dï¿½a...');
         todayDrawing = await this.generateWithGemini();
         this.saveDrawing(todayDrawing);
         Logger.log('? Dibujo generado y guardado');
