@@ -19,6 +19,16 @@ dist-ssr
 .env.test
 .env.production
 
+# Documentation and analysis files (no subir al repo)
+ANALISIS_*.md
+PLAN_*.md
+PROBLEMAS_*.md
+SISTEMA_*.md
+*_README.md
+*.backup.txt
+*_backup.txt
+node_version_backup.txt
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
