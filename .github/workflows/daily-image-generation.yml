@@ -40,10 +40,13 @@ jobs:
     - name: Update images index
       run: node scripts/update-images-index.js
       
+    - name: Generate sitemap
+      run: node scripts/generate-sitemap.js
+      
     - name: Commit and push if changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add public/generated-images/ src/data/daily-prompts.js
-        git diff --staged --quiet || git commit -m "🎨 Generate daily image for $(date +'%Y-%m-%d'), sync prompts and update index"
+        git add public/generated-images/ src/data/daily-prompts.js public/sitemap.xml
+        git diff --staged --quiet || git commit -m "🎨 Generate daily image for $(date +'%Y-%m-%d'), sync prompts, update index and sitemap"
         git push
