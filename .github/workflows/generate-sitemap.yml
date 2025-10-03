@@ -1,0 +1,34 @@
+name: Generate Sitemap
+
+on:
+  workflow_dispatch: # Permite ejecutar manualmente
+  workflow_call: # Permite que sea llamado por otros workflows
+
+permissions:
+  contents: write  # Permite escribir en el repositorio
+
+jobs:
+  generate-sitemap:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🗺️ Generate sitemap with latest images
+      run: |
+        echo "🗺️ Generando sitemap con imágenes actualizadas..."
+        node scripts/generate-sitemap.js
+        echo "✅ Sitemap generado exitosamente"
+    
+    - name: 📝 Commit sitemap if changed
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Sitemap"
+        
+        git add public/sitemap.xml
+        
+        if git diff --staged --quiet; then
+          echo "ℹ️ No hay cambios en el sitemap"
+        else
+          git commit -m "🗺️ Update sitemap with latest images - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git push
+          echo "✅ Sitemap actualizado y pusheado"
+        fi

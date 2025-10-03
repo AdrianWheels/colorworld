@@ -15,6 +15,7 @@ import { useCanvasActions } from './hooks/useCanvasActions';
 import { useToast } from './hooks/useToast';
 import drawingService from './services/drawingService';
 import promptsManager from './services/promptsManager';
+import staticImageService from './services/staticImageService';
 import Logger from './utils/logger.js';
 import './App.css';
 
@@ -104,6 +105,11 @@ function App() {
   useEffect(() => {
     // Limpiar localStorage obsoleto al iniciar la app
     drawingService.cleanupLocalStorage();
+    
+    // Forzar recarga del índice al iniciar la app para evitar problemas de caché
+    staticImageService.forceReloadIndex().catch(error => {
+      Logger.warn('⚠️ No se pudo forzar la recarga del índice:', error);
+    });
     
     const handleKeyDown = (e) => {
       if (e.ctrlKey || e.metaKey) {

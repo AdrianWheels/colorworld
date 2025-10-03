@@ -7,7 +7,7 @@ class StaticImageService {
     this.indexUrl = '/generated-images/images-index.json';
     this.indexCache = null;
     this.lastIndexUpdate = null;
-    this.cacheExpiry = 5 * 60 * 1000; // 5 minutos
+    this.cacheExpiry = 1 * 60 * 1000; // 1 minuto para caché más agresivo
   }
 
   // Cargar el índice de imágenes dinámicamente
@@ -20,7 +20,9 @@ class StaticImageService {
       }
 
       Logger.log('🔄 Cargando índice de imágenes...');
-      const response = await fetch(this.indexUrl);
+      // Agregar timestamp para evitar caché del navegador
+      const timestamp = Date.now();
+      const response = await fetch(`${this.indexUrl}?v=${timestamp}`);
       
       if (!response.ok) {
         throw new Error(`Error cargando índice: ${response.status}`);
@@ -151,6 +153,12 @@ class StaticImageService {
     this.indexCache = null;
     this.lastIndexUpdate = null;
     Logger.log('🗑️ Caché de índice invalidado');
+  }
+
+  // Forzar recarga del índice sin caché
+  async forceReloadIndex() {
+    this.invalidateCache();
+    return await this.loadImagesIndex();
   }
 }
 
