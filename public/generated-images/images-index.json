@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-04T02:16:07.382Z",
+  "lastUpdated": "2025-10-05T02:40:26.104Z",
   "images": {
     "2025-09-29": [
       {
@@ -10,7 +10,7 @@
         "timestamp": 1759179517908,
         "extension": "png",
         "fileSize": 1639143,
-        "lastModified": "2025-10-04T02:15:48.501Z"
+        "lastModified": "2025-10-05T02:40:02.447Z"
       }
     ],
     "2025-09-30": [
@@ -22,7 +22,7 @@
         "timestamp": 1759198919861,
         "extension": "png",
         "fileSize": 1260724,
-        "lastModified": "2025-10-04T02:15:48.503Z"
+        "lastModified": "2025-10-05T02:40:02.449Z"
       }
     ],
     "2025-10-01": [
@@ -34,7 +34,7 @@
         "timestamp": 1759286619367,
         "extension": "png",
         "fileSize": 1288871,
-        "lastModified": "2025-10-04T02:15:48.505Z"
+        "lastModified": "2025-10-05T02:40:02.450Z"
       }
     ],
     "2025-10-02": [
@@ -46,7 +46,7 @@
         "timestamp": 1759371667546,
         "extension": "png",
         "fileSize": 1247535,
-        "lastModified": "2025-10-04T02:15:48.507Z"
+        "lastModified": "2025-10-05T02:40:02.452Z"
       }
     ],
     "2025-10-03": [
@@ -58,7 +58,7 @@
         "timestamp": 1759458058234,
         "extension": "png",
         "fileSize": 1136975,
-        "lastModified": "2025-10-04T02:15:48.508Z"
+        "lastModified": "2025-10-05T02:40:02.453Z"
       }
     ],
     "2025-10-04": [
@@ -70,7 +70,19 @@
         "timestamp": 1759544167318,
         "extension": "png",
         "fileSize": 697330,
-        "lastModified": "2025-10-04T02:16:07.325Z"
+        "lastModified": "2025-10-05T02:40:02.454Z"
+      }
+    ],
+    "2025-10-05": [
+      {
+        "fileName": "2025-10-05_Esqueleto_1759632026038.png",
+        "url": "/generated-images/2025-10/2025-10-05_Esqueleto_1759632026038.png",
+        "theme": "Esqueleto",
+        "dateKey": "2025-10-05",
+        "timestamp": 1759632026038,
+        "extension": "png",
+        "fileSize": 524450,
+        "lastModified": "2025-10-05T02:40:26.043Z"
       }
     ]
   },
@@ -83,9 +95,10 @@
       "2025-10-01",
       "2025-10-02",
       "2025-10-03",
-      "2025-10-04"
+      "2025-10-04",
+      "2025-10-05"
     ]
   },
-  "totalImages": 6,
-  "totalDays": 6
+  "totalImages": 7,
+  "totalDays": 7
 }
