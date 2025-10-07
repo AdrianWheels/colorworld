@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-06T02:24:39.628Z",
+  "lastUpdated": "2025-10-07T02:22:11.817Z",
   "images": {
     "2025-09-29": [
       {
@@ -10,7 +10,7 @@
         "timestamp": 1759179517908,
         "extension": "png",
         "fileSize": 1639143,
-        "lastModified": "2025-10-06T02:24:14.888Z"
+        "lastModified": "2025-10-07T02:21:49.001Z"
       }
     ],
     "2025-09-30": [
@@ -22,7 +22,7 @@
         "timestamp": 1759198919861,
         "extension": "png",
         "fileSize": 1260724,
-        "lastModified": "2025-10-06T02:24:14.890Z"
+        "lastModified": "2025-10-07T02:21:49.003Z"
       }
     ],
     "2025-10-01": [
@@ -34,7 +34,7 @@
         "timestamp": 1759286619367,
         "extension": "png",
         "fileSize": 1288871,
-        "lastModified": "2025-10-06T02:24:14.892Z"
+        "lastModified": "2025-10-07T02:21:49.004Z"
       }
     ],
     "2025-10-02": [
@@ -46,7 +46,7 @@
         "timestamp": 1759371667546,
         "extension": "png",
         "fileSize": 1247535,
-        "lastModified": "2025-10-06T02:24:14.893Z"
+        "lastModified": "2025-10-07T02:21:49.006Z"
       }
     ],
     "2025-10-03": [
@@ -58,7 +58,7 @@
         "timestamp": 1759458058234,
         "extension": "png",
         "fileSize": 1136975,
-        "lastModified": "2025-10-06T02:24:14.895Z"
+        "lastModified": "2025-10-07T02:21:49.007Z"
       }
     ],
     "2025-10-04": [
@@ -70,7 +70,7 @@
         "timestamp": 1759544167318,
         "extension": "png",
         "fileSize": 697330,
-        "lastModified": "2025-10-06T02:24:14.896Z"
+        "lastModified": "2025-10-07T02:21:49.008Z"
       }
     ],
     "2025-10-05": [
@@ -82,7 +82,7 @@
         "timestamp": 1759632026038,
         "extension": "png",
         "fileSize": 524450,
-        "lastModified": "2025-10-06T02:24:14.897Z"
+        "lastModified": "2025-10-07T02:21:49.009Z"
       }
     ],
     "2025-10-06": [
@@ -94,7 +94,19 @@
         "timestamp": 1759717479557,
         "extension": "png",
         "fileSize": 650662,
-        "lastModified": "2025-10-06T02:24:39.564Z"
+        "lastModified": "2025-10-07T02:21:49.011Z"
+      }
+    ],
+    "2025-10-07": [
+      {
+        "fileName": "2025-10-07_Gato_1759803731750.png",
+        "url": "/generated-images/2025-10/2025-10-07_Gato_1759803731750.png",
+        "theme": "Gato",
+        "dateKey": "2025-10-07",
+        "timestamp": 1759803731750,
+        "extension": "png",
+        "fileSize": 596917,
+        "lastModified": "2025-10-07T02:22:11.756Z"
       }
     ]
   },
@@ -109,9 +121,10 @@
       "2025-10-03",
       "2025-10-04",
       "2025-10-05",
-      "2025-10-06"
+      "2025-10-06",
+      "2025-10-07"
     ]
   },
-  "totalImages": 8,
-  "totalDays": 8
+  "totalImages": 9,
+  "totalDays": 9
 }
