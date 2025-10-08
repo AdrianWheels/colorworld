@@ -5,6 +5,7 @@ export const useCanvasActions = (canvasRef, saveColoredDrawing) => {
   const [canvasData, setCanvasData] = useState(null);
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
+  const [showClearConfirmation, setShowClearConfirmation] = useState(false);
 
   const updateUndoRedoState = useCallback(() => {
     if (canvasRef.current) {
@@ -27,11 +28,37 @@ export const useCanvasActions = (canvasRef, saveColoredDrawing) => {
     }
   }, [canvasRef, updateUndoRedoState]);
 
-  const handleClearCanvas = useCallback(() => {
+  const clearCanvasDirectly = useCallback(() => {
     if (canvasRef.current && canvasRef.current.clearCanvas) {
       canvasRef.current.clearCanvas();
     }
   }, [canvasRef]);
+
+  const handleClearCanvas = useCallback(() => {
+    // Verificar si hay contenido en el canvas antes de mostrar confirmación
+    if (canvasRef.current && canvasRef.current.hasDrawingContent) {
+      const hasContent = canvasRef.current.hasDrawingContent();
+      if (hasContent) {
+        // Mostrar confirmación si hay contenido
+        setShowClearConfirmation(true);
+      } else {
+        // Limpiar directamente si no hay contenido
+        clearCanvasDirectly();
+      }
+    } else {
+      // Si no podemos verificar el contenido, mostrar confirmación como medida de seguridad
+      setShowClearConfirmation(true);
+    }
+  }, [canvasRef, clearCanvasDirectly]);
+
+  const handleConfirmClear = useCallback(() => {
+    clearCanvasDirectly();
+    setShowClearConfirmation(false);
+  }, [clearCanvasDirectly]);
+
+  const handleCancelClear = useCallback(() => {
+    setShowClearConfirmation(false);
+  }, []);
 
   const handleCanvasChangeWithUndoUpdate = useCallback((dataUrl) => {
     setCanvasData(dataUrl);
@@ -90,6 +117,9 @@ export const useCanvasActions = (canvasRef, saveColoredDrawing) => {
     handleClearCanvas,
     handleCanvasChangeWithUndoUpdate,
     handleSaveDrawing,
-    updateUndoRedoState
+    updateUndoRedoState,
+    showClearConfirmation,
+    handleConfirmClear,
+    handleCancelClear
   };
 };

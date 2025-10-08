@@ -1,3 +1,22 @@
+import React, { useState, useEffect } from 'react';              <div className="control-section">
+                <h3>🎯 Herramientas</h3>
+                <div className="control-item">
+                  <span className="control-key">Pincel 🖌️</span>
+                  <span className="control-desc">Toca para seleccionar y colorear</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key">Cubo 🪣</span>
+                  <span className="control-desc">Rellena áreas completas de un toque</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key">Borrador 🧽</span>
+                  <span className="control-desc">Elimina tus trazos</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key">Cuentagotas 🎨</span>
+                  <span className="control-desc">Copia colores del dibujo</span>
+                </div>
+                <div className="control-item">
 import React, { useState, useEffect } from 'react';
 import '../styles/ControlsModal.css';
 
@@ -53,20 +72,12 @@ const ControlsModal = ({ isOpen, onClose }) => {
               <div className="control-section">
                 <h3>🎯 Herramientas</h3>
                 <div className="control-item">
-                  <span className="control-key">Pincel 🖌️</span>
+                  <span className="control-key">Pincel �️</span>
                   <span className="control-desc">Toca para seleccionar y colorear</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Cubo 🪣</span>
-                  <span className="control-desc">Rellena áreas completas de un toque</span>
                 </div>
                 <div className="control-item">
                   <span className="control-key">Borrador 🧽</span>
                   <span className="control-desc">Elimina tus trazos</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Cuentagotas 💧</span>
-                  <span className="control-desc">Copia colores del dibujo</span>
                 </div>
                 <div className="control-item">
                   <span className="control-key">Colores 🎨</span>
@@ -84,17 +95,13 @@ const ControlsModal = ({ isOpen, onClose }) => {
                   <span className="control-key">Rehacer ↷</span>
                   <span className="control-desc">Toca el botón de rehacer</span>
                 </div>
-                <div className="control-item">
-                  <span className="control-key">Limpiar 🗑️</span>
-                  <span className="control-desc">Borra todo el dibujo (con confirmación)</span>
-                </div>
               </div>
             </>
           ) : (
             // Controles para desktop
             <>
               <div className="control-section">
-                <h3>🖱️ Controles del Ratón</h3>
+                <h3>�🖱️ Controles del Ratón</h3>
                 <div className="control-item">
                   <span className="control-key">Clic Izquierdo</span>
                   <span className="control-desc">Dibujar/Colorear</span>
@@ -128,36 +135,16 @@ const ControlsModal = ({ isOpen, onClose }) => {
               <div className="control-section">
                 <h3>🎯 Herramientas</h3>
                 <div className="control-item">
-                  <span className="control-key">Pincel 🖌️</span>
+                  <span className="control-key">Pincel</span>
                   <span className="control-desc">Tamaño ajustable para colorear</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Cubo 🪣</span>
-                  <span className="control-desc">Rellena áreas completas con un clic</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Borrador 🧽</span>
+                  <span className="control-key">Borrador</span>
                   <span className="control-desc">Eliminar trazos</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Cuentagotas 💧</span>
-                  <span className="control-desc">Selecciona colores del dibujo</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Colores 🎨</span>
+                  <span className="control-key">Colores</span>
                   <span className="control-desc">Paleta completa disponible</span>
-                </div>
-              </div>
-
-              <div className="control-section">
-                <h3>🔄 Acciones</h3>
-                <div className="control-item">
-                  <span className="control-key">Limpiar 🗑️</span>
-                  <span className="control-desc">Borra todo el dibujo (con confirmación)</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Guardar 💾</span>
-                  <span className="control-desc">Guarda tu obra terminada</span>
                 </div>
               </div>
             </>
@@ -167,7 +154,6 @@ const ControlsModal = ({ isOpen, onClose }) => {
         <div className="modal-footer">
           <p className="modal-tip">
             💡 <strong>Tip:</strong> Las líneas negras del dibujo no se pueden borrar - ¡son para guiarte! 
-            El cubo 🪣 rellena áreas conectadas del mismo color automáticamente.
             {isMobile && ' El canvas mantiene su tamaño original para mejor calidad.'}
           </p>
         </div>

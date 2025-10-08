@@ -247,27 +247,6 @@ const DrawingCanvasSimple = forwardRef(({
     }
   }, []);
 
-  // Función auxiliar para obtener RGB de un pixel en el compositeCanvas
-  const getPixelRGBA = useCallback((x, y) => {
-    if (!compositeCanvasRef.current || x < 0 || y < 0 || x >= CANVAS_WIDTH || y >= CANVAS_HEIGHT) {
-      return null;
-    }
-    
-    try {
-      const ctx = compositeCanvasRef.current.getContext('2d');
-      const imageData = ctx.getImageData(Math.floor(x), Math.floor(y), 1, 1);
-      return {
-        r: imageData.data[0],
-        g: imageData.data[1],
-        b: imageData.data[2],
-        a: imageData.data[3]
-      };
-    } catch (error) {
-      Logger.error('Error obteniendo pixel RGBA:', error);
-      return null;
-    }
-  }, []);
-
   // Función mejorada para comparar colores con tolerancia adaptiva
   const colorsMatch = useCallback((color1, color2, tolerance = 25) => {
     if (!color1 || !color2) return false;
@@ -387,9 +366,15 @@ const DrawingCanvasSimple = forwardRef(({
   }, [colorsMatch]);
 
   // Algoritmo Flood Fill optimizado para dibujos en blanco y negro
-  const floodFill = useCallback((startX, startY, fillColor) => {
+  const floodFill = useCallback((startX, startY, fillColor, options = {}) => {
+    const {
+      connectivity = 4, // 4 or 8 neighbor connectivity
+      tolerance = 0,    // Color tolerance (0-255)
+      enableLogs = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+    } = options;
+
     if (!drawingCanvasRef.current || !compositeCanvasRef.current) {
-      Logger.error('❌ Canvas no disponibles para flood fill');
+      if (enableLogs) Logger.error('❌ Canvas no disponibles para flood fill');
       return false;
     }
 
@@ -398,14 +383,91 @@ const DrawingCanvasSimple = forwardRef(({
     
     // Verificar límites
     if (x < 0 || y < 0 || x >= CANVAS_WIDTH || y >= CANVAS_HEIGHT) {
-      Logger.warn('❌ Flood fill: coordenadas fuera de límites');
+      if (enableLogs) Logger.warn('❌ Flood fill: coordenadas fuera de límites');
       return false;
     }
 
-    // Obtener el color inicial del área a llenar (del compositeCanvas para detectar límites)
-    const targetColor = getPixelRGBA(x, y);
+    // OPTIMIZACIÓN 1: Cachear ImageData una sola vez
+    if (enableLogs) Logger.debug('🚀 OPTIMIZED FLOOD FILL: Cacheando ImageData...');
+    
+    const backgroundCtx = backgroundCanvasRef.current.getContext('2d');
+    const drawingCtx = drawingCanvasRef.current.getContext('2d');
+    const compositeCtx = compositeCanvasRef.current.getContext('2d');
+    
+    // Obtener todas las imágenes una sola vez
+    const backgroundImageData = backgroundCtx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    const drawingImageData = drawingCtx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    const compositeImageData = compositeCtx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    
+    const backgroundData = backgroundImageData.data;
+    const drawingData = drawingImageData.data;
+    const compositeData = compositeImageData.data;
+
+    // Función optimizada para obtener píxel desde datos cacheados
+    const getPixelFromData = (data, x, y) => {
+      if (x < 0 || y < 0 || x >= CANVAS_WIDTH || y >= CANVAS_HEIGHT) {
+        return null;
+      }
+      const index = (y * CANVAS_WIDTH + x) * 4;
+      return {
+        r: data[index],
+        g: data[index + 1],
+        b: data[index + 2],
+        a: data[index + 3]
+      };
+    };
+
+    // Función optimizada para verificar si es línea negra
+    const isBlackLine = (x, y) => {
+      const pixel = getPixelFromData(backgroundData, x, y);
+      if (!pixel) return false;
+      return pixel.r < 50 && pixel.g < 50 && pixel.b < 50 && pixel.a > 200;
+    };
+
+    // Función optimizada para verificar si ya está pintado
+    const isAlreadyPainted = (x, y) => {
+      const pixel = getPixelFromData(drawingData, x, y);
+      if (!pixel) return false;
+      
+      // Considerar pintado si tiene alpha > 0 y no es casi blanco
+      // Mejorada para detectar mejor antialiasing
+      const hasAlpha = pixel.a > 10; // Umbral más bajo para detectar antialiasing sutil
+      const isNotWhite = !(pixel.r > 240 && pixel.g > 240 && pixel.b > 240);
+      
+      return hasAlpha && isNotWhite;
+    };
+
+    // Función optimizada para comparar colores con tolerancia mejorada
+    const colorsMatchWithTolerance = (color1, color2, tolerance = 0) => {
+      if (!color1 || !color2) return false;
+      
+      // Para tolerancia baja (colores oscuros), usar método estricto
+      if (tolerance <= 5) {
+        return Math.abs(color1.r - color2.r) <= tolerance &&
+               Math.abs(color1.g - color2.g) <= tolerance &&
+               Math.abs(color1.b - color2.b) <= tolerance &&
+               Math.abs(color1.a - color2.a) <= tolerance;
+      }
+      
+      // Para tolerancia alta (compensar antialiasing), usar distancia euclidiana
+      // que es más robusta para variaciones sutiles de color
+      const deltaR = color1.r - color2.r;
+      const deltaG = color1.g - color2.g;
+      const deltaB = color1.b - color2.b;
+      const deltaA = color1.a - color2.a;
+      
+      const distance = Math.sqrt(deltaR * deltaR + deltaG * deltaG + deltaB * deltaB + deltaA * deltaA);
+      
+      // Convertir tolerancia lineal a tolerancia euclidiana
+      const euclideanTolerance = tolerance * Math.sqrt(3); // Factor para 3 componentes RGB
+      
+      return distance <= euclideanTolerance;
+    };
+
+    // Obtener el color inicial del área a llenar
+    const targetColor = getPixelFromData(compositeData, x, y);
     if (!targetColor) {
-      Logger.error('❌ No se pudo obtener color objetivo');
+      if (enableLogs) Logger.error('❌ No se pudo obtener color objetivo');
       return false;
     }
 
@@ -419,123 +481,96 @@ const DrawingCanvasSimple = forwardRef(({
     };
 
     // Si el color objetivo es igual al color de llenado, no hacer nada
-    if (colorsMatch(targetColor, fillRGBA)) {
-      Logger.info('🎨 Flood fill: color objetivo igual al de llenado, no hay cambios');
+    if (colorsMatchWithTolerance(targetColor, fillRGBA, tolerance)) {
+      if (enableLogs) Logger.info('🎨 Flood fill: color objetivo igual al de llenado, no hay cambios');
       return false;
     }
 
-    // Detectar si el área objetivo es una línea negra - más estricto
+    // Detectar si el área objetivo es una línea negra
     const isTargetBlackLine = targetColor.r < 80 && targetColor.g < 80 && targetColor.b < 80 && targetColor.a > 200;
     if (isTargetBlackLine) {
-      Logger.info('🚫 Flood fill: no se puede llenar sobre líneas negras');
+      if (enableLogs) Logger.info('🚫 Flood fill: no se puede llenar sobre líneas negras');
       return false;
     }
 
-    Logger.debug('🪣 INICIANDO FLOOD FILL MEJORADO:', {
-      coords: { x, y },
-      targetColor,
-      fillColor: fillRGBA,
-      isBlackLine: isTargetBlackLine
-    });
+    if (enableLogs) {
+      Logger.debug('🪣 INICIANDO FLOOD FILL OPTIMIZADO:', {
+        coords: { x, y },
+        targetColor,
+        fillColor: fillRGBA,
+        connectivity,
+        tolerance,
+        isBlackLine: isTargetBlackLine
+      });
+    }
 
-    // FASE 1: Mapear límites usando SOLO el backgroundCanvas (líneas puras)
-    Logger.debug('🔍 FASE 1: Detectando límites usando capa de líneas puras...');
+    // OPTIMIZACIÓN 2: Usar Uint8Array para marcar píxeles visitados
+    const visited = new Uint8Array(CANVAS_WIDTH * CANVAS_HEIGHT);
+    const areaToFill = []; // Array de índices en lugar de Set de strings
     
-    // Función para obtener píxel SOLO del backgroundCanvas (líneas negras puras)
-    const getBackgroundPixel = (x, y) => {
-      if (!backgroundCanvasRef.current || x < 0 || y < 0 || x >= CANVAS_WIDTH || y >= CANVAS_HEIGHT) {
-        return null;
-      }
-      try {
-        const ctx = backgroundCanvasRef.current.getContext('2d');
-        const imageData = ctx.getImageData(Math.floor(x), Math.floor(y), 1, 1);
-        return {
-          r: imageData.data[0],
-          g: imageData.data[1],
-          b: imageData.data[2],
-          a: imageData.data[3]
-        };
-      } catch {
-        return null;
-      }
-    };
-    
-    // Función para determinar si un píxel es una línea negra en el background
-    const isBlackLine = (x, y) => {
-      const pixel = getBackgroundPixel(x, y);
-      if (!pixel) return false;
-      // En el backgroundCanvas, las líneas son negras puras
-      return pixel.r < 50 && pixel.g < 50 && pixel.b < 50 && pixel.a > 200;
-    };
-    
-    // Función para verificar si un píxel ya está pintado en el drawingCanvas
-    const isAlreadyPainted = (x, y) => {
-      try {
-        const ctx = drawingCanvasRef.current.getContext('2d');
-        const imageData = ctx.getImageData(x, y, 1, 1);
-        const data = imageData.data;
-        // Si tiene alpha > 0 y no es blanco, está pintado
-        return data[3] > 0 && !(data[0] > 250 && data[1] > 250 && data[2] > 250);
-      } catch {
-        return false;
-      }
-    };
-    
-    // Explorar solo área conectada de píxeles vacíos
-    const areaToFill = new Set();
     const stack = [{ x, y }];
-    const visited = new Set();
     
     // Verificar que el punto inicial no sea una línea negra
     const isStartBlack = isBlackLine(x, y);
     const isStartPainted = isAlreadyPainted(x, y);
     
-    Logger.debug(`🔍 Validación punto inicial (${x}, ${y}):`, {
-      isBlackLine: isStartBlack,
-      isAlreadyPainted: isStartPainted
-    });
+    if (enableLogs) {
+      Logger.debug(`🔍 Validación punto inicial (${x}, ${y}):`, {
+        isBlackLine: isStartBlack,
+        isAlreadyPainted: isStartPainted
+      });
+    }
     
     if (isStartBlack) {
-      Logger.debug('❌ Punto inicial no válido: es línea negra');
+      if (enableLogs) Logger.debug('❌ Punto inicial no válido: es línea negra');
       return false;
     }
     
-    // Determinar el color objetivo: si ya está pintado, usar ese color; si no, buscar área blanca
+    // Determinar el color objetivo para matching
     let targetColorForMatching;
     if (isStartPainted) {
-      // Ya hay color - obtener el color actual del drawingCanvas
-      try {
-        const ctx = drawingCanvasRef.current.getContext('2d');
-        const imageData = ctx.getImageData(x, y, 1, 1);
-        const data = imageData.data;
-        targetColorForMatching = {
-          r: data[0],
-          g: data[1], 
-          b: data[2],
-          a: data[3]
-        };
-        Logger.debug('🎨 Reemplazando color existente:', targetColorForMatching);
-      } catch {
-        Logger.error('❌ No se pudo obtener color existente');
-        return false;
-      }
+      targetColorForMatching = getPixelFromData(drawingData, x, y);
+      if (enableLogs) Logger.debug('🎨 Reemplazando color existente:', targetColorForMatching);
     } else {
-      // Área vacía - buscar píxeles blancos/transparentes
       targetColorForMatching = null; // null significa "área vacía"
-      Logger.debug('⚪ Llenando área vacía');
+      if (enableLogs) Logger.debug('⚪ Llenando área vacía');
     }
+    
+    // Definir los vecinos según la conectividad
+    const getNeighbors = (x, y) => {
+      if (connectivity === 8) {
+        return [
+          { x: x + 1, y: y },     // Derecha
+          { x: x - 1, y: y },     // Izquierda  
+          { x: x, y: y + 1 },     // Abajo
+          { x: x, y: y - 1 },     // Arriba
+          { x: x + 1, y: y + 1 }, // Diagonal abajo-derecha
+          { x: x - 1, y: y - 1 }, // Diagonal arriba-izquierda
+          { x: x + 1, y: y - 1 }, // Diagonal arriba-derecha
+          { x: x - 1, y: y + 1 }  // Diagonal abajo-izquierda
+        ];
+      } else {
+        return [
+          { x: x + 1, y: y },     // Derecha
+          { x: x - 1, y: y },     // Izquierda  
+          { x: x, y: y + 1 },     // Abajo
+          { x: x, y: y - 1 }      // Arriba
+        ];
+      }
+    };
     
     while (stack.length > 0) {
       const { x: currentX, y: currentY } = stack.pop();
-      const key = `${currentX},${currentY}`;
-      
-      if (visited.has(key)) continue;
-      visited.add(key);
       
       // Verificar límites del canvas
       if (currentX < 0 || currentY < 0 || currentX >= CANVAS_WIDTH || currentY >= CANVAS_HEIGHT) {
         continue;
       }
+      
+      const pixelIndex = currentY * CANVAS_WIDTH + currentX;
+      
+      if (visited[pixelIndex]) continue;
+      visited[pixelIndex] = 1;
       
       // Si es una línea negra en el background, no llenar ni continuar
       if (isBlackLine(currentX, currentY)) {
@@ -550,101 +585,76 @@ const DrawingCanvasSimple = forwardRef(({
         shouldInclude = !isAlreadyPainted(currentX, currentY);
       } else {
         // Modo reemplazar color: incluir solo píxeles del color objetivo
-        try {
-          const ctx = drawingCanvasRef.current.getContext('2d');
-          const imageData = ctx.getImageData(currentX, currentY, 1, 1);
-          const data = imageData.data;
-          const currentPixel = {
-            r: data[0],
-            g: data[1],
-            b: data[2],
-            a: data[3]
-          };
-          // Usar una tolerancia pequeña para colores similares
-          shouldInclude = colorsMatch(currentPixel, targetColorForMatching, 15);
-        } catch {
-          shouldInclude = false;
-        }
+        const currentPixel = getPixelFromData(drawingData, currentX, currentY);
+        shouldInclude = colorsMatchWithTolerance(currentPixel, targetColorForMatching, tolerance);
       }
       
       if (!shouldInclude) {
-        continue; // No coincide con el patrón, no continuar explorando
+        continue;
       }
       
       // Es área válida - añadir al área a llenar
-      areaToFill.add(key);
+      areaToFill.push(pixelIndex);
       
-      // Continuar explorando vecinos (solo 4-conectividad)
-      const neighbors = [
-        { x: currentX + 1, y: currentY },     // Derecha
-        { x: currentX - 1, y: currentY },     // Izquierda  
-        { x: currentX, y: currentY + 1 },     // Abajo
-        { x: currentX, y: currentY - 1 }      // Arriba
-      ];
+      // Continuar explorando vecinos
+      const neighbors = getNeighbors(currentX, currentY);
       
       for (const neighbor of neighbors) {
-        const neighborKey = `${neighbor.x},${neighbor.y}`;
-        if (!visited.has(neighborKey)) {
+        const neighborIndex = neighbor.y * CANVAS_WIDTH + neighbor.x;
+        if (neighbor.x >= 0 && neighbor.x < CANVAS_WIDTH && 
+            neighbor.y >= 0 && neighbor.y < CANVAS_HEIGHT && 
+            !visited[neighborIndex]) {
           stack.push(neighbor);
         }
       }
     }
     
-    Logger.debug(`📊 Área detectada: ${areaToFill.size} píxeles de área conectada`);
+    if (enableLogs) Logger.debug(`📊 Área detectada: ${areaToFill.length} píxeles de área conectada`);
     
-    // FASE 2: Llenar solo píxeles verdaderamente vacíos
-    Logger.debug('🎨 FASE 2: Llenando solo píxeles vacíos...');
-    
-    const drawingCtx = drawingCanvasRef.current.getContext('2d');
-    const drawingImageData = drawingCtx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    const drawingData = drawingImageData.data;
-    
-    // FUNCIÓN YA NO NECESARIA - la validación se hace en la fase de exploración
-    // const isEmptyPixel = (x, y) => { ... }
+    // FASE 2: Llenar píxeles usando ImageData optimizado
+    if (enableLogs) Logger.debug('🎨 FASE 2: Llenando píxeles...');
     
     let pixelsChanged = 0;
     
+    // Crear una copia de los datos para modificar
+    const newDrawingData = new Uint8ClampedArray(drawingData);
+    
     // Llenar todos los píxeles del área mapeada
-    for (const pixelKey of areaToFill) {
-      const [pixelX, pixelY] = pixelKey.split(',').map(Number);
-      
-      // Pintar directamente - ya se validó en la fase de exploración
-      const drawingIndex = (pixelY * CANVAS_WIDTH + pixelX) * 4;
-      drawingData[drawingIndex] = fillRGBA.r;
-      drawingData[drawingIndex + 1] = fillRGBA.g;
-      drawingData[drawingIndex + 2] = fillRGBA.b;
-      drawingData[drawingIndex + 3] = fillRGBA.a;
+    for (const pixelIndex of areaToFill) {
+      const dataIndex = pixelIndex * 4;
+      newDrawingData[dataIndex] = fillRGBA.r;
+      newDrawingData[dataIndex + 1] = fillRGBA.g;
+      newDrawingData[dataIndex + 2] = fillRGBA.b;
+      newDrawingData[dataIndex + 3] = fillRGBA.a;
       pixelsChanged++;
     }
 
-    // Aplicar los cambios iniciales al drawingCanvas
-    drawingCtx.putImageData(drawingImageData, 0, 0);
+    // Aplicar los cambios una sola vez al drawingCanvas
+    const newImageData = new ImageData(newDrawingData, CANVAS_WIDTH, CANVAS_HEIGHT);
+    drawingCtx.putImageData(newImageData, 0, 0);
 
-    Logger.log(`✅ Flood fill inicial completado: ${pixelsChanged} píxeles cambiados`);
-
-    // DESHABILITADO TEMPORALMENTE: Post-procesamiento que podría estar causando expansión
-    Logger.log(`⚠️ Post-procesamiento deshabilitado para diagnóstico`);
-    
-    // TODO: Re-implementar post-procesamiento más conservador si es necesario
-
-    Logger.log(`✅ Fase 2 completada: ${pixelsChanged} píxeles llenados de ${areaToFill.size} píxeles totales del área`);
-    
-    // Log detallado para diagnóstico
-    const modo = targetColorForMatching ? 'REEMPLAZAR_COLOR' : 'LLENAR_VACÍO';
-    Logger.log(`📊 DIAGNÓSTICO FLOOD FILL [${modo}]:`, {
-      coordenadas: `(${x}, ${y})`,
-      areaExplorada: areaToFill.size,
-      pixelesPintados: pixelsChanged,
-      colorUsado: fillColor,
-      colorObjetivo: targetColorForMatching ? `rgb(${targetColorForMatching.r},${targetColorForMatching.g},${targetColorForMatching.b})` : 'área vacía',
-      porcentajeLlenado: areaToFill.size > 0 ? ((pixelsChanged / areaToFill.size) * 100).toFixed(1) + '%' : '0%'
-    });
+    if (enableLogs) {
+      Logger.log(`✅ Flood fill optimizado completado: ${pixelsChanged} píxeles cambiados`);
+      
+      // Log detallado para diagnóstico
+      const modo = targetColorForMatching ? 'REEMPLAZAR_COLOR' : 'LLENAR_VACÍO';
+      Logger.log(`📊 DIAGNÓSTICO FLOOD FILL OPTIMIZADO [${modo}]:`, {
+        coordenadas: `(${x}, ${y})`,
+        areaExplorada: areaToFill.length,
+        pixelesPintados: pixelsChanged,
+        colorUsado: fillColor,
+        conectividad: connectivity,
+        tolerancia: tolerance,
+        colorObjetivo: targetColorForMatching ? `rgb(${targetColorForMatching.r},${targetColorForMatching.g},${targetColorForMatching.b})` : 'área vacía',
+        porcentajeLlenado: areaToFill.length > 0 ? ((pixelsChanged / areaToFill.length) * 100).toFixed(1) + '%' : '0%'
+      });
+    }
 
     // Actualizar el canvas compuesto inmediatamente
     updateImmediately();
 
     return pixelsChanged > 0;
-  }, [getPixelRGBA, colorsMatch, updateImmediately]);
+  }, [updateImmediately]);
 
   // Funciones de undo/redo - definir saveCanvasState primero
   const saveCanvasState = useCallback(() => {
@@ -703,7 +713,49 @@ const DrawingCanvasSimple = forwardRef(({
     // Si es herramienta bucket (balde de pintura), hacer flood fill
     if (tool === 'bucket') {
       Logger.log('🪣 BUCKET FILL: iniciando en', coords);
-      const success = floodFill(coords.x, coords.y, brushColor);
+      
+      // Función para calcular tolerancia dinámica basada en el color objetivo
+      const calculateDynamicTolerance = (x, y) => {
+        const compositeCtx = compositeCanvasRef.current.getContext('2d');
+        const imageData = compositeCtx.getImageData(x, y, 1, 1);
+        const [r, g, b] = imageData.data;
+        
+        // Si es un color muy oscuro (como negro), usar tolerancia baja
+        if (r < 80 && g < 80 && b < 80) {
+          return 5;
+        }
+        
+        // Para colores más claros o saturados, usar tolerancia más alta
+        // para compensar antialiasing
+        const brightness = (r + g + b) / 3;
+        const saturation = Math.max(r, g, b) - Math.min(r, g, b);
+        
+        // Tolerancia base + ajuste por brillo y saturación
+        let tolerance = 15;
+        
+        // Colores claros necesitan más tolerancia por antialiasing
+        if (brightness > 150) tolerance += 10;
+        
+        // Colores saturados pueden necesitar más tolerancia
+        if (saturation > 100) tolerance += 5;
+        
+        return Math.min(tolerance, 35); // Máximo 35 para evitar llenado excesivo
+      };
+      
+      const dynamicTolerance = calculateDynamicTolerance(coords.x, coords.y);
+      
+      // Opciones configurables para el flood fill
+      const floodFillOptions = {
+        connectivity: 4,    // Podría ser 8 para más conectividad
+        tolerance: dynamicTolerance,       // Tolerancia dinámica mejorada
+        enableLogs: typeof window !== 'undefined' && window.location.hostname === 'localhost'
+      };
+      
+      if (floodFillOptions.enableLogs) {
+        Logger.log(`🎨 Tolerancia dinámica calculada: ${dynamicTolerance} para coordenadas (${coords.x}, ${coords.y})`);
+      }
+      
+      const success = floodFill(coords.x, coords.y, brushColor, floodFillOptions);
       if (success) {
         // Guardar estado para undo/redo solo si el flood fill cambió algo
         setTimeout(() => {
@@ -1405,6 +1457,28 @@ const DrawingCanvasSimple = forwardRef(({
     return tempCanvas.toDataURL('image/png', 1.0);
   }, []);
 
+  // Función para verificar si hay contenido en el canvas de dibujo
+  const hasDrawingContent = useCallback(() => {
+    if (!drawingCanvasRef.current) return false;
+    
+    try {
+      const ctx = drawingCanvasRef.current.getContext('2d');
+      const imageData = ctx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      const data = imageData.data;
+      
+      // Verificar si hay algún píxel que no sea transparente
+      for (let i = 3; i < data.length; i += 4) {
+        if (data[i] > 0) { // Si alpha > 0, hay contenido
+          return true;
+        }
+      }
+      return false;
+    } catch (error) {
+      Logger.error('Error checking canvas content:', error);
+      return false;
+    }
+  }, []);
+
   useImperativeHandle(ref, () => ({
     clearCanvas,
     printCanvas,
@@ -1415,8 +1489,9 @@ const DrawingCanvasSimple = forwardRef(({
     canUndo: () => undoStack.length > 0,
     canRedo: () => redoStack.length > 0,
     loadBackgroundImage,
-    floodFill: (x, y, color) => floodFill(x, y, color)
-  }), [clearCanvas, printCanvas, exportCombinedImage, undo, redo, undoStack, redoStack, loadBackgroundImage, floodFill]);
+    floodFill: (x, y, color) => floodFill(x, y, color),
+    hasDrawingContent
+  }), [clearCanvas, printCanvas, exportCombinedImage, undo, redo, undoStack, redoStack, loadBackgroundImage, floodFill, hasDrawingContent]);
 
   return (
     <div className="drawing-canvas-container">

@@ -13,7 +13,7 @@
 }
 
 .modal-content {
-  background: linear-gradient(145deg, #ffffff, #f8f9ff);
+  background: linear-gradient(135deg, #2d2d3f 0%, #1a1a2e 100%);
   border-radius: 16px;
   padding: 0;
   max-width: 500px;
@@ -25,6 +25,7 @@
     0 0 0 1px rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(138, 43, 226, 0.2);
   animation: modalAppear 0.3s ease-out;
+  color: white;
 }
 
 @keyframes modalAppear {
@@ -89,12 +90,12 @@
 }
 
 .control-section h3 {
-  color: #8a2be2;
+  color: #e3b7ff;
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 12px 0;
   padding-bottom: 8px;
-  border-bottom: 2px solid rgba(138, 43, 226, 0.1);
+  border-bottom: 2px solid rgba(227, 183, 255, 0.3);
 }
 
 .control-item {
@@ -102,7 +103,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .control-item:last-child {
@@ -110,42 +111,42 @@
 }
 
 .control-key {
-  background: linear-gradient(145deg, #f0f0f0, #e8e8e8);
-  color: #333;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  color: #ffffff;
   padding: 4px 12px;
   border-radius: 6px;
   font-family: 'Courier New', monospace;
   font-weight: bold;
   font-size: 0.9rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   min-width: 120px;
   text-align: center;
 }
 
 .control-desc {
-  color: #555;
+  color: #e0e0e0;
   flex: 1;
   margin-left: 16px;
   font-size: 0.95rem;
 }
 
 .modal-footer {
-  background: rgba(138, 43, 226, 0.05);
+  background: rgba(138, 43, 226, 0.15);
   padding: 16px 24px;
   border-radius: 0 0 14px 14px;
-  border-top: 1px solid rgba(138, 43, 226, 0.1);
+  border-top: 1px solid rgba(138, 43, 226, 0.3);
 }
 
 .modal-tip {
   margin: 0;
   font-size: 0.9rem;
-  color: #666;
+  color: #d0d0d0;
   text-align: center;
 }
 
 .modal-tip strong {
-  color: #8a2be2;
+  color: #e3b7ff;
 }
 
 /* Responsive design */

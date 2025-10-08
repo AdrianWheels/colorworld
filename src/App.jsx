@@ -9,6 +9,7 @@ import ToastContainer from './components/ToastContainer';
 import StructuredData from './components/StructuredData';
 import SEOHead from './components/SEOHead';
 import AboutModal from './components/AboutModal';
+import ConfirmationModal from './components/ConfirmationModal';
 import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
 import { useCanvasActions } from './hooks/useCanvasActions';
@@ -21,6 +22,7 @@ import './App.css';
 
 function App() {
   const [currentTool, setCurrentTool] = useState('brush');
+  const [previousTool, setPreviousTool] = useState('brush'); // Track de herramienta anterior
   const [brushSize, setBrushSize] = useState(5);
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
@@ -46,8 +48,11 @@ function App() {
     dayImageStatus,
     loadDayImage,
     goToPreviousDay,
-    goToNextDay
-  } = useDayNavigation();
+    goToNextDay,
+    showDayChangeConfirmation,
+    confirmDayChange,
+    cancelDayChange
+  } = useDayNavigation(canvasRef);
   
   const {
     canvasData,
@@ -57,14 +62,27 @@ function App() {
     handleRedo,
     handleClearCanvas,
     handleCanvasChangeWithUndoUpdate,
-    handleSaveDrawing
+    handleSaveDrawing,
+    showClearConfirmation,
+    handleConfirmClear,
+    handleCancelClear
   } = useCanvasActions(canvasRef, saveColoredDrawing);
+
+  // Handler para cambio de herramienta con tracking
+  const handleToolChange = useCallback((newTool) => {
+    // Si no es cuentagotas, guardar como herramienta anterior
+    if (currentTool !== 'eyedropper') {
+      setPreviousTool(currentTool);
+    }
+    setCurrentTool(newTool);
+  }, [currentTool]);
 
   const handleColorPicked = useCallback((color) => {
     setBrushColor(color);
-    // Cambiar automáticamente a pincel después de seleccionar color
-    setCurrentTool('brush');
-  }, []);
+    // Volver a la herramienta anterior en lugar de pincel
+    const toolToReturn = previousTool === 'eyedropper' ? 'brush' : previousTool;
+    setCurrentTool(toolToReturn);
+  }, [previousTool]);
 
   const handleCanvasReady = useCallback(() => {
     Logger.log('🎯 Canvas listo, cargando imagen del día');
@@ -183,7 +201,7 @@ function App() {
         <div className="drawing-section">
           <div className="canvas-and-tools">
             <ToolBarHorizontal
-              onToolChange={setCurrentTool}
+              onToolChange={handleToolChange}
               onBrushSizeChange={setBrushSize}
               onColorChange={setBrushColor}
               onClearCanvas={handleClearCanvas}
@@ -262,6 +280,30 @@ function App() {
       <AboutModal 
         isOpen={isAboutModalOpen}
         onClose={() => setIsAboutModalOpen(false)}
+      />
+      
+      {/* Confirmation modal for clearing canvas */}
+      <ConfirmationModal
+        isOpen={showClearConfirmation}
+        onClose={handleCancelClear}
+        onConfirm={handleConfirmClear}
+        title="Confirmar borrado"
+        message="¿Estás seguro de que quieres borrar completamente tu dibujo? Esta acción no se puede deshacer."
+        confirmText="Sí, borrar"
+        cancelText="Cancelar"
+        type="danger"
+      />
+      
+      {/* Confirmation modal for day change */}
+      <ConfirmationModal
+        isOpen={showDayChangeConfirmation}
+        onClose={cancelDayChange}
+        onConfirm={confirmDayChange}
+        title="Cambiar día"
+        message="Tienes un dibujo en progreso que se perderá al cambiar de día. ¿Quieres continuar?"
+        confirmText="Sí, cambiar día"
+        cancelText="Quedarse aquí"
+        type="warning"
       />
       
       {/* Toast notifications */}

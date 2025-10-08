@@ -2,9 +2,11 @@ import { useState, useCallback, useEffect } from 'react';
 import drawingService from '../services/drawingService';
 import Logger from '../utils/logger.js';
 
-export const useDayNavigation = () => {
+export const useDayNavigation = (canvasRef) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [dayImageStatus, setDayImageStatus] = useState(null);
+  const [showDayChangeConfirmation, setShowDayChangeConfirmation] = useState(false);
+  const [pendingNavigation, setPendingNavigation] = useState(null); // -1 for previous, 1 for next
 
   const navigateToDay = useCallback((direction) => {
     const newDate = new Date(selectedDate);
@@ -61,6 +63,42 @@ export const useDayNavigation = () => {
     setDayImageStatus('empty');
   }, [selectedDate]);
 
+  const checkAndNavigate = useCallback((direction) => {
+    // Verificar si hay contenido en el canvas antes de navegar
+    if (canvasRef && canvasRef.current && canvasRef.current.hasDrawingContent) {
+      const hasContent = canvasRef.current.hasDrawingContent();
+      if (hasContent) {
+        // Mostrar confirmación si hay contenido
+        setPendingNavigation(direction);
+        setShowDayChangeConfirmation(true);
+        return;
+      }
+    }
+    
+    // Si no hay contenido o no podemos verificar, navegar directamente
+    navigateToDay(direction);
+  }, [canvasRef, navigateToDay]);
+
+  const confirmDayChange = useCallback(() => {
+    if (pendingNavigation !== null) {
+      // 🗑️ LIMPIAR EL CANVAS ANTES DE NAVEGAR
+      if (canvasRef && canvasRef.current && canvasRef.current.clearCanvas) {
+        Logger.log('🧹 Limpiando canvas antes de cambiar de día');
+        canvasRef.current.clearCanvas();
+      }
+      
+      // 📅 NAVEGAR AL NUEVO DÍA
+      navigateToDay(pendingNavigation);
+      setPendingNavigation(null);
+    }
+    setShowDayChangeConfirmation(false);
+  }, [pendingNavigation, navigateToDay, canvasRef]);
+
+  const cancelDayChange = useCallback(() => {
+    setPendingNavigation(null);
+    setShowDayChangeConfirmation(false);
+  }, []);
+
   const goToPreviousDay = useCallback(() => {
     // ❌ NO PERMITIR IR ANTES DEL 1 DE OCTUBRE DE 2025 (LANZAMIENTO)
     const launchDate = new Date('2025-10-01');
@@ -69,11 +107,11 @@ export const useDayNavigation = () => {
     
     // Solo permitir si la fecha anterior no es antes del lanzamiento
     if (previousDate >= launchDate) {
-      navigateToDay(-1);
+      checkAndNavigate(-1);
     } else {
       Logger.log('🚫 No se puede navegar antes del día de lanzamiento (1 oct 2025)');
     }
-  }, [navigateToDay, selectedDate]);
+  }, [checkAndNavigate, selectedDate]);
 
   const goToNextDay = useCallback(() => {
     // ❌ NO PERMITIR IR AL FUTURO - Solo días pasados desde hoy
@@ -83,11 +121,11 @@ export const useDayNavigation = () => {
     
     // Solo permitir si la siguiente fecha no es futura
     if (nextDate <= today) {
-      navigateToDay(1);
+      checkAndNavigate(1);
     } else {
       Logger.log('🚫 No se puede navegar al futuro desde hoy');
     }
-  }, [navigateToDay, selectedDate]);
+  }, [checkAndNavigate, selectedDate]);
 
   // ✅ CARGAR IMAGEN DEL DÍA ACTUAL AL INICIO
   useEffect(() => {
@@ -102,6 +140,9 @@ export const useDayNavigation = () => {
     setDayImageStatus,
     loadDayImage,
     goToPreviousDay,
-    goToNextDay
+    goToNextDay,
+    showDayChangeConfirmation,
+    confirmDayChange,
+    cancelDayChange
   };
 };
