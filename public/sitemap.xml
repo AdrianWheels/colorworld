@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://coloreveryday.vercel.app/</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- About Us -->
   <url>
     <loc>https://coloreveryday.vercel.app/about</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -21,7 +21,7 @@
   <!-- Dibujo del 2025-09-29 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-09-29</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -34,7 +34,7 @@
   <!-- Dibujo del 2025-09-30 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-09-30</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -47,7 +47,7 @@
   <!-- Dibujo del 2025-10-01 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-10-01</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -60,7 +60,7 @@
   <!-- Dibujo del 2025-10-02 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-10-02</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -73,7 +73,7 @@
   <!-- Dibujo del 2025-10-03 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-10-03</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -86,7 +86,7 @@
   <!-- Dibujo del 2025-10-04 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-10-04</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -99,7 +99,7 @@
   <!-- Dibujo del 2025-10-05 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-10-05</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -112,7 +112,7 @@
   <!-- Dibujo del 2025-10-06 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-10-06</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -125,13 +125,26 @@
   <!-- Dibujo del 2025-10-07 -->
   <url>
     <loc>https://coloreveryday.vercel.app/?date=2025-10-07</loc>
-    <lastmod>2025-10-07T02:22:11.861Z</lastmod>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://coloreveryday.vercel.app/generated-images/2025-10/2025-10-07_Gato_1759803731750.png</image:loc>
       <image:title>Dibujo de Gato para Colorear - 2025-10-07</image:title>
       <image:caption>Dibujo generado con IA para colorear online gratis. Tema: Gato</image:caption>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
+    </image:image>
+  </url>
+  <!-- Dibujo del 2025-10-08 -->
+  <url>
+    <loc>https://coloreveryday.vercel.app/?date=2025-10-08</loc>
+    <lastmod>2025-10-08T02:21:45.470Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://coloreveryday.vercel.app/generated-images/2025-10/2025-10-08_Sombrero_1759890105357.png</image:loc>
+      <image:title>Dibujo de Sombrero para Colorear - 2025-10-08</image:title>
+      <image:caption>Dibujo generado con IA para colorear online gratis. Tema: Sombrero</image:caption>
       <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
   </url>
