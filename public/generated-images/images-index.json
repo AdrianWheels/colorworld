@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-10T02:23:49.976Z",
+  "lastUpdated": "2025-10-11T02:18:55.887Z",
   "images": {
     "2025-09-29": [
       {
@@ -10,7 +10,7 @@
         "timestamp": 1759179517908,
         "extension": "png",
         "fileSize": 1639143,
-        "lastModified": "2025-10-10T02:23:27.779Z"
+        "lastModified": "2025-10-11T02:18:34.161Z"
       }
     ],
     "2025-09-30": [
@@ -22,7 +22,7 @@
         "timestamp": 1759198919861,
         "extension": "png",
         "fileSize": 1260724,
-        "lastModified": "2025-10-10T02:23:27.781Z"
+        "lastModified": "2025-10-11T02:18:34.163Z"
       }
     ],
     "2025-10-01": [
@@ -34,7 +34,7 @@
         "timestamp": 1759286619367,
         "extension": "png",
         "fileSize": 1288871,
-        "lastModified": "2025-10-10T02:23:27.783Z"
+        "lastModified": "2025-10-11T02:18:34.164Z"
       }
     ],
     "2025-10-02": [
@@ -46,7 +46,7 @@
         "timestamp": 1759371667546,
         "extension": "png",
         "fileSize": 1247535,
-        "lastModified": "2025-10-10T02:23:27.784Z"
+        "lastModified": "2025-10-11T02:18:34.166Z"
       }
     ],
     "2025-10-03": [
@@ -58,7 +58,7 @@
         "timestamp": 1759458058234,
         "extension": "png",
         "fileSize": 1136975,
-        "lastModified": "2025-10-10T02:23:27.785Z"
+        "lastModified": "2025-10-11T02:18:34.167Z"
       }
     ],
     "2025-10-04": [
@@ -70,7 +70,7 @@
         "timestamp": 1759544167318,
         "extension": "png",
         "fileSize": 697330,
-        "lastModified": "2025-10-10T02:23:27.786Z"
+        "lastModified": "2025-10-11T02:18:34.168Z"
       }
     ],
     "2025-10-05": [
@@ -82,7 +82,7 @@
         "timestamp": 1759632026038,
         "extension": "png",
         "fileSize": 524450,
-        "lastModified": "2025-10-10T02:23:27.787Z"
+        "lastModified": "2025-10-11T02:18:34.169Z"
       }
     ],
     "2025-10-06": [
@@ -94,7 +94,7 @@
         "timestamp": 1759717479557,
         "extension": "png",
         "fileSize": 650662,
-        "lastModified": "2025-10-10T02:23:27.789Z"
+        "lastModified": "2025-10-11T02:18:34.171Z"
       }
     ],
     "2025-10-07": [
@@ -106,7 +106,7 @@
         "timestamp": 1759803731750,
         "extension": "png",
         "fileSize": 596917,
-        "lastModified": "2025-10-10T02:23:27.791Z"
+        "lastModified": "2025-10-11T02:18:34.173Z"
       }
     ],
     "2025-10-08": [
@@ -118,7 +118,7 @@
         "timestamp": 1759890105357,
         "extension": "png",
         "fileSize": 414926,
-        "lastModified": "2025-10-10T02:23:27.792Z"
+        "lastModified": "2025-10-11T02:18:34.174Z"
       }
     ],
     "2025-10-09": [
@@ -130,7 +130,7 @@
         "timestamp": 1759976627555,
         "extension": "png",
         "fileSize": 1172415,
-        "lastModified": "2025-10-10T02:23:27.794Z"
+        "lastModified": "2025-10-11T02:18:34.176Z"
       }
     ],
     "2025-10-10": [
@@ -142,7 +142,19 @@
         "timestamp": 1760063029908,
         "extension": "png",
         "fileSize": 691648,
-        "lastModified": "2025-10-10T02:23:49.913Z"
+        "lastModified": "2025-10-11T02:18:34.177Z"
+      }
+    ],
+    "2025-10-11": [
+      {
+        "fileName": "2025-10-11_Momia_1760149135816.png",
+        "url": "/generated-images/2025-10/2025-10-11_Momia_1760149135816.png",
+        "theme": "Momia",
+        "dateKey": "2025-10-11",
+        "timestamp": 1760149135816,
+        "extension": "png",
+        "fileSize": 1367959,
+        "lastModified": "2025-10-11T02:18:55.827Z"
       }
     ]
   },
@@ -161,9 +173,10 @@
       "2025-10-07",
       "2025-10-08",
       "2025-10-09",
-      "2025-10-10"
+      "2025-10-10",
+      "2025-10-11"
     ]
   },
-  "totalImages": 12,
-  "totalDays": 12
+  "totalImages": 13,
+  "totalDays": 13
 }
