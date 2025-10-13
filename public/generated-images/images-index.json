@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-12T02:26:29.877Z",
+  "lastUpdated": "2025-10-13T02:41:57.834Z",
   "images": {
     "2025-09-29": [
       {
@@ -10,7 +10,7 @@
         "timestamp": 1759179517908,
         "extension": "png",
         "fileSize": 1639143,
-        "lastModified": "2025-10-12T02:26:06.328Z"
+        "lastModified": "2025-10-13T02:41:42.105Z"
       }
     ],
     "2025-09-30": [
@@ -22,7 +22,7 @@
         "timestamp": 1759198919861,
         "extension": "png",
         "fileSize": 1260724,
-        "lastModified": "2025-10-12T02:26:06.330Z"
+        "lastModified": "2025-10-13T02:41:42.107Z"
       }
     ],
     "2025-10-01": [
@@ -34,7 +34,7 @@
         "timestamp": 1759286619367,
         "extension": "png",
         "fileSize": 1288871,
-        "lastModified": "2025-10-12T02:26:06.331Z"
+        "lastModified": "2025-10-13T02:41:42.109Z"
       }
     ],
     "2025-10-02": [
@@ -46,7 +46,7 @@
         "timestamp": 1759371667546,
         "extension": "png",
         "fileSize": 1247535,
-        "lastModified": "2025-10-12T02:26:06.333Z"
+        "lastModified": "2025-10-13T02:41:42.110Z"
       }
     ],
     "2025-10-03": [
@@ -58,7 +58,7 @@
         "timestamp": 1759458058234,
         "extension": "png",
         "fileSize": 1136975,
-        "lastModified": "2025-10-12T02:26:06.334Z"
+        "lastModified": "2025-10-13T02:41:42.112Z"
       }
     ],
     "2025-10-04": [
@@ -70,7 +70,7 @@
         "timestamp": 1759544167318,
         "extension": "png",
         "fileSize": 697330,
-        "lastModified": "2025-10-12T02:26:06.335Z"
+        "lastModified": "2025-10-13T02:41:42.113Z"
       }
     ],
     "2025-10-05": [
@@ -82,7 +82,7 @@
         "timestamp": 1759632026038,
         "extension": "png",
         "fileSize": 524450,
-        "lastModified": "2025-10-12T02:26:06.336Z"
+        "lastModified": "2025-10-13T02:41:42.114Z"
       }
     ],
     "2025-10-06": [
@@ -94,7 +94,7 @@
         "timestamp": 1759717479557,
         "extension": "png",
         "fileSize": 650662,
-        "lastModified": "2025-10-12T02:26:06.338Z"
+        "lastModified": "2025-10-13T02:41:42.116Z"
       }
     ],
     "2025-10-07": [
@@ -106,7 +106,7 @@
         "timestamp": 1759803731750,
         "extension": "png",
         "fileSize": 596917,
-        "lastModified": "2025-10-12T02:26:06.340Z"
+        "lastModified": "2025-10-13T02:41:42.117Z"
       }
     ],
     "2025-10-08": [
@@ -118,7 +118,7 @@
         "timestamp": 1759890105357,
         "extension": "png",
         "fileSize": 414926,
-        "lastModified": "2025-10-12T02:26:06.341Z"
+        "lastModified": "2025-10-13T02:41:42.119Z"
       }
     ],
     "2025-10-09": [
@@ -130,7 +130,7 @@
         "timestamp": 1759976627555,
         "extension": "png",
         "fileSize": 1172415,
-        "lastModified": "2025-10-12T02:26:06.343Z"
+        "lastModified": "2025-10-13T02:41:42.120Z"
       }
     ],
     "2025-10-10": [
@@ -142,7 +142,7 @@
         "timestamp": 1760063029908,
         "extension": "png",
         "fileSize": 691648,
-        "lastModified": "2025-10-12T02:26:06.344Z"
+        "lastModified": "2025-10-13T02:41:42.121Z"
       }
     ],
     "2025-10-11": [
@@ -154,7 +154,7 @@
         "timestamp": 1760149135816,
         "extension": "png",
         "fileSize": 1367959,
-        "lastModified": "2025-10-12T02:26:06.345Z"
+        "lastModified": "2025-10-13T02:41:42.123Z"
       }
     ],
     "2025-10-12": [
@@ -166,7 +166,19 @@
         "timestamp": 1760235989807,
         "extension": "png",
         "fileSize": 562992,
-        "lastModified": "2025-10-12T02:26:29.813Z"
+        "lastModified": "2025-10-13T02:41:42.124Z"
+      }
+    ],
+    "2025-10-13": [
+      {
+        "fileName": "2025-10-13_Caldero_1760323317765.png",
+        "url": "/generated-images/2025-10/2025-10-13_Caldero_1760323317765.png",
+        "theme": "Caldero",
+        "dateKey": "2025-10-13",
+        "timestamp": 1760323317765,
+        "extension": "png",
+        "fileSize": 570354,
+        "lastModified": "2025-10-13T02:41:57.773Z"
       }
     ]
   },
@@ -187,9 +199,10 @@
       "2025-10-09",
       "2025-10-10",
       "2025-10-11",
-      "2025-10-12"
+      "2025-10-12",
+      "2025-10-13"
     ]
   },
-  "totalImages": 14,
-  "totalDays": 14
+  "totalImages": 15,
+  "totalDays": 15
 }
