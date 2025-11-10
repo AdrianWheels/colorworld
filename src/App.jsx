@@ -108,6 +108,9 @@ function App() {
     setTodayTheme(todayPrompt.tematica || 'something magical');
   }, []);
 
+  // Calcular el día del año para la fecha seleccionada
+  const currentDayOfYear = promptsManager.getDayOfYear(selectedDate);
+
   // Effect para procesar fecha desde URL (cuando se hace clic en el calendario)
   useEffect(() => {
     if (dateFromUrl) {
@@ -235,6 +238,7 @@ function App() {
               currentTool={currentTool}
               currentColor={brushColor}
               currentBrushSize={brushSize}
+              currentDay={currentDayOfYear}
             />
             
             <div className="comic-panels">

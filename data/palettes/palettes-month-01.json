@@ -1,0 +1,502 @@
+{
+  "month": 1,
+  "monthName": "Enero",
+  "palettes": [
+    {
+      "day": 1,
+      "tematica": "Números2026",
+      "colorPalette": [
+        "#FFD700",
+        "#FF4500",
+        "#DC143C",
+        "#4169E1",
+        "#87CEFA",
+        "#B0C4DE",
+        "#C0C0C0",
+        "#1E90FF",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 2,
+      "tematica": "PaisajeNevado",
+      "colorPalette": [
+        "#E0F7FF",
+        "#B0E0E6",
+        "#708090",
+        "#4682B4",
+        "#2F4F4F",
+        "#C0C0C0",
+        "#87CEEB",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 3,
+      "tematica": "CoposNieve",
+      "colorPalette": [
+        "#F0FFFF",
+        "#E6FBFF",
+        "#ADD8E6",
+        "#B0E0E6",
+        "#BFD8E6",
+        "#D3D3D3",
+        "#A9C6D9",
+        "#6CA0DC",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 4,
+      "tematica": "MuñecoNieve",
+      "colorPalette": [
+        "#FFFFFF",
+        "#F8F9FA",
+        "#A9C6D9",
+        "#2F4F4F",
+        "#FFA500",
+        "#8B4513",
+        "#4682B4",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 5,
+      "tematica": "MandalaNaturaleza",
+      "colorPalette": [
+        "#E6F7F9",
+        "#CDEAF6",
+        "#9AC7D8",
+        "#6FAFC2",
+        "#3E8E9E",
+        "#7BBFAD",
+        "#C0C0C0",
+        "#A0DDE6",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 6,
+      "tematica": "ReyesMagos",
+      "colorPalette": [
+        "#8B0000",
+        "#800080",
+        "#2F4F4F",
+        "#C0C0C0",
+        "#FFDAB9",
+        "#DAA520",
+        "#4169E1",
+        "#556B2F",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 7,
+      "tematica": "CasaInvierno",
+      "colorPalette": [
+        "#F5F7FA",
+        "#DDEAF6",
+        "#9BB7D6",
+        "#8B5E3C",
+        "#A0522D",
+        "#FFDAB9",
+        "#5F9EA0",
+        "#C0C0C0",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 8,
+      "tematica": "AmigosTé",
+      "colorPalette": [
+        "#FFF5E1",
+        "#F5DEB3",
+        "#D2B48C",
+        "#8B4513",
+        "#C0A080",
+        "#B0E0E6",
+        "#C0C0C0",
+        "#A9C6D9",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 9,
+      "tematica": "PatioNevado",
+      "colorPalette": [
+        "#EAF6FF",
+        "#BEE6FF",
+        "#8FBEDC",
+        "#6CA0DC",
+        "#2F4F4F",
+        "#D3D3D3",
+        "#C0C0C0",
+        "#87CEEB",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 10,
+      "tematica": "MandalaAnimales",
+      "colorPalette": [
+        "#EAF7F1",
+        "#C7E6DA",
+        "#A8D0C0",
+        "#6FAF98",
+        "#4B8F76",
+        "#9AC7D8",
+        "#C0C0C0",
+        "#F0F8FF",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 11,
+      "tematica": "Biblioteca",
+      "colorPalette": [
+        "#F6F4EE",
+        "#EEDFCC",
+        "#C9A66B",
+        "#8B5E3C",
+        "#6B4C3B",
+        "#B0C4DE",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 12,
+      "tematica": "LagoInvierno",
+      "colorPalette": [
+        "#E6F7FF",
+        "#CFEFFF",
+        "#9FD4EC",
+        "#5DA6D9",
+        "#2E8BCE",
+        "#2F4F4F",
+        "#C0C0C0",
+        "#D3EAF7",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 13,
+      "tematica": "Cocina",
+      "colorPalette": [
+        "#FFF7ED",
+        "#F5DEB3",
+        "#D2B48C",
+        "#C68642",
+        "#8B4513",
+        "#E6F7F9",
+        "#C0C0C0",
+        "#A9C6D9",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 14,
+      "tematica": "CaféAmigos",
+      "colorPalette": [
+        "#FFF5E6",
+        "#F0D6B4",
+        "#C49A6C",
+        "#8B5E3C",
+        "#6B4C3B",
+        "#B0E0E6",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 15,
+      "tematica": "Esquí",
+      "colorPalette": [
+        "#EAF6FF",
+        "#B3E0FF",
+        "#6CA0DC",
+        "#4682B4",
+        "#2F4F4F",
+        "#C0C0C0",
+        "#87CEEB",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 16,
+      "tematica": "MandalaFloral",
+      "colorPalette": [
+        "#F6FBF7",
+        "#E8F7EE",
+        "#CFEAD8",
+        "#A6D4B8",
+        "#79B994",
+        "#9AC7D8",
+        "#C0C0C0",
+        "#F0F8FF",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 17,
+      "tematica": "SalaEstar",
+      "colorPalette": [
+        "#FFF8F2",
+        "#F2E6D8",
+        "#D1BBA0",
+        "#A67C52",
+        "#8B5E3C",
+        "#B0C4DE",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 18,
+      "tematica": "AnimalesBosque",
+      "colorPalette": [
+        "#F2F7F1",
+        "#D6E9D6",
+        "#A4C49A",
+        "#6B8E5A",
+        "#8B5E3C",
+        "#9AC7D8",
+        "#C0C0C0",
+        "#6CA0DC",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 19,
+      "tematica": "TéCaliente",
+      "colorPalette": [
+        "#FFF7EA",
+        "#FFEBCD",
+        "#F5DEB3",
+        "#D2B48C",
+        "#8B5E3C",
+        "#C0A080",
+        "#B0C4DE",
+        "#C0C0C0",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 20,
+      "tematica": "Patinaje",
+      "colorPalette": [
+        "#EAF6FF",
+        "#CFEFFF",
+        "#9FD4EC",
+        "#5DA6D9",
+        "#2F4F4F",
+        "#C0C0C0",
+        "#87CEEB",
+        "#D3EAF7",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 21,
+      "tematica": "MandalaInvierno",
+      "colorPalette": [
+        "#F0FBFF",
+        "#E0F7FF",
+        "#CDEAF6",
+        "#9AC7D8",
+        "#6FAFC2",
+        "#BFD8E6",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 22,
+      "tematica": "Chimenea",
+      "colorPalette": [
+        "#FFF5E6",
+        "#FFDAB9",
+        "#F4A460",
+        "#8B4513",
+        "#5C4033",
+        "#C0C0C0",
+        "#A9C6D9",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 23,
+      "tematica": "Ciervo",
+      "colorPalette": [
+        "#F4F6F5",
+        "#EDEBE7",
+        "#C9B79A",
+        "#8B5E3C",
+        "#5A3F2B",
+        "#9AC7D8",
+        "#C0C0C0",
+        "#A6C8D9",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 24,
+      "tematica": "JardínInvierno",
+      "colorPalette": [
+        "#F0FAFF",
+        "#E6F7FF",
+        "#CFEFFF",
+        "#A9D7E9",
+        "#7FB9D1",
+        "#D3D3D3",
+        "#C0C0C0",
+        "#6CA0DC",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 25,
+      "tematica": "AmigosJuego",
+      "colorPalette": [
+        "#FFF8E7",
+        "#FDE9C7",
+        "#E6C79A",
+        "#C9A66B",
+        "#8B5E3C",
+        "#B0E0E6",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 26,
+      "tematica": "ChocolateCaliente",
+      "colorPalette": [
+        "#FFF2E6",
+        "#F5D6B4",
+        "#E2A86F",
+        "#8B4513",
+        "#5C3A21",
+        "#C0A080",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 27,
+      "tematica": "MandalaNaturaleza2",
+      "colorPalette": [
+        "#F6FBF7",
+        "#E8F7EE",
+        "#D2ECCD",
+        "#A6D4B8",
+        "#79B994",
+        "#9AC7D8",
+        "#C0C0C0",
+        "#F0F8FF",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 28,
+      "tematica": "CalendarioEnero",
+      "colorPalette": [
+        "#F0F8FF",
+        "#E6F7FF",
+        "#BEE6FF",
+        "#9AC7D8",
+        "#6FAFC2",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#87CEEB",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 29,
+      "tematica": "NieveJugando",
+      "colorPalette": [
+        "#EAF6FF",
+        "#CFEFFF",
+        "#9FD4EC",
+        "#6CA0DC",
+        "#2F4F4F",
+        "#D3D3D3",
+        "#C0C0C0",
+        "#87CEEB",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 30,
+      "tematica": "FuegosInvierno",
+      "colorPalette": [
+        "#EAF6FF",
+        "#BEE6FF",
+        "#6CA0DC",
+        "#4169E1",
+        "#FFD700",
+        "#FF4500",
+        "#D3D3D3",
+        "#2F4F4F",
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "day": 31,
+      "tematica": "DesayunoCozy",
+      "colorPalette": [
+        "#FFF8F2",
+        "#FFF2E6",
+        "#F5DEB3",
+        "#EBCFA3",
+        "#C9A66B",
+        "#B0E0E6",
+        "#C0C0C0",
+        "#D3D3D3",
+        "#000000",
+        "#FFFFFF"
+      ]
+    }
+  ]
+}

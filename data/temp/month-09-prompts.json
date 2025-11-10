@@ -1,0 +1,249 @@
+{
+  "month": 9,
+  "monthName": "Septiembre",
+  "totalDays": 30,
+  "startDay": 244,
+  "endDay": 273,
+  "prompts": [
+    {
+      "id": 244,
+      "day": 244,
+      "tematica": "VueltaColeMagica",
+      "prompt_es": "Niños entrando al colegio con mochilas, acompañados de pequeños unicornios y arcoíris para colorear solo contornos",
+      "prompt_en": "Outline drawing of children entering school with backpacks, accompanied by small unicorns and rainbow to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 245,
+      "day": 245,
+      "tematica": "AulaArteMagica",
+      "prompt_es": "Aula con niños pintando y pinceles mágicos, hadas volando alrededor para colorear solo contornos",
+      "prompt_en": "Outline drawing of classroom with children painting with magical brushes, fairies flying around to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 246,
+      "day": 246,
+      "tematica": "BibliotecaEncantada",
+      "prompt_es": "Niños leyendo libros mágicos en biblioteca con estanterías flotantes para colorear solo contornos",
+      "prompt_en": "Outline drawing of children reading magical books in library with floating shelves to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 247,
+      "day": 247,
+      "tematica": "PatioJuegosFantasia",
+      "prompt_es": "Niños jugando en patio escolar con criaturas fantásticas y arcoíris para colorear solo contornos",
+      "prompt_en": "Outline drawing of children playing in schoolyard with fantasy creatures and rainbow to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 248,
+      "day": 248,
+      "tematica": "MandalaEscuela",
+      "prompt_es": "Mandala con lápices, libros, estrellas y varitas mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mandala with pencils, books, stars and magic wands to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 249,
+      "day": 249,
+      "tematica": "LaboratorioMagico",
+      "prompt_es": "Niños haciendo experimentos con pociones y varitas mágicas en aula de ciencia para colorear solo contornos",
+      "prompt_en": "Outline drawing of children doing experiments with potions and magic wands in science classroom to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 250,
+      "day": 250,
+      "tematica": "JardinUnicornio",
+      "prompt_es": "Jardín escolar con flores, árboles y un unicornio paseando para colorear solo contornos",
+      "prompt_en": "Outline drawing of school garden with flowers, trees and a unicorn walking to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 251,
+      "day": 251,
+      "tematica": "TallerCreativo",
+      "prompt_es": "Niños creando arte y figuras mágicas en taller de arte para colorear solo contornos",
+      "prompt_en": "Outline drawing of children creating art and magical figures in art workshop to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 252,
+      "day": 252,
+      "tematica": "MandalaArcoiris",
+      "prompt_es": "Mandala con arcoíris, nubes, estrellas y pequeños unicornios para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mandala with rainbow, clouds, stars and small unicorns to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 253,
+      "day": 253,
+      "tematica": "PaseoMagico",
+      "prompt_es": "Niños explorando bosque cercano al colegio con hadas y criaturas mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of children exploring forest near school with fairies and magical creatures to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 254,
+      "day": 254,
+      "tematica": "FiestaBiblioteca",
+      "prompt_es": "Personajes mágicos y niños leyendo juntos en biblioteca con globos y confeti para colorear solo contornos",
+      "prompt_en": "Outline drawing of magical characters and children reading together in library with balloons and confetti to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 255,
+      "day": 255,
+      "tematica": "PatioDeportes",
+      "prompt_es": "Niños jugando fútbol y saltando la cuerda junto a criaturas fantásticas para colorear solo contornos",
+      "prompt_en": "Outline drawing of children playing soccer and jumping rope with fantasy creatures to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 256,
+      "day": 256,
+      "tematica": "MandalaMagica2",
+      "prompt_es": "Mandala con libros, varitas, estrellas y pociones mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mandala with books, wands, stars and magical potions to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 257,
+      "day": 257,
+      "tematica": "ArcoirisCole",
+      "prompt_es": "Niños en patio mirando arcoíris con pequeños dragones y unicornios para colorear solo contornos",
+      "prompt_en": "Outline drawing of children in schoolyard watching rainbow with small dragons and unicorns to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 258,
+      "day": 258,
+      "tematica": "AulaTecnologica",
+      "prompt_es": "Niños usando tabletas y robots mágicos en aula para colorear solo contornos",
+      "prompt_en": "Outline drawing of children using tablets and magical robots in classroom to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 259,
+      "day": 259,
+      "tematica": "MandalaBosque",
+      "prompt_es": "Mandala con árboles, hojas, setas y criaturas mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mandala with trees, leaves, mushrooms and magical creatures to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 260,
+      "day": 260,
+      "tematica": "UnicornioJardínCole",
+      "prompt_es": "Unicornio jugando con niños en jardín del colegio para colorear solo contornos",
+      "prompt_en": "Outline drawing of a unicorn playing with children in school garden to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 261,
+      "day": 261,
+      "tematica": "FiestaColeMagica",
+      "prompt_es": "Fiesta en colegio con confeti, globos y personajes mágicos para colorear solo contornos",
+      "prompt_en": "Outline drawing of a party at school with confetti, balloons and magical characters to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 262,
+      "day": 262,
+      "tematica": "PaseoCreativo",
+      "prompt_es": "Niños pintando murales mágicos en patios y jardines del colegio para colorear solo contornos",
+      "prompt_en": "Outline drawing of children painting magical murals in schoolyards and gardens to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 263,
+      "day": 263,
+      "tematica": "MandalaEstrellas",
+      "prompt_es": "Mandala con estrellas, libros y varitas mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mandala with stars, books and magic wands to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 264,
+      "day": 264,
+      "tematica": "PatioExploracion",
+      "prompt_es": "Niños explorando rincón secreto del colegio con criaturas mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of children exploring secret corner of school with magical creatures to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 265,
+      "day": 265,
+      "tematica": "JardinMagico",
+      "prompt_es": "Jardín con caminos brillantes, flores mágicas y pequeños unicornios para colorear solo contornos",
+      "prompt_en": "Outline drawing of garden with sparkling paths, magical flowers and small unicorns to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 266,
+      "day": 266,
+      "tematica": "MandalaCuentos",
+      "prompt_es": "Mandala con libros, castillos, dragones y estrellas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mandala with books, castles, dragons and stars to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 267,
+      "day": 267,
+      "tematica": "ArcoirisFantasia",
+      "prompt_es": "Niños volando sobre arcoíris con varitas y criaturas mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of children flying over rainbow with wands and magical creatures to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 268,
+      "day": 268,
+      "tematica": "PatioCreativo",
+      "prompt_es": "Niños jugando y haciendo arte en patio escolar con hadas para colorear solo contornos",
+      "prompt_en": "Outline drawing of children playing and doing art in schoolyard with fairies to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 269,
+      "day": 269,
+      "tematica": "BosqueEscuela",
+      "prompt_es": "Bosque cercano al colegio con criaturas mágicas y niños explorando para colorear solo contornos",
+      "prompt_en": "Outline drawing of forest near school with magical creatures and children exploring to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 270,
+      "day": 270,
+      "tematica": "MandalaUnicornio2",
+      "prompt_es": "Mandala con unicornios, flores y estrellas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mandala with unicorns, flowers and stars to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 271,
+      "day": 271,
+      "tematica": "TallerHechiceria",
+      "prompt_es": "Niños creando pócimas y hechizos mágicos en aula para colorear solo contornos",
+      "prompt_en": "Outline drawing of children making potions and magical spells in classroom to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 272,
+      "day": 272,
+      "tematica": "FiestaMagica",
+      "prompt_es": "Fiesta con niños y criaturas mágicas en patio escolar con globos y luces para colorear solo contornos",
+      "prompt_en": "Outline drawing of a party with children and magical creatures in schoolyard with balloons and lights to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 273,
+      "day": 273,
+      "tematica": "ArcoirisCole2",
+      "prompt_es": "Niños y pequeños dragones observando arcoíris sobre el colegio para colorear solo contornos",
+      "prompt_en": "Outline drawing of children and small dragons watching rainbow above school to color",
+      "difficulty": "Medio"
+    }
+  ]
+}

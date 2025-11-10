@@ -1,0 +1,249 @@
+{
+  "month": 11,
+  "monthName": "Noviembre",
+  "totalDays": 30,
+  "startDay": 305,
+  "endDay": 334,
+  "prompts": [
+    {
+      "id": 305,
+      "day": 305,
+      "tematica": "Hojas",
+      "prompt_es": "Dibujo de hojas de otoño cayendo de los árboles para colorear solo contornos",
+      "prompt_en": "Outline drawing of autumn leaves falling from trees to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 306,
+      "day": 306,
+      "tematica": "Bosque",
+      "prompt_es": "Dibujo de un bosque otoñal con árboles y hojas caídas para colorear solo contornos",
+      "prompt_en": "Outline drawing of an autumn forest with trees and fallen leaves to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 307,
+      "day": 307,
+      "tematica": "Ardilla",
+      "prompt_es": "Dibujo de una ardilla con una bellota en un árbol para colorear solo contornos",
+      "prompt_en": "Outline drawing of a squirrel with an acorn in a tree to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 308,
+      "day": 308,
+      "tematica": "Zorro",
+      "prompt_es": "Dibujo de un zorro en el bosque con hojas caídas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a fox in the forest with fallen leaves to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 309,
+      "day": 309,
+      "tematica": "Cocina",
+      "prompt_es": "Dibujo de una cocina rústica con estanterías y ollas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a rustic kitchen with shelves and pots to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 310,
+      "day": 310,
+      "tematica": "TazaTé",
+      "prompt_es": "Dibujo de una taza de té cozy sobre una mesa con galletas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a cozy tea cup on a table with cookies to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 311,
+      "day": 311,
+      "tematica": "Setas",
+      "prompt_es": "Dibujo de setas en el bosque con hojas alrededor para colorear solo contornos",
+      "prompt_en": "Outline drawing of mushrooms in the forest with leaves around to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 312,
+      "day": 312,
+      "tematica": "Castañas",
+      "prompt_es": "Dibujo de castañas sobre una mesa rústica para colorear solo contornos",
+      "prompt_en": "Outline drawing of chestnuts on a rustic table to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 313,
+      "day": 313,
+      "tematica": "Fogata",
+      "prompt_es": "Dibujo de una fogata en el campo con personas alrededor para colorear solo contornos",
+      "prompt_en": "Outline drawing of a campfire in the countryside with people around to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 314,
+      "day": 314,
+      "tematica": "Lago",
+      "prompt_es": "Dibujo de un lago rodeado de árboles de otoño para colorear solo contornos",
+      "prompt_en": "Outline drawing of a lake surrounded by autumn trees to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 315,
+      "day": 315,
+      "tematica": "Montaña",
+      "prompt_es": "Dibujo de montañas con un sendero y árboles otoñales para colorear solo contornos",
+      "prompt_en": "Outline drawing of mountains with a path and autumn trees to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 316,
+      "day": 316,
+      "tematica": "Granja",
+      "prompt_es": "Dibujo de una granja con animales para colorear solo contornos",
+      "prompt_en": "Outline drawing of a farm with animals to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 317,
+      "day": 317,
+      "tematica": "Gallinas",
+      "prompt_es": "Dibujo de gallinas picoteando en el corral para colorear solo contornos",
+      "prompt_en": "Outline drawing of hens pecking in the coop to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 318,
+      "day": 318,
+      "tematica": "Caballo",
+      "prompt_es": "Dibujo de un caballo en el campo con hojas de otoño para colorear solo contornos",
+      "prompt_en": "Outline drawing of a horse in the field with autumn leaves to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 319,
+      "day": 319,
+      "tematica": "Campo",
+      "prompt_es": "Dibujo de un campo con cultivos y árboles para colorear solo contornos",
+      "prompt_en": "Outline drawing of a field with crops and trees to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 320,
+      "day": 320,
+      "tematica": "Frutas",
+      "prompt_es": "Dibujo de frutas otoñales en una cesta para colorear solo contornos",
+      "prompt_en": "Outline drawing of autumn fruits in a basket to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 321,
+      "day": 321,
+      "tematica": "Verduras",
+      "prompt_es": "Dibujo de verduras frescas en un mercado rural para colorear solo contornos",
+      "prompt_en": "Outline drawing of fresh vegetables in a rural market to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 322,
+      "day": 322,
+      "tematica": "CasaRural",
+      "prompt_es": "Dibujo de una casa rural con chimenea y árboles para colorear solo contornos",
+      "prompt_en": "Outline drawing of a rural house with chimney and trees to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 323,
+      "day": 323,
+      "tematica": "Camino",
+      "prompt_es": "Dibujo de un camino cubierto de hojas de otoño para colorear solo contornos",
+      "prompt_en": "Outline drawing of a path covered with autumn leaves to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 324,
+      "day": 324,
+      "tematica": "Pájaros",
+      "prompt_es": "Dibujo de pájaros migrando en el cielo otoñal para colorear solo contornos",
+      "prompt_en": "Outline drawing of birds migrating in the autumn sky to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 325,
+      "day": 325,
+      "tematica": "Nido",
+      "prompt_es": "Dibujo de un nido con huevos en un árbol para colorear solo contornos",
+      "prompt_en": "Outline drawing of a nest with eggs in a tree to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 326,
+      "day": 326,
+      "tematica": "Conejo",
+      "prompt_es": "Dibujo de un conejo en el campo para colorear solo contornos",
+      "prompt_en": "Outline drawing of a rabbit in the field to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 327,
+      "day": 327,
+      "tematica": "NiñosJugando",
+      "prompt_es": "Dibujo de niños jugando con hojas de otoño en un parque para colorear solo contornos",
+      "prompt_en": "Outline drawing of children playing with autumn leaves in a park to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 328,
+      "day": 328,
+      "tematica": "Escuela",
+      "prompt_es": "Dibujo de una escuela rural con árboles alrededor para colorear solo contornos",
+      "prompt_en": "Outline drawing of a rural school with trees around to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 329,
+      "day": 329,
+      "tematica": "Familia",
+      "prompt_es": "Dibujo de una madre con sus hijos caminando por el bosque para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mother with her children walking through the forest to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 330,
+      "day": 330,
+      "tematica": "Comida",
+      "prompt_es": "Dibujo de comida otoñal en una mesa para colorear solo contornos",
+      "prompt_en": "Outline drawing of autumn food on a table to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 331,
+      "day": 331,
+      "tematica": "Mercado",
+      "prompt_es": "Dibujo de un mercado al aire libre con frutas y verduras para colorear solo contornos",
+      "prompt_en": "Outline drawing of an outdoor market with fruits and vegetables to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 332,
+      "day": 332,
+      "tematica": "Bicicleta",
+      "prompt_es": "Dibujo de una bicicleta apoyada en un árbol otoñal para colorear solo contornos",
+      "prompt_en": "Outline drawing of a bicycle leaning on an autumn tree to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 333,
+      "day": 333,
+      "tematica": "Princesa",
+      "prompt_es": "Dibujo de una princesa con un vestido elegante en un jardín para colorear solo contornos",
+      "prompt_en": "Outline drawing of a princess with an elegant dress in a garden to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 334,
+      "day": 334,
+      "tematica": "Lluvia",
+      "prompt_es": "Dibujo de lluvia cayendo sobre un paisaje otoñal para colorear solo contornos",
+      "prompt_en": "Outline drawing of rain falling on an autumn landscape to color",
+      "difficulty": "Medio"
+    }
+  ]
+}

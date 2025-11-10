@@ -1,0 +1,37 @@
+{
+  "month": 4,
+  "monthName": "Abril",
+  "palettes": [
+    { "day": 91, "tematica": "MandalaFlores", "colorPalette": ["#FFF8F0","#FFEFD6","#FFD9C9","#CFEAD8","#A8D0C0","#79B994","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 92, "tematica": "UnicornioBosque", "colorPalette": ["#FFD1F0","#FFC0E6","#E6E6FF","#CDEAF6","#A8D0C0","#9AC7D8","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 93, "tematica": "CaféAmigos", "colorPalette": ["#FFF5E1","#F5DEB3","#E6C89A","#C9A66B","#A67C52","#B0C4DE","#C0C0C0","#D3D3D3","#000000","#FFFFFF"] },
+    { "day": 94, "tematica": "DragónPequeño", "colorPalette": ["#FFF4F0","#FFE7E0","#FFD9D1","#FFD1B3","#C7E6DA","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 95, "tematica": "TejidoCozy", "colorPalette": ["#FFF7F0","#FFEFD9","#FFDDBA","#E6C7A8","#C9A66B","#B0C4DE","#C0C0C0","#D3D3D3","#000000","#FFFFFF"] },
+    { "day": 96, "tematica": "PicnicInterior", "colorPalette": ["#FFF8E6","#FFEFD8","#FFD9C9","#F5D6B4","#C9A66B","#B0E0E6","#C0C0C0","#D3D3D3","#000000","#FFFFFF"] },
+    { "day": 97, "tematica": "MandalaAnimales", "colorPalette": ["#FFF8F6","#F0FFF8","#E6F7EE","#CFEAD8","#A6D4B8","#9AC7D8","#C0C0C0","#F0F8FF","#000000","#FFFFFF"] },
+    { "day": 98, "tematica": "BibliotecaAcogedora", "colorPalette": ["#F6F4EE","#EEDFCC","#DCC8B6","#C9A66B","#A67C52","#B0C4DE","#C0C0C0","#D3D3D3","#000000","#FFFFFF"] },
+    { "day": 99, "tematica": "Cohete", "colorPalette": ["#F0F8FF","#DCEFFF","#BEE6FF","#9FD4EC","#6CA0DC","#4169E1","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 100, "tematica": "Astronauta", "colorPalette": ["#F0F8FF","#DCEFFF","#BEE6FF","#9FD4EC","#6CA0DC","#4169E1","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 101, "tematica": "Horno", "colorPalette": ["#FFF2E6","#F5D6B4","#E2A86F","#C68642","#8B4513","#C0C0C0","#B0E0E6","#A9C6D9","#000000","#FFFFFF"] },
+    { "day": 102, "tematica": "DinosaurioBosque", "colorPalette": ["#E8F7E6","#D6F0D8","#CFEAD8","#A6D4B8","#79B994","#9AC7D8","#C0C0C0","#F0F8FF","#000000","#FFFFFF"] },
+    { "day": 103, "tematica": "MandalaPrimavera", "colorPalette": ["#FFF8F0","#FFF0E6","#FFEFD6","#FFD9C9","#CFEAD8","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 104, "tematica": "JardínPrimavera", "colorPalette": ["#FFF8F6","#F0FFF8","#E6F7EE","#CFEAD8","#A6D4B8","#79B994","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 105, "tematica": "ConejoPascua", "colorPalette": ["#FFF0F6","#FFDFF0","#FFD1E6","#FFEFD6","#CFEAD8","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 106, "tematica": "HuevosDecorados", "colorPalette": ["#FFF5F7","#FFEAF0","#FFDDE6","#FFD9C9","#CFEAD8","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 107, "tematica": "MandalaHuevos", "colorPalette": ["#FFF8F0","#FFF0E6","#FFEFD6","#FFD9C9","#CFEAD8","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 108, "tematica": "BibliotecaPrimavera", "colorPalette": ["#FFF8F2","#F2E6D8","#E8E0D6","#D1BBA0","#B0C4DE","#C0C0C0","#A9C6D9","#D3D3D3","#000000","#FFFFFF"] },
+    { "day": 109, "tematica": "PicnicPrimavera", "colorPalette": ["#FFF8E6","#FFDDB3","#FFECC9","#F5D6B4","#C9A66B","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 110, "tematica": "GenteTejiendo", "colorPalette": ["#FFF7F0","#FFEFD9","#FFDDBA","#E6C7A8","#C9A66B","#B0C4DE","#C0C0C0","#D3D3D3","#000000","#FFFFFF"] },
+    { "day": 111, "tematica": "MandalaAnimalesFantásticos", "colorPalette": ["#FFF8F0","#FFEFD8","#FFD9C9","#E6F7E6","#CFEAD8","#9AC7D8","#C0C0C0","#F0F8FF","#000000","#FFFFFF"] },
+    { "day": 112, "tematica": "TerrazaAcogedora", "colorPalette": ["#FFF8F2","#F2E6D8","#E8E0D6","#D1BBA0","#B0C4DE","#C0C0C0","#A9C6D9","#D3D3D3","#000000","#FFFFFF"] },
+    { "day": 113, "tematica": "DragónJardín", "colorPalette": ["#FFF4F0","#FFE7E0","#FFD9D1","#FFD1B3","#C7E6DA","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 114, "tematica": "MandalaEspacio", "colorPalette": ["#F0F8FF","#E6F7FF","#CDEAF6","#9AC7D8","#6CA0DC","#4169E1","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 115, "tematica": "AmigosPrimavera", "colorPalette": ["#FFF8F6","#F0FFF8","#FFF2E6","#FFEFD6","#CFEAD8","#A6D4B8","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 116, "tematica": "JardínFlores", "colorPalette": ["#FFF8F6","#F0FFF8","#E6F7EE","#CFEAD8","#A6D4B8","#FFDFD6","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 117, "tematica": "DinosaurioAmistoso", "colorPalette": ["#E8F7E6","#D6F0D8","#CFEAD8","#A6D4B8","#79B994","#9AC7D8","#C0C0C0","#F0F8FF","#000000","#FFFFFF"] },
+    { "day": 118, "tematica": "DíaTierra", "colorPalette": ["#E6FFE6","#D4F7D4","#BEE6B9","#9AC779","#6FAF4A","#C0C0C0","#B0E0E6","#A9C6D9","#000000","#FFFFFF"] },
+    { "day": 119, "tematica": "MandalaFloresPrimavera", "colorPalette": ["#FFF8F0","#FFF0E6","#FFEFD6","#FFD9C9","#CFEAD8","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 120, "tematica": "DesayunoMontaña", "colorPalette": ["#FFF8F2","#FFF2E6","#FFECC9","#FFD9B3","#D8C7A8","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] }
+  ]
+}
+

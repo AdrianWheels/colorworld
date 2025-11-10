@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
+import { getPaletteForDay } from '../data/daily-palettes';
 import '../styles/ToolBarHorizontal.css';
 
 const ToolBarHorizontal = ({ 
@@ -16,28 +17,33 @@ const ToolBarHorizontal = ({
   canSave = false,
   currentTool = 'brush',
   currentColor = '#000000',
-  currentBrushSize = 5
+  currentBrushSize = 5,
+  currentDay = 1 // Día del año (1-365)
 }) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [previewColor, setPreviewColor] = useState(null);
+  const [customColors, setCustomColors] = useState([]);
 
-  const colors = [
-    '#000000', // Negro clásico
-    '#FF6600', // Naranja calabaza
-    '#8B0000', // Rojo sangre
-    '#4B0082', // Índigo oscuro
-    '#FF8C00', // Naranja oscuro
-    '#800080', // Púrpura
-    '#228B22', // Verde bosque
-    '#FFD700', // Dorado
-    '#8B4513', // Marrón saddle
-    '#2F4F4F', // Gris pizarra oscuro
-    '#DC143C', // Carmesí
-    '#9932CC', // Violeta oscuro
-    '#B8860B', // Dorado oscuro
-    '#556B2F', // Verde oliva oscuro
-    '#FFFFFF'  // Blanco fantasma
-  ];
+  // Obtener la paleta del día actual (10 colores predefinidos)
+  const dailyPalette = useMemo(() => {
+    return getPaletteForDay(currentDay) || [];
+  }, [currentDay]);
+
+  // Combinar: 10 colores del día + 6 slots personalizables = 16 colores total (grid 4x4)
+  const colors = useMemo(() => {
+    const palette = [...dailyPalette];
+    
+    // Agregar colores personalizados hasta completar 6 slots
+    const customSlots = 6;
+    const currentCustom = customColors.slice(0, customSlots);
+    
+    // Rellenar con slots vacíos si no hay suficientes colores personalizados
+    while (currentCustom.length < customSlots) {
+      currentCustom.push(null); // null = slot vacío
+    }
+    
+    return [...palette, ...currentCustom];
+  }, [dailyPalette, customColors]);
 
   const handleToolChange = (tool) => {
     onToolChange(tool);
@@ -47,6 +53,19 @@ const ToolBarHorizontal = ({
     onColorChange(color);
     setShowColorPicker(false);
     setPreviewColor(null);
+  };
+
+  const handleCustomColorSelected = (color) => {
+    // Solo agregar si no está ya en la paleta diaria
+    if (!dailyPalette.includes(color.toUpperCase())) {
+      setCustomColors(prev => {
+        // Evitar duplicados
+        const filtered = prev.filter(c => c !== color.toUpperCase());
+        // Agregar al inicio y mantener máximo 6
+        return [color.toUpperCase(), ...filtered].slice(0, 6);
+      });
+    }
+    handleColorChange(color);
   };
 
   const handleColorPreview = (color) => {
@@ -162,7 +181,7 @@ const ToolBarHorizontal = ({
               />
               <div className="color-palette">
                 <div className="color-palette-header">
-                  <span>Seleccionar Color</span>
+                  <span>Paleta del Día</span>
                   <button 
                     className="close-palette-btn"
                     onClick={handleColorPickerClose}
@@ -171,22 +190,41 @@ const ToolBarHorizontal = ({
                   </button>
                 </div>
                 <div className="color-palette-info">
-                  <small>Pasa el mouse para previsualizar, haz clic para seleccionar</small>
+                  <small>10 colores sugeridos + 6 espacios para tus colores personalizados</small>
                 </div>
-                {colors.map(color => (
-                  <button
-                    key={color}
-                    className={`color-btn ${currentColor === color ? 'selected' : ''} ${previewColor === color ? 'preview' : ''}`}
-                    style={{ backgroundColor: color }}
-                    onMouseEnter={() => handleColorPreview(color)}
-                    onMouseLeave={() => setPreviewColor(null)}
-                    onClick={() => handleColorConfirm(color)}
-                    title={`Color ${color}`}
-                  />
-                ))}
+                <div className="color-palette-grid">
+                  {colors.map((color, index) => {
+                    const isEmpty = color === null;
+                    const isDaily = index < 10;
+                    
+                    if (isEmpty) {
+                      return (
+                        <div
+                          key={`empty-${index}`}
+                          className="color-btn empty-slot"
+                          title="Slot vacío - Usa el selector de color personalizado para agregar"
+                        >
+                          <span className="empty-slot-icon">+</span>
+                        </div>
+                      );
+                    }
+                    
+                    return (
+                      <button
+                        key={`${color}-${index}`}
+                        className={`color-btn ${currentColor === color ? 'selected' : ''} ${previewColor === color ? 'preview' : ''} ${isDaily ? 'daily-color' : 'custom-color'}`}
+                        style={{ backgroundColor: color }}
+                        onMouseEnter={() => handleColorPreview(color)}
+                        onMouseLeave={() => setPreviewColor(null)}
+                        onClick={() => handleColorConfirm(color)}
+                        title={isDaily ? `Color del día: ${color}` : `Tu color: ${color}`}
+                      />
+                    );
+                  })}
+                </div>
                 <div className="custom-color-section">
                   <label htmlFor="custom-color" className="custom-color-label">
-                    🎨 ¡Crea tu color!
+                    🎨 Crea tu color personalizado
                   </label>
                   <input
                     id="custom-color"
@@ -196,10 +234,10 @@ const ToolBarHorizontal = ({
                       handleColorPreview(e.target.value);
                     }}
                     onBlur={(e) => {
-                      handleColorConfirm(e.target.value);
+                      handleCustomColorSelected(e.target.value);
                     }}
                     className="custom-color-input"
-                    title="Selecciona cualquier color personalizado"
+                    title="Selecciona cualquier color - se guardará en los slots personalizados"
                   />
                 </div>
               </div>

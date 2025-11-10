@@ -261,23 +261,29 @@
   border: 2px solid #8b5a9e;
   border-radius: 15px;
   padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Grid de colores 4x4 */
+.color-palette-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  z-index: 10000;
-  min-width: 220px;
-  max-width: 300px;
+  padding: 10px 0;
 }
 
 /* Flecha del modal removida ya que ahora se muestra centrado */
 
 .color-palette-header {
-  grid-column: span 4;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
   font-weight: 600;
@@ -285,9 +291,7 @@
 }
 
 .color-palette-info {
-  grid-column: span 4;
   text-align: center;
-  margin-bottom: 10px;
   padding: 8px;
   background: rgba(78, 205, 196, 0.1);
   border-radius: 8px;
@@ -326,13 +330,14 @@
 }
 
 .color-btn {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   border: 2px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  background-color: transparent;
 }
 
 .color-btn:hover {
@@ -370,12 +375,72 @@
   border: 1px solid white;
 }
 
+/* Colores del día (los primeros 10) */
+.color-btn.daily-color {
+  border-color: #8b5a9e;
+  border-width: 2px;
+}
+
+.color-btn.daily-color:hover {
+  border-color: #6a3d7e;
+  border-width: 3px;
+}
+
+/* Colores personalizados del usuario */
+.color-btn.custom-color {
+  border-color: #4ecdc4;
+  border-width: 2px;
+  border-style: dashed;
+}
+
+.color-btn.custom-color:hover {
+  border-color: #3bbaad;
+  border-width: 3px;
+}
+
+/* Slot vacío para colores personalizados */
+.color-btn.empty-slot {
+  background: linear-gradient(
+    135deg,
+    #f8f8f8 25%,
+    transparent 25%,
+    transparent 75%,
+    #f8f8f8 75%,
+    #f8f8f8
+  ),
+  linear-gradient(
+    135deg,
+    #f8f8f8 25%,
+    transparent 25%,
+    transparent 75%,
+    #f8f8f8 75%,
+    #f8f8f8
+  );
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+  border: 2px dashed #ddd;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-btn.empty-slot:hover {
+  transform: none;
+  border-color: #ccc;
+  background-color: #fafafa;
+}
+
+.empty-slot-icon {
+  color: #999;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
 .custom-color-section {
-  grid-column: span 4;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 8px;
   padding-top: 12px;
   border-top: 1px solid #e0e0e0;
 }

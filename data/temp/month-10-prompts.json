@@ -1,0 +1,257 @@
+{
+  "month": 10,
+  "monthName": "Octubre",
+  "totalDays": 31,
+  "startDay": 274,
+  "endDay": 304,
+  "prompts": [
+    {
+      "id": 274,
+      "day": 274,
+      "tematica": "Calabaza",
+      "prompt_es": "Dibujo de una calabaza en un bosque con árboles de otoño para colorear solo contornos",
+      "prompt_en": "Outline drawing of a pumpkin in a forest with autumn trees to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 275,
+      "day": 275,
+      "tematica": "Murciélago",
+      "prompt_es": "Dibujo de un murciélago volando sobre un castillo embrujado para colorear solo contornos",
+      "prompt_en": "Outline drawing of a bat flying over a haunted castle to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 276,
+      "day": 276,
+      "tematica": "Fantasma",
+      "prompt_es": "Dibujo de un fantasma saliendo de una casa embrujada para colorear solo contornos",
+      "prompt_en": "Outline drawing of a ghost coming out of a haunted house to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 277,
+      "day": 277,
+      "tematica": "Bruja",
+      "prompt_es": "Dibujo de una bruja con su escoba y un caldero burbujeante para colorear solo contornos",
+      "prompt_en": "Outline drawing of a witch with her broom and a bubbling cauldron to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 278,
+      "day": 278,
+      "tematica": "Esqueleto",
+      "prompt_es": "Dibujo de un esqueleto bailando en un cementerio con lápidas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a skeleton dancing in a graveyard with tombstones to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 279,
+      "day": 279,
+      "tematica": "Araña",
+      "prompt_es": "Dibujo de una araña tejiendo su telaraña en un rincón oscuro para colorear solo contornos",
+      "prompt_en": "Outline drawing of a spider weaving its web in a dark corner to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 280,
+      "day": 280,
+      "tematica": "Gato",
+      "prompt_es": "Dibujo de un gato negro sobre una valla con luna llena para colorear solo contornos",
+      "prompt_en": "Outline drawing of a black cat on a fence with a full moon to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 281,
+      "day": 281,
+      "tematica": "Sombrero",
+      "prompt_es": "Dibujo de un sombrero de bruja sobre una mesa con pociones mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a witch hat on a table with magical potions to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 282,
+      "day": 282,
+      "tematica": "Castillo",
+      "prompt_es": "Dibujo de un castillo embrujado con murciélagos volando alrededor para colorear solo contornos",
+      "prompt_en": "Outline drawing of a haunted castle with bats flying around to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 283,
+      "day": 283,
+      "tematica": "Zombie",
+      "prompt_es": "Dibujo de un zombie saliendo de la tierra en un cementerio para colorear solo contornos",
+      "prompt_en": "Outline drawing of a zombie rising from the ground in a graveyard to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 284,
+      "day": 284,
+      "tematica": "Momia",
+      "prompt_es": "Dibujo de una momia en un pasillo de pirámide con jeroglíficos para colorear solo contornos",
+      "prompt_en": "Outline drawing of a mummy in a pyramid hallway with hieroglyphs to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 285,
+      "day": 285,
+      "tematica": "Escoba",
+      "prompt_es": "Dibujo de una escoba mágica volando sobre un pueblo en la noche para colorear solo contornos",
+      "prompt_en": "Outline drawing of a magic broom flying over a village at night to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 286,
+      "day": 286,
+      "tematica": "Caldero",
+      "prompt_es": "Dibujo de un caldero burbujeante rodeado de libros y velas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a bubbling cauldron surrounded by books and candles to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 287,
+      "day": 287,
+      "tematica": "Monstruo",
+      "prompt_es": "Dibujo de un monstruo escondido detrás de árboles oscuros para colorear solo contornos",
+      "prompt_en": "Outline drawing of a monster hiding behind dark trees to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 288,
+      "day": 288,
+      "tematica": "Luna",
+      "prompt_es": "Dibujo de la luna llena con murciélagos volando para colorear solo contornos",
+      "prompt_en": "Outline drawing of the full moon with bats flying to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 289,
+      "day": 289,
+      "tematica": "Cementerio",
+      "prompt_es": "Dibujo de un cementerio con fantasmas y lápidas antiguas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a graveyard with ghosts and old tombstones to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 290,
+      "day": 290,
+      "tematica": "Velas",
+      "prompt_es": "Dibujo de unas velas encendidas sobre un altar con calaveras para colorear solo contornos",
+      "prompt_en": "Outline drawing of candles lit on an altar with skulls to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 291,
+      "day": 291,
+      "tematica": "Caramelos",
+      "prompt_es": "Dibujo de caramelos esparcidos sobre una mesa de Halloween para colorear solo contornos",
+      "prompt_en": "Outline drawing of candies scattered on a Halloween table to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 292,
+      "day": 292,
+      "tematica": "Búho",
+      "prompt_es": "Dibujo de un búho en un árbol seco con luna de fondo para colorear solo contornos",
+      "prompt_en": "Outline drawing of an owl in a bare tree with the moon behind to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 293,
+      "day": 293,
+      "tematica": "Calavera",
+      "prompt_es": "Dibujo de una calavera decorada en un altar con flores para colorear solo contornos",
+      "prompt_en": "Outline drawing of a decorated skull on an altar with flowers to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 294,
+      "day": 294,
+      "tematica": "Bosque",
+      "prompt_es": "Dibujo de un bosque oscuro con sombras y ojos brillantes para colorear solo contornos",
+      "prompt_en": "Outline drawing of a dark forest with shadows and glowing eyes to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 295,
+      "day": 295,
+      "tematica": "HombreLobo",
+      "prompt_es": "Dibujo de un hombre lobo aullando frente a la luna llena para colorear solo contornos",
+      "prompt_en": "Outline drawing of a werewolf howling at the full moon to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 296,
+      "day": 296,
+      "tematica": "Casa",
+      "prompt_es": "Dibujo de una casa embrujada rodeada de árboles y murciélagos para colorear solo contornos",
+      "prompt_en": "Outline drawing of a haunted house surrounded by trees and bats to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 297,
+      "day": 297,
+      "tematica": "Ratas",
+      "prompt_es": "Dibujo de unas ratas corriendo entre calabazas para colorear solo contornos",
+      "prompt_en": "Outline drawing of rats running among pumpkins to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 298,
+      "day": 298,
+      "tematica": "Telaraña",
+      "prompt_es": "Dibujo de una telaraña gigante entre ramas de árboles para colorear solo contornos",
+      "prompt_en": "Outline drawing of a giant spider web between tree branches to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 299,
+      "day": 299,
+      "tematica": "Espantapájaros",
+      "prompt_es": "Dibujo de un espantapájaros en un campo con cuervos para colorear solo contornos",
+      "prompt_en": "Outline drawing of a scarecrow in a field with crows to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 300,
+      "day": 300,
+      "tematica": "Bebida",
+      "prompt_es": "Dibujo de una bebida de poción en un frasco rodeada de ingredientes mágicos para colorear solo contornos",
+      "prompt_en": "Outline drawing of a potion drink in a bottle surrounded by magical ingredients to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 301,
+      "day": 301,
+      "tematica": "Máscara",
+      "prompt_es": "Dibujo de una máscara de halloween colgada en una puerta embrujada para colorear solo contornos",
+      "prompt_en": "Outline drawing of a Halloween mask hanging on a haunted door to color",
+      "difficulty": "Fácil"
+    },
+    {
+      "id": 302,
+      "day": 302,
+      "tematica": "Espíritu",
+      "prompt_es": "Dibujo de un espíritu flotando en un bosque misterioso para colorear solo contornos",
+      "prompt_en": "Outline drawing of a spirit floating in a mysterious forest to color",
+      "difficulty": "Medio"
+    },
+    {
+      "id": 303,
+      "day": 303,
+      "tematica": "Corazón",
+      "prompt_es": "Dibujo de un corazón oscuro rodeado de llamas mágicas para colorear solo contornos",
+      "prompt_en": "Outline drawing of a dark heart surrounded by magical flames to color",
+      "difficulty": "Difícil"
+    },
+    {
+      "id": 304,
+      "day": 304,
+      "tematica": "Sombras",
+      "prompt_es": "Dibujo de unas sombras misteriosas entre árboles retorcidos para colorear solo contornos",
+      "prompt_en": "Outline drawing of mysterious shadows among twisted trees to color",
+      "difficulty": "Fácil"
+    }
+  ]
+}

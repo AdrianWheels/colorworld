@@ -1,0 +1,37 @@
+{
+  "month": 6,
+  "monthName": "Junio",
+  "palettes": [
+    { "day": 152, "tematica": "VeranoInicio", "colorPalette": ["#FFF8E6","#FFF2C9","#FFD966","#FFC107","#FFB300","#FF8C42","#C0C0C0","#FFDAB9","#000000","#FFFFFF"] },
+    { "day": 153, "tematica": "PlayaConchas", "colorPalette": ["#F0FFFF","#E6FBFF","#CCEFFF","#9FD4EC","#6CA0DC","#1E90FF","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 154, "tematica": "NocheEstrellada", "colorPalette": ["#0B3D91","#27408B","#4169E1","#6CA0DC","#A9C6D9","#C0C0C0","#87CEEB","#2E3A87","#000000","#FFFFFF"] },
+    { "day": 155, "tematica": "Sombrilla", "colorPalette": ["#FFF8E6","#FFF2C9","#FFD966","#FFA07A","#FF8C42","#C0C0C0","#FFDAB9","#FFE4B5","#000000","#FFFFFF"] },
+    { "day": 156, "tematica": "Sandía", "colorPalette": ["#FFF8F0","#FFD9E0","#FF9AA2","#FF6B6B","#8BC34A","#6AA84F","#C0C0C0","#FFE4E1","#000000","#FFFFFF"] },
+    { "day": 157, "tematica": "MandalaVerano", "colorPalette": ["#FFF8E6","#FFF2C9","#FFEFD6","#FFD9C9","#FFC107","#FFB300","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 158, "tematica": "Helado", "colorPalette": ["#FFF8FF","#FFF0F6","#FFD9E6","#FFC0D6","#FFB3C6","#FFEFD6","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 159, "tematica": "BarcoPaseo", "colorPalette": ["#F0FFFF","#DFF7FF","#BEE6FF","#9FD4EC","#6CA0DC","#1E90FF","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 160, "tematica": "PicnicVerano", "colorPalette": ["#FFF8E6","#FFEFD8","#FFD9C9","#FFECC9","#FFDDAA","#C9A66B","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 161, "tematica": "MandalaSol", "colorPalette": ["#FFF8E6","#FFF2C9","#FFD966","#FFC107","#FFB300","#C0C0C0","#FFDAB9","#FFE4B5","#000000","#FFFFFF"] },
+    { "day": 162, "tematica": "Cangrejo", "colorPalette": ["#FFF8F0","#FFEFD6","#FFD9C9","#FFB3A7","#FF8C42","#C0C0C0","#FFDAB9","#FFE4B5","#000000","#FFFFFF"] },
+    { "day": 163, "tematica": "ConchaMarine", "colorPalette": ["#F0FFFF","#E6FBFF","#CCEFFF","#BEE6FF","#9FD4EC","#6CA0DC","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 164, "tematica": "MandalaTarde", "colorPalette": ["#FFF8F2","#FFEFD6","#FFD9C9","#FFEFD6","#FFD9B3","#CFEAD8","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 165, "tematica": "Faro", "colorPalette": ["#F0F8FF","#E6F7FF","#CDEAF6","#9AC7D8","#6CA0DC","#FFFFFF","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 166, "tematica": "PuestosVerano", "colorPalette": ["#FFF8F6","#FFEFD8","#FFD9C9","#FFF2D6","#FFDDAA","#C9A66B","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 167, "tematica": "MandalaMar", "colorPalette": ["#F0FFFF","#DFF7FF","#BEE6FF","#9FD4EC","#6CA0DC","#1E90FF","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 168, "tematica": "Palmera", "colorPalette": ["#E6FFF0","#D6F7E6","#CFEAD8","#A6D4B8","#79B994","#6AA84F","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 169, "tematica": "MandalaAtardecer", "colorPalette": ["#FFF8E6","#FFECC9","#FFD9B3","#FFB07A","#FF8C42","#C0C0C0","#FFDAB9","#FFE4B5","#000000","#FFFFFF"] },
+    { "day": 170, "tematica": "Surf", "colorPalette": ["#F0FFFF","#CCEFFF","#9FD4EC","#6CA0DC","#1E90FF","#27408B","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 171, "tematica": "MandalaOlas", "colorPalette": ["#F0FFFF","#DFF7FF","#CDEAF6","#A9C6D9","#6CA0DC","#4169E1","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 172, "tematica": "BotePescador", "colorPalette": ["#F0FFF8","#DFF7EE","#CFEAD8","#A8D0C0","#79B994","#6AA84F","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 173, "tematica": "Sombrero", "colorPalette": ["#FFF8F2","#FFEFD6","#FFD9C9","#FFEFD6","#FFD9B3","#CFEAD8","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 174, "tematica": "MandalaVerdeMar", "colorPalette": ["#E8FFF0","#D8F7E6","#CFEAD8","#A6D4B8","#79B994","#6AA84F","#C0C0C0","#B0E0E6","#000000","#FFFFFF" ] },
+    { "day": 175, "tematica": "TardeMusical", "colorPalette": ["#FFF8F6","#FFF0F0","#FFEFD6","#FFD9C9","#FDEBD0","#FFD1B3","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 176, "tematica": "MandalaFrutas", "colorPalette": ["#FFF8F0","#FFF2C9","#FFD966","#FFC107","#FF8C42","#C9A66B","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 177, "tematica": "ConciertoPlaya", "colorPalette": ["#FFF8E6","#FFEFD8","#FFD9C9","#FFECC9","#FFDDAA","#FFB300","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 178, "tematica": "BarquitoPapel", "colorPalette": ["#F0FFFF","#DFF7FF","#BEE6FF","#9FD4EC","#6CA0DC","#1E90FF","#C0C0C0","#87CEEB","#000000","#FFFFFF"] },
+    { "day": 179, "tematica": "MandalaBrisa", "colorPalette": ["#F0FFF8","#DFF7EE","#CFEAD8","#A8D0C0","#79B994","#9AC7D8","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 180, "tematica": "HeladosColores", "colorPalette": ["#FFF8FF","#FFF0F6","#FFD9E6","#FFC0D6","#FFB3C6","#FFEFD6","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] },
+    { "day": 181, "tematica": "MandalaCierre", "colorPalette": ["#FFF8F0","#FFF0E6","#FFEFD6","#FFD9C9","#CFEAD8","#A8D0C0","#C0C0C0","#B0E0E6","#000000","#FFFFFF"] }
+  ]
+}
+
