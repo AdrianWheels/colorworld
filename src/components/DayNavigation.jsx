@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/DayNavigation.css';
 
 const DayNavigation = ({ 
@@ -8,12 +9,10 @@ const DayNavigation = ({
   dayImageStatus 
 }) => {
   const formatDate = (date) => {
-    return new Intl.DateTimeFormat('es-ES', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    }).format(date);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   };
 
   // Verificar si se puede ir al día siguiente (no futuro)
@@ -61,15 +60,17 @@ const DayNavigation = ({
         ← Anterior
       </button>
       
-      <div className="current-day">
-        <div className="day-status">
-          <span className="status-icon">{getStatusIcon()}</span>
-          {getStatusText() && <span className="status-text">{getStatusText()}</span>}
+      <Link to="/calendario" className="current-day-link" title="Ver galería completa">
+        <div className="current-day">
+          <div className="day-status">
+            <span className="status-icon">{getStatusIcon()}</span>
+            {getStatusText() && <span className="status-text">{getStatusText()}</span>}
+          </div>
+          <div className="day-date">
+            📅 {formatDate(selectedDate)}
+          </div>
         </div>
-        <div className="day-date">
-          {formatDate(selectedDate)}
-        </div>
-      </div>
+      </Link>
       
       <button 
         onClick={onNextDay}

@@ -50,6 +50,10 @@ const DrawingCanvasSimple = forwardRef(({
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
   const [lastPanPoint, setLastPanPoint] = useState({ x: 0, y: 0 });
+  
+  // Estados para el cursor tooltip visual
+  const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 });
+  const [showCursor, setShowCursor] = useState(false);
 
   // Estados para detecci�n inteligente de gestos
   const touchStartTime = useRef(0);
@@ -783,22 +787,48 @@ const DrawingCanvasSimple = forwardRef(({
     
     const ctx = drawingCanvasRef.current.getContext('2d');
     
+    // Función auxiliar para efecto spray siguiendo SRP
+    const applySprayEffect = (x, y) => {
+      const density = brushSize * 2; // Densidad basada en el grosor
+      const radius = brushSize * 1.5; // Radio de dispersión
+      
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = brushColor;
+      
+      for (let i = 0; i < density; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * radius;
+        const px = x + Math.cos(angle) * distance;
+        const py = y + Math.sin(angle) * distance;
+        
+        ctx.fillRect(px, py, 1, 1);
+      }
+    };
+    
     if (tool === 'brush') {
       ctx.globalCompositeOperation = 'source-over';
       ctx.strokeStyle = brushColor;
       ctx.lineWidth = brushSize;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
+      
+      ctx.lineTo(coords.x, coords.y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(coords.x, coords.y);
+    } else if (tool === 'spray') {
+      applySprayEffect(coords.x, coords.y);
     } else if (tool === 'eraser') {
       ctx.globalCompositeOperation = 'destination-out';
       ctx.lineWidth = brushSize * 2;
       ctx.lineCap = 'round';
+      
+      ctx.lineTo(coords.x, coords.y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(coords.x, coords.y);
     }
     
-    ctx.lineTo(coords.x, coords.y);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(coords.x, coords.y);
     
     // Marcar que se ha dibujado algo en este trazo
     if (!hasDrawnInCurrentStroke.current) {
@@ -978,6 +1008,18 @@ const DrawingCanvasSimple = forwardRef(({
   }, [isPanning, startDrawing]);
 
   const handleMouseMove = useCallback((e) => {
+    // Actualizar posición del cursor tooltip relativo al canvas container
+    if (['brush', 'spray', 'eraser'].includes(tool) && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setCursorPosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      });
+      setShowCursor(true);
+    } else {
+      setShowCursor(false);
+    }
+    
     if (isPanning) {
       e.preventDefault();
       const deltaX = e.clientX - lastPanPoint.x;
@@ -996,7 +1038,11 @@ const DrawingCanvasSimple = forwardRef(({
     if (!isPanning) {
       draw(e);
     }
-  }, [isPanning, lastPanPoint, draw]);
+  }, [isPanning, lastPanPoint, draw, tool]);
+
+  const handleMouseLeave = useCallback(() => {
+    setShowCursor(false);
+  }, []);
 
   const handleMouseUp = useCallback((e) => {
     if (e.button === 2) { // Botón secundario
@@ -1505,18 +1551,21 @@ const DrawingCanvasSimple = forwardRef(({
         className="canvas-layers-container"
         style={{
           position: 'relative',
-          cursor: isPanning ? 'grabbing' : (
-            tool === 'brush' ? 'crosshair' : 
-            tool === 'eyedropper' ? 'copy' : 
-            tool === 'bucket' ? 'pointer' :
-            tool === 'eraser' ? 'pointer' : 
-            'pointer'
+          cursor: showCursor ? 'none' : (
+            isPanning ? 'grabbing' : (
+              tool === 'brush' ? 'crosshair' : 
+              tool === 'spray' ? 'crosshair' :
+              tool === 'eyedropper' ? 'copy' : 
+              tool === 'bucket' ? 'pointer' :
+              tool === 'eraser' ? 'pointer' : 
+              'pointer'
+            )
           )
         }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
         onContextMenu={handleContextMenu}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -1572,6 +1621,28 @@ const DrawingCanvasSimple = forwardRef(({
             }}
           />
         </div>
+        
+        {/* Cursor tooltip visual - fuera del transform para evitar escala */}
+        {showCursor && (
+          <div
+            className="brush-cursor-tooltip"
+            style={{
+              position: 'absolute',
+              left: cursorPosition.x,
+              top: cursorPosition.y,
+              width: brushSize * 2 * zoom,
+              height: brushSize * 2 * zoom,
+              border: tool === 'eraser' ? '2px solid #ff4444' : `2px solid ${brushColor}`,
+              borderRadius: '50%',
+              transform: 'translate(-50%, -50%)',
+              pointerEvents: 'none',
+              zIndex: 10000,
+              opacity: 0.6,
+              backgroundColor: tool === 'eraser' ? 'transparent' : `${brushColor}20`,
+              transition: 'width 0.1s ease, height 0.1s ease'
+            }}
+          />
+        )}
       </div>
     </div>
   );

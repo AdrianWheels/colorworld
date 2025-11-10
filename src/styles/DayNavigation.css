@@ -51,6 +51,26 @@
   margin: 0 16px; /* Menos margen */
 }
 
+.current-day-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  flex: 1;
+  margin: 0 16px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.current-day-link:hover {
+  background: rgba(138, 43, 226, 0.08);
+  transform: scale(1.02);
+}
+
+.current-day-link .current-day {
+  margin: 0;
+}
+
 .day-status {
   display: flex;
   align-items: center;

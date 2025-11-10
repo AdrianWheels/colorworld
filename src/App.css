@@ -92,6 +92,41 @@ body {
   }
 }
 
+/* Logo ColorEveryday - Reemplaza al título de texto */
+.coloreveryday-logo {
+  max-width: 200px;
+  width: 45%;
+  height: auto;
+  display: block;
+  margin: -10px auto 0;
+  object-fit: contain;
+}
+
+/* Responsive logo optimizations */
+@media (max-width: 480px) {
+  .coloreveryday-logo {
+    max-width: 140px;
+    width: 42%;
+    margin: -8px auto 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .coloreveryday-logo {
+    max-width: 175px;
+    width: 44%;
+    margin: -10px auto 0;
+  }
+}
+
+@media (max-height: 500px) {
+  .coloreveryday-logo {
+    max-width: 110px;
+    margin: -6px auto 0;
+  }
+}
+
+/* Mantener estilos antiguos para compatibilidad si se necesita el texto */
 .coloreveryday-title {
   font-size: 2.2rem;
   font-weight: 800;
@@ -603,7 +638,9 @@ body {
   }
 }
 
-.about-link {
+/* Links en el footer - Estilos compartidos siguiendo DRY */
+.about-link,
+.instagram-link {
   background: none;
   border: none;
   cursor: pointer;
@@ -612,12 +649,21 @@ body {
   border-radius: 4px;
   transition: all 0.2s ease;
   opacity: 0.7;
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
 }
 
-.about-link:hover {
+.about-link:hover,
+.instagram-link:hover {
   opacity: 1;
   transform: scale(1.1);
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.instagram-link {
+  font-size: 1.2rem;
+  margin: 0 4px;
 }
 
 /* Loading y error states */

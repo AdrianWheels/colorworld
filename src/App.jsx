@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import DrawingCanvasSimple from './components/DrawingCanvasSimple';
 import ToolBarHorizontal from './components/ToolBarHorizontal';
 import DrawingHistory from './components/DrawingHistory';
@@ -21,6 +22,9 @@ import Logger from './utils/logger.js';
 import './App.css';
 
 function App() {
+  const [searchParams] = useSearchParams();
+  const dateFromUrl = searchParams.get('date');
+  
   const [currentTool, setCurrentTool] = useState('brush');
   const [previousTool, setPreviousTool] = useState('brush'); // Track de herramienta anterior
   const [brushSize, setBrushSize] = useState(5);
@@ -45,6 +49,7 @@ function App() {
   
   const {
     selectedDate,
+    setSelectedDate,
     dayImageStatus,
     loadDayImage,
     goToPreviousDay,
@@ -55,7 +60,6 @@ function App() {
   } = useDayNavigation(canvasRef);
   
   const {
-    canvasData,
     canUndo,
     canRedo,
     handleUndo,
@@ -104,6 +108,22 @@ function App() {
     setTodayTheme(todayPrompt.tematica || 'something magical');
   }, []);
 
+  // Effect para procesar fecha desde URL (cuando se hace clic en el calendario)
+  useEffect(() => {
+    if (dateFromUrl) {
+      try {
+        const urlDate = new Date(dateFromUrl);
+        // Validar que la fecha es válida
+        if (!isNaN(urlDate.getTime())) {
+          Logger.log('📅 Navegando a fecha desde URL:', dateFromUrl);
+          setSelectedDate(urlDate);
+        }
+      } catch (error) {
+        Logger.error('❌ Error parseando fecha desde URL:', error);
+      }
+    }
+  }, [dateFromUrl, setSelectedDate]);
+
   // Effect para limpiar localStorage cuando cambia la fecha
   useEffect(() => {
     // Limpiar localStorage obsoleto al cambiar de día
@@ -149,7 +169,7 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
+          <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
           <p>Cargando el dibujo del día...</p>
         </header>
         <div className="loading-container">
@@ -164,7 +184,7 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
+          <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
           <p className="error-message">{error}</p>
         </header>
       </div>
@@ -187,7 +207,7 @@ function App() {
       />
       
       <header className="app-header">
-        <h1 className="coloreveryday-title">COLOREVERYDAY</h1>
+        <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
         
         <DayNavigation
           selectedDate={selectedDate}
@@ -211,7 +231,7 @@ function App() {
               onRedo={handleRedo}
               canUndo={canUndo}
               canRedo={canRedo}
-              canSave={!!canvasData}
+              canSave={true}
               currentTool={currentTool}
               currentColor={brushColor}
               currentBrushSize={brushSize}
@@ -234,7 +254,7 @@ function App() {
             
             <CanvasActions
               onSave={onSaveDrawing}
-              canSave={!!canvasData}
+              canSave={true}
             />
           </div>
         </div>
@@ -260,6 +280,17 @@ function App() {
         </p>
         <p className="footer-share">
           Share it on social media #coloreveryday{' '}
+          <a 
+            href="https://www.instagram.com/coloreverydayapp/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="instagram-link"
+            aria-label="Síguenos en Instagram"
+            title="Síguenos en Instagram"
+          >
+            �
+          </a>
+          {' '}
           <button 
             className="about-link" 
             onClick={() => setIsAboutModalOpen(true)}
