@@ -9,6 +9,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="theme-color" content="#8b5a9e" />
     
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="YMha5USVMuVyliz9GKiamiXNw3ZwoFIfWpKmXTGpSQk" />
+    
     <!-- SEO Meta Tags -->
     <meta name="description" content="Dibujos para colorear online gratis generados con IA. Nuevos dibujos cada día para niños. Colorea, guarda y comparte tus creaciones. Halloween, animales, fantasía y más temas.">
     <meta name="keywords" content="dibujos para colorear, colorear online, dibujos niños, colorear gratis, dibujos infantiles, halloween colorear, dibujos IA, colorear digital">
@@ -40,16 +43,25 @@
     <!-- Content Security Policy para prevenir XSS -->
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self'; 
-                   script-src 'self' 'unsafe-inline'; 
+                   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
                    style-src 'self' 'unsafe-inline' fonts.googleapis.com; 
                    font-src 'self' fonts.gstatic.com; 
-                   img-src 'self' data: blob:; 
-                   connect-src 'self'; 
+                   img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com; 
+                   connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; 
                    object-src 'none'; 
                    base-uri 'self'; 
-                   form-action 'self';">
+                   form-action 'self';" />
     
     <title>ColorEveryday - Dibujos para Colorear Online Gratis con IA | Nuevos Dibujos Diarios</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CEVMSTL39"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6CEVMSTL39');
+    </script>
   </head>
   <body>
     <div id="root"></div>
