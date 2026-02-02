@@ -16,6 +16,4 @@ export const addSearchConsoleVerification = () => {
     meta.name = 'google-site-verification';
     meta.content = GOOGLE_SITE_VERIFICATION;
     document.head.appendChild(meta);
-
-    console.log('Search Console verification meta tag added');
 };

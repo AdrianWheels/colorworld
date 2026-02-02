@@ -28,8 +28,6 @@ export const initializeGA4 = () => {
 
     gtag('js', new Date());
     gtag('config', GA4_MEASUREMENT_ID);
-
-    console.log('GA4 initialized with ID:', GA4_MEASUREMENT_ID);
 };
 
 /**
