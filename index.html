@@ -1,48 +1,48 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/Cosmo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#8b5a9e" />
-    
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="YMha5USVMuVyliz9GKiamiXNw3ZwoFIfWpKmXTGpSQk" />
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Dibujos para colorear online gratis generados con IA. Nuevos dibujos cada día para niños. Colorea, guarda y comparte tus creaciones. Halloween, animales, fantasía y más temas.">
-    <meta name="keywords" content="dibujos para colorear, colorear online, dibujos niños, colorear gratis, dibujos infantiles, halloween colorear, dibujos IA, colorear digital">
-    <meta name="author" content="ColorEveryday">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="https://coloreveryday.vercel.app/">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="ColorEveryday - Dibujos para Colorear Generados con IA">
-    <meta property="og:description" content="Descubre nuevos dibujos para colorear cada día. Generados con inteligencia artificial, perfectos para niños. ¡Colorea online gratis!">
-    <meta property="og:image" content="https://coloreveryday.vercel.app/og-image.png">
-    <meta property="og:url" content="https://coloreveryday.vercel.app/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="ColorEveryday">
-    <meta property="og:locale" content="es_ES">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ColorEveryday - Dibujos para Colorear con IA">
-    <meta name="twitter:description" content="Nuevos dibujos para colorear cada día, generados con IA. Gratis y online.">
-    <meta name="twitter:image" content="https://coloreveryday.vercel.app/twitter-card.png">
-    <meta name="twitter:site" content="@ColorEveryday">
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="application-name" content="ColorEveryday">
-    <meta name="msapplication-TileColor" content="#8b5a9e">
-    <meta name="msapplication-config" content="/browserconfig.xml">
-    
-    <!-- Content Security Policy para prevenir XSS -->
-    <meta http-equiv="Content-Security-Policy" 
-          content="default-src 'self'; 
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/Cosmo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#8b5a9e" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Dibujos para colorear online gratis generados con IA. Nuevos dibujos cada día para niños. Colorea, guarda y comparte tus creaciones. Halloween, animales, fantasía y más temas.">
+  <meta name="keywords"
+    content="dibujos para colorear, colorear online, dibujos niños, colorear gratis, dibujos infantiles, halloween colorear, dibujos IA, colorear digital">
+  <meta name="author" content="ColorEveryday">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://coloreveryday.vercel.app/">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="ColorEveryday - Dibujos para Colorear Generados con IA">
+  <meta property="og:description"
+    content="Descubre nuevos dibujos para colorear cada día. Generados con inteligencia artificial, perfectos para niños. ¡Colorea online gratis!">
+  <meta property="og:image" content="https://coloreveryday.vercel.app/og-image.png">
+  <meta property="og:url" content="https://coloreveryday.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ColorEveryday">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ColorEveryday - Dibujos para Colorear con IA">
+  <meta name="twitter:description" content="Nuevos dibujos para colorear cada día, generados con IA. Gratis y online.">
+  <meta name="twitter:image" content="https://coloreveryday.vercel.app/twitter-card.png">
+  <meta name="twitter:site" content="@ColorEveryday">
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="application-name" content="ColorEveryday">
+  <meta name="msapplication-TileColor" content="#8b5a9e">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+
+  <!-- Content Security Policy para prevenir XSS -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
                    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
                    style-src 'self' 'unsafe-inline' fonts.googleapis.com; 
                    font-src 'self' fonts.gstatic.com; 
@@ -51,20 +51,13 @@
                    object-src 'none'; 
                    base-uri 'self'; 
                    form-action 'self';" />
-    
-    <title>ColorEveryday - Dibujos para Colorear Online Gratis con IA | Nuevos Dibujos Diarios</title>
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CEVMSTL39"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6CEVMSTL39');
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+  <title>ColorEveryday - Dibujos para Colorear Online Gratis con IA | Nuevos Dibujos Diarios</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

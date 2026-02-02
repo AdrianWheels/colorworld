@@ -5,6 +5,14 @@ import './index.css'
 import App from './App.jsx'
 import DrawingCalendar from './components/DrawingCalendar.jsx'
 import NotFound from './components/NotFound.jsx'
+import { initializeGA4 } from './utils/analytics.js'
+import { addSearchConsoleVerification } from './utils/searchConsole.js'
+
+// Initialize Google Analytics 4
+initializeGA4();
+
+// Add Search Console verification
+addSearchConsoleVerification();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
