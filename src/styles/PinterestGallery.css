@@ -1,0 +1,352 @@
+/* Pinterest Gallery Styles */
+
+.gallery-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+/* Header */
+.gallery-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.gallery-logo-link {
+    display: inline-block;
+}
+
+.gallery-logo {
+    max-width: 160px;
+    height: auto;
+}
+
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.gallery-nav-link {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-nav-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #8b5a9e;
+}
+
+.gallery-nav-link.active {
+    background: linear-gradient(45deg, #8b5a9e, #4ecdc4);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 90, 158, 0.3);
+}
+
+/* Content */
+.gallery-content {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+/* Breadcrumb */
+.gallery-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+}
+
+.gallery-breadcrumb a {
+    color: #8b5a9e;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.gallery-breadcrumb a:hover {
+    color: #4ecdc4;
+}
+
+.breadcrumb-sep {
+    color: #999;
+    font-size: 1.1rem;
+}
+
+.breadcrumb-current {
+    color: #666;
+    font-weight: 500;
+}
+
+/* Navigation Bar */
+.gallery-nav-bar {
+    background: transparent;
+    border-bottom: none;
+    padding: 10px 0;
+    position: sticky;
+    top: 60px;
+    z-index: 9;
+    box-shadow: none;
+}
+
+.gallery-nav-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 5px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.gallery-nav-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-nav-tab {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    padding: 8px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.gallery-nav-tab:hover {
+    background: #eee;
+    color: #333;
+}
+
+.gallery-nav-tab.active {
+    background: #8b5a9e;
+    color: white;
+    border-color: #8b5a9e;
+    box-shadow: 0 4px 12px rgba(139, 90, 158, 0.4);
+    /* Sombra más fuerte */
+    font-weight: 600;
+}
+
+/* Compact Title */
+.gallery-title-section.compact {
+    text-align: left;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.gallery-title-section.compact .gallery-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    /* Ensure visibility on dark background */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-title-section.compact .gallery-pin-count {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+/* Pin Card Base Styles */
+.pin-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.pin-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(139, 90, 158, 0.2);
+}
+
+.pin-card-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+.pin-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.pin-card:hover .pin-card-image img {
+    transform: scale(1.05);
+}
+
+.pin-card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #f0e6f6, #e0f7fa);
+}
+
+/* Compact Grid */
+.pins-grid.compact-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* 6 columns by default */
+    gap: 10px;
+    /* Tighter gap */
+    margin-bottom: 25px;
+}
+
+.pin-card.compact-card {
+    border-radius: 10px;
+    /* Slightly smaller radius */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Lighter shadow */
+}
+
+.pin-card.compact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.pin-card.compact-card .pin-card-image {
+    aspect-ratio: 1;
+    /* Square for uniformity */
+}
+
+/* Pagination */
+.gallery-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* Tighter gap */
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pagination-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #555;
+    padding: 6px 14px;
+    /* Smaller padding */
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: white;
+    color: #333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f0f0f0;
+    color: #999;
+    transform: none;
+    box-shadow: none;
+}
+
+.pagination-info {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .pins-grid.compact-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .pins-grid.compact-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pins-grid.compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .gallery-title-section.compact {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    .gallery-pagintation {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pins-grid.compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .gallery-nav-scroll {
+        padding: 5px 15px;
+    }
+
+    .gallery-title-section.compact .gallery-title {
+        font-size: 1.2rem;
+    }
+}
