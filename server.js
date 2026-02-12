@@ -11,7 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173', 'http://127.0.0.1:3000']
+}));
 app.use(express.json({ limit: '10mb' })); // Para manejar imágenes grandes
 
 // Asegurar que la carpeta generated-images existe
@@ -30,7 +32,7 @@ async function ensureImagesDir() {
 app.post('/api/save-image', async (req, res) => {
   try {
     const { imageData, fileName, dateKey, prompt, theme } = req.body;
-    
+
     if (!imageData || !fileName) {
       return res.status(400).json({ error: 'Faltan datos requeridos' });
     }
@@ -70,18 +72,18 @@ app.post('/api/save-image', async (req, res) => {
     await fs.writeFile(metadataPath, JSON.stringify(metadata, null, 2));
 
     console.log(`💾 Imagen guardada: ${filePath}`);
-    
-    res.json({ 
-      success: true, 
+
+    res.json({
+      success: true,
       filePath: `/generated-images/${year}-${month}/${fileName}`,
-      metadata 
+      metadata
     });
 
   } catch (error) {
     console.error('❌ Error guardando imagen:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Error interno del servidor',
-      details: error.message 
+      details: error.message
     });
   }
 });
@@ -92,11 +94,11 @@ app.get('/api/images/:dateKey', async (req, res) => {
     const { dateKey } = req.params;
     const [year, month] = dateKey.split('-');
     const monthDir = path.join(IMAGES_DIR, `${year}-${month}`);
-    
+
     try {
       const files = await fs.readdir(monthDir);
       const imageFiles = files.filter(file => file.includes(dateKey) && !file.endsWith('.json'));
-      
+
       const images = [];
       for (const file of imageFiles) {
         const metadataFile = path.join(monthDir, `${path.parse(file).name}.json`);
@@ -115,7 +117,7 @@ app.get('/api/images/:dateKey', async (req, res) => {
           });
         }
       }
-      
+
       res.json(images);
     } catch (error) {
       res.json([]); // No hay imágenes para este día

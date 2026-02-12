@@ -1,16 +1,24 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/ConfirmationModal.css';
 
-const ConfirmationModal = ({ 
-  isOpen, 
-  onClose, 
-  onConfirm, 
-  title = 'Confirmar acción',
-  message = '¿Estás seguro de que quieres continuar?',
-  confirmText = 'Sí, continuar',
-  cancelText = 'Cancelar',
+const ConfirmationModal = ({
+  isOpen,
+  onClose,
+  onConfirm,
+  title,
+  message,
+  confirmText,
+  cancelText,
   type = 'warning' // 'warning', 'danger', 'info'
 }) => {
+  const { t } = useTranslation();
+
+  const displayTitle = title || t('app.confirmation.default.title');
+  const displayMessage = message || t('app.confirmation.default.message');
+  const displayConfirmText = confirmText || t('app.confirmation.default.confirm');
+  const displayCancelText = cancelText || t('app.confirmation.default.cancel');
+
   if (!isOpen) return null;
 
   const handleBackdropClick = (e) => {
@@ -41,25 +49,25 @@ const ConfirmationModal = ({
       <div className={`confirmation-modal ${type}`}>
         <div className="modal-header">
           <div className="modal-icon">{getIcon()}</div>
-          <h3 className="modal-title">{title}</h3>
+          <h3 className="modal-title">{displayTitle}</h3>
         </div>
-        
+
         <div className="modal-body">
-          <p className="modal-message">{message}</p>
+          <p className="modal-message">{displayMessage}</p>
         </div>
-        
+
         <div className="modal-footer">
-          <button 
+          <button
             className="modal-btn cancel-btn"
             onClick={onClose}
           >
-            {cancelText}
+            {displayCancelText}
           </button>
-          <button 
+          <button
             className={`modal-btn confirm-btn ${type}`}
             onClick={handleConfirm}
           >
-            {confirmText}
+            {displayConfirmText}
           </button>
         </div>
       </div>

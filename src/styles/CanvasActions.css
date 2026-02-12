@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin: 15px 0; /* Reducido de 20px */
+  margin: 15px 0;
+  /* Reducido de 20px */
   flex-wrap: wrap;
 }
 
@@ -35,14 +36,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.save-btn {
-  background: linear-gradient(145deg, #28a745, #20c997);
-  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
-}
-
-.save-btn:hover:not(:disabled) {
-  box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
-}
+/* save-btn styles removed to avoid conflict with toolbar */
 
 .generate-btn {
   background: linear-gradient(145deg, #007bff, #0056b3);
@@ -65,9 +59,10 @@
 @media (max-width: 600px) {
   .canvas-actions {
     gap: 8px;
-    margin: 8px 0; /* Reducido para móviles */
+    margin: 8px 0;
+    /* Reducido para móviles */
   }
-  
+
   .action-btn {
     padding: 8px 12px;
     font-size: 0.85rem;
@@ -81,7 +76,7 @@
     gap: 6px;
     margin: 6px 0;
   }
-  
+
   .action-btn {
     padding: 6px 10px;
     font-size: 0.8rem;
@@ -95,7 +90,7 @@
     gap: 4px;
     margin: 4px 0;
   }
-  
+
   .action-btn {
     padding: 4px 8px;
     font-size: 0.75rem;
@@ -109,7 +104,7 @@
     gap: 6px;
     margin: 6px 0;
   }
-  
+
   .action-btn {
     padding: 8px 14px;
     font-size: 0.8rem;
@@ -123,14 +118,14 @@
     gap: 8px;
     margin: 8px 0;
   }
-  
+
   .action-btn {
     padding: 8px 12px;
     font-size: 0.8rem;
     min-width: 110px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   }
-  
+
   .save-btn {
     border: 2px solid rgba(40, 167, 69, 0.3);
     font-weight: 700;

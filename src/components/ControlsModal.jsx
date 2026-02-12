@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/ControlsModal.css';
 
 const ControlsModal = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                             ('ontouchstart' in window) || 
-                             (window.innerWidth <= 768);
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+        ('ontouchstart' in window) ||
+        (window.innerWidth <= 768);
       setIsMobile(isMobileDevice);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -26,67 +28,67 @@ const ControlsModal = ({ isOpen, onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>🎨 Controles del Canvas</h2>
-          <button className="close-button" onClick={onClose}>✕</button>
+          <h2>{t('app.controls.title')}</h2>
+          <button className="close-button" onClick={onClose} aria-label={t('app.controls.close')}>✕</button>
         </div>
-        
+
         <div className="modal-body">
           {isMobile ? (
             // Controles para móviles
             <>
               <div className="control-section">
-                <h3>📱 Controles Táctiles</h3>
+                <h3>{t('app.controls.mobile.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">Un Dedo</span>
-                  <span className="control-desc">Dibujar/Colorear</span>
+                  <span className="control-key">{t('app.controls.mobile.oneFinger')}</span>
+                  <span className="control-desc">{t('app.controls.mobile.draw')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Dos Dedos</span>
-                  <span className="control-desc">Pellizcar para Zoom</span>
+                  <span className="control-key">{t('app.controls.mobile.twoFingers')}</span>
+                  <span className="control-desc">{t('app.controls.mobile.zoom')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Arrastrar (2 dedos)</span>
-                  <span className="control-desc">Mover el canvas</span>
-                </div>
-              </div>
-
-              <div className="control-section">
-                <h3>🎯 Herramientas</h3>
-                <div className="control-item">
-                  <span className="control-key">Pincel 🖌️</span>
-                  <span className="control-desc">Toca para seleccionar y colorear</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Cubo 🪣</span>
-                  <span className="control-desc">Rellena áreas completas de un toque</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Borrador 🧽</span>
-                  <span className="control-desc">Elimina tus trazos</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Cuentagotas 💧</span>
-                  <span className="control-desc">Copia colores del dibujo</span>
-                </div>
-                <div className="control-item">
-                  <span className="control-key">Colores 🎨</span>
-                  <span className="control-desc">Toca el círculo de color para cambiar</span>
+                  <span className="control-key">{t('app.controls.mobile.dragTwo')}</span>
+                  <span className="control-desc">{t('app.controls.mobile.move')}</span>
                 </div>
               </div>
 
               <div className="control-section">
-                <h3>🔄 Acciones</h3>
+                <h3>{t('app.controls.tools.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">Deshacer ↶</span>
-                  <span className="control-desc">Toca el botón de deshacer</span>
+                  <span className="control-key">{t('app.controls.tools.brush')}</span>
+                  <span className="control-desc">{t('app.controls.tools.brushDescMobile')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Rehacer ↷</span>
-                  <span className="control-desc">Toca el botón de rehacer</span>
+                  <span className="control-key">{t('app.controls.tools.bucket')}</span>
+                  <span className="control-desc">{t('app.controls.tools.bucketDescMobile')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Limpiar 🗑️</span>
-                  <span className="control-desc">Borra todo el dibujo (con confirmación)</span>
+                  <span className="control-key">{t('app.controls.tools.eraser')}</span>
+                  <span className="control-desc">{t('app.controls.tools.eraserDesc')}</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key">{t('app.controls.tools.eyedropper')}</span>
+                  <span className="control-desc">{t('app.controls.tools.eyedropperDescMobile')}</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key">{t('app.controls.tools.colors')}</span>
+                  <span className="control-desc">{t('app.controls.tools.colorsDescMobile')}</span>
+                </div>
+              </div>
+
+              <div className="control-section">
+                <h3>{t('app.controls.actions.title')}</h3>
+                <div className="control-item">
+                  <span className="control-key">{t('app.controls.actions.undo')}</span>
+                  <span className="control-desc">{t('app.controls.actions.undoDesc')}</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key">{t('app.controls.actions.redo')}</span>
+                  <span className="control-desc">{t('app.controls.actions.redoDesc')}</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key">{t('app.controls.actions.clear')}</span>
+                  <span className="control-desc">{t('app.controls.actions.clearDesc')}</span>
                 </div>
               </div>
             </>
@@ -94,70 +96,70 @@ const ControlsModal = ({ isOpen, onClose }) => {
             // Controles para desktop
             <>
               <div className="control-section">
-                <h3>🖱️ Controles del Ratón</h3>
+                <h3>{t('app.controls.desktop.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">Clic Izquierdo</span>
-                  <span className="control-desc">Dibujar/Colorear</span>
+                  <span className="control-key">{t('app.controls.desktop.leftClick')}</span>
+                  <span className="control-desc">{t('app.controls.mobile.draw')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Clic Derecho + Arrastrar</span>
-                  <span className="control-desc">Mover el canvas</span>
+                  <span className="control-key">{t('app.controls.desktop.rightClickPlusDrag')}</span>
+                  <span className="control-desc">{t('app.controls.mobile.move')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Rueda del Ratón</span>
-                  <span className="control-desc">Zoom In/Out</span>
+                  <span className="control-key">{t('app.controls.desktop.wheel')}</span>
+                  <span className="control-desc">{t('app.controls.desktop.zoomInOut')}</span>
                 </div>
               </div>
 
               <div className="control-section">
-                <h3>⌨️ Atajos de Teclado</h3>
+                <h3>{t('app.controls.shortcuts.title')}</h3>
                 <div className="control-item">
                   <span className="control-key">Ctrl + Z</span>
-                  <span className="control-desc">Deshacer</span>
+                  <span className="control-desc">{t('app.controls.shortcuts.undo')}</span>
                 </div>
                 <div className="control-item">
                   <span className="control-key">Ctrl + Y</span>
-                  <span className="control-desc">Rehacer</span>
+                  <span className="control-desc">{t('app.controls.shortcuts.redo')}</span>
                 </div>
                 <div className="control-item">
                   <span className="control-key">← →</span>
-                  <span className="control-desc">Navegar días</span>
+                  <span className="control-desc">{t('app.controls.shortcuts.navigate')}</span>
                 </div>
               </div>
 
               <div className="control-section">
-                <h3>🎯 Herramientas</h3>
+                <h3>{t('app.controls.tools.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">Pincel 🖌️</span>
-                  <span className="control-desc">Tamaño ajustable para colorear</span>
+                  <span className="control-key">{t('app.controls.tools.brush')}</span>
+                  <span className="control-desc">{t('app.controls.tools.brushDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Cubo 🪣</span>
-                  <span className="control-desc">Rellena áreas completas con un clic</span>
+                  <span className="control-key">{t('app.controls.tools.bucket')}</span>
+                  <span className="control-desc">{t('app.controls.tools.bucketDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Borrador 🧽</span>
-                  <span className="control-desc">Eliminar trazos</span>
+                  <span className="control-key">{t('app.controls.tools.eraser')}</span>
+                  <span className="control-desc">{t('app.controls.tools.eraserDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Cuentagotas 💧</span>
-                  <span className="control-desc">Selecciona colores del dibujo</span>
+                  <span className="control-key">{t('app.controls.tools.eyedropper')}</span>
+                  <span className="control-desc">{t('app.controls.tools.eyedropperDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Colores 🎨</span>
-                  <span className="control-desc">Paleta completa disponible</span>
+                  <span className="control-key">{t('app.controls.tools.colors')}</span>
+                  <span className="control-desc">{t('app.controls.tools.colorsDesc')}</span>
                 </div>
               </div>
 
               <div className="control-section">
-                <h3>🔄 Acciones</h3>
+                <h3>{t('app.controls.actions.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">Limpiar 🗑️</span>
-                  <span className="control-desc">Borra todo el dibujo (con confirmación)</span>
+                  <span className="control-key">{t('app.controls.actions.clear')}</span>
+                  <span className="control-desc">{t('app.controls.actions.clearDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">Guardar 💾</span>
-                  <span className="control-desc">Guarda tu obra terminada</span>
+                  <span className="control-key">{t('app.controls.actions.save')}</span>
+                  <span className="control-desc">{t('app.controls.actions.saveDesc')}</span>
                 </div>
               </div>
             </>
@@ -166,9 +168,8 @@ const ControlsModal = ({ isOpen, onClose }) => {
 
         <div className="modal-footer">
           <p className="modal-tip">
-            💡 <strong>Tip:</strong> Las líneas negras del dibujo no se pueden borrar - ¡son para guiarte! 
-            El cubo 🪣 rellena áreas conectadas del mismo color automáticamente.
-            {isMobile && ' El canvas mantiene su tamaño original para mejor calidad.'}
+            💡 <strong>{t('app.controls.footer.tip')}</strong> {t('app.controls.footer.message')}
+            {isMobile && t('app.controls.footer.mobileQuality')}
           </p>
         </div>
       </div>

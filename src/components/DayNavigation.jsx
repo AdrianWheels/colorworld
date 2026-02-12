@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/DayNavigation.css';
 
-const DayNavigation = ({ 
-  selectedDate, 
-  onPreviousDay, 
-  onNextDay, 
-  dayImageStatus 
+const DayNavigation = ({
+  selectedDate,
+  onPreviousDay,
+  onNextDay
 }) => {
+  const { t } = useTranslation();
   const formatDate = (date) => {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -31,54 +31,30 @@ const DayNavigation = ({
     return previousDate >= launchDate;
   };
 
-  const getStatusIcon = () => {
-    switch (dayImageStatus) {
-      case 'loading': return '⏳';
-      case 'available': return '🎨';
-      case 'empty': return '📝';
-      default: return '📅';
-    }
-  };
-
-  const getStatusText = () => {
-    switch (dayImageStatus) {
-      case 'loading': return 'Cargando...';
-      case 'available': return ''; // Quitar texto, solo mostrar ícono
-      case 'empty': return 'Sin imagen';
-      default: return '';
-    }
-  };
-
   return (
     <div className="day-navigation">
-      <button 
+      <button
         onClick={onPreviousDay}
         className={`nav-btn prev-btn ${!canGoToPreviousDay() ? 'disabled' : ''}`}
         disabled={!canGoToPreviousDay()}
-        title={canGoToPreviousDay() ? "Día anterior" : "No se puede ir antes del lanzamiento (1 oct 2025)"}
+        title={canGoToPreviousDay() ? t('app.nav.prev') : t('app.nav.prevDisabled')}
       >
-        ← Anterior
+        {t('app.nav.previous')}
       </button>
-      
-      <Link to="/calendario" className="current-day-link" title="Ver galería completa">
-        <div className="current-day">
-          <div className="day-status">
-            <span className="status-icon">{getStatusIcon()}</span>
-            {getStatusText() && <span className="status-text">{getStatusText()}</span>}
-          </div>
-          <div className="day-date">
-            📅 {formatDate(selectedDate)}
-          </div>
+
+      <div className="current-day">
+        <div className="day-date">
+          {formatDate(selectedDate)}
         </div>
-      </Link>
-      
-      <button 
+      </div>
+
+      <button
         onClick={onNextDay}
         className={`nav-btn next-btn ${!canGoToNextDay() ? 'disabled' : ''}`}
         disabled={!canGoToNextDay()}
-        title={canGoToNextDay() ? "Día siguiente" : "No se puede ir al futuro"}
+        title={canGoToNextDay() ? t('app.nav.next') : t('app.nav.nextDisabled')}
       >
-        Siguiente →
+        {t('app.nav.nextLabel')}
       </button>
     </div>
   );

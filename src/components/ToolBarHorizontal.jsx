@@ -3,11 +3,11 @@ import { createPortal } from 'react-dom';
 import { getPaletteForDay } from '../data/daily-palettes';
 import '../styles/ToolBarHorizontal.css';
 
-const ToolBarHorizontal = ({ 
-  onToolChange, 
-  onBrushSizeChange, 
-  onColorChange, 
-  onClearCanvas, 
+const ToolBarHorizontal = ({
+  onToolChange,
+  onBrushSizeChange,
+  onColorChange,
+  onClearCanvas,
   onShowControls,
   onSave,
   onUndo,
@@ -32,16 +32,16 @@ const ToolBarHorizontal = ({
   // Combinar: 10 colores del día + 6 slots personalizables = 16 colores total (grid 4x4)
   const colors = useMemo(() => {
     const palette = [...dailyPalette];
-    
+
     // Agregar colores personalizados hasta completar 6 slots
     const customSlots = 6;
     const currentCustom = customColors.slice(0, customSlots);
-    
+
     // Rellenar con slots vacíos si no hay suficientes colores personalizados
     while (currentCustom.length < customSlots) {
       currentCustom.push(null); // null = slot vacío
     }
-    
+
     return [...palette, ...currentCustom];
   }, [dailyPalette, customColors]);
 
@@ -89,46 +89,46 @@ const ToolBarHorizontal = ({
     <div className="toolbar-horizontal">
       {/* Herramientas principales */}
       <div className="toolbar-section tools-section">
-        <button 
+        <button
           className={`tool-btn ${currentTool === 'brush' ? 'active' : ''}`}
           onClick={() => handleToolChange('brush')}
           title="Pincel"
         >
-          🖌️
+          <img src="/Icons/web/pincel.png" alt="Pincel" />
         </button>
-        <button 
+        <button
           className={`tool-btn ${currentTool === 'spray' ? 'active' : ''}`}
           onClick={() => handleToolChange('spray')}
           title="Spray - Efecto aerosol"
         >
-          💨
+          <img src="/Icons/web/spray.png" alt="Spray" />
         </button>
-        <button 
+        <button
           className={`tool-btn ${currentTool === 'bucket' ? 'active' : ''}`}
           onClick={() => handleToolChange('bucket')}
           title="Balde de pintura - Llenar área cerrada"
         >
-          🪣
+          <img src="/Icons/web/bucket.png" alt="Balde" />
         </button>
-        <button 
+        <button
           className={`tool-btn ${currentTool === 'eraser' ? 'active' : ''}`}
           onClick={() => handleToolChange('eraser')}
           title="Goma de borrar"
         >
-          🧽
+          <img src="/Icons/web/eraser.png" alt="Borrador" />
         </button>
-        <button 
+        <button
           className={`tool-btn ${currentTool === 'eyedropper' ? 'active' : ''}`}
           onClick={() => handleToolChange('eyedropper')}
           title="Cuenta gotas - Seleccionar color del lienzo"
         >
-          💧
+          <img src="/Icons/web/colorpicker.png" alt="Cuentagotas" />
         </button>
       </div>
 
       {/* Botones de undo/redo */}
       <div className="toolbar-section undo-redo-section">
-        <button 
+        <button
           className={`tool-btn ${!canUndo ? 'disabled' : ''}`}
           onClick={onUndo}
           disabled={!canUndo}
@@ -136,7 +136,7 @@ const ToolBarHorizontal = ({
         >
           ↶
         </button>
-        <button 
+        <button
           className={`tool-btn ${!canRedo ? 'disabled' : ''}`}
           onClick={onRedo}
           disabled={!canRedo}
@@ -166,23 +166,23 @@ const ToolBarHorizontal = ({
       <div className="toolbar-section color-section">
         <span className="section-label">Color:</span>
         <div className="color-picker-container">
-          <button 
+          <button
             className={`current-color-btn ${previewColor ? 'preview' : ''}`}
             style={{ backgroundColor: previewColor || currentColor }}
             onClick={() => setShowColorPicker(!showColorPicker)}
             title="Seleccionar color"
           />
-          
+
           {showColorPicker && createPortal(
             <>
-              <div 
-                className="color-palette-overlay" 
+              <div
+                className="color-palette-overlay"
                 onClick={handleColorPickerClose}
               />
               <div className="color-palette">
                 <div className="color-palette-header">
                   <span>Paleta del Día</span>
-                  <button 
+                  <button
                     className="close-palette-btn"
                     onClick={handleColorPickerClose}
                   >
@@ -196,7 +196,7 @@ const ToolBarHorizontal = ({
                   {colors.map((color, index) => {
                     const isEmpty = color === null;
                     const isDaily = index < 10;
-                    
+
                     if (isEmpty) {
                       return (
                         <div
@@ -208,7 +208,7 @@ const ToolBarHorizontal = ({
                         </div>
                       );
                     }
-                    
+
                     return (
                       <button
                         key={`${color}-${index}`}
@@ -249,27 +249,27 @@ const ToolBarHorizontal = ({
 
       {/* Acciones */}
       <div className="toolbar-section actions-section">
-        <button 
-          className={`action-btn save-btn ${!canSave ? 'disabled' : ''}`}
+        <button
+          className={`tool-btn save-btn ${!canSave ? 'disabled' : ''}`}
           onClick={onSave}
           disabled={!canSave}
           title="Guardar dibujo coloreado"
         >
-          💾
+          <img src="/Icons/web/save.png" alt="Guardar" />
         </button>
-        <button 
-          className="action-btn clear-btn"
+        <button
+          className="tool-btn clear-btn"
           onClick={onClearCanvas}
           title="Limpiar lienzo"
         >
-          🗑️
+          <img src="/Icons/web/trash.png" alt="Limpiar" />
         </button>
-        <button 
-          className="action-btn controls-btn"
+        <button
+          className="tool-btn controls-btn"
           onClick={onShowControls}
           title="Ver controles y configuración"
         >
-          ⚙️
+          <img src="/Icons/web/options.png" alt="Configuración" />
         </button>
       </div>
     </div>
