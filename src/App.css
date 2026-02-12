@@ -9,7 +9,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   /* Breakpoints unificados para responsive design */
   --mobile-max: 480px;
   --tablet-min: 481px;
@@ -25,7 +25,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  touch-action: manipulation; /* Permitir zoom nativo pero prevenir otros gestos */
+  touch-action: manipulation;
+  /* Permitir zoom nativo pero prevenir otros gestos */
   height: 100%;
 }
 
@@ -34,19 +35,21 @@ body {
   padding: 0;
   min-height: 100vh;
   height: 100%;
-  background: linear-gradient(45deg, 
-    #ff6b6b 0%, 
-    #4ecdc4 14%, 
-    #45b7d1 28%, 
-    #96ceb4 42%, 
-    #feca57 56%, 
-    #ff9ff3 70%, 
-    #54a0ff 84%, 
-    #5f27cd 100%);
+  background: linear-gradient(45deg,
+      #ff6b6b 0%,
+      #4ecdc4 14%,
+      #45b7d1 28%,
+      #96ceb4 42%,
+      #feca57 56%,
+      #ff9ff3 70%,
+      #54a0ff 84%,
+      #5f27cd 100%);
   background-size: 400% 400%;
   animation: colorEverydayGradient 15s ease infinite;
-  overflow-x: hidden; /* Evitar scroll horizontal */
-  touch-action: manipulation; /* Configuración consistente para el body */
+  overflow-x: hidden;
+  /* Evitar scroll horizontal */
+  touch-action: manipulation;
+  /* Configuración consistente para el body */
 }
 
 #root {
@@ -56,16 +59,26 @@ body {
 }
 
 @keyframes colorEverydayGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .app {
-  height: 100vh; /* Altura fija, sin scroll */
+  height: 100vh;
+  /* Altura fija, sin scroll */
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Restaurado */
+  overflow: hidden;
+  /* Restaurado */
 }
 
 /* Header principal de ColorEveryday */
@@ -160,8 +173,15 @@ body {
 }
 
 @keyframes colorEverydayText {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Navegación principal */
@@ -262,8 +282,10 @@ body {
   flex-direction: column;
   padding: 5px;
   gap: 5px;
-  min-height: 0; /* Permite que flex funcione correctamente */
-  overflow: visible; /* Permitir que el botón CanvasActions sea visible */
+  min-height: 0;
+  /* Permite que flex funcione correctamente */
+  overflow: visible;
+  /* Permitir que el botón CanvasActions sea visible */
 }
 
 /* Responsive optimizations */
@@ -288,8 +310,10 @@ body {
   flex-direction: column;
   gap: 5px;
   flex: 1;
-  min-height: 0; /* Permite que flex funcione correctamente */
-  overflow: visible; /* Permitir que el botón CanvasActions sea visible */
+  min-height: 0;
+  /* Permite que flex funcione correctamente */
+  overflow: visible;
+  /* Permitir que el botón CanvasActions sea visible */
 }
 
 /* Responsive optimizations for drawing section */
@@ -408,7 +432,8 @@ body {
   width: 100%;
   flex: 1;
   min-height: 0;
-  overflow: visible; /* Permitir que el contenido sea visible */
+  overflow: visible;
+  /* Permitir que el contenido sea visible */
 }
 
 /* Sección del generador */
@@ -437,7 +462,11 @@ body {
   align-items: flex-start;
 }
 
-.save-btn, .new-drawing-btn, .gemini-btn, .generate-btn, .surprise-btn, .help-btn {
+.new-drawing-btn,
+.gemini-btn,
+.generate-btn,
+.surprise-btn,
+.help-btn {
   background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
   color: white;
   border: none;
@@ -466,12 +495,18 @@ body {
   font-size: 12px;
 }
 
-.save-btn:hover, .new-drawing-btn:hover, .gemini-btn:hover, .generate-btn:hover, .surprise-btn:hover, .help-btn:hover {
+.new-drawing-btn:hover,
+.gemini-btn:hover,
+.generate-btn:hover,
+.surprise-btn:hover,
+.help-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.save-btn:disabled, .gemini-btn:disabled, .generate-btn:disabled, .surprise-btn:disabled {
+.gemini-btn:disabled,
+.generate-btn:disabled,
+.surprise-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
@@ -517,8 +552,9 @@ body {
     max-width: 100%;
     padding: 10px;
   }
-  
-  .generate-btn, .surprise-btn {
+
+  .generate-btn,
+  .surprise-btn {
     padding: 8px 16px;
     font-size: 11px;
   }
@@ -528,17 +564,20 @@ body {
 .footer-toggle-btn {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(139, 90, 158, 0.3);
+  border: 2px solid rgba(139, 90, 158, 0.4);
+  /* Borde un poco más visible */
   border-radius: 20px 20px 0 0;
-  padding: 6px 16px;
+  padding: 8px 24px;
+  /* Más padding */
   cursor: pointer;
-  font-weight: 600;
-  font-size: 0.8rem;
-  color: #8b5a9e;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #704085;
+  /* Color ligeramente más oscuro para contraste */
   transition: all 0.3s ease;
   margin: 0 auto;
   display: block;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
 }
 
@@ -577,7 +616,7 @@ body {
   .app-footer.visible {
     padding: 5px 10px;
   }
-  
+
   .footer-toggle-btn {
     padding: 4px 12px;
     font-size: 0.75rem;
@@ -588,7 +627,7 @@ body {
   .app-footer.visible {
     padding: 3px 8px;
   }
-  
+
   .footer-toggle-btn {
     padding: 3px 10px;
     font-size: 0.7rem;
@@ -609,7 +648,7 @@ body {
   font-size: 0.9rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   justify-content: center;
 }
 
@@ -619,10 +658,10 @@ body {
     font-size: 1rem;
     margin: 0 0 3px 0;
   }
-  
+
   .footer-share {
     font-size: 0.8rem;
-    gap: 6px;
+    gap: 2px;
   }
 }
 
@@ -631,7 +670,7 @@ body {
     font-size: 0.9rem;
     margin: 0 0 2px 0;
   }
-  
+
   .footer-share {
     font-size: 0.7rem;
     gap: 4px;
@@ -644,13 +683,18 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  /* Aumentado tamaño base */
   padding: 4px;
-  border-radius: 4px;
+  /* Aumentado padding para cumplir target de 44px */
+  margin: 0 2px;
+  border-radius: 8px;
   transition: all 0.2s ease;
-  opacity: 0.7;
+  opacity: 0.8;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: inherit;
 }
 
@@ -658,7 +702,7 @@ body {
 .instagram-link:hover {
   opacity: 1;
   transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .instagram-link {
@@ -686,8 +730,13 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .error-message {
@@ -734,16 +783,16 @@ body {
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .side-buttons {
     flex-direction: row;
     justify-content: center;
   }
-  
+
   .coloreveryday-title {
     font-size: 2.5rem;
   }
-  
+
   .drawing-title {
     font-size: 2rem;
   }
@@ -753,26 +802,26 @@ body {
   .main-navigation {
     gap: 10px;
   }
-  
+
   .nav-pill {
     padding: 8px 16px;
     font-size: 0.9rem;
   }
-  
+
   .coloreveryday-title {
     font-size: 2rem;
     letter-spacing: 0.1em;
   }
-  
+
   .drawing-title {
     font-size: 1.8rem;
   }
-  
+
   .side-action-btn {
     min-width: 100px;
     padding: 15px;
   }
-  
+
   .app-main {
     padding: 15px;
   }
@@ -782,20 +831,20 @@ body {
   .coloreveryday-title {
     font-size: 1.5rem;
   }
-  
+
   .drawing-title {
     font-size: 1.5rem;
   }
-  
+
   .nav-pill {
     padding: 6px 12px;
     font-size: 0.8rem;
   }
-  
+
   .date-navigation {
     gap: 10px;
   }
-  
+
   .current-date {
     font-size: 1.2rem;
     padding: 6px 15px;
@@ -850,7 +899,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .date-display {
@@ -892,7 +941,7 @@ body {
 .date-text {
   font-size: 1.5rem;
   font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .day-indicator {
@@ -963,41 +1012,41 @@ body {
     padding: 5px;
     gap: 5px;
   }
-  
+
   .app-header {
     padding: 6px 10px;
   }
-  
+
   .coloreveryday-title {
     font-size: 1.8rem;
     letter-spacing: 0.1em;
     margin: 0;
   }
-  
+
   .main-navigation {
     gap: 8px;
     margin: 8px 0;
   }
-  
+
   .nav-pill {
     padding: 5px 10px;
     font-size: 0.75rem;
   }
-  
+
   .drawing-section {
     gap: 8px;
   }
-  
+
   .canvas-and-tools {
     gap: 6px;
   }
-  
+
   .comic-panel {
     padding: 3px;
     border-width: 3px;
     border-radius: 10px;
   }
-  
+
   .comic-panel::before {
     top: -6px;
     left: -6px;
@@ -1012,7 +1061,7 @@ body {
     padding: 2px;
     gap: 2px;
   }
-  
+
   .drawing-section {
     gap: 2px;
   }
@@ -1023,38 +1072,38 @@ body {
     padding: 1px;
     gap: 1px;
   }
-  
+
   .drawing-section {
     gap: 1px;
   }
-  
+
   .app-header {
     padding: 4px 8px;
   }
-  
+
   .coloreveryday-title {
     font-size: 1.5rem;
     letter-spacing: 0.05em;
   }
-  
+
   .main-navigation {
     gap: 6px;
     margin: 6px 0;
   }
-  
+
   .nav-pill {
     padding: 4px 8px;
     font-size: 0.7rem;
   }
-  
+
   .drawing-section {
     gap: 5px;
   }
-  
+
   .canvas-and-tools {
     gap: 4px;
   }
-  
+
   .comic-panel {
     padding: 2px;
     border-width: 2px;
@@ -1067,40 +1116,40 @@ body {
   .app-header {
     padding: 4px 8px;
   }
-  
+
   .coloreveryday-title {
     font-size: 1.5rem;
     letter-spacing: 0.05em;
   }
-  
+
   .main-navigation {
     gap: 6px;
     margin: 6px 0;
   }
-  
+
   .nav-pill {
     padding: 4px 8px;
     font-size: 0.7rem;
   }
-  
+
   .app-main {
     padding: 2px;
     gap: 3px;
   }
-  
+
   .drawing-section {
     gap: 3px;
   }
-  
+
   .canvas-and-tools {
     gap: 4px;
   }
-  
+
   .comic-panel {
     padding: 2px;
     border-width: 2px;
   }
-  
+
   .comic-panel::before {
     top: -4px;
     left: -4px;
@@ -1114,16 +1163,16 @@ body {
   .app-header {
     padding: 3px 6px;
   }
-  
+
   .coloreveryday-title {
     font-size: 1.3rem;
   }
-  
+
   .main-navigation {
     gap: 4px;
     margin: 4px 0;
   }
-  
+
   .nav-pill {
     padding: 3px 6px;
     font-size: 0.65rem;

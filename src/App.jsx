@@ -1,11 +1,15 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import Header from './components/Header';
 import DrawingCanvasSimple from './components/DrawingCanvasSimple';
 import ToolBarHorizontal from './components/ToolBarHorizontal';
 import DrawingHistory from './components/DrawingHistory';
 import ControlsModal from './components/ControlsModal';
 import DayNavigation from './components/DayNavigation';
-import CanvasActions from './components/CanvasActions';
+import { Tiles } from './components/Tiles';
+
 import ToastContainer from './components/ToastContainer';
 import StructuredData from './components/StructuredData';
 import SEOHead from './components/SEOHead';
@@ -22,6 +26,7 @@ import Logger from './utils/logger.js';
 import './App.css';
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [searchParams] = useSearchParams();
   const dateFromUrl = searchParams.get('date');
 
@@ -168,16 +173,18 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleUndo, handleRedo]);
 
+
   if (isLoading) {
     return (
       <div className="app">
+        <Tiles rows={40} cols={30} tileSize="lg" />
         <header className="app-header">
           <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
-          <p>Cargando el dibujo del día...</p>
+          <p>{t('app.loading')}</p>
         </header>
         <div className="loading-container">
           <div className="loading-spinner"></div>
-          <p>Generando tu dibujo...</p>
+          <p>{t('app.generating')}</p>
         </div>
       </div>
     );
@@ -186,6 +193,7 @@ function App() {
   if (error) {
     return (
       <div className="app">
+        <Tiles rows={40} cols={30} tileSize="lg" />
         <header className="app-header">
           <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
           <p className="error-message">{error}</p>
@@ -196,6 +204,7 @@ function App() {
 
   return (
     <div className="app">
+      <Tiles rows={40} cols={30} tileSize="lg" />
       {/* Structured Data para SEO - invisible al usuario */}
       <StructuredData
         todayTheme={todayTheme}
@@ -209,18 +218,20 @@ function App() {
         currentDate={selectedDate}
       />
 
-      <header className="app-header">
-        <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
-
+      <Header>
         <DayNavigation
           selectedDate={selectedDate}
           onPreviousDay={goToPreviousDay}
           onNextDay={goToNextDay}
-          dayImageStatus={dayImageStatus}
         />
-      </header>
+      </Header>
 
-      <main className="app-main">
+      <motion.main
+        className="app-main"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div className="drawing-section">
           <div className="canvas-and-tools">
             <ToolBarHorizontal
@@ -256,23 +267,20 @@ function App() {
               </div>
             </div>
 
-            <CanvasActions
-              onSave={onSaveDrawing}
-              canSave={true}
-            />
+
           </div>
         </div>
 
         <aside className="history-section" style={{ display: 'none' }}>
           <DrawingHistory coloredDrawings={coloredDrawings} />
         </aside>
-      </main>
+      </motion.main>
 
       {/* Botón para mostrar/ocultar footer */}
       <button
         className="footer-toggle-btn"
         onClick={() => setIsFooterVisible(!isFooterVisible)}
-        title={isFooterVisible ? "Ocultar información" : "Mostrar información"}
+        title={isFooterVisible ? t('app.footer.hideInfo') : t('app.footer.showInfo')}
       >
         {isFooterVisible ? '⬇️' : '⬆️'} {todayTheme}
       </button>
@@ -280,36 +288,57 @@ function App() {
       {/* Footer colapsable */}
       <footer className={`app-footer ${isFooterVisible ? 'visible' : 'hidden'}`}>
         <p className="footer-text">
-          <strong>Dreaming about {todayTheme}!</strong>
+          <strong>{t('app.footer.dreaming', { theme: todayTheme })}</strong>
         </p>
         <p className="footer-share">
-          Share it on social media #coloreveryday{' '}
+          {t('app.footer.share')}
           <a
             href="https://www.instagram.com/coloreverydayapp/"
             target="_blank"
             rel="noopener noreferrer"
             className="instagram-link"
-            aria-label="Síguenos en Instagram"
-            title="Síguenos en Instagram"
+            aria-label={t('app.footer.instagram')}
+            title={t('app.footer.instagram')}
           >
-            �
+            <img
+              src="/Icons/web/information.png"
+              alt={t('app.footer.instagram')}
+              style={{ width: '70px', height: '70px', objectFit: 'contain' }}
+            />
           </a>
-          {' '}
+          <a
+            href="https://es.pinterest.com/ColorEveryDay"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="instagram-link"
+            aria-label="Pinterest"
+            title="Pinterest"
+          >
+            <img
+              src="/Icons/web/pinterest.png"
+              alt="Pinterest"
+              style={{ width: '70px', height: '70px', objectFit: 'contain' }}
+            />
+          </a>
           <button
             className="about-link"
             onClick={() => setIsAboutModalOpen(true)}
-            aria-label="Acerca de ColorEveryday"
+            aria-label={t('app.footer.about')}
+            title={t('app.footer.about')}
           >
-            ℹ️
+            <img
+              src="/Icons/web/information.png"
+              alt={t('app.footer.about')}
+              style={{ width: '70px', height: '70px', objectFit: 'contain' }}
+            />
           </button>
-          {' '}
           <Link
             to="/privacidad"
             className="about-link"
-            aria-label="Política de Privacidad"
-            title="Política de Privacidad"
+            aria-label={t('app.footer.privacy')}
+            title={t('app.footer.privacy')}
           >
-            🔒
+            <img src="/Icons/web/privacy.png" alt={t('app.footer.privacy')} style={{ width: '70px', height: '70px', objectFit: 'contain' }} />
           </Link>
         </p>
       </footer>
@@ -331,10 +360,10 @@ function App() {
         isOpen={showClearConfirmation}
         onClose={handleCancelClear}
         onConfirm={handleConfirmClear}
-        title="Confirmar borrado"
-        message="¿Estás seguro de que quieres borrar completamente tu dibujo? Esta acción no se puede deshacer."
-        confirmText="Sí, borrar"
-        cancelText="Cancelar"
+        title={t('app.confirmation.clear.title')}
+        message={t('app.confirmation.clear.message')}
+        confirmText={t('app.confirmation.clear.confirm')}
+        cancelText={t('app.confirmation.clear.cancel')}
         type="danger"
       />
 
@@ -343,10 +372,10 @@ function App() {
         isOpen={showDayChangeConfirmation}
         onClose={cancelDayChange}
         onConfirm={confirmDayChange}
-        title="Cambiar día"
-        message="Tienes un dibujo en progreso que se perderá al cambiar de día. ¿Quieres continuar?"
-        confirmText="Sí, cambiar día"
-        cancelText="Quedarse aquí"
+        title={t('app.confirmation.dayChange.title')}
+        message={t('app.confirmation.dayChange.message')}
+        confirmText={t('app.confirmation.dayChange.confirm')}
+        cancelText={t('app.confirmation.dayChange.cancel')}
         type="warning"
       />
 
