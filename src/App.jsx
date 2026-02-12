@@ -24,7 +24,7 @@ import './App.css';
 function App() {
   const [searchParams] = useSearchParams();
   const dateFromUrl = searchParams.get('date');
-  
+
   const [currentTool, setCurrentTool] = useState('brush');
   const [previousTool, setPreviousTool] = useState('brush'); // Track de herramienta anterior
   const [brushSize, setBrushSize] = useState(5);
@@ -33,20 +33,20 @@ function App() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false); // Estado para footer colapsable - oculto por defecto
   const [todayTheme, setTodayTheme] = useState('');
-  
+
   const canvasRef = useRef(null);
-  
+
   // Hook para notificaciones
   const { toasts, showSuccess, showError, removeToast } = useToast();
-  
+
   // Hooks modulares
-  const { 
-    isLoading, 
-    error, 
-    coloredDrawings, 
-    saveColoredDrawing 
+  const {
+    isLoading,
+    error,
+    coloredDrawings,
+    saveColoredDrawing
   } = useDrawing();
-  
+
   const {
     selectedDate,
     setSelectedDate,
@@ -58,7 +58,7 @@ function App() {
     confirmDayChange,
     cancelDayChange
   } = useDayNavigation(canvasRef);
-  
+
   const {
     canUndo,
     canRedo,
@@ -146,12 +146,12 @@ function App() {
   useEffect(() => {
     // Limpiar localStorage obsoleto al iniciar la app
     drawingService.cleanupLocalStorage();
-    
+
     // Forzar recarga del índice al iniciar la app para evitar problemas de caché
     staticImageService.forceReloadIndex().catch(error => {
       Logger.warn('⚠️ No se pudo forzar la recarga del índice:', error);
     });
-    
+
     const handleKeyDown = (e) => {
       if (e.ctrlKey || e.metaKey) {
         if (e.key === 'z' && !e.shiftKey) {
@@ -197,21 +197,21 @@ function App() {
   return (
     <div className="app">
       {/* Structured Data para SEO - invisible al usuario */}
-      <StructuredData 
+      <StructuredData
         todayTheme={todayTheme}
         selectedDate={selectedDate}
         dayImageStatus={dayImageStatus}
       />
-      
+
       {/* SEO Head dinámico */}
-      <SEOHead 
+      <SEOHead
         currentTheme={todayTheme}
         currentDate={selectedDate}
       />
-      
+
       <header className="app-header">
         <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
-        
+
         <DayNavigation
           selectedDate={selectedDate}
           onPreviousDay={goToPreviousDay}
@@ -240,7 +240,7 @@ function App() {
               currentBrushSize={brushSize}
               currentDay={currentDayOfYear}
             />
-            
+
             <div className="comic-panels">
               <div className="comic-panel">
                 <DrawingCanvasSimple
@@ -255,7 +255,7 @@ function App() {
                 />
               </div>
             </div>
-            
+
             <CanvasActions
               onSave={onSaveDrawing}
               canSave={true}
@@ -269,7 +269,7 @@ function App() {
       </main>
 
       {/* Botón para mostrar/ocultar footer */}
-      <button 
+      <button
         className="footer-toggle-btn"
         onClick={() => setIsFooterVisible(!isFooterVisible)}
         title={isFooterVisible ? "Ocultar información" : "Mostrar información"}
@@ -284,9 +284,9 @@ function App() {
         </p>
         <p className="footer-share">
           Share it on social media #coloreveryday{' '}
-          <a 
-            href="https://www.instagram.com/coloreverydayapp/" 
-            target="_blank" 
+          <a
+            href="https://www.instagram.com/coloreverydayapp/"
+            target="_blank"
             rel="noopener noreferrer"
             className="instagram-link"
             aria-label="Síguenos en Instagram"
@@ -295,28 +295,37 @@ function App() {
             �
           </a>
           {' '}
-          <button 
-            className="about-link" 
+          <button
+            className="about-link"
             onClick={() => setIsAboutModalOpen(true)}
             aria-label="Acerca de ColorEveryday"
           >
             ℹ️
           </button>
+          {' '}
+          <Link
+            to="/privacidad"
+            className="about-link"
+            aria-label="Política de Privacidad"
+            title="Política de Privacidad"
+          >
+            🔒
+          </Link>
         </p>
       </footer>
-      
+
       {/* Modal de controles */}
-      <ControlsModal 
+      <ControlsModal
         isOpen={isControlsModalOpen}
         onClose={() => setIsControlsModalOpen(false)}
       />
-      
+
       {/* Modal About Us */}
-      <AboutModal 
+      <AboutModal
         isOpen={isAboutModalOpen}
         onClose={() => setIsAboutModalOpen(false)}
       />
-      
+
       {/* Confirmation modal for clearing canvas */}
       <ConfirmationModal
         isOpen={showClearConfirmation}
@@ -328,7 +337,7 @@ function App() {
         cancelText="Cancelar"
         type="danger"
       />
-      
+
       {/* Confirmation modal for day change */}
       <ConfirmationModal
         isOpen={showDayChangeConfirmation}
@@ -340,7 +349,7 @@ function App() {
         cancelText="Quedarse aquí"
         type="warning"
       />
-      
+
       {/* Toast notifications */}
       <ToastContainer toasts={toasts} onRemoveToast={removeToast} />
     </div>
