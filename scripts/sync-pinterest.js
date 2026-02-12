@@ -19,7 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 
-const OUTPUT_FILE = path.join(ROOT_DIR, 'data', 'pinterest-gallery.json');
+const OUTPUT_FILE = path.join(ROOT_DIR, 'public', 'data', 'pinterest-gallery.json');
 const ACCESS_TOKEN = process.env.PINTEREST_ACCESS_TOKEN;
 const API_BASE = 'https://api.pinterest.com/v5';
 

@@ -34,13 +34,13 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet data/pinterest-gallery.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet public/data/pinterest-gallery.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push changes
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add data/pinterest-gallery.json
+          git add public/data/pinterest-gallery.json
           git commit -m "🔄 Auto-sync Pinterest gallery data"
           git push
