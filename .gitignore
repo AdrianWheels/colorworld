@@ -39,3 +39,11 @@ node_version_backup.txt
 *.njsproj
 *.sln
 *.sw?
+
+# Agent artifacts
+.agent/
+.agents/
+
+# High-resolution icons (keep optimized web versions)
+/public/Icons/*.png
+!/public/Icons/web/
