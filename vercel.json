@@ -57,6 +57,10 @@
       "destination": "/generated-images/$1"
     },
     {
+      "source": "/api/pinterest-image",
+      "destination": "/api/pinterest-image"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
