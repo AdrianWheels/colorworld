@@ -1,0 +1,251 @@
+{
+    "main": {
+        "loading": "Loading ColorWorld..."
+    },
+    "app": {
+        "loading": "Loading daily drawing...",
+        "generating": "Generating your drawing...",
+        "header": {
+            "gallery": "Gallery",
+            "calendar": "Calendar"
+        },
+        "nav": {
+            "prev": "Previous day",
+            "prevDisabled": "Cannot go before launch (Oct 1, 2025)",
+            "previous": "← Previous",
+            "next": "Next day",
+            "nextDisabled": "Cannot go to the future",
+            "nextLabel": "Next →"
+        },
+        "footer": {
+            "dreaming": "Dreaming about {{theme}}!",
+            "share": "Share it on social media #coloreveryday",
+            "instagram": "Follow us on Instagram",
+            "about": "About ColorEveryday",
+            "privacy": "Privacy Policy",
+            "hideInfo": "Hide information",
+            "showInfo": "Show information"
+        },
+        "confirmation": {
+            "clear": {
+                "title": "Confirm clear",
+                "message": "Are you sure you want to completely clear your drawing? This action cannot be undone.",
+                "confirm": "Yes, clear",
+                "cancel": "Cancel"
+            },
+            "dayChange": {
+                "title": "Change day",
+                "message": "You have a drawing in progress that will be lost when changing the day. Do you want to continue?",
+                "confirm": "Yes, change day",
+                "cancel": "Stay here"
+            },
+            "default": {
+                "title": "Confirm action",
+                "message": "Are you sure you want to continue?",
+                "confirm": "Yes, continue",
+                "cancel": "Cancel"
+            }
+        },
+        "about": {
+            "title": "About ColorEveryday",
+            "close": "Close",
+            "whatIs": {
+                "title": "🎨 What is ColorEveryday",
+                "description": "ColorEveryday is an innovative web application that generates unique drawings to color every day using advanced artificial intelligence. We create fresh and original content perfect for children, families, and anyone who enjoys digital art."
+            },
+            "tech": {
+                "title": "🚀 AI Technology",
+                "description": "We use Google's Gemini AI to generate original and creative drawings. Each illustration is unique and designed specifically to be colored online, combining artificial creativity with human fun."
+            },
+            "features": {
+                "title": "✨ Features",
+                "daily": "Daily Content: New drawing every day of the year",
+                "free": "100% Free: No registrations or subscriptions",
+                "multi": "Multiplatform: Works on any device",
+                "save": "Save and Share: Export your creations easily",
+                "tools": "Advanced Tools: Brushes, colors, and unlimited undo"
+            },
+            "mission": {
+                "title": "🎯 Our Mission",
+                "description": "Democratize digital creativity by combining artificial intelligence with human artistic expression. We believe everyone deserves free access to quality creative content that inspires and entertains."
+            },
+            "footer": {
+                "tagline": "Where AI meets human creativity",
+                "copyright": "© 2025 - Made with ❤️ and technology"
+            }
+        },
+        "controls": {
+            "title": "🎨 Canvas Controls",
+            "close": "Close",
+            "mobile": {
+                "title": "📱 Touch Controls",
+                "oneFinger": "One Finger",
+                "draw": "Draw/Color",
+                "twoFingers": "Two Fingers",
+                "zoom": "Pinch for Zoom",
+                "move": "Move the canvas",
+                "dragTwo": "Drag (2 fingers)"
+            },
+            "desktop": {
+                "title": "🖱️ Mouse Controls",
+                "leftClick": "Left Click",
+                "rightClickPlusDrag": "Right Click + Drag",
+                "wheel": "Mouse Wheel",
+                "zoomInOut": "Zoom In/Out"
+            },
+            "shortcuts": {
+                "title": "⌨️ Keyboard Shortcuts",
+                "undo": "Undo",
+                "redo": "Redo",
+                "navigate": "Navigate days"
+            },
+            "tools": {
+                "title": "🎯 Tools",
+                "brush": "Brush 🖌️",
+                "brushDescMobile": "Tap to select and color",
+                "brushDesc": "Adjustable size for coloring",
+                "bucket": "Bucket 🪣",
+                "bucketDescMobile": "Fill complete areas with one tap",
+                "bucketDesc": "Fill complete areas with one click",
+                "eraser": "Eraser 🧽",
+                "eraserDesc": "Delete your strokes",
+                "eyedropper": "Eyedropper 💧",
+                "eyedropperDescMobile": "Copy colors from drawing",
+                "eyedropperDesc": "Select colors from drawing",
+                "colors": "Colors 🎨",
+                "colorsDescMobile": "Tap the color circle to change",
+                "colorsDesc": "Full palette available"
+            },
+            "actions": {
+                "title": "🔄 Actions",
+                "undo": "Undo ↶",
+                "undoDesc": "Tap the undo button",
+                "redo": "Redo ↷",
+                "redoDesc": "Tap the redo button",
+                "clear": "Clear 🗑️",
+                "clearDesc": "Clear the entire drawing (with confirmation)",
+                "save": "Save 💾",
+                "saveDesc": "Save your finished work"
+            },
+            "footer": {
+                "tip": "Tip:",
+                "message": "Black lines cannot be erased - they are there to guide you! The bucket 🪣 fills connected areas of the same color automatically.",
+                "mobileQuality": " The canvas keeps its original size for better quality."
+            }
+        }
+    },
+    "calendar": {
+        "loading": "Loading calendar...",
+        "error": "Could not load drawings",
+        "noImages": "No drawings available for this month",
+        "pagination": {
+            "prev": "← Previous",
+            "next": "Next →"
+        }
+    },
+    "notfound": {
+        "title": "Oops! Page not found",
+        "message": "Cosmo couldn't find what you're looking for. It seems this page has gone to color somewhere else.",
+        "button": "🏠 Back to Home",
+        "alt": "Cosmo - ColorEveryday Mascot"
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "updated": "Last updated: February 12, 2026",
+        "sections": {
+            "general": {
+                "title": "1. General Information",
+                "content": "<strong>ColorEveryday</strong> (<a href=\"https://coloreveryday.vercel.app\" target=\"_blank\" rel=\"noopener noreferrer\">coloreveryday.vercel.app</a>) is a free online coloring drawing platform, oriented to children, families, and creative minds. We are committed to protecting the privacy of all our users, especially that of minors."
+            },
+            "data": {
+                "title": "2. Data We Collect",
+                "content": "ColorEveryday <strong>does not require registration or user account</strong>. The data we collect is minimal and exclusively anonymous:",
+                "list": [
+                    "<strong>Google Analytics 4 (GA4)</strong>: We collect anonymous browsing data such as pages visited, session duration, country of origin, and device type. This data does not allow personally identifying any user.",
+                    "<strong>Local storage (localStorage)</strong>: Colored drawings are saved only in the user's browser. They are not sent to our servers."
+                ],
+                "footer": "<strong>We do not collect</strong>: names, emails, addresses, payment data, or any personally identifiable data."
+            },
+            "cookies": {
+                "title": "3. Use of Cookies",
+                "content": "We only use:",
+                "list": [
+                    "<strong>Google Analytics cookies</strong>: for anonymous web traffic analysis.",
+                    "<strong>Technical cookies</strong>: necessary for the operation of the site."
+                ],
+                "footer": "We do not use advertising or tracking cookies from third parties."
+            },
+            "pinterest": {
+                "title": "4. Pinterest Content",
+                "content": "Our gallery section shows images that we have published on Pinterest. These images are ColorEveryday's own content, published on our Pinterest profile and shown through the official Pinterest API.",
+                "list": [
+                    "We do not collect data from Pinterest users.",
+                    "We do not track user activity on Pinterest.",
+                    "Images are shown as public content for coloring."
+                ]
+            },
+            "minors": {
+                "title": "5. Protection of Minors",
+                "content": "ColorEveryday is a site oriented to child and family audiences. We follow the principles of <strong>COPPA</strong> (Children's Online Privacy Protection Act) and the <strong> GDPR</strong> (General Data Protection Regulation):",
+                "list": [
+                    "We do not intentionally collect personal data from children under 13.",
+                    "We do not require personal information to use the site.",
+                    "Analytical data is completely anonymous and aggregated."
+                ]
+            },
+            "services": {
+                "title": "6. Third-Party Services",
+                "table": {
+                    "headers": [
+                        "Service",
+                        "Purpose",
+                        "Shared Data"
+                    ],
+                    "rows": [
+                        {
+                            "name": "Google Analytics 4",
+                            "purpose": "Web traffic analysis",
+                            "data": "Anonymous browsing data"
+                        },
+                        {
+                            "name": "Vercel",
+                            "purpose": "Website hosting",
+                            "data": "Standard server logs"
+                        },
+                        {
+                            "name": "Pinterest API",
+                            "purpose": "Show our images",
+                            "data": "None — read-only of own content"
+                        }
+                    ]
+                }
+            },
+            "rights": {
+                "title": "7. User Rights (GDPR)",
+                "content": "As a user, you have the right to:",
+                "list": [
+                    "<strong>Access</strong>: Request what data we have about you (in our case, none personal).",
+                    "<strong>Rectification</strong>: Correct inaccurate data.",
+                    "<strong>Erasure</strong>: Request the deletion of your data.",
+                    "<strong>Objection</strong>: Object to the processing of your data.",
+                    "<strong>Portability</strong>: Receive your data in a structured format."
+                ],
+                "footer": "To exercise any of these rights, you can contact us through the email indicated below."
+            },
+            "security": {
+                "title": "8. Security",
+                "content": "We implement technical security measures to protect the integrity of our site, including Content Security Policy (CSP), HTTP security headers, and HTTPS encryption."
+            },
+            "changes": {
+                "title": "9. Changes to this Policy",
+                "content": "We reserve the right to update this privacy policy. Any changes will be published on this same page with the update date."
+            },
+            "contact": {
+                "title": "10. Contact",
+                "content": "If you have questions about this privacy policy, you can contact us at:",
+                "email": "mariaharor@gmail.com"
+            }
+        },
+        "back": "� Back to Coloring"
+    }
+}

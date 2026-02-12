@@ -1,0 +1,251 @@
+{
+    "main": {
+        "loading": "Cargando ColorWorld..."
+    },
+    "app": {
+        "loading": "Cargando el dibujo del día...",
+        "generating": "Generando tu dibujo...",
+        "header": {
+            "gallery": "Galería",
+            "calendar": "Calendario"
+        },
+        "nav": {
+            "prev": "Día anterior",
+            "prevDisabled": "No se puede ir antes del lanzamiento (1 oct 2025)",
+            "previous": "← Anterior",
+            "next": "Día siguiente",
+            "nextDisabled": "No se puede ir al futuro",
+            "nextLabel": "Siguiente →"
+        },
+        "footer": {
+            "dreaming": "¡Soñando sobre {{theme}}!",
+            "share": "Compártelo en redes sociales #coloreveryday",
+            "instagram": "Síguenos en Instagram",
+            "about": "Acerca de ColorEveryday",
+            "privacy": "Política de Privacidad",
+            "hideInfo": "Ocultar información",
+            "showInfo": "Mostrar información"
+        },
+        "confirmation": {
+            "clear": {
+                "title": "Confirmar borrado",
+                "message": "¿Estás seguro de que quieres borrar completamente tu dibujo? Esta acción no se puede deshacer.",
+                "confirm": "Sí, borrar",
+                "cancel": "Cancelar"
+            },
+            "dayChange": {
+                "title": "Cambiar día",
+                "message": "Tienes un dibujo en progreso que se perderá al cambiar de día. ¿Quieres continuar?",
+                "confirm": "Sí, cambiar día",
+                "cancel": "Quedarse aquí"
+            },
+            "default": {
+                "title": "Confirmar acción",
+                "message": "¿Estás seguro de que quieres continuar?",
+                "confirm": "Sí, continuar",
+                "cancel": "Cancelar"
+            }
+        },
+        "about": {
+            "title": "Sobre ColorEveryday",
+            "close": "Cerrar",
+            "whatIs": {
+                "title": "🎨 Qué es ColorEveryday",
+                "description": "ColorEveryday es una aplicación web innovadora que genera dibujos únicos para colorear cada día utilizando inteligencia artificial avanzada. Creamos contenido fresco y original perfecto para niños, familias y cualquier persona que disfrute del arte digital."
+            },
+            "tech": {
+                "title": "🚀 Tecnología IA",
+                "description": "Utilizamos Gemini AI de Google para generar dibujos originales y creativos. Cada ilustración es única y está diseñada específicamente para ser coloreada online, combinando creatividad artificial con diversión humana."
+            },
+            "features": {
+                "title": "✨ Características",
+                "daily": "Contenido Diario: Nuevo dibujo cada día del año",
+                "free": "100% Gratis: Sin registros ni suscripciones",
+                "multi": "Multiplataforma: Funciona en cualquier dispositivo",
+                "save": "Guardar y Compartir: Exporta tus creaciones fácilmente",
+                "tools": "Herramientas Avanzadas: Pinceles, colores y deshacer ilimitado"
+            },
+            "mission": {
+                "title": "🎯 Nuestra Misión",
+                "description": "Democratizar la creatividad digital combinando inteligencia artificial con expresión artística humana. Creemos que todos merecen acceso gratuito a contenido creativo de calidad que inspire y entretenga."
+            },
+            "footer": {
+                "tagline": "Donde la IA encuentra la creatividad humana",
+                "copyright": "© 2025 - Hecho con ❤️ y tecnología"
+            }
+        },
+        "controls": {
+            "title": "🎨 Controles del Canvas",
+            "close": "Cerrar",
+            "mobile": {
+                "title": "📱 Controles Táctiles",
+                "oneFinger": "Un Dedo",
+                "draw": "Dibujar/Colorear",
+                "twoFingers": "Dos Dedos",
+                "zoom": "Pellizcar para Zoom",
+                "move": "Mover el canvas",
+                "dragTwo": "Arrastrar (2 dedos)"
+            },
+            "desktop": {
+                "title": "🖱️ Controles del Ratón",
+                "leftClick": "Clic Izquierdo",
+                "rightClickPlusDrag": "Clic Derecho + Arrastrar",
+                "wheel": "Rueda del Ratón",
+                "zoomInOut": "Zoom In/Out"
+            },
+            "shortcuts": {
+                "title": "⌨️ Atajos de Teclado",
+                "undo": "Deshacer",
+                "redo": "Rehacer",
+                "navigate": "Navegar días"
+            },
+            "tools": {
+                "title": "🎯 Herramientas",
+                "brush": "Pincel 🖌️",
+                "brushDescMobile": "Toca para seleccionar y colorear",
+                "brushDesc": "Tamaño ajustable para colorear",
+                "bucket": "Cubo 🪣",
+                "bucketDescMobile": "Rellena áreas completas de un toque",
+                "bucketDesc": "Rellena áreas completas con un clic",
+                "eraser": "Borrador 🧽",
+                "eraserDesc": "Elimina tus trazos",
+                "eyedropper": "Cuentagotas 💧",
+                "eyedropperDescMobile": "Copia colores del dibujo",
+                "eyedropperDesc": "Selecciona colores del dibujo",
+                "colors": "Colores 🎨",
+                "colorsDescMobile": "Toca el círculo de color para cambiar",
+                "colorsDesc": "Paleta completa disponible"
+            },
+            "actions": {
+                "title": "🔄 Acciones",
+                "undo": "Deshacer ↶",
+                "undoDesc": "Toca el botón de deshacer",
+                "redo": "Rehacer ↷",
+                "redoDesc": "Toca el botón de rehacer",
+                "clear": "Limpiar 🗑️",
+                "clearDesc": "Borra todo el dibujo (con confirmación)",
+                "save": "Guardar 💾",
+                "saveDesc": "Guarda tu obra terminada"
+            },
+            "footer": {
+                "tip": "Tip:",
+                "message": "Las líneas negras del dibujo no se pueden borrar - ¡son para guiarte! El cubo 🪣 rellena áreas conectadas del mismo color automáticamente.",
+                "mobileQuality": " El canvas mantiene su tamaño original para mejor calidad."
+            }
+        }
+    },
+    "calendar": {
+        "loading": "Cargando calendario...",
+        "error": "No se pudieron cargar los dibujos",
+        "noImages": "No hay dibujos disponibles para este mes",
+        "pagination": {
+            "prev": "← Anterior",
+            "next": "Siguiente →"
+        }
+    },
+    "notfound": {
+        "title": "¡Ups! Página no encontrada",
+        "message": "Cosmo no pudo encontrar lo que buscas. Parece que esta página se ha ido a colorear otro lugar.",
+        "button": "🏠 Volver al inicio",
+        "alt": "Cosmo - Mascota de ColorEveryday"
+    },
+    "privacy": {
+        "title": "Política de Privacidad",
+        "updated": "Última actualización: 12 de febrero de 2026",
+        "sections": {
+            "general": {
+                "title": "1. Información General",
+                "content": "<strong>ColorEveryday</strong> (<a href=\"https://coloreveryday.vercel.app\" target=\"_blank\" rel=\"noopener noreferrer\">coloreveryday.vercel.app</a>) es una plataforma gratuita de dibujos para colorear online, orientada a niños, familias y mentes creativas. Nos comprometemos a proteger la privacidad de todos nuestros usuarios, especialmente la de los menores de edad."
+            },
+            "data": {
+                "title": "2. Datos que Recopilamos",
+                "content": "ColorEveryday <strong>no requiere registro ni cuenta de usuario</strong>. Los datos que recopilamos son mínimos y exclusivamente anónimos:",
+                "list": [
+                    "<strong>Google Analytics 4 (GA4)</strong>: Recopilamos datos anónimos de navegación como páginas visitadas, duración de sesión, país de origen y tipo de dispositivo. Estos datos no permiten identificar personalmente a ningún usuario.",
+                    "<strong>Almacenamiento local (localStorage)</strong>: Los dibujos coloreados se guardan únicamente en el navegador del usuario. No se envían a nuestros servidores."
+                ],
+                "footer": "<strong>No recopilamos</strong>: nombres, emails, direcciones, datos de pago ni ningún dato personal identificable."
+            },
+            "cookies": {
+                "title": "3. Uso de Cookies",
+                "content": "Utilizamos únicamente:",
+                "list": [
+                    "<strong>Cookies de Google Analytics</strong>: para análisis anónimo de tráfico web.",
+                    "<strong>Cookies técnicas</strong>: necesarias para el funcionamiento del sitio."
+                ],
+                "footer": "No utilizamos cookies de publicidad ni de seguimiento de terceros."
+            },
+            "pinterest": {
+                "title": "4. Contenido de Pinterest",
+                "content": "Nuestra sección de galería muestra imágenes que hemos publicado en Pinterest. Estas imágenes son contenido propio de ColorEveryday, publicado en nuestro perfil de Pinterest y mostrado a través de la API oficial de Pinterest.",
+                "list": [
+                    "No recopilamos datos de usuarios de Pinterest.",
+                    "No realizamos seguimiento de la actividad de los usuarios en Pinterest.",
+                    "Las imágenes se muestran como contenido público para su coloreado."
+                ]
+            },
+            "minors": {
+                "title": "5. Protección de Menores",
+                "content": "ColorEveryday es un sitio orientado a público infantil y familiar. Seguimos los principios de <strong>COPPA</strong> (Children&apos;s Online Privacy Protection Act) y el <strong> RGPD</strong> (Reglamento General de Protección de Datos):",
+                "list": [
+                    "No recopilamos intencionadamente datos personales de menores de 13 años.",
+                    "No requerimos información personal para usar el sitio.",
+                    "Los datos analíticos son completamente anónimos y agregados."
+                ]
+            },
+            "services": {
+                "title": "6. Servicios de Terceros",
+                "table": {
+                    "headers": [
+                        "Servicio",
+                        "Propósito",
+                        "Datos Compartidos"
+                    ],
+                    "rows": [
+                        {
+                            "name": "Google Analytics 4",
+                            "purpose": "Análisis de tráfico web",
+                            "data": "Datos anónimos de navegación"
+                        },
+                        {
+                            "name": "Vercel",
+                            "purpose": "Hosting del sitio web",
+                            "data": "Logs de servidor estándar"
+                        },
+                        {
+                            "name": "Pinterest API",
+                            "purpose": "Mostrar nuestras imágenes",
+                            "data": "Ninguno — solo lectura de contenido propio"
+                        }
+                    ]
+                }
+            },
+            "rights": {
+                "title": "7. Derechos del Usuario (RGPD)",
+                "content": "Como usuario, tienes derecho a:",
+                "list": [
+                    "<strong>Acceso</strong>: Solicitar qué datos tenemos sobre ti (en nuestro caso, ninguno personal).",
+                    "<strong>Rectificación</strong>: Corregir datos inexactos.",
+                    "<strong>Supresión</strong>: Solicitar la eliminación de tus datos.",
+                    "<strong>Oposición</strong>: Oponerte al tratamiento de tus datos.",
+                    "<strong>Portabilidad</strong>: Recibir tus datos en formato estructurado."
+                ],
+                "footer": "Para ejercer cualquiera de estos derechos, puedes contactarnos a través del email indicado más abajo."
+            },
+            "security": {
+                "title": "8. Seguridad",
+                "content": "Implementamos medidas de seguridad técnicas para proteger la integridad de nuestro sitio, incluyendo Content Security Policy (CSP), cabeceras de seguridad HTTP y cifrado HTTPS."
+            },
+            "changes": {
+                "title": "9. Cambios en esta Política",
+                "content": "Nos reservamos el derecho de actualizar esta política de privacidad. Cualquier cambio se publicará en esta misma página con la fecha de actualización."
+            },
+            "contact": {
+                "title": "10. Contacto",
+                "content": "Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en:",
+                "email": "mariaharor@gmail.com"
+            }
+        },
+        "back": "🎨 Volver a Colorear"
+    }
+}
