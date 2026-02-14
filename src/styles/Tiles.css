@@ -43,6 +43,7 @@
     background-color: transparent;
     pointer-events: auto;
     /* Re-enable pointer events for hover */
+    flex-shrink: 0;
 }
 
 /* Sizes */
