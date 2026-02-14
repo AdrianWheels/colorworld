@@ -177,7 +177,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="app">
-        <Tiles rows={40} cols={30} tileSize="lg" />
+        <Tiles rows={100} cols={40} tileSize="lg" />
         <header className="app-header">
           <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
           <p>{t('app.loading')}</p>
@@ -193,7 +193,7 @@ function App() {
   if (error) {
     return (
       <div className="app">
-        <Tiles rows={40} cols={30} tileSize="lg" />
+        <Tiles rows={100} cols={40} tileSize="lg" />
         <header className="app-header">
           <img src="/Letras web.png" alt="ColorEveryday" className="coloreveryday-logo" />
           <p className="error-message">{error}</p>
@@ -204,7 +204,7 @@ function App() {
 
   return (
     <div className="app">
-      <Tiles rows={40} cols={30} tileSize="lg" />
+      <Tiles rows={100} cols={40} tileSize="lg" />
       {/* Structured Data para SEO - invisible al usuario */}
       <StructuredData
         todayTheme={todayTheme}

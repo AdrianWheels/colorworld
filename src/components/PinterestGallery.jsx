@@ -64,7 +64,7 @@ function PinterestGallery() {
     if (isLoading) {
         return (
             <div className="gallery-page">
-                <Tiles rows={40} cols={30} tileSize="lg" />
+                <Tiles rows={100} cols={40} tileSize="lg" />
                 <Header />
                 <div className="gallery-loading">
                     <div className="gallery-spinner"></div>
@@ -77,7 +77,7 @@ function PinterestGallery() {
     if (error) {
         return (
             <div className="gallery-page">
-                <Tiles rows={40} cols={30} tileSize="lg" />
+                <Tiles rows={100} cols={40} tileSize="lg" />
                 <Header />
                 <div className="gallery-error">
                     <p>❌ Error cargando la galería: {error}</p>
@@ -97,7 +97,7 @@ function PinterestGallery() {
 
     return (
         <div className="gallery-page">
-            <Tiles rows={40} cols={30} tileSize="lg" />
+            <Tiles rows={100} cols={40} tileSize="lg" />
             <Header />
 
 

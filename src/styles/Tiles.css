@@ -33,12 +33,8 @@
 }
 
 /* Dark mode support if needed, though specific colors were requested */
-@media (prefers-color-scheme: dark) {
-    :root {
-        /* Adjust these if the user wants dark mode support for these specific colors later */
-        /* For now keeping the requested light blue theme as base */
-    }
-}
+/* Dark mode support if needed */
+/* @media (prefers-color-scheme: dark) { } */
 
 .tile {
     position: relative;
@@ -51,18 +47,18 @@
 
 /* Sizes */
 .tile-sm {
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .tile-md {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .tile-lg {
-    width: 3rem;
-    height: 3rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 @media (min-width: 768px) {

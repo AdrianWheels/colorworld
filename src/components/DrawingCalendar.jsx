@@ -98,7 +98,7 @@ const DrawingCalendar = () => {
   if (isLoading) {
     return (
       <div className="calendar-container">
-        <Tiles rows={40} cols={30} tileSize="lg" />
+        <Tiles rows={100} cols={40} tileSize="lg" />
         <Header />
         <div className="calendar-loading">
           <div className="loading-spinner"></div>
@@ -111,7 +111,7 @@ const DrawingCalendar = () => {
   if (error) {
     return (
       <div className="calendar-container">
-        <Tiles rows={40} cols={30} tileSize="lg" />
+        <Tiles rows={100} cols={40} tileSize="lg" />
         <Header />
         <div className="calendar-error">
           <p>{error}</p>
@@ -132,7 +132,7 @@ const DrawingCalendar = () => {
 
   return (
     <div className="calendar-container">
-      <Tiles rows={40} cols={30} tileSize="lg" />
+      <Tiles rows={100} cols={40} tileSize="lg" />
       <Header />
 
 

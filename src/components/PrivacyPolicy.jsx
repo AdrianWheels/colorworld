@@ -7,7 +7,7 @@ function PrivacyPolicy() {
     const { t } = useTranslation();
     return (
         <div className="privacy-page">
-            <Tiles rows={40} cols={30} tileSize="lg" />
+            <Tiles rows={100} cols={40} tileSize="lg" />
             <header className="privacy-header">
                 <Link to="/" className="privacy-logo-link">
                     <img src="/Letras web.png" alt="ColorEveryday" className="privacy-logo" />

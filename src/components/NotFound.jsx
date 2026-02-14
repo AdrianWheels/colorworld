@@ -7,7 +7,7 @@ const NotFound = () => {
   const { t } = useTranslation();
   return (
     <div className="notfound-container">
-      <Tiles rows={40} cols={30} tileSize="lg" />
+      <Tiles rows={100} cols={40} tileSize="lg" />
       <div className="notfound-content">
         <img
           src="/Cosmo.png"

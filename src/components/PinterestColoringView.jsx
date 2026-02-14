@@ -137,7 +137,7 @@ function PinterestColoringView() {
     if (isLoadingPin) {
         return (
             <div className="coloring-page">
-                <Tiles rows={40} cols={30} tileSize="lg" />
+                <Tiles rows={100} cols={40} tileSize="lg" />
                 <header className="coloring-header">
                     <Link to="/galeria" className="coloring-logo-link">
                         <img src="/Letras web.png" alt="ColorEveryday" className="coloring-logo" />
@@ -154,7 +154,7 @@ function PinterestColoringView() {
     if (pinError || !pinData) {
         return (
             <div className="coloring-page">
-                <Tiles rows={40} cols={30} tileSize="lg" />
+                <Tiles rows={100} cols={40} tileSize="lg" />
                 <header className="coloring-header">
                     <Link to="/galeria" className="coloring-logo-link">
                         <img src="/Letras web.png" alt="ColorEveryday" className="coloring-logo" />
@@ -172,7 +172,7 @@ function PinterestColoringView() {
 
     return (
         <div className="coloring-page">
-            <Tiles rows={40} cols={30} tileSize="lg" />
+            <Tiles rows={100} cols={40} tileSize="lg" />
             <header className="coloring-header">
                 <Link to="/galeria" className="coloring-logo-link">
                     <img src="/Letras web.png" alt="ColorEveryday" className="coloring-logo" />
