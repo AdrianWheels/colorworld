@@ -22,6 +22,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const OUTPUT_FILE = path.join(ROOT_DIR, 'public', 'data', 'pinterest-gallery.json');
 const ACCESS_TOKEN = process.env.PINTEREST_ACCESS_TOKEN;
 const API_BASE = 'https://api.pinterest.com/v5';
+const SITE_BASE_URL = 'https://coloreveryday.vercel.app';
 
 if (!ACCESS_TOKEN) {
     console.error('❌ Error: PINTEREST_ACCESS_TOKEN is missing in .env');
@@ -85,6 +86,49 @@ async function fetchAll(endpoint) {
 }
 
 /**
+ * Helper to PATCH data to Pinterest API
+ */
+async function patchAPI(endpoint, body) {
+    return new Promise((resolve, reject) => {
+        const url = new URL(endpoint.startsWith('http') ? endpoint : `${API_BASE}${endpoint}`);
+        
+        const options = {
+            hostname: url.hostname,
+            path: url.pathname + url.search,
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${ACCESS_TOKEN}`,
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(JSON.stringify(body)),
+            }
+        };
+
+        const req = https.request(options, (res) => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    try {
+                        const json = data ? JSON.parse(data) : {};
+                        resolve(json);
+                    } catch (e) {
+                        resolve({}); // Empty response is OK for PATCH
+                    }
+                } else if (res.statusCode === 429) {
+                    reject(new Error('Rate Limited'));
+                } else {
+                    reject(new Error(`API Error ${res.statusCode}: ${data}`));
+                }
+            });
+        });
+
+        req.on('error', reject);
+        req.write(JSON.stringify(body));
+        req.end();
+    });
+}
+
+/**
  * Maps API Image object to our internal format
  */
 function mapImages(media) {
@@ -121,7 +165,52 @@ function slugify(text) {
         .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Updates pin links to point to ColorEveryday coloring pages
+ */
+async function updatePinLinks(galleryData) {
+    console.log('\n🔗 Actualizando enlaces de pines en Pinterest...\n');
+
+    let totalPins = 0;
+    let updatedPins = 0;
+    let errorCount = 0;
+
+    for (const board of galleryData.boards) {
+        console.log(`📂 Board: ${board.name}`);
+        
+        for (const pin of board.pins) {
+            totalPins++;
+            const coloringUrl = `${SITE_BASE_URL}/colorear/${pin.id}`;
+            
+            try {
+                await patchAPI(`/pins/${pin.id}`, {
+                    link: coloringUrl
+                });
+                updatedPins++;
+                process.stdout.write(`\r   Actualizado: ${updatedPins}/${totalPins} pines`);
+                
+                // Rate limiting: 1 request per second
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            } catch (err) {
+                errorCount++;
+                console.error(`\n   ❌ Error actualizando pin ${pin.id}: ${err.message}`);
+            }
+        }
+        console.log(''); // New line after board
+    }
+
+    console.log('\n' + '═'.repeat(50));
+    console.log(`✅ Actualización de enlaces completada!`);
+    console.log(`   ✓ Actualizados: ${updatedPins}`);
+    console.log(`   ✗ Errores: ${errorCount}`);
+    console.log(`   📌 Total: ${totalPins}`);
+    console.log('═'.repeat(50) + '\n');
+}
+
 async function main() {
+    const args = process.argv.slice(2);
+    const shouldUpdateLinks = args.includes('--update-links');
+
     console.log('\n🔄 Pinterest Sync (API v5) — ColorEveryDay\n');
 
     try {
@@ -200,6 +289,14 @@ async function main() {
         console.log(`   📌 Pins totales: ${totalPins}`);
         console.log(`   💾 Guardado en: ${OUTPUT_FILE}`);
         console.log('═'.repeat(50) + '\n');
+
+        // Update pin links if flag is set
+        if (shouldUpdateLinks) {
+            await updatePinLinks(galleryData);
+        } else {
+            console.log('💡 Para actualizar enlaces en Pinterest, ejecuta:');
+            console.log('   node scripts/sync-pinterest.js --update-links\n');
+        }
 
     } catch (error) {
         console.error('\n❌ Sync Failed:', error.message);

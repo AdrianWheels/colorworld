@@ -29,6 +29,10 @@ SISTEMA_*.md
 *_backup.txt
 node_version_backup.txt
 
+# Pinterest links files (generated for manual updates)
+pinterest-links.csv
+pinterest-links.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

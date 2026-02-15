@@ -25,9 +25,12 @@ export function usePinterestGallery(boardSlug = null) {
                 setGalleryData(data);
 
                 // If a board slug is provided, auto-select that board
+                // Otherwise, clear selection to show collections grid
                 if (boardSlug) {
                     const board = data.boards.find(b => b.slug === boardSlug);
                     setSelectedBoard(board || null);
+                } else {
+                    setSelectedBoard(null);
                 }
             } catch (err) {
                 if (!cancelled) {

@@ -16,6 +16,7 @@ function PinterestGallery() {
         isLoading,
         error,
         selectBoard,
+        clearBoard,
     } = usePinterestGallery(boardSlug);
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -28,23 +29,24 @@ function PinterestGallery() {
 
     // Sync URL with board selection
     useEffect(() => {
-        if (boards.length > 0) {
-            if (boardSlug) {
-                // If URL has a slug, strictly follow it
-                const board = boards.find(b => b.slug === boardSlug);
-                if (board && board.slug !== selectedBoard?.slug) {
-                    selectBoard(board);
-                }
-            } else if (!selectedBoard && !isLoading) {
-                // If no slug and no selection, select first board
-                selectBoard(boards[0]);
+        if (boards.length > 0 && boardSlug) {
+            // If URL has a slug, strictly follow it
+            const board = boards.find(b => b.slug === boardSlug);
+            if (board && board.slug !== selectedBoard?.slug) {
+                selectBoard(board);
             }
         }
-    }, [boardSlug, boards, selectedBoard, selectBoard, isLoading]);
+        // If no slug, show collections grid (don't auto-select)
+    }, [boardSlug, boards, selectedBoard, selectBoard]);
 
     const handleBoardClick = (board) => {
         selectBoard(board);
         navigate(`/galeria/${board.slug}`);
+    };
+
+    const handleBackToCollections = () => {
+        clearBoard();
+        navigate('/galeria');
     };
 
     const handlePinClick = (pin) => {
@@ -100,29 +102,64 @@ function PinterestGallery() {
             <Tiles rows={100} cols={40} tileSize="lg" />
             <Header />
 
-
-            <div className="gallery-nav-bar">
-                <div className="gallery-nav-scroll">
-                    {boards.map((board) => (
+            {/* Breadcrumb navigation - only show when a board is selected */}
+            {selectedBoard && (
+                <div className="gallery-breadcrumb-bar">
+                    <div className="gallery-breadcrumb-scroll">
                         <button
-                            key={board.slug}
-                            className={`gallery-nav-tab ${selectedBoard?.slug === board.slug ? 'active' : ''}`}
-                            onClick={() => handleBoardClick(board)}
+                            className="breadcrumb-pill"
+                            onClick={handleBackToCollections}
                         >
-                            {board.name}
+                            ← Colecciones
                         </button>
-                    ))}
+                        <span className="breadcrumb-separator">›</span>
+                        <span className="breadcrumb-pill active">
+                            {selectedBoard.name}
+                        </span>
+                    </div>
                 </div>
-            </div>
+            )}
 
             <motion.main
                 className="gallery-content"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                key={selectedBoard?.slug} // Re-animate when board changes
+                key={selectedBoard?.slug || 'collections'} // Re-animate when view changes
             >
-                {selectedBoard && (
+                {!selectedBoard ? (
+                    /* Collections Grid View */
+                    <div className="pins-grid compact-grid">
+                        {boards.map((board) => {
+                            const coverUrl = board.coverImage;
+                            return (
+                                <button
+                                    key={board.slug}
+                                    className="pin-card compact-card board-card"
+                                    onClick={() => handleBoardClick(board)}
+                                    title={board.name}
+                                >
+                                    <div className="pin-card-image">
+                                        {coverUrl ? (
+                                            <img
+                                                src={coverUrl}
+                                                alt={board.name}
+                                                loading="lazy"
+                                            />
+                                        ) : (
+                                            <div className="pin-card-placeholder">📁</div>
+                                        )}
+                                    </div>
+                                    <div className="board-card-overlay">
+                                        <h3 className="board-card-title">{board.name}</h3>
+                                        <p className="board-card-count">{board.pinCount} dibujos</p>
+                                    </div>
+                                </button>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    /* Pins Grid View */
                     <>
                         <div className="pins-grid compact-grid">
                             {displayedPins.map((pin) => {
