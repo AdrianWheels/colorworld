@@ -10,6 +10,7 @@ import { useCanvasActions } from '../hooks/useCanvasActions';
 import { useToast } from '../hooks/useToast';
 import { useDrawing } from '../hooks/useDrawing';
 import pinterestService from '../services/pinterestService';
+import promptsManager from '../services/promptsManager';
 import Logger from '../utils/logger.js';
 import '../styles/PinterestColoringView.css';
 
@@ -29,6 +30,7 @@ function PinterestColoringView() {
     const [brushColor, setBrushColor] = useState('#000000');
 
     const canvasRef = useRef(null);
+    const currentDayOfYear = promptsManager.getDayOfYear(new Date());
     const { toasts, showSuccess, showError, removeToast } = useToast();
     const { saveColoredDrawing } = useDrawing();
     const {
@@ -212,6 +214,7 @@ function PinterestColoringView() {
                         currentTool={currentTool}
                         currentColor={brushColor}
                         currentBrushSize={brushSize}
+                        currentDay={currentDayOfYear}
                     />
 
                     <div className="coloring-canvas-container">

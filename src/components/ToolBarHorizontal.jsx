@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { getPaletteForDay } from '../data/daily-palettes';
+import { getPaletteForDay, getPaletteInfoForDay } from '../data/daily-palettes';
 import '../styles/ToolBarHorizontal.css';
 
 const ToolBarHorizontal = ({
@@ -27,6 +27,10 @@ const ToolBarHorizontal = ({
   // Obtener la paleta del día actual (10 colores predefinidos)
   const dailyPalette = useMemo(() => {
     return getPaletteForDay(currentDay) || [];
+  }, [currentDay]);
+
+  const paletteTheme = useMemo(() => {
+    return getPaletteInfoForDay(currentDay)?.tematica || null;
   }, [currentDay]);
 
   // Combinar: 10 colores del día + 6 slots personalizables = 16 colores total (grid 4x4)
@@ -181,7 +185,7 @@ const ToolBarHorizontal = ({
               />
               <div className="color-palette">
                 <div className="color-palette-header">
-                  <span>Paleta del Día</span>
+                  <span>Paleta del Día{paletteTheme ? ` · ${paletteTheme}` : ''}</span>
                   <button
                     className="close-palette-btn"
                     onClick={handleColorPickerClose}
