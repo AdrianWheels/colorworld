@@ -124,8 +124,13 @@ function App() {
     if (canvasRef.current?.getColorLayerDataURL) {
       const dataUrl = canvasRef.current.getColorLayerDataURL();
       if (dataUrl) {
-        const res = await fetch(dataUrl);
-        const blob = await res.blob();
+        // Convert dataURL to Blob without fetch (avoids CSP connect-src restriction on data: URIs)
+        const [header, base64] = dataUrl.split(',');
+        const mime = header.match(/:(.*?);/)[1];
+        const binary = atob(base64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        const blob = new Blob([bytes], { type: mime });
         const path = `${user.id}/${dateKey}.png`;
         const { error: uploadError } = await supabase.storage
           .from('color-layers')
