@@ -6,11 +6,14 @@ import ToolBarHorizontal from './ToolBarHorizontal';
 
 import ToastContainer from './ToastContainer';
 import ConfirmationModal from './ConfirmationModal';
+import AuthModal from './AuthModal';
 import { useCanvasActions } from '../hooks/useCanvasActions';
 import { useToast } from '../hooks/useToast';
 import { useDrawing } from '../hooks/useDrawing';
+import { useAuth } from '../context/AuthContext';
 import pinterestService from '../services/pinterestService';
 import promptsManager from '../services/promptsManager';
+import supabase from '../services/supabaseClient';
 import Logger from '../utils/logger.js';
 import '../styles/PinterestColoringView.css';
 
@@ -32,6 +35,8 @@ function PinterestColoringView() {
     const canvasRef = useRef(null);
     const currentDayOfYear = promptsManager.getDayOfYear(new Date());
     const { toasts, showSuccess, showError, removeToast } = useToast();
+    const { user, isLoggedIn } = useAuth();
+    const [isAuthOpen, setIsAuthOpen] = useState(false);
     const { saveColoredDrawing } = useDrawing();
     const {
         canUndo, canRedo,
@@ -118,6 +123,29 @@ function PinterestColoringView() {
             showError(result.message);
         }
     }, [handleSaveDrawing, showSuccess, showError]);
+
+    const handleSaveToCloud = useCallback(async () => {
+        if (!isLoggedIn) {
+            setIsAuthOpen(true);
+            return;
+        }
+        const dateKey = new Date().toISOString().split('T')[0];
+        const { error } = await supabase.from('drawings').upsert({
+            user_id: user.id,
+            date_key: dateKey,
+            prompt: pinData?.title || null,
+            theme: boardData?.name || null,
+            color_layer_url: null,
+            brush_strokes: 0,
+            time_spent_seconds: 0,
+        }, { onConflict: 'user_id,date_key' });
+
+        if (error) {
+            showError('Error al guardar en tu cuenta');
+        } else {
+            showSuccess('¡Guardado en tu cuenta!');
+        }
+    }, [isLoggedIn, user, pinData, boardData, showSuccess, showError]);
 
     // Keyboard shortcuts
     useEffect(() => {
@@ -215,6 +243,8 @@ function PinterestColoringView() {
                         currentColor={brushColor}
                         currentBrushSize={brushSize}
                         currentDay={currentDayOfYear}
+                        onSaveToCloud={handleSaveToCloud}
+                        isLoggedIn={isLoggedIn}
                     />
 
                     <div className="coloring-canvas-container">
@@ -247,6 +277,8 @@ function PinterestColoringView() {
                 cancelText="Cancelar"
                 type="danger"
             />
+
+            <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
 
             <ToastContainer toasts={toasts} onRemoveToast={removeToast} />
         </div>

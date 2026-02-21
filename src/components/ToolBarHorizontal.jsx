@@ -18,7 +18,9 @@ const ToolBarHorizontal = ({
   currentTool = 'brush',
   currentColor = '#000000',
   currentBrushSize = 5,
-  currentDay = 1 // Día del año (1-365)
+  currentDay = 1, // Día del año (1-365)
+  onSaveToCloud,    // new: save to Supabase (or prompt login)
+  isLoggedIn = false, // new: to show lock icon vs cloud icon
 }) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [previewColor, setPreviewColor] = useState(null);
@@ -261,6 +263,15 @@ const ToolBarHorizontal = ({
         >
           <img src="/Icons/web/save.png" alt="Guardar" />
         </button>
+        {onSaveToCloud && (
+          <button
+            className="tool-btn cloud-save-btn"
+            onClick={onSaveToCloud}
+            title={isLoggedIn ? 'Guardar en mi cuenta' : 'Inicia sesión para guardar en tu cuenta'}
+          >
+            {isLoggedIn ? '☁️' : '🔒'}
+          </button>
+        )}
         <button
           className="tool-btn clear-btn"
           onClick={onClearCanvas}

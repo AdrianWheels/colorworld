@@ -679,3 +679,7 @@
     height: 35px;
   }
 }
+
+.cloud-save-btn {
+  font-size: 1.1rem;
+}
