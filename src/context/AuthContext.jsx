@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import supabase from '../services/supabaseClient';
 import Logger from '../utils/logger.js';
+import { migrateLocalStorageToSupabase } from '../services/migrationService';
 
 const AuthContext = createContext(null);
 
@@ -29,6 +30,11 @@ export function AuthProvider({ children }) {
       setSession(session);
       setUser(session?.user ?? null);
       Logger.log('🔄 Auth state change:', _event);
+
+      // Migrate localStorage when user signs in for the first time
+      if (_event === 'SIGNED_IN' && session?.user) {
+        migrateLocalStorageToSupabase(session.user.id);
+      }
     });
 
     return () => subscription.unsubscribe();
