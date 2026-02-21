@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
+import AuthModal from './AuthModal';
 import '../styles/Header.css';
 
 const Header = ({ children }) => {
     const { t, i18n } = useTranslation();
+    const [isAuthOpen, setIsAuthOpen] = useState(false);
+    const { user, isLoggedIn, isLoading: authLoading } = useAuth();
     return (
         <motion.header
             initial={{ y: -100, opacity: 0 }}
@@ -59,10 +64,27 @@ const Header = ({ children }) => {
                     >
                         {i18n.language === 'es' ? 'EN' : 'ES'}
                     </motion.button>
+
+                    {!authLoading && (
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => setIsAuthOpen(true)}
+                            className="nav-link auth-btn"
+                            title={isLoggedIn ? user?.email : 'Iniciar sesión'}
+                        >
+                            {isLoggedIn
+                                ? <div className="nav-avatar">{user?.email?.[0]?.toUpperCase()}</div>
+                                : <span className="nav-auth-label">👤 Entrar</span>
+                            }
+                        </motion.button>
+                    )}
                 </nav>
 
                 {children && <div className="header-extras">{children}</div>}
             </div>
+
+            <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
         </motion.header>
     );
 };
