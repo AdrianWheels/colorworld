@@ -15,21 +15,13 @@ export function AuthProvider({ children }) {
   const isPro = user?.app_metadata?.is_pro ?? false;
 
   useEffect(() => {
-    // Restore existing session if any (supabase-js stores token in localStorage)
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setIsLoading(false);
-      if (session?.user) {
-        Logger.log('🔑 Sesión restaurada:', session.user.email);
-      }
-    });
-
-    // Subscribe to auth state changes (login, logout, token refresh)
+    // onAuthStateChange fires INITIAL_SESSION after processing URL hash (handles OAuth redirects)
+    // This is more reliable than getSession() which may run before the hash is parsed
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       setUser(session?.user ?? null);
-      Logger.log('🔄 Auth state change:', _event);
+      setIsLoading(false);
+      Logger.log('🔄 Auth state change:', _event, session?.user?.email ?? 'no user');
 
       // Migrate localStorage when user signs in for the first time
       if (_event === 'SIGNED_IN' && session?.user) {
