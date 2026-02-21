@@ -4,16 +4,8 @@ import Logger from '../utils/logger.js';
 
 class PersistentStorageService {
   constructor() {
-    // Solo usar servidor API en desarrollo, nunca en producción
-    this.apiUrl = import.meta.env.DEV ? 'http://localhost:3001/api' : null;
+    this.apiUrl = null;
     this.isServerAvailable = false;
-    
-    // Solo verificar servidor en desarrollo
-    if (import.meta.env.DEV && this.apiUrl) {
-      this.checkServerStatus();
-    } else {
-      Logger.log('🔧 Modo producción: usando solo almacenamiento estático');
-    }
   }
 
   // Check if the API server is running (solo en desarrollo)
