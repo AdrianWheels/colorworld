@@ -369,7 +369,7 @@ const DrawingCanvasSimple = forwardRef(({
     return cleaned;
   }, [colorsMatch]);
 
-  // Algoritmo Flood Fill optimizado para dibujos en blanco y negro
+  // Algoritmo Flood Fill — stack tipado (Int32Array) + llenado directo sin acumulador
   const floodFill = useCallback((startX, startY, fillColor, options = {}) => {
     const {
       connectivity = 4, // 4 or 8 neighbor connectivity
@@ -384,280 +384,172 @@ const DrawingCanvasSimple = forwardRef(({
 
     const x = Math.floor(startX);
     const y = Math.floor(startY);
-    
-    // Verificar límites
+
     if (x < 0 || y < 0 || x >= CANVAS_WIDTH || y >= CANVAS_HEIGHT) {
       if (enableLogs) Logger.warn('❌ Flood fill: coordenadas fuera de límites');
       return false;
     }
 
-    // OPTIMIZACIÓN 1: Cachear ImageData una sola vez
-    if (enableLogs) Logger.debug('🚀 OPTIMIZED FLOOD FILL: Cacheando ImageData...');
-    
+    const t0 = enableLogs ? performance.now() : 0;
+
     const backgroundCtx = backgroundCanvasRef.current.getContext('2d');
     const drawingCtx = drawingCanvasRef.current.getContext('2d');
     const compositeCtx = compositeCanvasRef.current.getContext('2d');
-    
-    // Obtener todas las imágenes una sola vez
+
     const backgroundImageData = backgroundCtx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     const drawingImageData = drawingCtx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     const compositeImageData = compositeCtx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    
-    const backgroundData = backgroundImageData.data;
-    const drawingData = drawingImageData.data;
-    const compositeData = compositeImageData.data;
 
-    // Función optimizada para obtener píxel desde datos cacheados
-    const getPixelFromData = (data, x, y) => {
-      if (x < 0 || y < 0 || x >= CANVAS_WIDTH || y >= CANVAS_HEIGHT) {
-        return null;
-      }
-      const index = (y * CANVAS_WIDTH + x) * 4;
-      return {
-        r: data[index],
-        g: data[index + 1],
-        b: data[index + 2],
-        a: data[index + 3]
-      };
-    };
+    const bgData = backgroundImageData.data;
+    const drData = drawingImageData.data; // se modifica directamente (getImageData devuelve copia)
+    const cpData = compositeImageData.data;
 
-    // Función optimizada para verificar si es línea negra
-    const isBlackLine = (x, y) => {
-      const pixel = getPixelFromData(backgroundData, x, y);
-      if (!pixel) return false;
-      return pixel.r < 50 && pixel.g < 50 && pixel.b < 50 && pixel.a > 200;
-    };
-
-    // Función optimizada para verificar si ya está pintado
-    const isAlreadyPainted = (x, y) => {
-      const pixel = getPixelFromData(drawingData, x, y);
-      if (!pixel) return false;
-      
-      // Considerar pintado si tiene alpha > 0 y no es casi blanco
-      // Mejorada para detectar mejor antialiasing
-      const hasAlpha = pixel.a > 10; // Umbral más bajo para detectar antialiasing sutil
-      const isNotWhite = !(pixel.r > 240 && pixel.g > 240 && pixel.b > 240);
-      
-      return hasAlpha && isNotWhite;
-    };
-
-    // Función optimizada para comparar colores con tolerancia mejorada
-    const colorsMatchWithTolerance = (color1, color2, tolerance = 0) => {
-      if (!color1 || !color2) return false;
-      
-      // Para tolerancia baja (colores oscuros), usar método estricto
-      if (tolerance <= 5) {
-        return Math.abs(color1.r - color2.r) <= tolerance &&
-               Math.abs(color1.g - color2.g) <= tolerance &&
-               Math.abs(color1.b - color2.b) <= tolerance &&
-               Math.abs(color1.a - color2.a) <= tolerance;
-      }
-      
-      // Para tolerancia alta (compensar antialiasing), usar distancia euclidiana
-      // que es más robusta para variaciones sutiles de color
-      const deltaR = color1.r - color2.r;
-      const deltaG = color1.g - color2.g;
-      const deltaB = color1.b - color2.b;
-      const deltaA = color1.a - color2.a;
-      
-      const distance = Math.sqrt(deltaR * deltaR + deltaG * deltaG + deltaB * deltaB + deltaA * deltaA);
-      
-      // Convertir tolerancia lineal a tolerancia euclidiana
-      const euclideanTolerance = tolerance * Math.sqrt(3); // Factor para 3 componentes RGB
-      
-      return distance <= euclideanTolerance;
-    };
-
-    // Obtener el color inicial del área a llenar
-    const targetColor = getPixelFromData(compositeData, x, y);
-    if (!targetColor) {
-      if (enableLogs) Logger.error('❌ No se pudo obtener color objetivo');
-      return false;
-    }
-
-    // Convertir fillColor hex a RGBA
+    // Parsear fillColor hex → componentes
     const hex = fillColor.replace('#', '');
-    const fillRGBA = {
-      r: parseInt(hex.substr(0, 2), 16),
-      g: parseInt(hex.substr(2, 2), 16),
-      b: parseInt(hex.substr(4, 2), 16),
-      a: 255
-    };
+    const fillR = parseInt(hex.substr(0, 2), 16);
+    const fillG = parseInt(hex.substr(2, 2), 16);
+    const fillB = parseInt(hex.substr(4, 2), 16);
+    const fillA = 255;
 
-    // Si el color objetivo es igual al color de llenado, no hacer nada
-    if (colorsMatchWithTolerance(targetColor, fillRGBA, tolerance)) {
-      if (enableLogs) Logger.info('🎨 Flood fill: color objetivo igual al de llenado, no hay cambios');
-      return false;
-    }
+    // Validaciones sobre el píxel inicial (composite)
+    const startDataIdx = (y * CANVAS_WIDTH + x) * 4;
+    const cpR = cpData[startDataIdx], cpG = cpData[startDataIdx + 1],
+          cpB = cpData[startDataIdx + 2], cpA = cpData[startDataIdx + 3];
 
-    // Detectar si el área objetivo es una línea negra
-    const isTargetBlackLine = targetColor.r < 80 && targetColor.g < 80 && targetColor.b < 80 && targetColor.a > 200;
-    if (isTargetBlackLine) {
+    if (cpR < 80 && cpG < 80 && cpB < 80 && cpA > 200) {
       if (enableLogs) Logger.info('🚫 Flood fill: no se puede llenar sobre líneas negras');
       return false;
     }
 
-    if (enableLogs) {
-      Logger.debug('🪣 INICIANDO FLOOD FILL OPTIMIZADO:', {
-        coords: { x, y },
-        targetColor,
-        fillColor: fillRGBA,
-        connectivity,
-        tolerance,
-        isBlackLine: isTargetBlackLine
-      });
-    }
-
-    // OPTIMIZACIÓN 2: Usar Uint8Array para marcar píxeles visitados
-    const visited = new Uint8Array(CANVAS_WIDTH * CANVAS_HEIGHT);
-    const areaToFill = []; // Array de índices en lugar de Set de strings
-    
-    const stack = [{ x, y }];
-    
-    // Verificar que el punto inicial no sea una línea negra
-    const isStartBlack = isBlackLine(x, y);
-    const isStartPainted = isAlreadyPainted(x, y);
-    
-    if (enableLogs) {
-      Logger.debug(`🔍 Validación punto inicial (${x}, ${y}):`, {
-        isBlackLine: isStartBlack,
-        isAlreadyPainted: isStartPainted
-      });
-    }
-    
-    if (isStartBlack) {
+    // Verificar que el punto inicial no es línea negra en background
+    if (bgData[startDataIdx] < 50 && bgData[startDataIdx + 1] < 50 &&
+        bgData[startDataIdx + 2] < 50 && bgData[startDataIdx + 3] > 200) {
       if (enableLogs) Logger.debug('❌ Punto inicial no válido: es línea negra');
       return false;
     }
-    
-    // Determinar el color objetivo para matching
-    let targetColorForMatching;
-    if (isStartPainted) {
-      targetColorForMatching = getPixelFromData(drawingData, x, y);
-      if (enableLogs) Logger.debug('🎨 Reemplazando color existente:', targetColorForMatching);
-    } else {
-      targetColorForMatching = null; // null significa "área vacía"
-      if (enableLogs) Logger.debug('⚪ Llenando área vacía');
+
+    // Verificar que fill color ≠ target color
+    if (Math.abs(cpR - fillR) <= tolerance && Math.abs(cpG - fillG) <= tolerance &&
+        Math.abs(cpB - fillB) <= tolerance) {
+      if (enableLogs) Logger.info('🎨 Flood fill: color objetivo igual al de llenado, no hay cambios');
+      return false;
     }
-    
-    // Definir los vecinos según la conectividad
-    const getNeighbors = (x, y) => {
+
+    // Determinar modo: reemplazar color existente o llenar área vacía
+    const drStartA = drData[startDataIdx + 3];
+    const drStartR = drData[startDataIdx], drStartG = drData[startDataIdx + 1], drStartB = drData[startDataIdx + 2];
+    const replaceMode = drStartA > 10 && !(drStartR > 240 && drStartG > 240 && drStartB > 240);
+
+    // Color objetivo en drawing layer (para replace mode)
+    const targetDrR = replaceMode ? drStartR : 0;
+    const targetDrG = replaceMode ? drStartG : 0;
+    const targetDrB = replaceMode ? drStartB : 0;
+    const targetDrA = replaceMode ? drStartA : 0;
+
+    // Stack tipado: almacena índices de píxel (Int32Array evita millones de objetos {x,y})
+    const TOTAL_PIXELS = CANVAS_WIDTH * CANVAS_HEIGHT;
+    const stack = new Int32Array(TOTAL_PIXELS);
+    const visited = new Uint8Array(TOTAL_PIXELS);
+    let stackTop = 0;
+
+    const startPixel = y * CANVAS_WIDTH + x;
+    stack[stackTop++] = startPixel;
+    visited[startPixel] = 1;
+
+    let pixelsChanged = 0;
+
+    while (stackTop > 0) {
+      const pixelIdx = stack[--stackTop];
+      const px = pixelIdx % CANVAS_WIDTH;
+      const py = (pixelIdx / CANVAS_WIDTH) | 0;
+      const dataIdx = pixelIdx * 4;
+
+      // Saltar líneas negras del background
+      if (bgData[dataIdx] < 50 && bgData[dataIdx + 1] < 50 &&
+          bgData[dataIdx + 2] < 50 && bgData[dataIdx + 3] > 200) {
+        continue;
+      }
+
+      // Verificar si el píxel pertenece al área a llenar
+      let shouldFill = false;
+      const drA = drData[dataIdx + 3];
+      const drR = drData[dataIdx], drG = drData[dataIdx + 1], drB = drData[dataIdx + 2];
+
+      if (replaceMode) {
+        if (tolerance <= 5) {
+          shouldFill = Math.abs(drR - targetDrR) <= tolerance &&
+                       Math.abs(drG - targetDrG) <= tolerance &&
+                       Math.abs(drB - targetDrB) <= tolerance &&
+                       Math.abs(drA - targetDrA) <= tolerance;
+        } else {
+          const dR = drR - targetDrR, dG = drG - targetDrG,
+                dB = drB - targetDrB, dA = drA - targetDrA;
+          shouldFill = Math.sqrt(dR*dR + dG*dG + dB*dB + dA*dA) <= tolerance * 1.732;
+        }
+      } else {
+        // Área vacía: incluir solo si no está pintado (alpha bajo o casi blanco)
+        shouldFill = !(drA > 10 && !(drR > 240 && drG > 240 && drB > 240));
+      }
+
+      if (!shouldFill) continue;
+
+      // Llenar directamente en drData (evita array acumulador + segundo bucle)
+      drData[dataIdx]     = fillR;
+      drData[dataIdx + 1] = fillG;
+      drData[dataIdx + 2] = fillB;
+      drData[dataIdx + 3] = fillA;
+      pixelsChanged++;
+
+      // Empujar vecinos al stack (inline, sin crear arrays ni objetos)
+      let ni;
+      if (px + 1 < CANVAS_WIDTH) {
+        ni = pixelIdx + 1;
+        if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
+      }
+      if (px > 0) {
+        ni = pixelIdx - 1;
+        if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
+      }
+      if (py + 1 < CANVAS_HEIGHT) {
+        ni = pixelIdx + CANVAS_WIDTH;
+        if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
+      }
+      if (py > 0) {
+        ni = pixelIdx - CANVAS_WIDTH;
+        if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
+      }
       if (connectivity === 8) {
-        return [
-          { x: x + 1, y: y },     // Derecha
-          { x: x - 1, y: y },     // Izquierda  
-          { x: x, y: y + 1 },     // Abajo
-          { x: x, y: y - 1 },     // Arriba
-          { x: x + 1, y: y + 1 }, // Diagonal abajo-derecha
-          { x: x - 1, y: y - 1 }, // Diagonal arriba-izquierda
-          { x: x + 1, y: y - 1 }, // Diagonal arriba-derecha
-          { x: x - 1, y: y + 1 }  // Diagonal abajo-izquierda
-        ];
-      } else {
-        return [
-          { x: x + 1, y: y },     // Derecha
-          { x: x - 1, y: y },     // Izquierda  
-          { x: x, y: y + 1 },     // Abajo
-          { x: x, y: y - 1 }      // Arriba
-        ];
-      }
-    };
-    
-    while (stack.length > 0) {
-      const { x: currentX, y: currentY } = stack.pop();
-      
-      // Verificar límites del canvas
-      if (currentX < 0 || currentY < 0 || currentX >= CANVAS_WIDTH || currentY >= CANVAS_HEIGHT) {
-        continue;
-      }
-      
-      const pixelIndex = currentY * CANVAS_WIDTH + currentX;
-      
-      if (visited[pixelIndex]) continue;
-      visited[pixelIndex] = 1;
-      
-      // Si es una línea negra en el background, no llenar ni continuar
-      if (isBlackLine(currentX, currentY)) {
-        continue;
-      }
-      
-      // Verificar si este píxel coincide con el patrón objetivo
-      let shouldInclude = false;
-      
-      if (targetColorForMatching === null) {
-        // Modo área vacía: incluir solo píxeles no pintados
-        shouldInclude = !isAlreadyPainted(currentX, currentY);
-      } else {
-        // Modo reemplazar color: incluir solo píxeles del color objetivo
-        const currentPixel = getPixelFromData(drawingData, currentX, currentY);
-        shouldInclude = colorsMatchWithTolerance(currentPixel, targetColorForMatching, tolerance);
-      }
-      
-      if (!shouldInclude) {
-        continue;
-      }
-      
-      // Es área válida - añadir al área a llenar
-      areaToFill.push(pixelIndex);
-      
-      // Continuar explorando vecinos
-      const neighbors = getNeighbors(currentX, currentY);
-      
-      for (const neighbor of neighbors) {
-        const neighborIndex = neighbor.y * CANVAS_WIDTH + neighbor.x;
-        if (neighbor.x >= 0 && neighbor.x < CANVAS_WIDTH && 
-            neighbor.y >= 0 && neighbor.y < CANVAS_HEIGHT && 
-            !visited[neighborIndex]) {
-          stack.push(neighbor);
+        if (px + 1 < CANVAS_WIDTH && py + 1 < CANVAS_HEIGHT) {
+          ni = pixelIdx + CANVAS_WIDTH + 1;
+          if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
+        }
+        if (px > 0 && py > 0) {
+          ni = pixelIdx - CANVAS_WIDTH - 1;
+          if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
+        }
+        if (px + 1 < CANVAS_WIDTH && py > 0) {
+          ni = pixelIdx - CANVAS_WIDTH + 1;
+          if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
+        }
+        if (px > 0 && py + 1 < CANVAS_HEIGHT) {
+          ni = pixelIdx + CANVAS_WIDTH - 1;
+          if (!visited[ni]) { visited[ni] = 1; stack[stackTop++] = ni; }
         }
       }
     }
-    
-    if (enableLogs) Logger.debug(`📊 Área detectada: ${areaToFill.length} píxeles de área conectada`);
-    
-    // FASE 2: Llenar píxeles usando ImageData optimizado
-    if (enableLogs) Logger.debug('🎨 FASE 2: Llenando píxeles...');
-    
-    let pixelsChanged = 0;
-    
-    // Crear una copia de los datos para modificar
-    const newDrawingData = new Uint8ClampedArray(drawingData);
-    
-    // Llenar todos los píxeles del área mapeada
-    for (const pixelIndex of areaToFill) {
-      const dataIndex = pixelIndex * 4;
-      newDrawingData[dataIndex] = fillRGBA.r;
-      newDrawingData[dataIndex + 1] = fillRGBA.g;
-      newDrawingData[dataIndex + 2] = fillRGBA.b;
-      newDrawingData[dataIndex + 3] = fillRGBA.a;
-      pixelsChanged++;
-    }
 
-    // Aplicar los cambios una sola vez al drawingCanvas
-    const newImageData = new ImageData(newDrawingData, CANVAS_WIDTH, CANVAS_HEIGHT);
-    drawingCtx.putImageData(newImageData, 0, 0);
+    if (pixelsChanged === 0) return false;
+
+    // Aplicar cambios al canvas (un solo putImageData)
+    drawingCtx.putImageData(drawingImageData, 0, 0);
 
     if (enableLogs) {
-      Logger.log(`✅ Flood fill optimizado completado: ${pixelsChanged} píxeles cambiados`);
-      
-      // Log detallado para diagnóstico
-      const modo = targetColorForMatching ? 'REEMPLAZAR_COLOR' : 'LLENAR_VACÍO';
-      Logger.log(`📊 DIAGNÓSTICO FLOOD FILL OPTIMIZADO [${modo}]:`, {
-        coordenadas: `(${x}, ${y})`,
-        areaExplorada: areaToFill.length,
-        pixelesPintados: pixelsChanged,
-        colorUsado: fillColor,
-        conectividad: connectivity,
-        tolerancia: tolerance,
-        colorObjetivo: targetColorForMatching ? `rgb(${targetColorForMatching.r},${targetColorForMatching.g},${targetColorForMatching.b})` : 'área vacía',
-        porcentajeLlenado: areaToFill.length > 0 ? ((pixelsChanged / areaToFill.length) * 100).toFixed(1) + '%' : '0%'
-      });
+      const t1 = performance.now();
+      Logger.log(`✅ Flood fill: ${pixelsChanged} píxeles en ${(t1 - t0).toFixed(1)}ms [modo: ${replaceMode ? 'reemplazar' : 'vacío'}, conectividad: ${connectivity}]`);
     }
 
-    // Actualizar el canvas compuesto inmediatamente
     updateImmediately();
-
-    return pixelsChanged > 0;
+    return true;
   }, [updateImmediately]);
 
   // Funciones de undo/redo - definir saveCanvasState primero
