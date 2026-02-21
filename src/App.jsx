@@ -164,13 +164,15 @@ function App() {
     const dateKey = selectedDate.toISOString().split('T')[0];
     supabase
       .from('drawings')
-      .select('color_layer_url')
+      .select('color_layer_url, updated_at')
       .eq('user_id', user.id)
       .eq('date_key', dateKey)
       .maybeSingle()
       .then(({ data }) => {
         if (data?.color_layer_url && canvasRef.current?.loadColorLayer) {
-          canvasRef.current.loadColorLayer(data.color_layer_url);
+          // Cache-buster para que el navegador no use la imagen cacheada
+          const url = `${data.color_layer_url}?t=${data.updated_at ? new Date(data.updated_at).getTime() : Date.now()}`;
+          canvasRef.current.loadColorLayer(url);
           Logger.log('🎨 Dibujo cargado desde cuenta:', dateKey);
         }
       });

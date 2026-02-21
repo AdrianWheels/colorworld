@@ -1422,17 +1422,19 @@ const DrawingCanvasSimple = forwardRef(({
     return drawingCanvasRef.current.toDataURL('image/png');
   }, []);
 
-  const loadColorLayer = useCallback((dataURL) => {
+  const loadColorLayer = useCallback((url) => {
     if (!drawingCanvasRef.current) return;
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.onload = () => {
       const ctx = drawingCanvasRef.current.getContext('2d');
       ctx.clearRect(0, 0, drawingCanvasRef.current.width, drawingCanvasRef.current.height);
       ctx.drawImage(img, 0, 0);
-      requestCompositeUpdate();
+      updateImmediately();
     };
-    img.src = dataURL;
-  }, [requestCompositeUpdate]);
+    img.onerror = () => Logger.error('❌ Error cargando color layer:', url);
+    img.src = url;
+  }, [updateImmediately]);
 
   useImperativeHandle(ref, () => ({
     clearCanvas,
