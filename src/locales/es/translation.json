@@ -26,6 +26,36 @@
             "hideInfo": "Ocultar información",
             "showInfo": "Mostrar información"
         },
+        "auth": {
+            "title": {
+                "login": "Iniciar sesión",
+                "register": "Crear cuenta",
+                "profile": "Mi cuenta"
+            },
+            "subtitle": {
+                "login": "Accede para guardar tu progreso en todos tus dispositivos",
+                "register": "Tu racha y dibujos se sincronizarán automáticamente"
+            },
+            "google": "Continuar con Google",
+            "emailPlaceholder": "tu@email.com",
+            "passwordPlaceholder": "Contraseña",
+            "enter": "Entrar",
+            "createAccount": "Crear cuenta",
+            "signOut": "Cerrar sesión",
+            "noAccount": "¿No tienes cuenta? ",
+            "hasAccount": "¿Ya tienes cuenta? ",
+            "register": "Regístrate",
+            "signIn": "Inicia sesión",
+            "successRegister": "Revisa tu email para confirmar tu cuenta.",
+            "successLogin": "¡Bienvenido!",
+            "headerEnter": "Entrar",
+            "headerTitle": "Iniciar sesión"
+        },
+        "cloud": {
+            "saved": "¡Guardado en tu cuenta!",
+            "errorSave": "Error al guardar en tu cuenta",
+            "loaded": "Dibujo cargado desde tu cuenta"
+        },
         "confirmation": {
             "clear": {
                 "title": "Confirmar borrado",
@@ -37,7 +67,8 @@
                 "title": "Cambiar día",
                 "message": "Tienes un dibujo en progreso que se perderá al cambiar de día. ¿Quieres continuar?",
                 "confirm": "Sí, cambiar día",
-                "cancel": "Quedarse aquí"
+                "cancel": "Quedarse aquí",
+                "save": "Guardar y cambiar"
             },
             "default": {
                 "title": "Confirmar acción",

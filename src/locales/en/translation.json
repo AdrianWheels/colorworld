@@ -26,6 +26,36 @@
             "hideInfo": "Hide information",
             "showInfo": "Show information"
         },
+        "auth": {
+            "title": {
+                "login": "Sign in",
+                "register": "Create account",
+                "profile": "My account"
+            },
+            "subtitle": {
+                "login": "Sign in to save your progress across all your devices",
+                "register": "Your streak and drawings will sync automatically"
+            },
+            "google": "Continue with Google",
+            "emailPlaceholder": "you@email.com",
+            "passwordPlaceholder": "Password",
+            "enter": "Sign in",
+            "createAccount": "Create account",
+            "signOut": "Sign out",
+            "noAccount": "Don't have an account? ",
+            "hasAccount": "Already have an account? ",
+            "register": "Sign up",
+            "signIn": "Sign in",
+            "successRegister": "Check your email to confirm your account.",
+            "successLogin": "Welcome!",
+            "headerEnter": "Sign in",
+            "headerTitle": "Sign in"
+        },
+        "cloud": {
+            "saved": "Saved to your account!",
+            "errorSave": "Error saving to your account",
+            "loaded": "Drawing loaded from your account"
+        },
         "confirmation": {
             "clear": {
                 "title": "Confirm clear",
@@ -37,7 +67,8 @@
                 "title": "Change day",
                 "message": "You have a drawing in progress that will be lost when changing the day. Do you want to continue?",
                 "confirm": "Yes, change day",
-                "cancel": "Stay here"
+                "cancel": "Stay here",
+                "save": "Save & change"
             },
             "default": {
                 "title": "Confirm action",

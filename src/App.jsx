@@ -118,22 +118,58 @@ function App() {
       return;
     }
     const dateKey = selectedDate.toISOString().split('T')[0];
+
+    // Upload color layer to Supabase Storage
+    let colorLayerUrl = null;
+    if (canvasRef.current?.getColorLayerDataURL) {
+      const dataUrl = canvasRef.current.getColorLayerDataURL();
+      if (dataUrl) {
+        const res = await fetch(dataUrl);
+        const blob = await res.blob();
+        const path = `${user.id}/${dateKey}.png`;
+        const { error: uploadError } = await supabase.storage
+          .from('color-layers')
+          .upload(path, blob, { contentType: 'image/png', upsert: true });
+        if (!uploadError) {
+          colorLayerUrl = supabase.storage.from('color-layers').getPublicUrl(path).data.publicUrl;
+        }
+      }
+    }
+
     const { error } = await supabase.from('drawings').upsert({
       user_id: user.id,
       date_key: dateKey,
       prompt: todayTheme || null,
       theme: todayTheme || null,
-      color_layer_url: null,
+      color_layer_url: colorLayerUrl,
       brush_strokes: 0,
       time_spent_seconds: 0,
     }, { onConflict: 'user_id,date_key' });
 
     if (error) {
-      showError('Error al guardar en tu cuenta');
+      showError(t('app.cloud.errorSave'));
     } else {
-      showSuccess('¡Guardado en tu cuenta!');
+      showSuccess(t('app.cloud.saved'));
     }
-  }, [isLoggedIn, selectedDate, user, todayTheme, showSuccess, showError]);
+  }, [isLoggedIn, selectedDate, user, todayTheme, showSuccess, showError, canvasRef, t]);
+
+  // Load saved drawing from Supabase once background image is ready
+  useEffect(() => {
+    if (!isLoggedIn || dayImageStatus !== 'available') return;
+    const dateKey = selectedDate.toISOString().split('T')[0];
+    supabase
+      .from('drawings')
+      .select('color_layer_url')
+      .eq('user_id', user.id)
+      .eq('date_key', dateKey)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (data?.color_layer_url && canvasRef.current?.loadColorLayer) {
+          canvasRef.current.loadColorLayer(data.color_layer_url);
+          Logger.log('🎨 Dibujo cargado desde cuenta:', dateKey);
+        }
+      });
+  }, [isLoggedIn, user, selectedDate, dayImageStatus]);
 
   // Obtener la temática del día actual
   useEffect(() => {
@@ -405,6 +441,8 @@ function App() {
         isOpen={showDayChangeConfirmation}
         onClose={cancelDayChange}
         onConfirm={confirmDayChange}
+        onSecondaryAction={async () => { await handleSaveToCloud(); confirmDayChange(); }}
+        secondaryActionText={t('app.confirmation.dayChange.save')}
         title={t('app.confirmation.dayChange.title')}
         message={t('app.confirmation.dayChange.message')}
         confirmText={t('app.confirmation.dayChange.confirm')}

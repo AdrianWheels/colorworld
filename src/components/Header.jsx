@@ -71,11 +71,11 @@ const Header = ({ children }) => {
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setIsAuthOpen(true)}
                             className="nav-link auth-btn"
-                            title={isLoggedIn ? user?.email : 'Iniciar sesión'}
+                            title={isLoggedIn ? user?.email : t('app.auth.headerTitle')}
                         >
                             {isLoggedIn
                                 ? <div className="nav-avatar">{user?.email?.[0]?.toUpperCase()}</div>
-                                : <span className="nav-auth-label">👤 Entrar</span>
+                                : <span className="nav-auth-label">👤 {t('app.auth.headerEnter')}</span>
                             }
                         </motion.button>
                     )}

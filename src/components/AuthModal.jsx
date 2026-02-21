@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import '../styles/AuthModal.css';
 
 export default function AuthModal({ isOpen, onClose }) {
+  const { t } = useTranslation();
   const [view, setView] = useState('login'); // 'login' | 'register'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +28,7 @@ export default function AuthModal({ isOpen, onClose }) {
     if (error) {
       setErrorMsg(error.message);
     } else {
-      setSuccessMsg(view === 'register' ? 'Revisa tu email para confirmar tu cuenta.' : '¡Bienvenido!');
+      setSuccessMsg(view === 'register' ? t('app.auth.successRegister') : t('app.auth.successLogin'));
       if (view === 'login') onClose();
     }
   };
@@ -71,19 +73,17 @@ export default function AuthModal({ isOpen, onClose }) {
               </div>
               <p className="auth-email">{user?.email}</p>
               <button className="auth-btn-secondary" onClick={handleSignOut}>
-                Cerrar sesión
+                {t('app.auth.signOut')}
               </button>
             </div>
           ) : (
             /* Login/register view */
             <>
               <h2 className="auth-title">
-                {view === 'login' ? 'Iniciar sesión' : 'Crear cuenta'}
+                {view === 'login' ? t('app.auth.title.login') : t('app.auth.title.register')}
               </h2>
               <p className="auth-subtitle">
-                {view === 'login'
-                  ? 'Accede para guardar tu progreso en todos tus dispositivos'
-                  : 'Tu racha y dibujos se sincronizarán automáticamente'}
+                {view === 'login' ? t('app.auth.subtitle.login') : t('app.auth.subtitle.register')}
               </p>
 
               <button className="auth-btn-google" onClick={handleGoogle}>
@@ -93,7 +93,7 @@ export default function AuthModal({ isOpen, onClose }) {
                   <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
                   <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
                 </svg>
-                Continuar con Google
+                {t('app.auth.google')}
               </button>
 
               <div className="auth-divider"><span>o</span></div>
@@ -101,7 +101,7 @@ export default function AuthModal({ isOpen, onClose }) {
               <form onSubmit={handleSubmit} className="auth-form">
                 <input
                   type="email"
-                  placeholder="tu@email.com"
+                  placeholder={t('app.auth.emailPlaceholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -109,7 +109,7 @@ export default function AuthModal({ isOpen, onClose }) {
                 />
                 <input
                   type="password"
-                  placeholder="Contraseña"
+                  placeholder={t('app.auth.passwordPlaceholder')}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -119,17 +119,17 @@ export default function AuthModal({ isOpen, onClose }) {
                 {errorMsg && <p className="auth-error">{errorMsg}</p>}
                 {successMsg && <p className="auth-success">{successMsg}</p>}
                 <button type="submit" className="auth-btn-primary" disabled={isSubmitting}>
-                  {isSubmitting ? '...' : view === 'login' ? 'Entrar' : 'Crear cuenta'}
+                  {isSubmitting ? '...' : view === 'login' ? t('app.auth.enter') : t('app.auth.createAccount')}
                 </button>
               </form>
 
               <p className="auth-switch">
-                {view === 'login' ? '¿No tienes cuenta? ' : '¿Ya tienes cuenta? '}
+                {view === 'login' ? t('app.auth.noAccount') : t('app.auth.hasAccount')}
                 <button
                   className="auth-switch-btn"
                   onClick={() => { setView(view === 'login' ? 'register' : 'login'); setErrorMsg(''); setSuccessMsg(''); }}
                 >
-                  {view === 'login' ? 'Regístrate' : 'Inicia sesión'}
+                  {view === 'login' ? t('app.auth.register') : t('app.auth.signIn')}
                 </button>
               </p>
             </>

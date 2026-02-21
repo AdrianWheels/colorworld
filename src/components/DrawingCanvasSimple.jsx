@@ -1417,11 +1417,30 @@ const DrawingCanvasSimple = forwardRef(({
     }
   }, []);
 
+  const getColorLayerDataURL = useCallback(() => {
+    if (!drawingCanvasRef.current) return null;
+    return drawingCanvasRef.current.toDataURL('image/png');
+  }, []);
+
+  const loadColorLayer = useCallback((dataURL) => {
+    if (!drawingCanvasRef.current) return;
+    const img = new Image();
+    img.onload = () => {
+      const ctx = drawingCanvasRef.current.getContext('2d');
+      ctx.clearRect(0, 0, drawingCanvasRef.current.width, drawingCanvasRef.current.height);
+      ctx.drawImage(img, 0, 0);
+      requestCompositeUpdate();
+    };
+    img.src = dataURL;
+  }, [requestCompositeUpdate]);
+
   useImperativeHandle(ref, () => ({
     clearCanvas,
     printCanvas,
     getCanvas: () => compositeCanvasRef.current,
     exportCombinedImage,
+    getColorLayerDataURL,
+    loadColorLayer,
     undo,
     redo,
     canUndo: () => undoStack.length > 0,
@@ -1429,7 +1448,7 @@ const DrawingCanvasSimple = forwardRef(({
     loadBackgroundImage,
     floodFill: (x, y, color) => floodFill(x, y, color),
     hasDrawingContent
-  }), [clearCanvas, printCanvas, exportCombinedImage, undo, redo, undoStack, redoStack, loadBackgroundImage, floodFill, hasDrawingContent]);
+  }), [clearCanvas, printCanvas, exportCombinedImage, getColorLayerDataURL, loadColorLayer, undo, redo, undoStack, redoStack, loadBackgroundImage, floodFill, hasDrawingContent]);
 
   return (
     <div className="drawing-canvas-container">

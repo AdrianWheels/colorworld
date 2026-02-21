@@ -6,10 +6,12 @@ const ConfirmationModal = ({
   isOpen,
   onClose,
   onConfirm,
+  onSecondaryAction,
   title,
   message,
   confirmText,
   cancelText,
+  secondaryActionText,
   type = 'warning' // 'warning', 'danger', 'info'
 }) => {
   const { t } = useTranslation();
@@ -63,6 +65,14 @@ const ConfirmationModal = ({
           >
             {displayCancelText}
           </button>
+          {onSecondaryAction && secondaryActionText && (
+            <button
+              className="modal-btn secondary-btn"
+              onClick={() => { onSecondaryAction(); onClose(); }}
+            >
+              {secondaryActionText}
+            </button>
+          )}
           <button
             className={`modal-btn confirm-btn ${type}`}
             onClick={handleConfirm}

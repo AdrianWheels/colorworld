@@ -102,6 +102,17 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.secondary-btn {
+  background: rgba(99, 179, 237, 0.2);
+  color: #90cdf4;
+  border: 1px solid rgba(99, 179, 237, 0.4);
+}
+
+.secondary-btn:hover {
+  background: rgba(99, 179, 237, 0.35);
+  border-color: rgba(99, 179, 237, 0.6);
+}
+
 .cancel-btn:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);

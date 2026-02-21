@@ -154,7 +154,6 @@ const ToolBarHorizontal = ({
 
       {/* Tamaño del pincel */}
       <div className="toolbar-section size-section">
-        <span className="section-label">Grosor:</span>
         <div className="brush-size-slider">
           <input
             type="range"
@@ -170,7 +169,6 @@ const ToolBarHorizontal = ({
 
       {/* Selector de color */}
       <div className="toolbar-section color-section">
-        <span className="section-label">Color:</span>
         <div className="color-picker-container">
           <button
             className={`current-color-btn ${previewColor ? 'preview' : ''}`}
