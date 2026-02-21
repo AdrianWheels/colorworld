@@ -6,6 +6,7 @@ import './i18n.js'
 import { initializeGA4 } from './utils/analytics.js'
 import { addSearchConsoleVerification } from './utils/searchConsole.js'
 import { useTranslation } from 'react-i18next'
+import { AuthProvider } from './context/AuthContext.jsx'
 
 // Lazy load components for better performance
 const App = lazy(() => import('./App.jsx'));
@@ -33,18 +34,20 @@ const LoadingSpinner = () => {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Suspense fallback={<LoadingSpinner />}>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/calendario" element={<DrawingCalendar />} />
-          <Route path="/privacidad" element={<PrivacyPolicy />} />
-          <Route path="/galeria" element={<PinterestGallery />} />
-          <Route path="/galeria/:boardSlug" element={<PinterestGallery />} />
-          <Route path="/colorear/:pinId" element={<PinterestColoringView />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/calendario" element={<DrawingCalendar />} />
+            <Route path="/privacidad" element={<PrivacyPolicy />} />
+            <Route path="/galeria" element={<PinterestGallery />} />
+            <Route path="/galeria/:boardSlug" element={<PinterestGallery />} />
+            <Route path="/colorear/:pinId" element={<PinterestColoringView />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </AuthProvider>
   </StrictMode>,
 )
