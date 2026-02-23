@@ -4,12 +4,15 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
+import { useStreak } from '../hooks/useStreak';
+import { StreakDisplay } from './StreakDisplay';
 import '../styles/Header.css';
 
 const Header = ({ children }) => {
     const { t, i18n } = useTranslation();
     const [isAuthOpen, setIsAuthOpen] = useState(false);
     const { user, isLoggedIn, isLoading: authLoading } = useAuth();
+    const { currentStreak, longestStreak } = useStreak(user?.id ?? null);
     return (
         <motion.header
             initial={{ y: -100, opacity: 0 }}
@@ -64,6 +67,10 @@ const Header = ({ children }) => {
                     >
                         {i18n.language === 'es' ? 'EN' : 'ES'}
                     </motion.button>
+
+                    {isLoggedIn && (
+                        <StreakDisplay currentStreak={currentStreak} longestStreak={longestStreak} />
+                    )}
 
                     {!authLoading && (
                         <motion.button
