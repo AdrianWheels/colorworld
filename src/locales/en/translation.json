@@ -61,9 +61,18 @@
             "tooltip": "Longest streak: {{count}} days",
             "toast": {
                 "day": "🔥 Day {{n}}! You've been painting {{n}} days in a row",
+                "two": "🎨 Two days in a row!",
+                "three": "💪 Three days! Keep it up!",
+                "five": "⭐ 5 days! Almost a full week!",
                 "week": "🎉 A whole week!",
+                "twoWeeks": "🌟 Two weeks streak!",
+                "threeWeeks": "🧠 21 days! It's a habit now!",
                 "month": "🏆 A month-long streak!",
-                "hundred": "🌟 100 days!"
+                "fifty": "🔥 50 days of painting! Incredible!",
+                "twoMonths": "🏅 Two months streak!",
+                "hundred": "🌟 100 days!",
+                "twoHundred": "💎 200 days! You're a legend!",
+                "year": "🎂 A full year of painting!"
             }
         },
         "confirmation": {

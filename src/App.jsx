@@ -163,7 +163,7 @@ function App() {
       const streakResult = await recordToday(streakDateKey);
       if (streakResult?.isNewDay) {
         const n = streakResult.currentStreak;
-        const milestones = { 7: t('app.streak.toast.week'), 30: t('app.streak.toast.month'), 100: t('app.streak.toast.hundred') };
+        const milestones = { 2: t('app.streak.toast.two'), 3: t('app.streak.toast.three'), 5: t('app.streak.toast.five'), 7: t('app.streak.toast.week'), 14: t('app.streak.toast.twoWeeks'), 21: t('app.streak.toast.threeWeeks'), 30: t('app.streak.toast.month'), 50: t('app.streak.toast.fifty'), 60: t('app.streak.toast.twoMonths'), 100: t('app.streak.toast.hundred'), 200: t('app.streak.toast.twoHundred'), 365: t('app.streak.toast.year') };
         const msg = milestones[n] ?? t('app.streak.toast.day', { n });
         showSuccess(msg);
       }
@@ -478,14 +478,14 @@ function App() {
         onAdd={(n) => {
           const next = currentStreak + n;
           devSetStreak(next);
-          const milestones = { 7: t('app.streak.toast.week'), 30: t('app.streak.toast.month'), 100: t('app.streak.toast.hundred') };
+          const milestones = { 2: t('app.streak.toast.two'), 3: t('app.streak.toast.three'), 5: t('app.streak.toast.five'), 7: t('app.streak.toast.week'), 14: t('app.streak.toast.twoWeeks'), 21: t('app.streak.toast.threeWeeks'), 30: t('app.streak.toast.month'), 50: t('app.streak.toast.fifty'), 60: t('app.streak.toast.twoMonths'), 100: t('app.streak.toast.hundred'), 200: t('app.streak.toast.twoHundred'), 365: t('app.streak.toast.year') };
           const msg = milestones[next] ?? t('app.streak.toast.day', { n: next });
           showSuccess(msg);
         }}
         onReset={() => devSetStreak(0)}
         onTestToast={() => {
           const n = currentStreak || 7;
-          const milestones = { 7: t('app.streak.toast.week'), 30: t('app.streak.toast.month'), 100: t('app.streak.toast.hundred') };
+          const milestones = { 2: t('app.streak.toast.two'), 3: t('app.streak.toast.three'), 5: t('app.streak.toast.five'), 7: t('app.streak.toast.week'), 14: t('app.streak.toast.twoWeeks'), 21: t('app.streak.toast.threeWeeks'), 30: t('app.streak.toast.month'), 50: t('app.streak.toast.fifty'), 60: t('app.streak.toast.twoMonths'), 100: t('app.streak.toast.hundred'), 200: t('app.streak.toast.twoHundred'), 365: t('app.streak.toast.year') };
           const msg = milestones[n] ?? t('app.streak.toast.day', { n });
           showSuccess(msg);
         }}

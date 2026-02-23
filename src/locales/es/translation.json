@@ -61,9 +61,18 @@
             "tooltip": "Racha más larga: {{count}} días",
             "toast": {
                 "day": "🔥 ¡Día {{n}}! Llevas {{n}} días pintando seguidos",
+                "two": "🎨 ¡Segundo día seguido!",
+                "three": "💪 ¡Tres días! ¡Sigue así!",
+                "five": "⭐ ¡5 días! Primera semana casi lista",
                 "week": "🎉 ¡Una semana entera!",
+                "twoWeeks": "🌟 ¡Dos semanas de racha!",
+                "threeWeeks": "🧠 ¡21 días! Ya es un hábito",
                 "month": "🏆 ¡Un mes de racha!",
-                "hundred": "🌟 ¡100 días!"
+                "fifty": "🔥 ¡50 días pintando! ¡Increíble!",
+                "twoMonths": "🏅 ¡Dos meses de racha!",
+                "hundred": "🌟 ¡100 días!",
+                "twoHundred": "💎 ¡200 días! Eres una leyenda",
+                "year": "🎂 ¡Un año entero pintando!"
             }
         },
         "confirmation": {
