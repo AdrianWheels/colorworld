@@ -53,5 +53,12 @@ export function useStreak(userId) {
     [userId]
   );
 
-  return { currentStreak, longestStreak, recordToday };
+  // Solo en desarrollo: fuerza el streak a un valor específico (sin Supabase)
+  const devSetStreak = useCallback((value) => {
+    const n = Math.max(0, value);
+    setCurrentStreak(n);
+    setLongestStreak(prev => Math.max(prev, n));
+  }, []);
+
+  return { currentStreak, longestStreak, recordToday, devSetStreak };
 }

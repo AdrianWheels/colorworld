@@ -22,6 +22,7 @@ import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
 import { useCanvasActions } from './hooks/useCanvasActions';
 import { useStreak } from './hooks/useStreak';
+import { StreakDebugPanel } from './components/StreakDebugPanel';
 import { useToast } from './hooks/useToast';
 import drawingService from './services/drawingService';
 import promptsManager from './services/promptsManager';
@@ -43,7 +44,7 @@ function App() {
   const [isFooterVisible, setIsFooterVisible] = useState(false); // Estado para footer colapsable - oculto por defecto
   const [todayTheme, setTodayTheme] = useState('');
   const { user, isLoggedIn } = useAuth();
-  const { currentStreak, longestStreak, recordToday } = useStreak(user?.id ?? null);
+  const { currentStreak, longestStreak, recordToday, devSetStreak } = useStreak(user?.id ?? null);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   const canvasRef = useRef(null);
@@ -470,6 +471,25 @@ function App() {
 
       {/* Toast notifications */}
       <ToastContainer toasts={toasts} onRemoveToast={removeToast} />
+
+      {/* Panel de debug de streaks — solo en desarrollo */}
+      <StreakDebugPanel
+        currentStreak={currentStreak}
+        onAdd={(n) => {
+          const next = currentStreak + n;
+          devSetStreak(next);
+          const milestones = { 7: '🎉 ¡Una semana entera!', 30: '🏆 ¡Un mes de racha!', 100: '🌟 ¡100 días!' };
+          const msg = milestones[next] ?? `🔥 ¡Día ${next}! Llevas ${next} días pintando seguidos`;
+          showSuccess(msg);
+        }}
+        onReset={() => devSetStreak(0)}
+        onTestToast={() => {
+          const n = currentStreak || 7;
+          const milestones = { 7: '🎉 ¡Una semana entera!', 30: '🏆 ¡Un mes de racha!', 100: '🌟 ¡100 días!' };
+          const msg = milestones[n] ?? `🔥 ¡Día ${n}! Llevas ${n} días pintando seguidos`;
+          showSuccess(msg);
+        }}
+      />
     </div>
   );
 }
