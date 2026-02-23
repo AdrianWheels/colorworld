@@ -43,7 +43,7 @@ function App() {
   const [isFooterVisible, setIsFooterVisible] = useState(false); // Estado para footer colapsable - oculto por defecto
   const [todayTheme, setTodayTheme] = useState('');
   const { user, isLoggedIn } = useAuth();
-  const { recordToday } = useStreak(user?.id ?? null);
+  const { currentStreak, longestStreak, recordToday } = useStreak(user?.id ?? null);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   const canvasRef = useRef(null);
@@ -300,7 +300,7 @@ function App() {
         currentDate={selectedDate}
       />
 
-      <Header>
+      <Header currentStreak={currentStreak} longestStreak={longestStreak}>
         <DayNavigation
           selectedDate={selectedDate}
           onPreviousDay={goToPreviousDay}
