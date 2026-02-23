@@ -7,8 +7,8 @@ import Logger from '../utils/logger.js';
  * Ambos son strings 'YYYY-MM-DD'.
  */
 function isYesterday(lastColoredDate, dateKey) {
-  const last = new Date(lastColoredDate + 'T00:00:00');
-  const current = new Date(dateKey + 'T00:00:00');
+  const last = new Date(lastColoredDate + 'T00:00:00Z');
+  const current = new Date(dateKey + 'T00:00:00Z');
   const diffMs = current - last;
   const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
   return diffDays === 1;
@@ -41,6 +41,12 @@ export async function getStreak(userId) {
  */
 export async function recordActivity(userId, dateKey) {
   try {
+    // Validar formato YYYY-MM-DD
+    if (!dateKey || !/^\d{4}-\d{2}-\d{2}$/.test(dateKey)) {
+      Logger.error('❌ streakService.recordActivity: dateKey inválido:', dateKey);
+      return null;
+    }
+
     const existing = await getStreak(userId);
 
     // Ya contó hoy — no-op
