@@ -6,19 +6,29 @@ export function useStreak(userId) {
   const [currentStreak, setCurrentStreak] = useState(0);
   const [longestStreak, setLongestStreak] = useState(0);
 
-  // Cargar streak al montar o cuando cambia el usuario
   useEffect(() => {
     if (!userId) {
       setCurrentStreak(0);
       setLongestStreak(0);
       return;
     }
-    getStreak(userId).then((data) => {
-      if (data) {
-        setCurrentStreak(data.current_streak ?? 0);
-        setLongestStreak(data.longest_streak ?? 0);
+
+    let cancelled = false;
+
+    const load = async () => {
+      try {
+        const data = await getStreak(userId);
+        if (!cancelled && data) {
+          setCurrentStreak(data.current_streak ?? 0);
+          setLongestStreak(data.longest_streak ?? 0);
+        }
+      } catch {
+        // streak no crítico — fallo silencioso
       }
-    });
+    };
+
+    load();
+    return () => { cancelled = true; };
   }, [userId]);
 
   /**
@@ -29,12 +39,16 @@ export function useStreak(userId) {
   const recordToday = useCallback(
     async (dateKey) => {
       if (!userId) return null;
-      const result = await recordActivity(userId, dateKey);
-      if (result) {
-        setCurrentStreak(result.currentStreak);
-        setLongestStreak(result.longestStreak);
+      try {
+        const result = await recordActivity(userId, dateKey);
+        if (result) {
+          setCurrentStreak(result.currentStreak);
+          setLongestStreak(result.longestStreak);
+        }
+        return result;
+      } catch {
+        return null;
       }
-      return result;
     },
     [userId]
   );
