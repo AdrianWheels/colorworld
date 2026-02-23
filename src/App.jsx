@@ -21,6 +21,7 @@ import ConfirmationModal from './components/ConfirmationModal';
 import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
 import { useCanvasActions } from './hooks/useCanvasActions';
+import { useStreak } from './hooks/useStreak';
 import { useToast } from './hooks/useToast';
 import drawingService from './services/drawingService';
 import promptsManager from './services/promptsManager';
@@ -42,6 +43,7 @@ function App() {
   const [isFooterVisible, setIsFooterVisible] = useState(false); // Estado para footer colapsable - oculto por defecto
   const [todayTheme, setTodayTheme] = useState('');
   const { user, isLoggedIn } = useAuth();
+  const { recordToday } = useStreak(user?.id ?? null);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   const canvasRef = useRef(null);
@@ -155,6 +157,15 @@ function App() {
       showError(t('app.cloud.errorSave'));
     } else {
       showSuccess(t('app.cloud.saved'));
+      // Registrar actividad de streak (no bloquea si falla)
+      const streakDateKey = selectedDate.toISOString().split('T')[0];
+      const streakResult = await recordToday(streakDateKey);
+      if (streakResult?.isNewDay) {
+        const n = streakResult.currentStreak;
+        const milestones = { 7: '🎉 ¡Una semana entera!', 30: '🏆 ¡Un mes de racha!', 100: '🌟 ¡100 días!' };
+        const msg = milestones[n] ?? `🔥 ¡Día ${n}! Llevas ${n} días pintando seguidos`;
+        showSuccess(msg);
+      }
     }
   }, [isLoggedIn, selectedDate, user, todayTheme, showSuccess, showError, canvasRef, t]);
 
