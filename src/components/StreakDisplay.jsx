@@ -1,8 +1,10 @@
 // src/components/StreakDisplay.jsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export function StreakDisplay({ currentStreak, longestStreak }) {
+  const { t } = useTranslation();
   const [showTooltip, setShowTooltip] = useState(false);
 
   if (!currentStreak || currentStreak === 0) return null;
@@ -21,7 +23,7 @@ export function StreakDisplay({ currentStreak, longestStreak }) {
         animate={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 300, damping: 15 }}
         role="img"
-        aria-label={`Racha actual: ${currentStreak} días`}
+        aria-label={t('app.streak.ariaLabel', { count: currentStreak })}
       >
         🔥 {currentStreak}
       </motion.div>
@@ -35,7 +37,7 @@ export function StreakDisplay({ currentStreak, longestStreak }) {
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.15 }}
           >
-            Racha más larga: {longestStreak} días
+            {t('app.streak.tooltip', { count: longestStreak })}
           </motion.div>
         )}
       </AnimatePresence>

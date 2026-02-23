@@ -56,6 +56,16 @@
             "errorSave": "Error al guardar en tu cuenta",
             "loaded": "Dibujo cargado desde tu cuenta"
         },
+        "streak": {
+            "ariaLabel": "Racha actual: {{count}} días",
+            "tooltip": "Racha más larga: {{count}} días",
+            "toast": {
+                "day": "🔥 ¡Día {{n}}! Llevas {{n}} días pintando seguidos",
+                "week": "🎉 ¡Una semana entera!",
+                "month": "🏆 ¡Un mes de racha!",
+                "hundred": "🌟 ¡100 días!"
+            }
+        },
         "confirmation": {
             "clear": {
                 "title": "Confirmar borrado",

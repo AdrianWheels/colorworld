@@ -163,8 +163,8 @@ function App() {
       const streakResult = await recordToday(streakDateKey);
       if (streakResult?.isNewDay) {
         const n = streakResult.currentStreak;
-        const milestones = { 7: '🎉 ¡Una semana entera!', 30: '🏆 ¡Un mes de racha!', 100: '🌟 ¡100 días!' };
-        const msg = milestones[n] ?? `🔥 ¡Día ${n}! Llevas ${n} días pintando seguidos`;
+        const milestones = { 7: t('app.streak.toast.week'), 30: t('app.streak.toast.month'), 100: t('app.streak.toast.hundred') };
+        const msg = milestones[n] ?? t('app.streak.toast.day', { n });
         showSuccess(msg);
       }
     }
@@ -478,15 +478,15 @@ function App() {
         onAdd={(n) => {
           const next = currentStreak + n;
           devSetStreak(next);
-          const milestones = { 7: '🎉 ¡Una semana entera!', 30: '🏆 ¡Un mes de racha!', 100: '🌟 ¡100 días!' };
-          const msg = milestones[next] ?? `🔥 ¡Día ${next}! Llevas ${next} días pintando seguidos`;
+          const milestones = { 7: t('app.streak.toast.week'), 30: t('app.streak.toast.month'), 100: t('app.streak.toast.hundred') };
+          const msg = milestones[next] ?? t('app.streak.toast.day', { n: next });
           showSuccess(msg);
         }}
         onReset={() => devSetStreak(0)}
         onTestToast={() => {
           const n = currentStreak || 7;
-          const milestones = { 7: '🎉 ¡Una semana entera!', 30: '🏆 ¡Un mes de racha!', 100: '🌟 ¡100 días!' };
-          const msg = milestones[n] ?? `🔥 ¡Día ${n}! Llevas ${n} días pintando seguidos`;
+          const milestones = { 7: t('app.streak.toast.week'), 30: t('app.streak.toast.month'), 100: t('app.streak.toast.hundred') };
+          const msg = milestones[n] ?? t('app.streak.toast.day', { n });
           showSuccess(msg);
         }}
       />
