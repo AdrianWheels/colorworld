@@ -1431,10 +1431,11 @@ const DrawingCanvasSimple = forwardRef(({
       ctx.clearRect(0, 0, drawingCanvasRef.current.width, drawingCanvasRef.current.height);
       ctx.drawImage(img, 0, 0);
       updateImmediately();
+      saveCanvasState();
     };
     img.onerror = () => Logger.error('❌ Error cargando color layer:', url);
     img.src = url;
-  }, [updateImmediately]);
+  }, [updateImmediately, saveCanvasState]);
 
   useImperativeHandle(ref, () => ({
     clearCanvas,
