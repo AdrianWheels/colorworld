@@ -20,6 +20,8 @@ export function StreakDisplay({ currentStreak, longestStreak }) {
         initial={{ scale: 1.4 }}
         animate={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+        role="img"
+        aria-label={`Racha actual: ${currentStreak} días`}
       >
         🔥 {currentStreak}
       </motion.div>
