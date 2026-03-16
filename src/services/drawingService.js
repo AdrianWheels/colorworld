@@ -1,44 +1,14 @@
 // AI Drawing Service
-// This service handles generating daily drawings using Gemini 2.5 Flash Image Preview
+// Gemini se llama desde /api/generate-image (server-side) — la API key nunca llega al browser.
 
-import { GoogleGenAI } from '@google/genai';
 import promptsManager from './promptsManager.js';
 import persistentStorage from './persistentStorage.js';
 import Logger from '../utils/logger.js';
 
 class DrawingService {
   constructor() {
-    // Usar variable de entorno para la API key
-    this.apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-    this.genAI = null;
-    this.model = 'gemini-2.5-flash-image-preview'; // Modelo actualizado
     this.cache = new Map();
     this.generatedImagesPath = '/generated-images/';
-    this.initializeGemini();
-  }
-
-  // Initialize Gemini API
-  initializeGemini() {
-    try {
-      if (!this.apiKey) {
-        Logger.error('? API key no encontrada. Aseg�rate de configurar VITE_GEMINI_API_KEY en .env');
-        return;
-      }
-      
-      this.genAI = new GoogleGenAI({
-        apiKey: this.apiKey,
-      });
-      
-      Logger.log('? Gemini 2.5 Flash Image Preview inicializada correctamente');
-    } catch (error) {
-      Logger.error('? Error inicializando Gemini API:', error);
-    }
-  }
-
-  // Set the Gemini API key (opcional, ya est� en .env)
-  setApiKey(apiKey) {
-    this.apiKey = apiKey;
-    this.initializeGemini();
   }
 
   // Get today's date as a string (YYYY-MM-DD)
@@ -97,93 +67,51 @@ class DrawingService {
     };
   }
 
-  // Generate image using Gemini 2.5 Flash Image Preview with optimized prompts
-  async generateImageWithGemini(forDateKey = null) {
-    if (!this.genAI) {
-      Logger.error('? Gemini API no est� inicializada');
-      return this.generateMockDrawing();
-    }
-
+  // Generate image via /api/generate-image (server-side, API key never in browser)
+  // forDateKey: 'YYYY-MM-DD' string or null (uses today)
+  // customPrompt: free-text prompt for PRO users (overrides the daily prompt)
+  async generateImageWithGemini(forDateKey = null, customPrompt = null) {
     try {
       const targetDate = forDateKey ? new Date(forDateKey) : new Date();
       const dateKey = targetDate.toISOString().split('T')[0];
       const promptInfo = this.getColoringPrompts(targetDate);
-      
-      Logger.log('?? Prompt seleccionado:', promptInfo.theme, 'para el d�a:', dateKey);
-      
-      // Usar el prompt optimizado del promptsManager
-      const enhancedPrompt = promptsManager.buildEnhancedPrompt(promptInfo.promptData);
 
-      Logger.log('?? Generando imagen con Gemini 2.5...');
-      Logger.log('??? Prompt optimizado:', enhancedPrompt.substring(0, 100) + '...');
-      
-      const config = {
-        responseModalities: ['IMAGE'],
-      };
-      
-      const contents = [
-        {
-          role: 'user',
-          parts: [
-            {
-              text: enhancedPrompt,
-            },
-          ],
-        },
-      ];
+      const enhancedPrompt = customPrompt || promptsManager.buildEnhancedPrompt(promptInfo.promptData);
 
-      const response = await this.genAI.models.generateContentStream({
-        model: this.model,
-        config,
-        contents,
+      Logger.log('Generando imagen via API serverless, tema:', promptInfo.theme);
+
+      const response = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: enhancedPrompt }),
       });
 
-      let imageData = null;
-      
-      for await (const chunk of response) {
-        if (!chunk.candidates || !chunk.candidates[0]?.content?.parts) {
-          continue;
-        }
-        
-        // Procesar imagen
-        if (chunk.candidates[0]?.content?.parts?.[0]?.inlineData) {
-          const inlineData = chunk.candidates[0].content.parts[0].inlineData;
-          imageData = {
-            data: inlineData.data,
-            mimeType: inlineData.mimeType || 'image/png'
-          };
-          Logger.log('? Imagen generada por Gemini recibida');
-          break; // Solo necesitamos la primera imagen
-        }
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        throw new Error(err.error || `HTTP ${response.status}`);
       }
-      
-      if (imageData) {
-        // Guardar la imagen localmente para el d�a especificado
-        const savedImagePath = await this.saveGeneratedImage(imageData, promptInfo.prompt, dateKey);
-        
-        return {
-          prompt: promptInfo.prompt,
-          theme: promptInfo.theme,
-          imageUrl: savedImagePath,
-          imageData: imageData,
-          generatedAt: new Date().toISOString(),
-          source: 'gemini-2.5',
-          mimeType: imageData.mimeType,
-          promptData: promptInfo.promptData
-        };
-      } else {
-        Logger.log('?? No se gener� imagen con Gemini, usando SVG de respaldo');
-        return this.generateMockDrawing(promptInfo.theme);
-      }
-      
+
+      const { imageData: imageBase64, mimeType } = await response.json();
+      const imageData = { data: imageBase64, mimeType };
+
+      const savedImagePath = await this.saveGeneratedImage(imageData, promptInfo.prompt, dateKey);
+
+      return {
+        prompt: promptInfo.prompt,
+        theme: promptInfo.theme,
+        imageUrl: savedImagePath,
+        imageData,
+        generatedAt: new Date().toISOString(),
+        source: 'gemini-2.5',
+        mimeType,
+        promptData: promptInfo.promptData,
+      };
+
     } catch (error) {
-      Logger.error('? Error generando con Gemini 2.5:', error);
-      
-      // Manejo espec�fico de error de cuota
-      if (error.code === 429) {
-        throw new Error('Cuota de Gemini agotada. Int�ntalo m�s tarde.');
+      Logger.error('Error generando imagen:', error);
+      if (error.message?.includes('quota') || error.message?.includes('429')) {
+        throw new Error('Cuota de Gemini agotada. Inténtalo más tarde.');
       }
-      
       throw error;
     }
   }
@@ -431,7 +359,7 @@ class DrawingService {
 
   // Main function: Generate with Gemini
   async generateWithGemini(customPrompt = null) {
-    return await this.generateImageWithGemini(customPrompt);
+    return await this.generateImageWithGemini(null, customPrompt);
   }
 
   // Get or generate today's drawing
