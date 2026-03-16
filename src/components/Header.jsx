@@ -4,13 +4,15 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
+import UpgradeModal from './UpgradeModal';
 import { StreakDisplay } from './StreakDisplay';
 import '../styles/Header.css';
 
 const Header = ({ children, currentStreak = 0, longestStreak = 0 }) => {
     const { t, i18n } = useTranslation();
     const [isAuthOpen, setIsAuthOpen] = useState(false);
-    const { user, isLoggedIn, isLoading: authLoading } = useAuth();
+    const [isUpgradeOpen, setIsUpgradeOpen] = useState(false);
+    const { user, isLoggedIn, isPro, isLoading: authLoading } = useAuth();
     return (
         <motion.header
             initial={{ y: -100, opacity: 0 }}
@@ -70,6 +72,25 @@ const Header = ({ children, currentStreak = 0, longestStreak = 0 }) => {
                         <StreakDisplay currentStreak={currentStreak} longestStreak={longestStreak} />
                     )}
 
+                    {isLoggedIn && !isPro && (
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => setIsUpgradeOpen(true)}
+                            className="nav-link"
+                            style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)', color: '#fff', borderRadius: '9999px', padding: '0.25rem 0.75rem', fontSize: '0.8rem', fontWeight: 700, border: 'none', cursor: 'pointer' }}
+                            title="Hazte PRO"
+                        >
+                            ✨ PRO
+                        </motion.button>
+                    )}
+
+                    {isLoggedIn && isPro && (
+                        <span style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)', color: '#fff', borderRadius: '9999px', padding: '0.25rem 0.75rem', fontSize: '0.8rem', fontWeight: 700 }}>
+                            ✨ PRO
+                        </span>
+                    )}
+
                     {!authLoading && (
                         <motion.button
                             whileHover={{ scale: 1.05 }}
@@ -90,6 +111,7 @@ const Header = ({ children, currentStreak = 0, longestStreak = 0 }) => {
             </div>
 
             <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
+            <UpgradeModal isOpen={isUpgradeOpen} onClose={() => setIsUpgradeOpen(false)} />
         </motion.header>
     );
 };

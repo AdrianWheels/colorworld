@@ -3,9 +3,8 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "functions": {
-    "api/generate-image.js": {
-      "maxDuration": 60
-    }
+    "api/generate-image.js": { "maxDuration": 60 },
+    "api/stripe-webhook.js": { "maxDuration": 10 }
   },
   "headers": [
     {
@@ -68,6 +67,14 @@
     {
       "source": "/api/generate-image",
       "destination": "/api/generate-image"
+    },
+    {
+      "source": "/api/create-checkout-session",
+      "destination": "/api/create-checkout-session"
+    },
+    {
+      "source": "/api/stripe-webhook",
+      "destination": "/api/stripe-webhook"
     },
     {
       "source": "/(.*)",

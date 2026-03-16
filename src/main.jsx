@@ -15,6 +15,7 @@ const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy.jsx'));
 const PinterestGallery = lazy(() => import('./components/PinterestGallery.jsx'));
 const PinterestColoringView = lazy(() => import('./components/PinterestColoringView.jsx'));
 const NotFound = lazy(() => import('./components/NotFound.jsx'));
+const ProSuccess = lazy(() => import('./components/ProSuccess.jsx'));
 
 // Initialize Google Analytics 4
 initializeGA4();
@@ -44,6 +45,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/galeria" element={<PinterestGallery />} />
             <Route path="/galeria/:boardSlug" element={<PinterestGallery />} />
             <Route path="/colorear/:pinId" element={<PinterestColoringView />} />
+            <Route path="/pro/success" element={<ProSuccess />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
