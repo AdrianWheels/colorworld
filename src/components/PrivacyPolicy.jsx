@@ -37,7 +37,9 @@ function PrivacyPolicy() {
                         </p>
                         <ul>
                             <li><Trans i18nKey="privacy.sections.data.list.0"><strong>Google Analytics 4 (GA4)</strong>: Recopilamos datos anónimos de navegación como páginas visitadas, duración de sesión, país de origen y tipo de dispositivo. Estos datos no permiten identificar personalmente a ningún usuario.</Trans></li>
-                            <li><Trans i18nKey="privacy.sections.data.list.1"><strong>Almacenamiento local (localStorage)</strong>: Los dibujos coloreados se guardan únicamente en el navegador del usuario. No se envían a nuestros servidores.</Trans></li>
+                            <li><Trans i18nKey="privacy.sections.data.list.1"><strong>Almacenamiento local</strong>: Los dibujos se guardan en tu navegador. Si estás registrado, también se sincronizan con tu cuenta en la nube.</Trans></li>
+                            <li><Trans i18nKey="privacy.sections.data.list.2"><strong>Cuenta de usuario (opcional)</strong>: Al registrarte guardamos tu email, historial de dibujos y rachas en Supabase, cifrado y protegido.</Trans></li>
+                            <li><Trans i18nKey="privacy.sections.data.list.3"><strong>Suscripción PRO (opcional)</strong>: Si te suscribes al plan PRO, Stripe gestiona el pago. No almacenamos datos bancarios — solo el identificador de cliente de Stripe.</Trans></li>
                         </ul>
                         <p>
                             <Trans i18nKey="privacy.sections.data.footer">

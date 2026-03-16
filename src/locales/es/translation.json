@@ -51,6 +51,35 @@
             "headerEnter": "Entrar",
             "headerTitle": "Iniciar sesión"
         },
+        "upgrade": {
+            "title": "ColorEveryday PRO",
+            "subtitle": "Lleva tu práctica artística al siguiente nivel",
+            "benefits": [
+                "Genera dibujos con tu propio prompt de IA",
+                "Sincroniza tus obras en todos tus dispositivos",
+                "Exporta en alta resolución (4K)",
+                "Exporta timelapse de tu proceso de pintado",
+                "Sin anuncios, nunca"
+            ],
+            "price": "€4,99",
+            "period": "/mes",
+            "cancel": "Cancela cuando quieras · Sin permanencia",
+            "cta": "Suscribirme por €4,99/mes",
+            "ctaLoading": "Redirigiendo a Stripe...",
+            "footer": "Pago seguro con Stripe · Puedes cancelar en cualquier momento"
+        },
+        "proSuccess": {
+            "title": "¡Ya eres PRO!",
+            "subtitle": "Gracias por suscribirte a ColorEveryday PRO. Ya tienes acceso a todas las funciones premium.",
+            "features": [
+                "🎨 Genera dibujos con tu propio prompt",
+                "☁️ Sync en todos tus dispositivos",
+                "🖼️ Exporta en 4K",
+                "⏱️ Timelapse de tu proceso"
+            ],
+            "cta": "¡Empezar a colorear! →",
+            "ctaLoading": "Activando tu cuenta PRO..."
+        },
         "cloud": {
             "saved": "¡Guardado en tu cuenta!",
             "errorSave": "Error al guardar en tu cuenta",
@@ -201,7 +230,7 @@
     },
     "privacy": {
         "title": "Política de Privacidad",
-        "updated": "Última actualización: 12 de febrero de 2026",
+        "updated": "Última actualización: 16 de marzo de 2026",
         "sections": {
             "general": {
                 "title": "1. Información General",
@@ -209,12 +238,14 @@
             },
             "data": {
                 "title": "2. Datos que Recopilamos",
-                "content": "ColorEveryday <strong>no requiere registro ni cuenta de usuario</strong>. Los datos que recopilamos son mínimos y exclusivamente anónimos:",
+                "content": "ColorEveryday puede usarse sin cuenta. Si decides registrarte, recopilamos datos adicionales para sincronizar tu progreso:",
                 "list": [
                     "<strong>Google Analytics 4 (GA4)</strong>: Recopilamos datos anónimos de navegación como páginas visitadas, duración de sesión, país de origen y tipo de dispositivo. Estos datos no permiten identificar personalmente a ningún usuario.",
-                    "<strong>Almacenamiento local (localStorage)</strong>: Los dibujos coloreados se guardan únicamente en el navegador del usuario. No se envían a nuestros servidores."
+                    "<strong>Almacenamiento local</strong>: Los dibujos se guardan en tu navegador. Si estás registrado, también se sincronizan con tu cuenta en la nube.",
+                    "<strong>Cuenta de usuario (opcional)</strong>: Al registrarte guardamos tu email, historial de dibujos y rachas en Supabase, cifrado y protegido.",
+                    "<strong>Suscripción PRO (opcional)</strong>: Si te suscribes al plan PRO, Stripe gestiona el pago. No almacenamos datos bancarios — solo el identificador de cliente de Stripe."
                 ],
-                "footer": "<strong>No recopilamos</strong>: nombres, emails, direcciones, datos de pago ni ningún dato personal identificable."
+                "footer": "Sin cuenta no recopilamos ningún dato personal. Con cuenta registrada puedes solicitar la exportación o eliminación de tus datos en cualquier momento."
             },
             "cookies": {
                 "title": "3. Uso de Cookies",
@@ -266,6 +297,16 @@
                             "name": "Pinterest API",
                             "purpose": "Mostrar nuestras imágenes",
                             "data": "Ninguno — solo lectura de contenido propio"
+                        },
+                        {
+                            "name": "Supabase",
+                            "purpose": "Base de datos y autenticación",
+                            "data": "Email, historial de dibujos, rachas (solo usuarios registrados)"
+                        },
+                        {
+                            "name": "Stripe",
+                            "purpose": "Procesamiento de pagos PRO",
+                            "data": "Gestión de suscripción (no accedemos a datos bancarios)"
                         }
                     ]
                 }

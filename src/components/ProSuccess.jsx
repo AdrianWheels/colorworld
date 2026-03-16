@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import supabase from '../services/supabaseClient';
 
 export default function ProSuccess() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [refreshed, setRefreshed] = useState(false);
 
   useEffect(() => {
@@ -40,10 +42,10 @@ export default function ProSuccess() {
         </motion.div>
 
         <h1 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#111', margin: '0 0 0.5rem' }}>
-          ¡Ya eres PRO!
+          {t('app.proSuccess.title')}
         </h1>
         <p style={{ color: '#6b7280', marginBottom: '2rem', lineHeight: 1.6 }}>
-          Gracias por suscribirte a ColorEveryday PRO. Ya tienes acceso a todas las funciones premium.
+          {t('app.proSuccess.subtitle')}
         </p>
 
         <ul style={{
@@ -51,7 +53,7 @@ export default function ProSuccess() {
           display: 'flex', flexDirection: 'column', gap: '0.5rem',
           textAlign: 'left',
         }}>
-          {['🎨 Genera dibujos con tu propio prompt', '☁️ Sync en todos tus dispositivos', '🖼️ Exporta en 4K', '⏱️ Timelapse de tu proceso'].map((item, i) => (
+          {t('app.proSuccess.features', { returnObjects: true }).map((item, i) => (
             <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: '#374151' }}>
               {item}
             </li>
@@ -70,7 +72,7 @@ export default function ProSuccess() {
             opacity: refreshed ? 1 : 0.7,
           }}
         >
-          {refreshed ? '¡Empezar a colorear! →' : 'Activando tu cuenta PRO...'}
+          {refreshed ? t('app.proSuccess.cta') : t('app.proSuccess.ctaLoading')}
         </button>
       </motion.div>
     </div>

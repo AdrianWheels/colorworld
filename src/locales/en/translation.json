@@ -51,6 +51,35 @@
             "headerEnter": "Sign in",
             "headerTitle": "Sign in"
         },
+        "upgrade": {
+            "title": "ColorEveryday PRO",
+            "subtitle": "Take your artistic practice to the next level",
+            "benefits": [
+                "Generate drawings with your own AI prompt",
+                "Sync your artworks across all your devices",
+                "Export in high resolution (4K)",
+                "Export timelapse of your painting process",
+                "No ads, ever"
+            ],
+            "price": "€4.99",
+            "period": "/month",
+            "cancel": "Cancel anytime · No commitment",
+            "cta": "Subscribe for €4.99/month",
+            "ctaLoading": "Redirecting to Stripe...",
+            "footer": "Secure payment with Stripe · Cancel anytime"
+        },
+        "proSuccess": {
+            "title": "You're now PRO!",
+            "subtitle": "Thank you for subscribing to ColorEveryday PRO. You now have access to all premium features.",
+            "features": [
+                "🎨 Generate drawings with your own prompt",
+                "☁️ Sync across all your devices",
+                "🖼️ Export in 4K",
+                "⏱️ Timelapse of your process"
+            ],
+            "cta": "Start coloring! →",
+            "ctaLoading": "Activating your PRO account..."
+        },
         "cloud": {
             "saved": "Saved to your account!",
             "errorSave": "Error saving to your account",
@@ -201,7 +230,7 @@
     },
     "privacy": {
         "title": "Privacy Policy",
-        "updated": "Last updated: February 12, 2026",
+        "updated": "Last updated: March 16, 2026",
         "sections": {
             "general": {
                 "title": "1. General Information",
@@ -209,12 +238,14 @@
             },
             "data": {
                 "title": "2. Data We Collect",
-                "content": "ColorEveryday <strong>does not require registration or user account</strong>. The data we collect is minimal and exclusively anonymous:",
+                "content": "ColorEveryday can be used without an account. If you choose to register, we collect additional data to sync your progress:",
                 "list": [
                     "<strong>Google Analytics 4 (GA4)</strong>: We collect anonymous browsing data such as pages visited, session duration, country of origin, and device type. This data does not allow personally identifying any user.",
-                    "<strong>Local storage (localStorage)</strong>: Colored drawings are saved only in the user's browser. They are not sent to our servers."
+                    "<strong>Local storage</strong>: Drawings are saved in your browser. If you are logged in, they are also synced to your cloud account.",
+                    "<strong>User account (optional)</strong>: When you register, we store your email, drawing history, and streaks in Supabase, encrypted and protected.",
+                    "<strong>PRO subscription (optional)</strong>: If you subscribe to the PRO plan, Stripe processes the payment. We do not store banking data — only your Stripe customer ID."
                 ],
-                "footer": "<strong>We do not collect</strong>: names, emails, addresses, payment data, or any personally identifiable data."
+                "footer": "Without an account we collect no personal data. With a registered account you can request export or deletion of your data at any time."
             },
             "cookies": {
                 "title": "3. Use of Cookies",
@@ -266,6 +297,16 @@
                             "name": "Pinterest API",
                             "purpose": "Show our images",
                             "data": "None — read-only of own content"
+                        },
+                        {
+                            "name": "Supabase",
+                            "purpose": "Database and authentication",
+                            "data": "Email, drawing history, streaks (registered users only)"
+                        },
+                        {
+                            "name": "Stripe",
+                            "purpose": "PRO payment processing",
+                            "data": "Subscription management (we do not access banking data)"
                         }
                     ]
                 }
