@@ -390,14 +390,6 @@ function App() {
               </div>
             </div>
 
-            {isProInputVisible && (
-              <ProPromptBar
-                onGenerate={handleGenerateCustom}
-                isGenerating={isGeneratingCustom}
-                t={t}
-              />
-            )}
-
 
           </div>
         </div>
@@ -406,6 +398,14 @@ function App() {
           <DrawingHistory coloredDrawings={coloredDrawings} />
         </aside>
       </motion.main>
+
+      {isProInputVisible && (
+        <ProPromptBar
+          onGenerate={handleGenerateCustom}
+          isGenerating={isGeneratingCustom}
+          t={t}
+        />
+      )}
 
       {/* Botón para mostrar/ocultar footer */}
       <button
