@@ -222,7 +222,8 @@
             "cancel": "Cancelar",
             "generatingOverlay": "Generando tu dibujo... (~20 segundos)",
             "buttonTitle": "Genera tu propio dibujo con IA",
-            "buttonTitleLocked": "Función PRO — suscríbete para generar tus propios dibujos"
+            "buttonTitleLocked": "Función PRO — suscríbete para generar tus propios dibujos",
+            "inputPlaceholder": "Ej: un dragón en un bosque mágico, un gato astronauta..."
         }
     },
     "calendar": {

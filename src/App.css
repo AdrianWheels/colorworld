@@ -411,6 +411,77 @@ body {
   justify-content: center;
 }
 
+/* PRO Prompt Bar — inline below canvas */
+.pro-prompt-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pro-prompt-bar__icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.pro-prompt-bar__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: transparent;
+  color: #111827;
+  min-width: 0;
+}
+
+.pro-prompt-bar__input::placeholder {
+  color: #9ca3af;
+}
+
+.pro-prompt-bar__input:disabled {
+  color: #6b7280;
+}
+
+.pro-prompt-bar__count {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.pro-prompt-bar__btn {
+  flex-shrink: 0;
+  padding: 0.4rem 0.9rem;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.pro-prompt-bar__btn:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Active state for toolbar PRO button */
+.tool-btn.pro-ai-btn.active {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
 .canvas-generating-overlay {
   position: absolute;
   inset: 0;

@@ -45,25 +45,24 @@ export default async function handler(req, res) {
   try {
     const genAI = new GoogleGenAI({ apiKey });
 
-    const response = await genAI.models.generateContentStream({
-      model: 'gemini-2.5-flash-image-preview',
-      config: { responseModalities: ['IMAGE'] },
+    const response = await genAI.models.generateContent({
+      model: 'gemini-2.5-flash-preview-05-20',
+      config: { responseModalities: ['TEXT', 'IMAGE'] },
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
     });
 
-    let imageData = null;
+    const parts = response.candidates?.[0]?.content?.parts ?? [];
+    const imagePart = parts.find(p => p.inlineData);
 
-    for await (const chunk of response) {
-      const inlineData = chunk.candidates?.[0]?.content?.parts?.[0]?.inlineData;
-      if (inlineData) {
-        imageData = { data: inlineData.data, mimeType: inlineData.mimeType || 'image/png' };
-        break;
-      }
-    }
-
-    if (!imageData) {
+    if (!imagePart) {
+      console.error('[generate-image] No image in response. Parts:', JSON.stringify(parts));
       return res.status(500).json({ error: 'Gemini did not return an image' });
     }
+
+    const imageData = {
+      data: imagePart.inlineData.data,
+      mimeType: imagePart.inlineData.mimeType || 'image/png',
+    };
 
     return res.status(200).json({
       success: true,

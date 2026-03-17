@@ -18,8 +18,8 @@ import StructuredData from './components/StructuredData';
 import SEOHead from './components/SEOHead';
 import AboutModal from './components/AboutModal';
 import ConfirmationModal from './components/ConfirmationModal';
-import ProPromptModal from './components/ProPromptModal';
 import UpgradeModal from './components/UpgradeModal';
+import ProPromptBar from './components/ProPromptBar';
 import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
 import { useCanvasActions } from './hooks/useCanvasActions';
@@ -43,7 +43,7 @@ function App() {
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [isProPromptOpen, setIsProPromptOpen] = useState(false);
+  const [isProInputVisible, setIsProInputVisible] = useState(false);
   const [isGeneratingCustom, setIsGeneratingCustom] = useState(false);
   const [isUpgradeOpenFromToolbar, setIsUpgradeOpenFromToolbar] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false); // Estado para footer colapsable - oculto por defecto
@@ -138,7 +138,7 @@ function App() {
 
   const handleProPromptRequest = useCallback(() => {
     if (isPro) {
-      setIsProPromptOpen(true);
+      setIsProInputVisible(prev => !prev);
     } else {
       setIsUpgradeOpenFromToolbar(true);
     }
@@ -367,6 +367,7 @@ function App() {
               onProPrompt={handleProPromptRequest}
               isPro={isPro}
               isGeneratingCustom={isGeneratingCustom}
+              isProInputVisible={isProInputVisible}
             />
 
             <div className="comic-panels">
@@ -389,6 +390,14 @@ function App() {
                 />
               </div>
             </div>
+
+            {isProInputVisible && (
+              <ProPromptBar
+                onGenerate={handleGenerateCustom}
+                isGenerating={isGeneratingCustom}
+                t={t}
+              />
+            )}
 
 
           </div>
@@ -479,14 +488,6 @@ function App() {
       <AboutModal
         isOpen={isAboutModalOpen}
         onClose={() => setIsAboutModalOpen(false)}
-      />
-
-      {/* Modal PRO prompt */}
-      <ProPromptModal
-        isOpen={isProPromptOpen}
-        onClose={() => setIsProPromptOpen(false)}
-        onGenerate={handleGenerateCustom}
-        isGenerating={isGeneratingCustom}
       />
 
       {/* Modal upgrade desde toolbar */}

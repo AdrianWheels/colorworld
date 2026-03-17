@@ -222,7 +222,8 @@
             "cancel": "Cancel",
             "generatingOverlay": "Generating your drawing... (~20 seconds)",
             "buttonTitle": "Generate your own AI drawing",
-            "buttonTitleLocked": "PRO feature — subscribe to generate your own drawings"
+            "buttonTitleLocked": "PRO feature — subscribe to generate your own drawings",
+            "inputPlaceholder": "E.g: a dragon in a magical forest, an astronaut cat..."
         }
     },
     "calendar": {

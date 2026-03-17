@@ -23,9 +23,10 @@ const ToolBarHorizontal = ({
   currentDay = 1, // Día del año (1-365)
   onSaveToCloud,    // new: save to Supabase (or prompt login)
   isLoggedIn = false, // new: to show lock icon vs cloud icon
-  onProPrompt,      // PRO: open custom prompt modal
+  onProPrompt,      // PRO: toggle inline prompt bar
   isPro = false,    // PRO: whether user has PRO subscription
   isGeneratingCustom = false, // PRO: custom generation in progress
+  isProInputVisible = false,  // PRO: whether inline bar is open
 }) => {
   const { t } = useTranslation();
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -282,7 +283,7 @@ const ToolBarHorizontal = ({
             whileTap={{ scale: 0.95 }}
             onClick={onProPrompt}
             disabled={isGeneratingCustom}
-            className="tool-btn pro-ai-btn"
+            className={`tool-btn pro-ai-btn${isProInputVisible ? ' active' : ''}`}
             title={isPro ? t('app.proPrompt.buttonTitle') : t('app.proPrompt.buttonTitleLocked')}
           >
             {isGeneratingCustom ? '⏳' : isPro ? '✨' : '🔒'}
