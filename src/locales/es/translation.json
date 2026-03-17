@@ -211,6 +211,18 @@
                 "message": "Las líneas negras del dibujo no se pueden borrar - ¡son para guiarte! El cubo 🪣 rellena áreas conectadas del mismo color automáticamente.",
                 "mobileQuality": " El canvas mantiene su tamaño original para mejor calidad."
             }
+        },
+        "proPrompt": {
+            "title": "Tu dibujo con IA ✨",
+            "placeholder": "Describe qué quieres colorear...\nEjemplos: \"Un dragón en un bosque mágico\", \"Un gato astronauta\"",
+            "hint": "El dibujo se generará en estilo libro de colorear, listo para pintar.",
+            "charCount": "{{count}}/150 caracteres",
+            "cta": "Generar dibujo",
+            "ctaLoading": "Generando...",
+            "cancel": "Cancelar",
+            "generatingOverlay": "Generando tu dibujo... (~20 segundos)",
+            "buttonTitle": "Genera tu propio dibujo con IA",
+            "buttonTitleLocked": "Función PRO — suscríbete para generar tus propios dibujos"
         }
     },
     "calendar": {

@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { getPaletteForDay, getPaletteInfoForDay } from '../data/daily-palettes';
 import '../styles/ToolBarHorizontal.css';
 
@@ -21,7 +23,11 @@ const ToolBarHorizontal = ({
   currentDay = 1, // Día del año (1-365)
   onSaveToCloud,    // new: save to Supabase (or prompt login)
   isLoggedIn = false, // new: to show lock icon vs cloud icon
+  onProPrompt,      // PRO: open custom prompt modal
+  isPro = false,    // PRO: whether user has PRO subscription
+  isGeneratingCustom = false, // PRO: custom generation in progress
 }) => {
+  const { t } = useTranslation();
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [previewColor, setPreviewColor] = useState(null);
   const [customColors, setCustomColors] = useState([]);
@@ -269,6 +275,18 @@ const ToolBarHorizontal = ({
           >
             {isLoggedIn ? '☁️' : '🔒'}
           </button>
+        )}
+        {onProPrompt && (
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onProPrompt}
+            disabled={isGeneratingCustom}
+            className="tool-btn pro-ai-btn"
+            title={isPro ? t('app.proPrompt.buttonTitle') : t('app.proPrompt.buttonTitleLocked')}
+          >
+            {isGeneratingCustom ? '⏳' : isPro ? '✨' : '🔒'}
+          </motion.button>
         )}
         <button
           className="tool-btn clear-btn"

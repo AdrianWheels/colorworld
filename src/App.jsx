@@ -18,6 +18,8 @@ import StructuredData from './components/StructuredData';
 import SEOHead from './components/SEOHead';
 import AboutModal from './components/AboutModal';
 import ConfirmationModal from './components/ConfirmationModal';
+import ProPromptModal from './components/ProPromptModal';
+import UpgradeModal from './components/UpgradeModal';
 import { useDrawing } from './hooks/useDrawing';
 import { useDayNavigation } from './hooks/useDayNavigation';
 import { useCanvasActions } from './hooks/useCanvasActions';
@@ -41,9 +43,12 @@ function App() {
   const [brushColor, setBrushColor] = useState('#000000');
   const [isControlsModalOpen, setIsControlsModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [isProPromptOpen, setIsProPromptOpen] = useState(false);
+  const [isGeneratingCustom, setIsGeneratingCustom] = useState(false);
+  const [isUpgradeOpenFromToolbar, setIsUpgradeOpenFromToolbar] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false); // Estado para footer colapsable - oculto por defecto
   const [todayTheme, setTodayTheme] = useState('');
-  const { user, isLoggedIn } = useAuth();
+  const { user, isLoggedIn, isPro } = useAuth();
   const { currentStreak, longestStreak, recordToday, devSetStreak } = useStreak(user?.id ?? null);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
@@ -114,6 +119,30 @@ function App() {
       showError(result.message);
     }
   }, [handleSaveDrawing, showSuccess, showError]);
+
+  const handleGenerateCustom = async (userPrompt) => {
+    setIsProPromptOpen(false);
+    setIsGeneratingCustom(true);
+    try {
+      const result = await drawingService.generateCustomDrawing(userPrompt);
+      if (result?.imageUrl) {
+        await canvasRef.current.loadBackgroundImage(result.imageUrl);
+        canvasRef.current.clearCanvas();
+      }
+    } catch (err) {
+      Logger.error('Error generando custom drawing:', err);
+    } finally {
+      setIsGeneratingCustom(false);
+    }
+  };
+
+  const handleProPromptRequest = useCallback(() => {
+    if (isPro) {
+      setIsProPromptOpen(true);
+    } else {
+      setIsUpgradeOpenFromToolbar(true);
+    }
+  }, [isPro]);
 
   const handleSaveToCloud = useCallback(async () => {
     if (!isLoggedIn) {
@@ -335,10 +364,19 @@ function App() {
               currentDay={currentDayOfYear}
               onSaveToCloud={handleSaveToCloud}
               isLoggedIn={isLoggedIn}
+              onProPrompt={handleProPromptRequest}
+              isPro={isPro}
+              isGeneratingCustom={isGeneratingCustom}
             />
 
             <div className="comic-panels">
               <div className="comic-panel">
+                {isGeneratingCustom && (
+                  <div className="canvas-generating-overlay">
+                    <div className="loading-spinner" />
+                    <p>{t('app.proPrompt.generatingOverlay')}</p>
+                  </div>
+                )}
                 <DrawingCanvasSimple
                   ref={canvasRef}
                   brushSize={brushSize}
@@ -441,6 +479,20 @@ function App() {
       <AboutModal
         isOpen={isAboutModalOpen}
         onClose={() => setIsAboutModalOpen(false)}
+      />
+
+      {/* Modal PRO prompt */}
+      <ProPromptModal
+        isOpen={isProPromptOpen}
+        onClose={() => setIsProPromptOpen(false)}
+        onGenerate={handleGenerateCustom}
+        isGenerating={isGeneratingCustom}
+      />
+
+      {/* Modal upgrade desde toolbar */}
+      <UpgradeModal
+        isOpen={isUpgradeOpenFromToolbar}
+        onClose={() => setIsUpgradeOpenFromToolbar(false)}
       />
 
       {/* Confirmation modal for clearing canvas */}

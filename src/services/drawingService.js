@@ -76,7 +76,9 @@ class DrawingService {
       const dateKey = targetDate.toISOString().split('T')[0];
       const promptInfo = this.getColoringPrompts(targetDate);
 
-      const enhancedPrompt = customPrompt || promptsManager.buildEnhancedPrompt(promptInfo.promptData);
+      const enhancedPrompt = customPrompt
+        ? `${customPrompt}. Coloring book style: black and white line art only, simple clean outlines, no shading, no gray tones, thick strokes, suitable for coloring.`
+        : promptsManager.buildEnhancedPrompt(promptInfo.promptData);
 
       Logger.log('Generando imagen via API serverless, tema:', promptInfo.theme);
 

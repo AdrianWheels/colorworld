@@ -211,6 +211,18 @@
                 "message": "Black lines cannot be erased - they are there to guide you! The bucket 🪣 fills connected areas of the same color automatically.",
                 "mobileQuality": " The canvas keeps its original size for better quality."
             }
+        },
+        "proPrompt": {
+            "title": "Your AI Drawing ✨",
+            "placeholder": "Describe what you want to color...\nExamples: \"A dragon in a magical forest\", \"An astronaut cat\"",
+            "hint": "The drawing will be generated in coloring book style, ready to paint.",
+            "charCount": "{{count}}/150 characters",
+            "cta": "Generate drawing",
+            "ctaLoading": "Generating...",
+            "cancel": "Cancel",
+            "generatingOverlay": "Generating your drawing... (~20 seconds)",
+            "buttonTitle": "Generate your own AI drawing",
+            "buttonTitleLocked": "PRO feature — subscribe to generate your own drawings"
         }
     },
     "calendar": {
