@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { getPaletteForDay, getPaletteInfoForDay } from '../data/daily-palettes';
 import '../styles/ToolBarHorizontal.css';
@@ -278,16 +277,14 @@ const ToolBarHorizontal = ({
           </button>
         )}
         {onProPrompt && (
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={onProPrompt}
             disabled={isGeneratingCustom}
             className={`tool-btn pro-ai-btn${isProInputVisible ? ' active' : ''}`}
             title={isPro ? t('app.proPrompt.buttonTitle') : t('app.proPrompt.buttonTitleLocked')}
           >
             {isGeneratingCustom ? '⏳' : isPro ? '✨' : '🔒'}
-          </motion.button>
+          </button>
         )}
         <button
           className="tool-btn clear-btn"

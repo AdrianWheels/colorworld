@@ -121,7 +121,6 @@ function App() {
   }, [handleSaveDrawing, showSuccess, showError]);
 
   const handleGenerateCustom = async (userPrompt) => {
-    setIsProPromptOpen(false);
     setIsGeneratingCustom(true);
     try {
       const result = await drawingService.generateCustomDrawing(userPrompt);
