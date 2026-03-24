@@ -417,12 +417,14 @@ body {
   align-items: center;
   gap: 0.5rem;
   background: #ffffff;
-  border-top: 2px solid #e5e7eb;
+  border: 2px solid #e5e7eb;
+  border-top: none;
   padding: 0.5rem 1rem;
-  margin: 0 1.5rem;
   border-radius: 0 0 12px 12px;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .pro-prompt-bar__icon {
