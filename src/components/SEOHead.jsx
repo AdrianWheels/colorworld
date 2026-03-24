@@ -68,7 +68,11 @@ const SEOHead = ({
       setMetaTag('twitter:description', dynamicDescription);
       
       // Título dinámico
-      const dynamicTitle = `Dibujo de ${currentTheme} para Colorear${currentDate ? ' - ' + currentDate : ''} | ColorEveryday`;
+      const formattedDate = currentDate
+        ? (currentDate instanceof Date ? currentDate : new Date(currentDate))
+            .toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })
+        : '';
+      const dynamicTitle = `Dibujo de ${currentTheme} para Colorear${formattedDate ? ' - ' + formattedDate : ''} | ColorEveryday`;
       document.title = dynamicTitle;
       setMetaTag('og:title', dynamicTitle, true);
       setMetaTag('twitter:title', dynamicTitle);
