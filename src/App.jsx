@@ -53,6 +53,7 @@ function App() {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   const canvasRef = useRef(null);
+  const selectedDateRef = useRef(selectedDate);
 
   // Hook para notificaciones
   const { toasts, showSuccess, showError, removeToast } = useToast();
@@ -223,8 +224,13 @@ function App() {
       .eq('date_key', dateKey)
       .maybeSingle()
       .then(({ data }) => {
+        // Descartar si el usuario ya cambió de día mientras la query estaba en vuelo
+        const currentDateKey = selectedDateRef.current.toISOString().split('T')[0];
+        if (currentDateKey !== dateKey) {
+          Logger.log('⏭️ Descartando color layer obsoleto (fecha cambió):', dateKey, '→', currentDateKey);
+          return;
+        }
         if (data?.color_layer_url && canvasRef.current?.loadColorLayer) {
-          // Cache-buster para que el navegador no use la imagen cacheada
           const url = `${data.color_layer_url}?t=${data.updated_at ? new Date(data.updated_at).getTime() : Date.now()}`;
           canvasRef.current.loadColorLayer(url);
           Logger.log('🎨 Dibujo cargado desde cuenta:', dateKey);
@@ -265,6 +271,7 @@ function App() {
 
   // Effect para cargar nueva imagen cuando cambia la fecha seleccionada
   useEffect(() => {
+    selectedDateRef.current = selectedDate;
     // Solo cargar si el canvas ya está inicializado
     if (canvasRef.current) {
       Logger.log('📅 Fecha cambiada, limpiando canvas y recargando imagen...');
