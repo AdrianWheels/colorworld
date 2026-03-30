@@ -82,7 +82,8 @@ class DrawingService {
 
       Logger.log('Generando imagen via API serverless, tema:', promptInfo.theme);
 
-      const response = await fetch('/api/generate-image', {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const response = await fetch(`${supabaseUrl}/functions/v1/generate-image`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: enhancedPrompt }),
