@@ -53,7 +53,7 @@ function App() {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   const canvasRef = useRef(null);
-  const selectedDateRef = useRef(selectedDate);
+  const selectedDateRef = useRef(null);
 
   // Hook para notificaciones
   const { toasts, showSuccess, showError, removeToast } = useToast();
