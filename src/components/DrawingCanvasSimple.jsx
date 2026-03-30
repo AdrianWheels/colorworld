@@ -73,6 +73,7 @@ const DrawingCanvasSimple = forwardRef(({
   const isPerformingUndoRedo = useRef(false);
   const hasDrawnInCurrentStroke = useRef(false);
   const isSavingState = useRef(false); // Guard para evitar doble guardado
+  const userHasDrawn = useRef(false); // True solo cuando el usuario ha dibujado activamente
   
   // Flag para preservar zoom manual del usuario
   const hasUserInteractedWithZoom = useRef(false);
@@ -653,6 +654,7 @@ const DrawingCanvasSimple = forwardRef(({
       
       const success = floodFill(coords.x, coords.y, brushColor, floodFillOptions);
       if (success) {
+        userHasDrawn.current = true;
         // Guardar estado para undo/redo solo si el flood fill cambió algo
         setTimeout(() => {
           if (!isPerformingUndoRedo.current) {
@@ -666,6 +668,7 @@ const DrawingCanvasSimple = forwardRef(({
     
     Logger.log('🖊️ INICIANDO DIBUJO:', { tool, coords });
     setIsDrawing(true);
+    userHasDrawn.current = true;
     hasDrawnInCurrentStroke.current = false; // Reset de la bandera
     const ctx = drawingCanvasRef.current.getContext('2d');
     ctx.beginPath();
@@ -1248,6 +1251,7 @@ const DrawingCanvasSimple = forwardRef(({
     
     const ctx = drawingCanvasRef.current.getContext('2d');
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    userHasDrawn.current = false;
     updateImmediately();
     
     // Limpiar también los stacks de undo/redo y guardar el estado limpio
@@ -1397,18 +1401,16 @@ const DrawingCanvasSimple = forwardRef(({
 
   // Función para verificar si hay contenido en el canvas de dibujo
   const hasDrawingContent = useCallback(() => {
+    if (!userHasDrawn.current) return false;
     if (!drawingCanvasRef.current) return false;
-    
+
     try {
       const ctx = drawingCanvasRef.current.getContext('2d');
       const imageData = ctx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       const data = imageData.data;
-      
-      // Verificar si hay algún píxel que no sea transparente
+
       for (let i = 3; i < data.length; i += 4) {
-        if (data[i] > 0) { // Si alpha > 0, hay contenido
-          return true;
-        }
+        if (data[i] > 0) return true;
       }
       return false;
     } catch (error) {
@@ -1423,6 +1425,7 @@ const DrawingCanvasSimple = forwardRef(({
   }, []);
 
   const loadColorLayer = useCallback((url) => {
+    userHasDrawn.current = false;
     if (!drawingCanvasRef.current) return;
     const img = new Image();
     img.crossOrigin = 'anonymous';
@@ -1450,7 +1453,8 @@ const DrawingCanvasSimple = forwardRef(({
     canRedo: () => redoStack.length > 0,
     loadBackgroundImage,
     floodFill: (x, y, color) => floodFill(x, y, color),
-    hasDrawingContent
+    hasDrawingContent,
+    resetUserHasDrawn: () => { userHasDrawn.current = false; }
   }), [clearCanvas, printCanvas, exportCombinedImage, getColorLayerDataURL, loadColorLayer, undo, redo, undoStack, redoStack, loadBackgroundImage, floodFill, hasDrawingContent]);
 
   return (
