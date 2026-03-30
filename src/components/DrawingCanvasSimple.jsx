@@ -74,7 +74,8 @@ const DrawingCanvasSimple = forwardRef(({
   const hasDrawnInCurrentStroke = useRef(false);
   const isSavingState = useRef(false); // Guard para evitar doble guardado
   const userHasDrawn = useRef(false); // True solo cuando el usuario ha dibujado activamente
-  
+  const loadEpoch = useRef(0); // Incrementado en cada carga de imagen de fondo para descartar callbacks obsoletos
+
   // Flag para preservar zoom manual del usuario
   const hasUserInteractedWithZoom = useRef(false);
 
@@ -1290,78 +1291,71 @@ const DrawingCanvasSimple = forwardRef(({
   // Función para cargar una nueva imagen de fondo dinámicamente - Tamaño fijo 1024x1024
   const loadBackgroundImage = useCallback((newImageUrl) => {
     Logger.log('🖼️ Cargando nueva imagen de fondo:', newImageUrl);
-    
+
     if (!backgroundCanvasRef.current) return;
-    
+
+    const thisEpoch = ++loadEpoch.current;
+
     const bgCtx = backgroundCanvasRef.current.getContext('2d', { willReadFrequently: true });
     const img = new Image();
-    
+
     img.onload = () => {
+      if (loadEpoch.current !== thisEpoch) {
+        Logger.log('⏭️ Descartando imagen obsoleta (epoch cambió)');
+        return;
+      }
+
       Logger.log('📏 Nueva imagen cargada, procesando para 1024x1024');
-      
-      // Limpiar el canvas de fondo
+
       bgCtx.clearRect(0, 0, 1024, 1024);
-      
-      // Crear un canvas temporal para procesar la imagen
+
       const tempCanvas = document.createElement('canvas');
       const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
       tempCanvas.width = 1024;
       tempCanvas.height = 1024;
-      
-      // Dibujar la imagen redimensionada al tamaño fijo
+
       tempCtx.drawImage(img, 0, 0, 1024, 1024);
-      
-      // Procesar la imagen para optimizar las líneas negras con transparencia
+
       const imageData = tempCtx.getImageData(0, 0, 1024, 1024);
       const data = imageData.data;
-      
-      // Procesar cada píxel para hacer transparentes los fondos blancos
-      // pero mantener las líneas negras opacas
+
       for (let i = 0; i < data.length; i += 4) {
         const r = data[i];
         const g = data[i + 1];
         const b = data[i + 2];
-        
-        // Si el píxel es muy claro (fondo blanco/gris claro), hacerlo transparente
+
         const brightness = (r + g + b) / 3;
         if (brightness > 240) {
-          data[i + 3] = 0; // Hacer transparente
+          data[i + 3] = 0;
         } else if (brightness < 100) {
-          // Líneas oscuras: asegurar que sean completamente opacas y negras
-          data[i] = 0;     // R = 0
-          data[i + 1] = 0; // G = 0 
-          data[i + 2] = 0; // B = 0
-          data[i + 3] = 255; // Alpha = 255 (opaco)
+          data[i] = 0;
+          data[i + 1] = 0;
+          data[i + 2] = 0;
+          data[i + 3] = 255;
         } else {
-          // Tonos medios: reducir opacidad gradualmente
           const alpha = Math.max(0, 255 - brightness);
           data[i + 3] = alpha;
         }
       }
-      
-      // Aplicar los cambios al canvas temporal
+
       tempCtx.putImageData(imageData, 0, 0);
-      
-      // Copiar al canvas de fondo con las líneas optimizadas
       bgCtx.drawImage(tempCanvas, 0, 0);
-      
-      // Actualizar la visualización compuesta
       requestCompositeUpdate();
-      
+
       Logger.log('✅ Nueva imagen de fondo cargada');
     };
-    
+
     img.onerror = (error) => {
+      if (loadEpoch.current !== thisEpoch) return;
       Logger.error('❌ Error cargando la nueva imagen de fondo');
-      Logger.error('🔍 Detalles del error:', error);
       Logger.error('🔍 URL que falló:', newImageUrl);
     };
-    
+
     // Solo aplicar CORS para URLs externas, no para imágenes estáticas del mismo dominio
     if (newImageUrl.startsWith('http') && !newImageUrl.includes(window.location.hostname)) {
       img.crossOrigin = 'anonymous';
     }
-    
+
     img.src = newImageUrl;
   }, [requestCompositeUpdate]);
 
@@ -1425,11 +1419,18 @@ const DrawingCanvasSimple = forwardRef(({
   }, []);
 
   const loadColorLayer = useCallback((url) => {
-    userHasDrawn.current = false;
     if (!drawingCanvasRef.current) return;
+
+    const thisEpoch = loadEpoch.current;
+    userHasDrawn.current = false;
+
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = () => {
+      if (loadEpoch.current !== thisEpoch) {
+        Logger.log('⏭️ Descartando color layer obsoleto (epoch cambió)');
+        return;
+      }
       const ctx = drawingCanvasRef.current.getContext('2d');
       ctx.clearRect(0, 0, drawingCanvasRef.current.width, drawingCanvasRef.current.height);
       ctx.drawImage(img, 0, 0);
