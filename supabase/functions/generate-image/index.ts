@@ -5,16 +5,9 @@ const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
 const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
 // Rate limiting — daily cap per user (in-memory, resets on isolate recycle)
-// 5/day @ $0.02/img (Imagen 4 Fast) = max $3/user/month vs €4.99 revenue
+// 3/day @ $0.039/img (Gemini 2.5 Flash Image) = max $3.51/user/month vs €4.99 revenue (~30% margin)
 const rateLimitMap = new Map<string, { count: number; resetDate: string }>();
-const MAX_GENERATIONS_PER_DAY = 5;
-
-// Coloring book prompt template — lead with art style, explicit negatives
-const COLORING_TEMPLATE = (subject: string) =>
-  `Black and white coloring book illustration of ${subject}. ` +
-  `Clean ink outlines only on pure white paper. ` +
-  `No color, no fills, no shading, no gradients, no gray tones, no background, no border, no frame, no text. ` +
-  `Simple cartoon style with thick outlines and large empty areas for children to color in.`;
+const MAX_GENERATIONS_PER_DAY = 3;
 
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
@@ -119,26 +112,19 @@ Deno.serve(async (req) => {
   try {
     const genAI = new GoogleGenAI({ apiKey });
 
-    // Step 1: Translate user prompt to English via Gemini Flash (text-only, ~$0.0001)
-    const translateResponse = await genAI.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: [{
-        role: "user",
-        parts: [{ text: `Translate the following to English. Return ONLY the translated text, nothing else. If already in English, return as-is.\n\n${prompt}` }],
-      }],
-    });
-    const translatedSubject = translateResponse.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || prompt;
-
-    // Step 2: Generate image with Imagen 4 Fast ($0.02/img vs $0.039 Gemini)
-    const imageResponse = await genAI.models.generateImages({
-      model: "imagen-4.0-fast-generate-001",
-      prompt: COLORING_TEMPLATE(translatedSubject),
-      config: { numberOfImages: 1, aspectRatio: "1:1" },
+    // Gemini 2.5 Flash Image — best quality for coloring book art ($0.039/img)
+    // Understands Spanish/English natively, no translation needed
+    const response = await genAI.models.generateContent({
+      model: "gemini-2.5-flash-image",
+      config: { responseModalities: ["TEXT", "IMAGE"] },
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
     });
 
-    const generatedImage = imageResponse.generatedImages?.[0];
-    if (!generatedImage) {
-      console.error("[generate-image] No image returned from Imagen 4");
+    const parts = response.candidates?.[0]?.content?.parts ?? [];
+    const imagePart = parts.find((p: any) => p.inlineData);
+
+    if (!imagePart) {
+      console.error("[generate-image] No image in response. Parts:", JSON.stringify(parts));
       return new Response(
         JSON.stringify({ error: "Image generation failed" }),
         { status: 500, headers: { ...headers, "Content-Type": "application/json" } }
@@ -148,8 +134,8 @@ Deno.serve(async (req) => {
     return new Response(
       JSON.stringify({
         success: true,
-        imageData: generatedImage.image.imageBytes,
-        mimeType: "image/png",
+        imageData: imagePart.inlineData.data,
+        mimeType: imagePart.inlineData.mimeType || "image/png",
       }),
       { status: 200, headers: { ...headers, "Content-Type": "application/json" } }
     );

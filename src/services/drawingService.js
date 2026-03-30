@@ -77,8 +77,10 @@ class DrawingService {
       const dateKey = targetDate.toISOString().split('T')[0];
       const promptInfo = this.getColoringPrompts(targetDate);
 
-      // Send the raw subject — the server handles translation + coloring template
-      const promptToSend = customPrompt || promptInfo.promptData.prompt_es;
+      // Gemini understands Spanish natively — build coloring prompt client-side
+      const enhancedPrompt = customPrompt
+        ? `${customPrompt}. Coloring book style: black and white line art only, simple clean outlines, no shading, no gray tones, thick strokes, suitable for coloring.`
+        : promptsManager.buildEnhancedPrompt(promptInfo.promptData);
 
       Logger.log('Generando imagen via API serverless, tema:', promptInfo.theme);
 
@@ -95,7 +97,7 @@ class DrawingService {
       const response = await fetch(`${supabaseUrl}/functions/v1/generate-image`, {
         method: 'POST',
         headers: fetchHeaders,
-        body: JSON.stringify({ prompt: promptToSend }),
+        body: JSON.stringify({ prompt: enhancedPrompt }),
       });
 
       if (!response.ok) {
