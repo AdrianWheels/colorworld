@@ -52,7 +52,7 @@ Deno.serve(async (req) => {
     const genAI = new GoogleGenAI({ apiKey });
 
     const response = await genAI.models.generateContent({
-      model: "gemini-2.5-flash-preview-05-20",
+      model: "gemini-2.5-flash-image",
       config: { responseModalities: ["TEXT", "IMAGE"] },
       contents: [{ role: "user", parts: [{ text: prompt }] }],
     });
