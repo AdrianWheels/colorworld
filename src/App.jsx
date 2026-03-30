@@ -220,9 +220,9 @@ function App() {
 
   // Obtener la temática del día actual
   useEffect(() => {
-    const todayPrompt = promptsManager.getPromptForToday();
-    setTodayTheme(todayPrompt.tematica || 'something magical');
-  }, []);
+    const prompt = promptsManager.getPromptForDate(selectedDate);
+    setTodayTheme(prompt.tematica || 'something magical');
+  }, [selectedDate]);
 
   // Calcular el día del año para la fecha seleccionada
   const currentDayOfYear = promptsManager.getDayOfYear(selectedDate);
