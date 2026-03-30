@@ -1,4 +1,17 @@
 import { GoogleGenAI } from "npm:@google/genai";
+import { createClient } from "npm:@supabase/supabase-js@2";
+
+const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+
+// Rate limiting — daily cap per user (in-memory, resets on isolate recycle)
+// 5/day @ $0.02/img (Imagen 4 Fast) = max $3/user/month vs €4.99 revenue
+const rateLimitMap = new Map<string, { count: number; resetDate: string }>();
+const MAX_GENERATIONS_PER_DAY = 5;
+
+// Coloring book prompt template — Imagen 4 needs explicit English instructions
+const COLORING_TEMPLATE = (subject: string) =>
+  `Coloring book page for children: ${subject}. Black outlines on white background, thick clean lines, no color, no shading, no gray, cartoon style, simple shapes, large areas to color. Do not include any text or words.`;
 
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
@@ -32,6 +45,50 @@ Deno.serve(async (req) => {
     });
   }
 
+  // --- Auth verification ---
+  const jwt = req.headers.get("Authorization")?.replace("Bearer ", "");
+  if (!jwt) {
+    return new Response(JSON.stringify({ error: "Authorization required" }), {
+      status: 401,
+      headers: { ...headers, "Content-Type": "application/json" },
+    });
+  }
+
+  const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  });
+  const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(jwt);
+  if (authError || !user) {
+    return new Response(JSON.stringify({ error: "Invalid or expired token" }), {
+      status: 401,
+      headers: { ...headers, "Content-Type": "application/json" },
+    });
+  }
+
+  // --- PRO check ---
+  const isPro = user.app_metadata?.is_pro === true;
+  if (!isPro) {
+    return new Response(JSON.stringify({ error: "PRO subscription required" }), {
+      status: 403,
+      headers: { ...headers, "Content-Type": "application/json" },
+    });
+  }
+
+  // --- Rate limiting (daily cap per user) ---
+  const today = new Date().toISOString().split("T")[0];
+  const userLimit = rateLimitMap.get(user.id);
+  if (userLimit && userLimit.resetDate === today) {
+    if (userLimit.count >= MAX_GENERATIONS_PER_DAY) {
+      return new Response(JSON.stringify({ error: "Daily limit reached. Try again tomorrow.", limit: MAX_GENERATIONS_PER_DAY }), {
+        status: 429,
+        headers: { ...headers, "Content-Type": "application/json" },
+      });
+    }
+    userLimit.count++;
+  } else {
+    rateLimitMap.set(user.id, { count: 1, resetDate: today });
+  }
+
   const apiKey = Deno.env.get("GEMINI_API_KEY");
   if (!apiKey) {
     return new Response(
@@ -48,22 +105,39 @@ Deno.serve(async (req) => {
     );
   }
 
+  // --- Prompt length validation ---
+  if (prompt.length > 500) {
+    return new Response(JSON.stringify({ error: "Prompt too long (max 500 chars)" }), {
+      status: 400,
+      headers: { ...headers, "Content-Type": "application/json" },
+    });
+  }
+
   try {
     const genAI = new GoogleGenAI({ apiKey });
 
-    const response = await genAI.models.generateContent({
-      model: "gemini-2.5-flash-image",
-      config: { responseModalities: ["TEXT", "IMAGE"] },
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
+    // Step 1: Translate user prompt to English via Gemini Flash (text-only, ~$0.0001)
+    const translateResponse = await genAI.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: [{
+        role: "user",
+        parts: [{ text: `Translate the following to English. Return ONLY the translated text, nothing else. If already in English, return as-is.\n\n${prompt}` }],
+      }],
+    });
+    const translatedSubject = translateResponse.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || prompt;
+
+    // Step 2: Generate image with Imagen 4 Fast ($0.02/img vs $0.039 Gemini)
+    const imageResponse = await genAI.models.generateImages({
+      model: "imagen-4.0-fast-generate-001",
+      prompt: COLORING_TEMPLATE(translatedSubject),
+      config: { numberOfImages: 1, aspectRatio: "1:1" },
     });
 
-    const parts = response.candidates?.[0]?.content?.parts ?? [];
-    const imagePart = parts.find((p: any) => p.inlineData);
-
-    if (!imagePart) {
-      console.error("[generate-image] No image in response. Parts:", JSON.stringify(parts));
+    const generatedImage = imageResponse.generatedImages?.[0];
+    if (!generatedImage) {
+      console.error("[generate-image] No image returned from Imagen 4");
       return new Response(
-        JSON.stringify({ error: "Gemini did not return an image" }),
+        JSON.stringify({ error: "Image generation failed" }),
         { status: 500, headers: { ...headers, "Content-Type": "application/json" } }
       );
     }
@@ -71,8 +145,8 @@ Deno.serve(async (req) => {
     return new Response(
       JSON.stringify({
         success: true,
-        imageData: imagePart.inlineData.data,
-        mimeType: imagePart.inlineData.mimeType || "image/png",
+        imageData: generatedImage.image.imageBytes,
+        mimeType: "image/png",
       }),
       { status: 200, headers: { ...headers, "Content-Type": "application/json" } }
     );

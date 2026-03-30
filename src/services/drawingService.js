@@ -3,6 +3,7 @@
 
 import promptsManager from './promptsManager.js';
 import persistentStorage from './persistentStorage.js';
+import supabase from './supabaseClient.js';
 import Logger from '../utils/logger.js';
 
 class DrawingService {
@@ -76,17 +77,25 @@ class DrawingService {
       const dateKey = targetDate.toISOString().split('T')[0];
       const promptInfo = this.getColoringPrompts(targetDate);
 
-      const enhancedPrompt = customPrompt
-        ? `${customPrompt}. Coloring book style: black and white line art only, simple clean outlines, no shading, no gray tones, thick strokes, suitable for coloring.`
-        : promptsManager.buildEnhancedPrompt(promptInfo.promptData);
+      // Send the raw subject — the server handles translation + coloring template
+      const promptToSend = customPrompt || promptInfo.promptData.prompt_es;
 
       Logger.log('Generando imagen via API serverless, tema:', promptInfo.theme);
+
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) {
+        throw new Error('Sesión expirada. Inicia sesión de nuevo.');
+      }
+      const fetchHeaders = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${session.access_token}`,
+      };
 
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
       const response = await fetch(`${supabaseUrl}/functions/v1/generate-image`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: enhancedPrompt }),
+        headers: fetchHeaders,
+        body: JSON.stringify({ prompt: promptToSend }),
       });
 
       if (!response.ok) {
@@ -386,15 +395,27 @@ class DrawingService {
 
   // New function: Generate custom drawing with Gemini
   async generateCustomDrawing(userPrompt) {
-    Logger.log('?? Generando dibujo personalizado:', userPrompt);
+    Logger.log('🎨 Generando dibujo personalizado:', userPrompt);
     try {
       const drawing = await this.generateWithGemini(userPrompt);
-      // Optionally save custom drawings too
-      const customKey = `custom_${Date.now()}`;
-      localStorage.setItem(`drawing_${customKey}`, JSON.stringify(drawing));
+      // Save only lightweight metadata to localStorage (no base64 image data)
+      try {
+        const customKey = `custom_${Date.now()}`;
+        const metadata = {
+          prompt: drawing.prompt,
+          theme: drawing.theme,
+          generatedAt: drawing.generatedAt,
+          source: drawing.source,
+          mimeType: drawing.mimeType,
+        };
+        localStorage.setItem(`drawing_${customKey}`, JSON.stringify(metadata));
+      } catch (storageError) {
+        // QuotaExceededError or similar — generation still succeeded, just skip caching
+        Logger.warn('⚠️ No se pudo guardar metadata en localStorage:', storageError.message);
+      }
       return drawing;
     } catch (error) {
-      Logger.error('? Error generando dibujo personalizado:', error);
+      Logger.error('❌ Error generando dibujo personalizado:', error);
       throw error;
     }
   }

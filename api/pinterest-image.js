@@ -17,21 +17,14 @@ export default async function handler(req, res) {
 
     const origin = req.headers.origin;
 
-    // Check if origin is allowed
-    const isAllowed = allowedOrigins.includes(origin) || !origin; // Allow no-origin (direct server calls)
-
-    if (isAllowed && origin) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    } else {
-        // Fallback for development or block
-        // res.setHeader('Access-Control-Allow-Origin', 'null'); 
+    // Check if origin is allowed — reject requests with no origin header
+    if (!allowedOrigins.includes(origin)) {
+        return res.status(403).json({ error: 'Origin not allowed' });
     }
+    res.setHeader('Access-Control-Allow-Origin', origin);
 
     // Handle CORS preflight
     if (req.method === 'OPTIONS') {
-        if (isAllowed && origin) {
-            res.setHeader('Access-Control-Allow-Origin', origin);
-        }
         res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         res.setHeader('Access-Control-Max-Age', '86400');
@@ -78,10 +71,7 @@ export default async function handler(req, res) {
         const contentType = response.headers.get('content-type') || 'image/jpeg';
         const buffer = Buffer.from(await response.arrayBuffer());
 
-        // Set CORS and caching headers
-        if (isAllowed && origin) {
-            res.setHeader('Access-Control-Allow-Origin', origin);
-        }
+        // Set caching headers (CORS origin already set above)
         res.setHeader('Content-Type', contentType);
         res.setHeader('Cache-Control', 'public, max-age=86400, s-maxage=604800'); // 1 day client, 7 days CDN
         res.setHeader('X-Content-Type-Options', 'nosniff');

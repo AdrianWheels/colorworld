@@ -134,15 +134,14 @@ function App() {
     try {
       const result = await drawingService.generateCustomDrawing(userPrompt);
       if (result?.imageUrl) {
-        await canvasRef.current.loadBackgroundImage(result.imageUrl);
+        canvasRef.current.loadBackgroundImage(result.imageUrl);
         canvasRef.current.clearCanvas();
       }
     } catch (err) {
       Logger.error('Error generando custom drawing:', err);
       // Restore previous background if generation failed
       if (snapshotDataUrl && canvasRef.current?.loadBackgroundImage) {
-        Logger.log('🔄 Restaurando imagen anterior tras fallo de generación');
-        await canvasRef.current.loadBackgroundImage(snapshotDataUrl);
+        canvasRef.current.loadBackgroundImage(snapshotDataUrl);
       }
       showError(t('app.proPrompt.error', 'Error al generar la imagen. Inténtalo de nuevo.'));
     } finally {

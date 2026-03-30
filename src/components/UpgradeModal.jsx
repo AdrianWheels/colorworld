@@ -7,7 +7,7 @@ const BENEFIT_ICONS = ['🎨', '☁️', '🖼️', '⏱️', '🚫'];
 
 export default function UpgradeModal({ isOpen, onClose }) {
   const { t } = useTranslation();
-  const { user } = useAuth();
+  const { user, session } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -22,8 +22,10 @@ export default function UpgradeModal({ isOpen, onClose }) {
     try {
       const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId: user.id, userEmail: user.email }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session?.access_token}`,
+        },
       });
 
       const data = await res.json();

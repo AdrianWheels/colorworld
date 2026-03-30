@@ -51,3 +51,5 @@ pinterest-links.md
 # High-resolution icons (keep optimized web versions)
 /public/Icons/*.png
 !/public/Icons/web/
+.vercel
+.env*.local

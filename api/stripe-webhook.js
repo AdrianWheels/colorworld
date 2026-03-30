@@ -65,22 +65,30 @@ export default async function handler(req, res) {
   if (event.type === 'customer.subscription.deleted') {
     const customerId = event.data.object.customer;
 
-    // Buscar usuario por stripe_customer_id en app_metadata
-    const { data, error } = await supabase.auth.admin.listUsers({ perPage: 1000 });
-    if (error) {
-      console.error('[stripe-webhook] Error listing users:', error);
-      return res.status(500).json({ error: 'Failed to find user' });
+    // Find user by stripe_customer_id — paginate through all users
+    // TODO: Consider creating a stripe_customers lookup table for O(1) lookup
+    let targetUser = null;
+    let page = 1;
+    const perPage = 100;
+    while (!targetUser) {
+      const { data: { users }, error: listError } = await supabase.auth.admin.listUsers({
+        page,
+        perPage,
+      });
+      if (listError || !users || users.length === 0) break;
+      targetUser = users.find(u => u.app_metadata?.stripe_customer_id === customerId);
+      if (users.length < perPage) break; // Last page
+      page++;
     }
 
-    const user = data?.users?.find(u => u.app_metadata?.stripe_customer_id === customerId);
-    if (user) {
-      const { error: updateError } = await supabase.auth.admin.updateUserById(user.id, {
+    if (targetUser) {
+      const { error: updateError } = await supabase.auth.admin.updateUserById(targetUser.id, {
         app_metadata: { is_pro: false },
       });
       if (updateError) {
         console.error('[stripe-webhook] Error deactivating PRO:', updateError);
       } else {
-        console.log(`[stripe-webhook] PRO deactivated for user ${user.id}`);
+        console.log(`[stripe-webhook] PRO deactivated for user ${targetUser.id}`);
       }
     }
   }
