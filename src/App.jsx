@@ -267,7 +267,10 @@ function App() {
   useEffect(() => {
     // Solo cargar si el canvas ya está inicializado
     if (canvasRef.current) {
-      Logger.log('📅 Fecha cambiada, recargando imagen...');
+      Logger.log('📅 Fecha cambiada, limpiando canvas y recargando imagen...');
+      // Limpiar la capa de dibujo para que no se arrastre color del día anterior
+      canvasRef.current.clearCanvas();
+      canvasRef.current.resetUserHasDrawn?.();
       loadDayImage(canvasRef);
     }
   }, [selectedDate, loadDayImage]);
