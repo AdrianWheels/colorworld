@@ -9,9 +9,12 @@ const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const rateLimitMap = new Map<string, { count: number; resetDate: string }>();
 const MAX_GENERATIONS_PER_DAY = 5;
 
-// Coloring book prompt template — Imagen 4 needs explicit English instructions
+// Coloring book prompt template — lead with art style, explicit negatives
 const COLORING_TEMPLATE = (subject: string) =>
-  `Coloring book page for children: ${subject}. Black outlines on white background, thick clean lines, no color, no shading, no gray, cartoon style, simple shapes, large areas to color. Do not include any text or words.`;
+  `Black and white coloring book illustration of ${subject}. ` +
+  `Clean ink outlines only on pure white paper. ` +
+  `No color, no fills, no shading, no gradients, no gray tones, no background, no border, no frame, no text. ` +
+  `Simple cartoon style with thick outlines and large empty areas for children to color in.`;
 
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
