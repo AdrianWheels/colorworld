@@ -1,10 +1,12 @@
+/* Controls Modal — Glassmorphic Light Theme */
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,23 +14,26 @@
   backdrop-filter: blur(4px);
 }
 
-.modal-content {
-  background: linear-gradient(135deg, #2d2d3f 0%, #1a1a2e 100%);
-  border-radius: 16px;
+.controls-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   padding: 0;
   max-width: 500px;
   width: 90%;
   max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(138, 43, 226, 0.2);
-  animation: modalAppear 0.3s ease-out;
-  color: white;
+    0 0 0 1px rgba(139, 90, 158, 0.1);
+  border: 2px solid rgba(139, 90, 158, 0.2);
+  animation: ctrlModalAppear 0.3s ease-out;
+  color: #333;
 }
 
-@keyframes modalAppear {
+@keyframes ctrlModalAppear {
   from {
     opacity: 0;
     transform: scale(0.9) translateY(-20px);
@@ -39,25 +44,28 @@
   }
 }
 
-.modal-header {
-  background: linear-gradient(135deg, #8a2be2, #9932cc);
+/* --- Header --- */
+
+.controls-modal .modal-header {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
   color: white;
   padding: 20px;
-  border-radius: 14px 14px 0 0;
+  border-radius: 18px 18px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
-.modal-header h2 {
+.controls-modal .modal-header h2 {
   margin: 0;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 700;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.close-button {
-  background: rgba(255, 255, 255, 0.2);
+.controls-modal .close-button {
+  background: rgba(255, 255, 255, 0.25);
   border: none;
   color: white;
   width: 32px;
@@ -72,114 +80,131 @@
   transition: all 0.2s ease;
 }
 
-.close-button:hover {
-  background: rgba(255, 255, 255, 0.3);
+.controls-modal .close-button:hover {
+  background: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
 }
 
-.modal-body {
+/* --- Body --- */
+
+.controls-modal .modal-body {
   padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
-.control-section {
+.controls-modal .control-section {
   margin-bottom: 24px;
 }
 
-.control-section:last-child {
+.controls-modal .control-section:last-child {
   margin-bottom: 0;
 }
 
-.control-section h3 {
-  color: #e3b7ff;
-  font-size: 1.1rem;
-  font-weight: 600;
+.controls-modal .control-section h3 {
+  color: #8b5a9e;
+  font-size: 1.05rem;
+  font-weight: 700;
   margin: 0 0 12px 0;
   padding-bottom: 8px;
-  border-bottom: 2px solid rgba(227, 183, 255, 0.3);
+  border-bottom: 2px solid rgba(139, 90, 158, 0.2);
 }
 
-.control-item {
+.controls-modal .control-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(139, 90, 158, 0.08);
 }
 
-.control-item:last-child {
+.controls-modal .control-item:last-child {
   border-bottom: none;
 }
 
-.control-key {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-family: 'Courier New', monospace;
-  font-weight: bold;
-  font-size: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.controls-modal .control-key {
+  background: rgba(139, 90, 158, 0.08);
+  color: #8b5a9e;
+  padding: 5px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid rgba(139, 90, 158, 0.2);
   min-width: 120px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
-.control-desc {
-  color: #e0e0e0;
+.controls-modal .control-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.controls-modal .control-desc {
+  color: #666;
   flex: 1;
   margin-left: 16px;
   font-size: 0.95rem;
 }
 
-.modal-footer {
-  background: rgba(138, 43, 226, 0.15);
+/* --- Footer --- */
+
+.controls-modal .modal-footer {
+  background: rgba(139, 90, 158, 0.06);
   padding: 16px 24px;
-  border-radius: 0 0 14px 14px;
-  border-top: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 0 0 18px 18px;
+  border-top: 1px solid rgba(139, 90, 158, 0.12);
+  flex-shrink: 0;
 }
 
-.modal-tip {
+.controls-modal .modal-tip {
   margin: 0;
   font-size: 0.9rem;
-  color: #d0d0d0;
+  color: #666;
   text-align: center;
 }
 
-.modal-tip strong {
-  color: #e3b7ff;
+.controls-modal .modal-tip strong {
+  color: #8b5a9e;
 }
 
-/* Responsive design */
+/* --- Responsive --- */
+
 @media (max-width: 600px) {
-  .modal-content {
+  .controls-modal {
     width: 95%;
     margin: 20px;
   }
-  
-  .modal-header {
+
+  .controls-modal .modal-header {
     padding: 16px;
   }
-  
-  .modal-header h2 {
+
+  .controls-modal .modal-header h2 {
     font-size: 1.2rem;
   }
-  
-  .modal-body {
+
+  .controls-modal .modal-body {
     padding: 16px;
   }
-  
-  .control-item {
+
+  .controls-modal .control-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
-  
-  .control-key {
+
+  .controls-modal .control-key {
     min-width: auto;
     width: 100%;
   }
-  
-  .control-desc {
+
+  .controls-modal .control-desc {
     margin-left: 0;
     font-size: 0.9rem;
   }

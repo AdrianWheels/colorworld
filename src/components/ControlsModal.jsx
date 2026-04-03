@@ -26,7 +26,7 @@ const ControlsModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="controls-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h2>{t('app.controls.title')}</h2>
           <button className="close-button" onClick={onClose} aria-label={t('app.controls.close')}>✕</button>
@@ -55,19 +55,23 @@ const ControlsModal = ({ isOpen, onClose }) => {
               <div className="control-section">
                 <h3>{t('app.controls.tools.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.brush')}</span>
+                  <span className="control-key"><img src="/Icons/web/pincel.png" alt="" className="control-icon" />{t('app.controls.tools.brush')}</span>
                   <span className="control-desc">{t('app.controls.tools.brushDescMobile')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.bucket')}</span>
+                  <span className="control-key"><img src="/Icons/web/spray.png" alt="" className="control-icon" />{t('app.controls.tools.spray')}</span>
+                  <span className="control-desc">{t('app.controls.tools.sprayDescMobile')}</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key"><img src="/Icons/web/bucket.png" alt="" className="control-icon" />{t('app.controls.tools.bucket')}</span>
                   <span className="control-desc">{t('app.controls.tools.bucketDescMobile')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.eraser')}</span>
+                  <span className="control-key"><img src="/Icons/web/eraser.png" alt="" className="control-icon" />{t('app.controls.tools.eraser')}</span>
                   <span className="control-desc">{t('app.controls.tools.eraserDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.eyedropper')}</span>
+                  <span className="control-key"><img src="/Icons/web/colorpicker.png" alt="" className="control-icon" />{t('app.controls.tools.eyedropper')}</span>
                   <span className="control-desc">{t('app.controls.tools.eyedropperDescMobile')}</span>
                 </div>
                 <div className="control-item">
@@ -87,7 +91,7 @@ const ControlsModal = ({ isOpen, onClose }) => {
                   <span className="control-desc">{t('app.controls.actions.redoDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.actions.clear')}</span>
+                  <span className="control-key"><img src="/Icons/web/trash.png" alt="" className="control-icon" />{t('app.controls.actions.clear')}</span>
                   <span className="control-desc">{t('app.controls.actions.clearDesc')}</span>
                 </div>
               </div>
@@ -130,19 +134,23 @@ const ControlsModal = ({ isOpen, onClose }) => {
               <div className="control-section">
                 <h3>{t('app.controls.tools.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.brush')}</span>
+                  <span className="control-key"><img src="/Icons/web/pincel.png" alt="" className="control-icon" />{t('app.controls.tools.brush')}</span>
                   <span className="control-desc">{t('app.controls.tools.brushDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.bucket')}</span>
+                  <span className="control-key"><img src="/Icons/web/spray.png" alt="" className="control-icon" />{t('app.controls.tools.spray')}</span>
+                  <span className="control-desc">{t('app.controls.tools.sprayDesc')}</span>
+                </div>
+                <div className="control-item">
+                  <span className="control-key"><img src="/Icons/web/bucket.png" alt="" className="control-icon" />{t('app.controls.tools.bucket')}</span>
                   <span className="control-desc">{t('app.controls.tools.bucketDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.eraser')}</span>
+                  <span className="control-key"><img src="/Icons/web/eraser.png" alt="" className="control-icon" />{t('app.controls.tools.eraser')}</span>
                   <span className="control-desc">{t('app.controls.tools.eraserDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.tools.eyedropper')}</span>
+                  <span className="control-key"><img src="/Icons/web/colorpicker.png" alt="" className="control-icon" />{t('app.controls.tools.eyedropper')}</span>
                   <span className="control-desc">{t('app.controls.tools.eyedropperDesc')}</span>
                 </div>
                 <div className="control-item">
@@ -154,11 +162,11 @@ const ControlsModal = ({ isOpen, onClose }) => {
               <div className="control-section">
                 <h3>{t('app.controls.actions.title')}</h3>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.actions.clear')}</span>
+                  <span className="control-key"><img src="/Icons/web/trash.png" alt="" className="control-icon" />{t('app.controls.actions.clear')}</span>
                   <span className="control-desc">{t('app.controls.actions.clearDesc')}</span>
                 </div>
                 <div className="control-item">
-                  <span className="control-key">{t('app.controls.actions.save')}</span>
+                  <span className="control-key"><img src="/Icons/web/save.png" alt="" className="control-icon" />{t('app.controls.actions.save')}</span>
                   <span className="control-desc">{t('app.controls.actions.saveDesc')}</span>
                 </div>
               </div>
