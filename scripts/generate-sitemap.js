@@ -34,7 +34,9 @@ export async function generateSitemap() {
     
     imagesList.forEach(imageData => {
       if (imageData && imageData.fileName && imageData.theme) {
-        const imageUrl = `${baseUrl}${imageData.url}`;
+        const imageUrl = imageData.url.startsWith('http')
+          ? imageData.url
+          : `${baseUrl}${imageData.url}`;
         const pageUrl = `${baseUrl}/?date=${date}`;
         
         imageUrls += `  <!-- Dibujo del ${date} -->

@@ -1,47 +1,70 @@
-// Servicio para cargar imágenes estáticas desde Vercel usando índice dinámico
+// Servicio para cargar imágenes del día desde Supabase.
+// Fuente única de verdad: tabla `daily_images` (alimentada por el workflow diario).
 import Logger from '../utils/logger.js';
+import supabase from './supabaseClient.js';
 
 class StaticImageService {
   constructor() {
-    this.baseImagePath = '/generated-images';
-    this.indexUrl = '/generated-images/images-index.json';
     this.indexCache = null;
     this.lastIndexUpdate = null;
-    this.cacheExpiry = 1 * 60 * 1000; // 1 minuto para caché más agresivo
+    this.cacheExpiry = 1 * 60 * 1000; // 1 minuto
   }
 
-  // Cargar el índice de imágenes dinámicamente
+  // Devuelve el shape que consumen DrawingCalendar y demás:
+  // { images: { 'YYYY-MM-DD': [{fileName, url, theme, dateKey, timestamp, ...}] }, daysByMonth, totalImages, totalDays }
   async loadImagesIndex() {
+    if (this.indexCache && this.lastIndexUpdate &&
+        (Date.now() - this.lastIndexUpdate < this.cacheExpiry)) {
+      return this.indexCache;
+    }
+
     try {
-      // Usar caché si está disponible y no ha expirado
-      if (this.indexCache && this.lastIndexUpdate && 
-          (Date.now() - this.lastIndexUpdate < this.cacheExpiry)) {
-        return this.indexCache;
+      const { data, error } = await supabase
+        .from('daily_images')
+        .select('date_key, file_name, public_url, tematica, file_size, generated_at')
+        .order('date_key', { ascending: false });
+
+      if (error) throw error;
+
+      const images = {};
+      const daysByMonth = {};
+
+      for (const row of data ?? []) {
+        images[row.date_key] = [{
+          fileName: row.file_name,
+          url: row.public_url,
+          theme: row.tematica,
+          dateKey: row.date_key,
+          timestamp: new Date(row.generated_at).getTime(),
+          extension: 'png',
+          fileSize: row.file_size,
+          lastModified: row.generated_at,
+        }];
+        const monthKey = row.date_key.slice(0, 7);
+        if (!daysByMonth[monthKey]) daysByMonth[monthKey] = [];
+        daysByMonth[monthKey].push(row.date_key);
       }
 
-      Logger.log('🔄 Cargando índice de imágenes...');
-      // Agregar timestamp para evitar caché del navegador
-      const timestamp = Date.now();
-      const response = await fetch(`${this.indexUrl}?v=${timestamp}`);
-      
-      if (!response.ok) {
-        throw new Error(`Error cargando índice: ${response.status}`);
-      }
-      
-      const index = await response.json();
+      const index = {
+        lastUpdated: new Date().toISOString(),
+        images,
+        daysByMonth,
+        totalImages: (data ?? []).length,
+        totalDays: (data ?? []).length,
+      };
+
       this.indexCache = index;
       this.lastIndexUpdate = Date.now();
-      
-            Logger.log('✅ Índice cargado:', index.totalImages, 'imágenes disponibles');
+      Logger.log('✅ Índice cargado desde Supabase:', index.totalImages, 'imágenes');
       return index;
-      
     } catch (error) {
-      Logger.warn('⚠️ Error cargando índice de imágenes:', error);
-      // Fallback: devolver estructura vacía
+      Logger.warn('⚠️ Error cargando índice desde Supabase:', error.message);
       return {
         lastUpdated: new Date().toISOString(),
         images: {},
-        daysByMonth: {}
+        daysByMonth: {},
+        totalImages: 0,
+        totalDays: 0,
       };
     }
   }

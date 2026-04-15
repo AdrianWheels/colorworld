@@ -1,2403 +1,2430 @@
 {
-  "lastUpdated": "2026-04-03T01:39:21.704Z",
+  "lastUpdated": "2026-04-15T12:34:23.605Z",
   "images": {
-    "2025-09-29": [
-      {
-        "fileName": "2025-09-29_FiestaMagica_1759179517908.png",
-        "url": "/generated-images/2025-09/2025-09-29_FiestaMagica_1759179517908.png",
-        "theme": "FiestaMagica",
-        "dateKey": "2025-09-29",
-        "timestamp": 1759179517908,
-        "extension": "png",
-        "fileSize": 1639143,
-        "lastModified": "2026-04-03T01:38:58.013Z"
-      }
-    ],
-    "2025-09-30": [
-      {
-        "fileName": "2025-09-30_ArcoirisCole2_1759198919861.png",
-        "url": "/generated-images/2025-09/2025-09-30_ArcoirisCole2_1759198919861.png",
-        "theme": "ArcoirisCole2",
-        "dateKey": "2025-09-30",
-        "timestamp": 1759198919861,
-        "extension": "png",
-        "fileSize": 1260724,
-        "lastModified": "2026-04-03T01:38:58.015Z"
-      }
-    ],
-    "2025-10-01": [
-      {
-        "fileName": "2025-10-01_Calabaza_1759286619367.png",
-        "url": "/generated-images/2025-10/2025-10-01_Calabaza_1759286619367.png",
-        "theme": "Calabaza",
-        "dateKey": "2025-10-01",
-        "timestamp": 1759286619367,
-        "extension": "png",
-        "fileSize": 1288871,
-        "lastModified": "2026-04-03T01:38:58.016Z"
-      }
-    ],
-    "2025-10-02": [
-      {
-        "fileName": "2025-10-02_Murcilago_1759371667546.png",
-        "url": "/generated-images/2025-10/2025-10-02_Murcilago_1759371667546.png",
-        "theme": "Murcilago",
-        "dateKey": "2025-10-02",
-        "timestamp": 1759371667546,
-        "extension": "png",
-        "fileSize": 1247535,
-        "lastModified": "2026-04-03T01:38:58.017Z"
-      }
-    ],
-    "2025-10-03": [
-      {
-        "fileName": "2025-10-03_Fantasma_1759458058234.png",
-        "url": "/generated-images/2025-10/2025-10-03_Fantasma_1759458058234.png",
-        "theme": "Fantasma",
-        "dateKey": "2025-10-03",
-        "timestamp": 1759458058234,
-        "extension": "png",
-        "fileSize": 1136975,
-        "lastModified": "2026-04-03T01:38:58.018Z"
-      }
-    ],
-    "2025-10-04": [
-      {
-        "fileName": "2025-10-04_Bruja_1759544167318.png",
-        "url": "/generated-images/2025-10/2025-10-04_Bruja_1759544167318.png",
-        "theme": "Bruja",
-        "dateKey": "2025-10-04",
-        "timestamp": 1759544167318,
-        "extension": "png",
-        "fileSize": 697330,
-        "lastModified": "2026-04-03T01:38:58.019Z"
-      }
-    ],
-    "2025-10-05": [
-      {
-        "fileName": "2025-10-05_Esqueleto_1759632026038.png",
-        "url": "/generated-images/2025-10/2025-10-05_Esqueleto_1759632026038.png",
-        "theme": "Esqueleto",
-        "dateKey": "2025-10-05",
-        "timestamp": 1759632026038,
-        "extension": "png",
-        "fileSize": 524450,
-        "lastModified": "2026-04-03T01:38:58.020Z"
-      }
-    ],
-    "2025-10-06": [
-      {
-        "fileName": "2025-10-06_Araa_1759717479557.png",
-        "url": "/generated-images/2025-10/2025-10-06_Araa_1759717479557.png",
-        "theme": "Araa",
-        "dateKey": "2025-10-06",
-        "timestamp": 1759717479557,
-        "extension": "png",
-        "fileSize": 650662,
-        "lastModified": "2026-04-03T01:38:58.021Z"
-      }
-    ],
-    "2025-10-07": [
-      {
-        "fileName": "2025-10-07_Gato_1759803731750.png",
-        "url": "/generated-images/2025-10/2025-10-07_Gato_1759803731750.png",
-        "theme": "Gato",
-        "dateKey": "2025-10-07",
-        "timestamp": 1759803731750,
-        "extension": "png",
-        "fileSize": 596917,
-        "lastModified": "2026-04-03T01:38:58.023Z"
-      }
-    ],
-    "2025-10-08": [
-      {
-        "fileName": "2025-10-08_Sombrero_1759890105357.png",
-        "url": "/generated-images/2025-10/2025-10-08_Sombrero_1759890105357.png",
-        "theme": "Sombrero",
-        "dateKey": "2025-10-08",
-        "timestamp": 1759890105357,
-        "extension": "png",
-        "fileSize": 414926,
-        "lastModified": "2026-04-03T01:38:58.024Z"
-      }
-    ],
-    "2025-10-09": [
-      {
-        "fileName": "2025-10-09_Castillo_1759976627555.png",
-        "url": "/generated-images/2025-10/2025-10-09_Castillo_1759976627555.png",
-        "theme": "Castillo",
-        "dateKey": "2025-10-09",
-        "timestamp": 1759976627555,
-        "extension": "png",
-        "fileSize": 1172415,
-        "lastModified": "2026-04-03T01:38:58.025Z"
-      }
-    ],
-    "2025-10-10": [
-      {
-        "fileName": "2025-10-10_Zombie_1760063029908.png",
-        "url": "/generated-images/2025-10/2025-10-10_Zombie_1760063029908.png",
-        "theme": "Zombie",
-        "dateKey": "2025-10-10",
-        "timestamp": 1760063029908,
-        "extension": "png",
-        "fileSize": 691648,
-        "lastModified": "2026-04-03T01:38:58.026Z"
-      }
-    ],
-    "2025-10-11": [
-      {
-        "fileName": "2025-10-11_Momia_1760149135816.png",
-        "url": "/generated-images/2025-10/2025-10-11_Momia_1760149135816.png",
-        "theme": "Momia",
-        "dateKey": "2025-10-11",
-        "timestamp": 1760149135816,
-        "extension": "png",
-        "fileSize": 1367959,
-        "lastModified": "2026-04-03T01:38:58.027Z"
-      }
-    ],
-    "2025-10-12": [
-      {
-        "fileName": "2025-10-12_Escoba_1760235989807.png",
-        "url": "/generated-images/2025-10/2025-10-12_Escoba_1760235989807.png",
-        "theme": "Escoba",
-        "dateKey": "2025-10-12",
-        "timestamp": 1760235989807,
-        "extension": "png",
-        "fileSize": 562992,
-        "lastModified": "2026-04-03T01:38:58.029Z"
-      }
-    ],
-    "2025-10-13": [
-      {
-        "fileName": "2025-10-13_Caldero_1760323317765.png",
-        "url": "/generated-images/2025-10/2025-10-13_Caldero_1760323317765.png",
-        "theme": "Caldero",
-        "dateKey": "2025-10-13",
-        "timestamp": 1760323317765,
-        "extension": "png",
-        "fileSize": 570354,
-        "lastModified": "2026-04-03T01:38:58.029Z"
-      }
-    ],
-    "2025-10-14": [
-      {
-        "fileName": "2025-10-14_Monstruo_1760408647917.png",
-        "url": "/generated-images/2025-10/2025-10-14_Monstruo_1760408647917.png",
-        "theme": "Monstruo",
-        "dateKey": "2025-10-14",
-        "timestamp": 1760408647917,
-        "extension": "png",
-        "fileSize": 697857,
-        "lastModified": "2026-04-03T01:38:58.030Z"
-      }
-    ],
-    "2025-10-15": [
-      {
-        "fileName": "2025-10-15_Luna_1760495237121.png",
-        "url": "/generated-images/2025-10/2025-10-15_Luna_1760495237121.png",
-        "theme": "Luna",
-        "dateKey": "2025-10-15",
-        "timestamp": 1760495237121,
-        "extension": "png",
-        "fileSize": 485056,
-        "lastModified": "2026-04-03T01:38:58.031Z"
-      }
-    ],
-    "2025-10-16": [
-      {
-        "fileName": "2025-10-16_Cementerio_1760581556847.png",
-        "url": "/generated-images/2025-10/2025-10-16_Cementerio_1760581556847.png",
-        "theme": "Cementerio",
-        "dateKey": "2025-10-16",
-        "timestamp": 1760581556847,
-        "extension": "png",
-        "fileSize": 612078,
-        "lastModified": "2026-04-03T01:38:58.032Z"
-      }
-    ],
-    "2025-10-17": [
-      {
-        "fileName": "2025-10-17_Velas_1760667926230.png",
-        "url": "/generated-images/2025-10/2025-10-17_Velas_1760667926230.png",
-        "theme": "Velas",
-        "dateKey": "2025-10-17",
-        "timestamp": 1760667926230,
-        "extension": "png",
-        "fileSize": 442778,
-        "lastModified": "2026-04-03T01:38:58.034Z"
-      }
-    ],
-    "2025-10-18": [
-      {
-        "fileName": "2025-10-18_Caramelos_1760753989065.png",
-        "url": "/generated-images/2025-10/2025-10-18_Caramelos_1760753989065.png",
-        "theme": "Caramelos",
-        "dateKey": "2025-10-18",
-        "timestamp": 1760753989065,
-        "extension": "png",
-        "fileSize": 1539229,
-        "lastModified": "2026-04-03T01:38:58.036Z"
-      }
-    ],
-    "2025-10-19": [
-      {
-        "fileName": "2025-10-19_Bho_1760842036550.png",
-        "url": "/generated-images/2025-10/2025-10-19_Bho_1760842036550.png",
-        "theme": "Bho",
-        "dateKey": "2025-10-19",
-        "timestamp": 1760842036550,
-        "extension": "png",
-        "fileSize": 610784,
-        "lastModified": "2026-04-03T01:38:58.037Z"
-      }
-    ],
-    "2025-10-20": [
-      {
-        "fileName": "2025-10-20_Calavera_1760928387315.png",
-        "url": "/generated-images/2025-10/2025-10-20_Calavera_1760928387315.png",
-        "theme": "Calavera",
-        "dateKey": "2025-10-20",
-        "timestamp": 1760928387315,
-        "extension": "png",
-        "fileSize": 1494124,
-        "lastModified": "2026-04-03T01:38:58.038Z"
-      }
-    ],
-    "2025-10-21": [
-      {
-        "fileName": "2025-10-21_Bosque_1761010493638.png",
-        "url": "/generated-images/2025-10/2025-10-21_Bosque_1761010493638.png",
-        "theme": "Bosque",
-        "dateKey": "2025-10-21",
-        "timestamp": 1761010493638,
-        "extension": "png",
-        "fileSize": 1320063,
-        "lastModified": "2026-04-03T01:38:58.039Z"
-      }
-    ],
-    "2025-10-22": [
-      {
-        "fileName": "2025-10-22_HombreLobo_1761096939543.png",
-        "url": "/generated-images/2025-10/2025-10-22_HombreLobo_1761096939543.png",
-        "theme": "HombreLobo",
-        "dateKey": "2025-10-22",
-        "timestamp": 1761096939543,
-        "extension": "png",
-        "fileSize": 464961,
-        "lastModified": "2026-04-03T01:38:58.041Z"
-      }
-    ],
-    "2025-10-23": [
-      {
-        "fileName": "2025-10-23_Casa_1761183284544.png",
-        "url": "/generated-images/2025-10/2025-10-23_Casa_1761183284544.png",
-        "theme": "Casa",
-        "dateKey": "2025-10-23",
-        "timestamp": 1761183284544,
-        "extension": "png",
-        "fileSize": 1137441,
-        "lastModified": "2026-04-03T01:38:58.042Z"
-      }
-    ],
-    "2025-10-24": [
-      {
-        "fileName": "2025-10-24_Ratas_1761269692079.png",
-        "url": "/generated-images/2025-10/2025-10-24_Ratas_1761269692079.png",
-        "theme": "Ratas",
-        "dateKey": "2025-10-24",
-        "timestamp": 1761269692079,
-        "extension": "png",
-        "fileSize": 613383,
-        "lastModified": "2026-04-03T01:38:58.042Z"
-      }
-    ],
-    "2025-10-25": [
-      {
-        "fileName": "2025-10-25_Telaraa_1761356072457.png",
-        "url": "/generated-images/2025-10/2025-10-25_Telaraa_1761356072457.png",
-        "theme": "Telaraa",
-        "dateKey": "2025-10-25",
-        "timestamp": 1761356072457,
-        "extension": "png",
-        "fileSize": 1368555,
-        "lastModified": "2026-04-03T01:38:58.044Z"
-      }
-    ],
-    "2025-10-26": [
-      {
-        "fileName": "2025-10-26_Espantapjaros_1761442516297.png",
-        "url": "/generated-images/2025-10/2025-10-26_Espantapjaros_1761442516297.png",
-        "theme": "Espantapjaros",
-        "dateKey": "2025-10-26",
-        "timestamp": 1761442516297,
-        "extension": "png",
-        "fileSize": 1048128,
-        "lastModified": "2026-04-03T01:38:58.044Z"
-      }
-    ],
-    "2025-10-27": [
-      {
-        "fileName": "2025-10-27_Bebida_1761528959878.png",
-        "url": "/generated-images/2025-10/2025-10-27_Bebida_1761528959878.png",
-        "theme": "Bebida",
-        "dateKey": "2025-10-27",
-        "timestamp": 1761528959878,
-        "extension": "png",
-        "fileSize": 479523,
-        "lastModified": "2026-04-03T01:38:58.045Z"
-      }
-    ],
-    "2025-10-28": [
-      {
-        "fileName": "2025-10-28_Mscara_1761615297655.png",
-        "url": "/generated-images/2025-10/2025-10-28_Mscara_1761615297655.png",
-        "theme": "Mscara",
-        "dateKey": "2025-10-28",
-        "timestamp": 1761615297655,
-        "extension": "png",
-        "fileSize": 1123188,
-        "lastModified": "2026-04-03T01:38:58.046Z"
-      }
-    ],
-    "2025-10-29": [
-      {
-        "fileName": "2025-10-29_Espritu_1761701731936.png",
-        "url": "/generated-images/2025-10/2025-10-29_Espritu_1761701731936.png",
-        "theme": "Espritu",
-        "dateKey": "2025-10-29",
-        "timestamp": 1761701731936,
-        "extension": "png",
-        "fileSize": 1831549,
-        "lastModified": "2026-04-03T01:38:58.049Z"
-      }
-    ],
-    "2025-10-30": [
-      {
-        "fileName": "2025-10-30_Corazn_1761788139694.png",
-        "url": "/generated-images/2025-10/2025-10-30_Corazn_1761788139694.png",
-        "theme": "Corazn",
-        "dateKey": "2025-10-30",
-        "timestamp": 1761788139694,
-        "extension": "png",
-        "fileSize": 335766,
-        "lastModified": "2026-04-03T01:38:58.050Z"
-      }
-    ],
-    "2025-10-31": [
-      {
-        "fileName": "2025-10-31_Sombras_1761874505490.png",
-        "url": "/generated-images/2025-10/2025-10-31_Sombras_1761874505490.png",
-        "theme": "Sombras",
-        "dateKey": "2025-10-31",
-        "timestamp": 1761874505490,
-        "extension": "png",
-        "fileSize": 499151,
-        "lastModified": "2026-04-03T01:38:58.051Z"
-      }
-    ],
-    "2025-11-01": [
-      {
-        "fileName": "2025-11-01_Hojas_1761960902294.png",
-        "url": "/generated-images/2025-11/2025-11-01_Hojas_1761960902294.png",
-        "theme": "Hojas",
-        "dateKey": "2025-11-01",
-        "timestamp": 1761960902294,
-        "extension": "png",
-        "fileSize": 589912,
-        "lastModified": "2026-04-03T01:38:58.052Z"
-      }
-    ],
-    "2025-11-02": [
-      {
-        "fileName": "2025-11-02_Bosque_1762047317661.png",
-        "url": "/generated-images/2025-11/2025-11-02_Bosque_1762047317661.png",
-        "theme": "Bosque",
-        "dateKey": "2025-11-02",
-        "timestamp": 1762047317661,
-        "extension": "png",
-        "fileSize": 1373904,
-        "lastModified": "2026-04-03T01:38:58.053Z"
-      }
-    ],
-    "2025-11-03": [
-      {
-        "fileName": "2025-11-03_Ardilla_1762133762508.png",
-        "url": "/generated-images/2025-11/2025-11-03_Ardilla_1762133762508.png",
-        "theme": "Ardilla",
-        "dateKey": "2025-11-03",
-        "timestamp": 1762133762508,
-        "extension": "png",
-        "fileSize": 447808,
-        "lastModified": "2026-04-03T01:38:58.054Z"
-      }
-    ],
-    "2025-11-04": [
-      {
-        "fileName": "2025-11-04_Zorro_1762220106345.png",
-        "url": "/generated-images/2025-11/2025-11-04_Zorro_1762220106345.png",
-        "theme": "Zorro",
-        "dateKey": "2025-11-04",
-        "timestamp": 1762220106345,
-        "extension": "png",
-        "fileSize": 636726,
-        "lastModified": "2026-04-03T01:38:58.056Z"
-      }
-    ],
-    "2025-11-05": [
-      {
-        "fileName": "2025-11-05_Cocina_1762306534178.png",
-        "url": "/generated-images/2025-11/2025-11-05_Cocina_1762306534178.png",
-        "theme": "Cocina",
-        "dateKey": "2025-11-05",
-        "timestamp": 1762306534178,
-        "extension": "png",
-        "fileSize": 1010230,
-        "lastModified": "2026-04-03T01:38:58.057Z"
-      }
-    ],
-    "2025-11-06": [
-      {
-        "fileName": "2025-11-06_TazaT_1762392925775.png",
-        "url": "/generated-images/2025-11/2025-11-06_TazaT_1762392925775.png",
-        "theme": "TazaT",
-        "dateKey": "2025-11-06",
-        "timestamp": 1762392925775,
-        "extension": "png",
-        "fileSize": 584226,
-        "lastModified": "2026-04-03T01:38:58.059Z"
-      }
-    ],
-    "2025-11-07": [
-      {
-        "fileName": "2025-11-07_Setas_1762479291578.png",
-        "url": "/generated-images/2025-11/2025-11-07_Setas_1762479291578.png",
-        "theme": "Setas",
-        "dateKey": "2025-11-07",
-        "timestamp": 1762479291578,
-        "extension": "png",
-        "fileSize": 1346997,
-        "lastModified": "2026-04-03T01:38:58.060Z"
-      }
-    ],
-    "2025-11-08": [
-      {
-        "fileName": "2025-11-08_Castaas_1762565662442.png",
-        "url": "/generated-images/2025-11/2025-11-08_Castaas_1762565662442.png",
-        "theme": "Castaas",
-        "dateKey": "2025-11-08",
-        "timestamp": 1762565662442,
-        "extension": "png",
-        "fileSize": 1049544,
-        "lastModified": "2026-04-03T01:38:58.061Z"
-      }
-    ],
-    "2025-11-09": [
-      {
-        "fileName": "2025-11-09_Fogata_1762652096989.png",
-        "url": "/generated-images/2025-11/2025-11-09_Fogata_1762652096989.png",
-        "theme": "Fogata",
-        "dateKey": "2025-11-09",
-        "timestamp": 1762652096989,
-        "extension": "png",
-        "fileSize": 563895,
-        "lastModified": "2026-04-03T01:38:58.062Z"
-      }
-    ],
-    "2025-11-10": [
-      {
-        "fileName": "2025-11-10_Lago_1762738560793.png",
-        "url": "/generated-images/2025-11/2025-11-10_Lago_1762738560793.png",
-        "theme": "Lago",
-        "dateKey": "2025-11-10",
-        "timestamp": 1762738560793,
-        "extension": "png",
-        "fileSize": 563857,
-        "lastModified": "2026-04-03T01:38:58.063Z"
-      }
-    ],
-    "2025-11-11": [
-      {
-        "fileName": "2025-11-11_Montaa_1762824944365.png",
-        "url": "/generated-images/2025-11/2025-11-11_Montaa_1762824944365.png",
-        "theme": "Montaa",
-        "dateKey": "2025-11-11",
-        "timestamp": 1762824944365,
-        "extension": "png",
-        "fileSize": 436928,
-        "lastModified": "2026-04-03T01:38:58.064Z"
-      }
-    ],
-    "2025-11-12": [
-      {
-        "fileName": "2025-11-12_Granja_1762911322668.png",
-        "url": "/generated-images/2025-11/2025-11-12_Granja_1762911322668.png",
-        "theme": "Granja",
-        "dateKey": "2025-11-12",
-        "timestamp": 1762911322668,
-        "extension": "png",
-        "fileSize": 1168794,
-        "lastModified": "2026-04-03T01:38:58.065Z"
-      }
-    ],
-    "2025-11-13": [
-      {
-        "fileName": "2025-11-13_Gallinas_1762997719436.png",
-        "url": "/generated-images/2025-11/2025-11-13_Gallinas_1762997719436.png",
-        "theme": "Gallinas",
-        "dateKey": "2025-11-13",
-        "timestamp": 1762997719436,
-        "extension": "png",
-        "fileSize": 1200913,
-        "lastModified": "2026-04-03T01:38:58.066Z"
-      }
-    ],
-    "2025-11-14": [
-      {
-        "fileName": "2025-11-14_Caballo_1763084129287.png",
-        "url": "/generated-images/2025-11/2025-11-14_Caballo_1763084129287.png",
-        "theme": "Caballo",
-        "dateKey": "2025-11-14",
-        "timestamp": 1763084129287,
-        "extension": "png",
-        "fileSize": 766566,
-        "lastModified": "2026-04-03T01:38:58.067Z"
-      }
-    ],
-    "2025-11-15": [
-      {
-        "fileName": "2025-11-15_Campo_1763170494783.png",
-        "url": "/generated-images/2025-11/2025-11-15_Campo_1763170494783.png",
-        "theme": "Campo",
-        "dateKey": "2025-11-15",
-        "timestamp": 1763170494783,
-        "extension": "png",
-        "fileSize": 1438217,
-        "lastModified": "2026-04-03T01:38:58.069Z"
-      }
-    ],
-    "2025-11-16": [
-      {
-        "fileName": "2025-11-16_Frutas_1763256924246.png",
-        "url": "/generated-images/2025-11/2025-11-16_Frutas_1763256924246.png",
-        "theme": "Frutas",
-        "dateKey": "2025-11-16",
-        "timestamp": 1763256924246,
-        "extension": "png",
-        "fileSize": 595865,
-        "lastModified": "2026-04-03T01:38:58.070Z"
-      }
-    ],
-    "2025-11-17": [
-      {
-        "fileName": "2025-11-17_Verduras_1763343359403.png",
-        "url": "/generated-images/2025-11/2025-11-17_Verduras_1763343359403.png",
-        "theme": "Verduras",
-        "dateKey": "2025-11-17",
-        "timestamp": 1763343359403,
-        "extension": "png",
-        "fileSize": 1251821,
-        "lastModified": "2026-04-03T01:38:58.071Z"
-      }
-    ],
-    "2025-11-18": [
-      {
-        "fileName": "2025-11-18_CasaRural_1763429713880.png",
-        "url": "/generated-images/2025-11/2025-11-18_CasaRural_1763429713880.png",
-        "theme": "CasaRural",
-        "dateKey": "2025-11-18",
-        "timestamp": 1763429713880,
-        "extension": "png",
-        "fileSize": 476683,
-        "lastModified": "2026-04-03T01:38:58.072Z"
-      }
-    ],
-    "2025-11-19": [
-      {
-        "fileName": "2025-11-19_Camino_1763516141210.png",
-        "url": "/generated-images/2025-11/2025-11-19_Camino_1763516141210.png",
-        "theme": "Camino",
-        "dateKey": "2025-11-19",
-        "timestamp": 1763516141210,
-        "extension": "png",
-        "fileSize": 1432848,
-        "lastModified": "2026-04-03T01:38:58.074Z"
-      }
-    ],
-    "2025-11-20": [
-      {
-        "fileName": "2025-11-20_Pjaros_1763602535159.png",
-        "url": "/generated-images/2025-11/2025-11-20_Pjaros_1763602535159.png",
-        "theme": "Pjaros",
-        "dateKey": "2025-11-20",
-        "timestamp": 1763602535159,
-        "extension": "png",
-        "fileSize": 418782,
-        "lastModified": "2026-04-03T01:38:58.074Z"
-      }
-    ],
-    "2025-11-21": [
-      {
-        "fileName": "2025-11-21_Nido_1763688920867.png",
-        "url": "/generated-images/2025-11/2025-11-21_Nido_1763688920867.png",
-        "theme": "Nido",
-        "dateKey": "2025-11-21",
-        "timestamp": 1763688920867,
-        "extension": "png",
-        "fileSize": 505971,
-        "lastModified": "2026-04-03T01:38:58.076Z"
-      }
-    ],
-    "2025-11-22": [
-      {
-        "fileName": "2025-11-22_Conejo_1763775284899.png",
-        "url": "/generated-images/2025-11/2025-11-22_Conejo_1763775284899.png",
-        "theme": "Conejo",
-        "dateKey": "2025-11-22",
-        "timestamp": 1763775284899,
-        "extension": "png",
-        "fileSize": 1397923,
-        "lastModified": "2026-04-03T01:38:58.077Z"
-      }
-    ],
-    "2025-11-23": [
-      {
-        "fileName": "2025-11-23_NiosJugando_1763861753200.png",
-        "url": "/generated-images/2025-11/2025-11-23_NiosJugando_1763861753200.png",
-        "theme": "NiosJugando",
-        "dateKey": "2025-11-23",
-        "timestamp": 1763861753200,
-        "extension": "png",
-        "fileSize": 1359582,
-        "lastModified": "2026-04-03T01:38:58.078Z"
-      }
-    ],
-    "2025-11-24": [
-      {
-        "fileName": "2025-11-24_Escuela_1763948183821.png",
-        "url": "/generated-images/2025-11/2025-11-24_Escuela_1763948183821.png",
-        "theme": "Escuela",
-        "dateKey": "2025-11-24",
-        "timestamp": 1763948183821,
-        "extension": "png",
-        "fileSize": 995605,
-        "lastModified": "2026-04-03T01:38:58.079Z"
-      }
-    ],
-    "2025-11-25": [
-      {
-        "fileName": "2025-11-25_Familia_1764034545950.png",
-        "url": "/generated-images/2025-11/2025-11-25_Familia_1764034545950.png",
-        "theme": "Familia",
-        "dateKey": "2025-11-25",
-        "timestamp": 1764034545950,
-        "extension": "png",
-        "fileSize": 1596043,
-        "lastModified": "2026-04-03T01:38:58.080Z"
-      }
-    ],
-    "2025-11-26": [
-      {
-        "fileName": "2025-11-26_Comida_1764120932256.png",
-        "url": "/generated-images/2025-11/2025-11-26_Comida_1764120932256.png",
-        "theme": "Comida",
-        "dateKey": "2025-11-26",
-        "timestamp": 1764120932256,
-        "extension": "png",
-        "fileSize": 658340,
-        "lastModified": "2026-04-03T01:38:58.081Z"
-      }
-    ],
-    "2025-11-27": [
-      {
-        "fileName": "2025-11-27_Mercado_1764207312598.png",
-        "url": "/generated-images/2025-11/2025-11-27_Mercado_1764207312598.png",
-        "theme": "Mercado",
-        "dateKey": "2025-11-27",
-        "timestamp": 1764207312598,
-        "extension": "png",
-        "fileSize": 1229147,
-        "lastModified": "2026-04-03T01:38:58.082Z"
-      }
-    ],
-    "2025-11-28": [
-      {
-        "fileName": "2025-11-28_Bicicleta_1764293727604.png",
-        "url": "/generated-images/2025-11/2025-11-28_Bicicleta_1764293727604.png",
-        "theme": "Bicicleta",
-        "dateKey": "2025-11-28",
-        "timestamp": 1764293727604,
-        "extension": "png",
-        "fileSize": 619059,
-        "lastModified": "2026-04-03T01:38:58.084Z"
-      }
-    ],
-    "2025-11-29": [
-      {
-        "fileName": "2025-11-29_Princesa_1764380091919.png",
-        "url": "/generated-images/2025-11/2025-11-29_Princesa_1764380091919.png",
-        "theme": "Princesa",
-        "dateKey": "2025-11-29",
-        "timestamp": 1764380091919,
-        "extension": "png",
-        "fileSize": 1827331,
-        "lastModified": "2026-04-03T01:38:58.086Z"
-      }
-    ],
-    "2025-11-30": [
-      {
-        "fileName": "2025-11-30_Lluvia_1764466546544.png",
-        "url": "/generated-images/2025-11/2025-11-30_Lluvia_1764466546544.png",
-        "theme": "Lluvia",
-        "dateKey": "2025-11-30",
-        "timestamp": 1764466546544,
-        "extension": "png",
-        "fileSize": 526421,
-        "lastModified": "2026-04-03T01:38:58.087Z"
-      }
-    ],
-    "2025-12-01": [
-      {
-        "fileName": "2025-12-01_rbolNavidad_1764553038889.png",
-        "url": "/generated-images/2025-12/2025-12-01_rbolNavidad_1764553038889.png",
-        "theme": "rbolNavidad",
-        "dateKey": "2025-12-01",
-        "timestamp": 1764553038889,
-        "extension": "png",
-        "fileSize": 485610,
-        "lastModified": "2026-04-03T01:38:58.088Z"
-      }
-    ],
-    "2025-12-02": [
-      {
-        "fileName": "2025-12-02_Regalos_1764639338940.png",
-        "url": "/generated-images/2025-12/2025-12-02_Regalos_1764639338940.png",
-        "theme": "Regalos",
-        "dateKey": "2025-12-02",
-        "timestamp": 1764639338940,
-        "extension": "png",
-        "fileSize": 446468,
-        "lastModified": "2026-04-03T01:38:58.090Z"
-      }
-    ],
-    "2025-12-03": [
-      {
-        "fileName": "2025-12-03_MuecoNieve_1764725730778.png",
-        "url": "/generated-images/2025-12/2025-12-03_MuecoNieve_1764725730778.png",
-        "theme": "MuecoNieve",
-        "dateKey": "2025-12-03",
-        "timestamp": 1764725730778,
-        "extension": "png",
-        "fileSize": 725599,
-        "lastModified": "2026-04-03T01:38:58.091Z"
-      }
-    ],
-    "2025-12-04": [
-      {
-        "fileName": "2025-12-04_Santa_1764812154457.png",
-        "url": "/generated-images/2025-12/2025-12-04_Santa_1764812154457.png",
-        "theme": "Santa",
-        "dateKey": "2025-12-04",
-        "timestamp": 1764812154457,
-        "extension": "png",
-        "fileSize": 1296014,
-        "lastModified": "2026-04-03T01:38:58.092Z"
-      }
-    ],
-    "2025-12-05": [
-      {
-        "fileName": "2025-12-05_Renos_1764898548795.png",
-        "url": "/generated-images/2025-12/2025-12-05_Renos_1764898548795.png",
-        "theme": "Renos",
-        "dateKey": "2025-12-05",
-        "timestamp": 1764898548795,
-        "extension": "png",
-        "fileSize": 688627,
-        "lastModified": "2026-04-03T01:38:58.093Z"
-      }
-    ],
-    "2025-12-06": [
-      {
-        "fileName": "2025-12-06_CasaNevada_1764984899784.png",
-        "url": "/generated-images/2025-12/2025-12-06_CasaNevada_1764984899784.png",
-        "theme": "CasaNevada",
-        "dateKey": "2025-12-06",
-        "timestamp": 1764984899784,
-        "extension": "png",
-        "fileSize": 574010,
-        "lastModified": "2026-04-03T01:38:58.095Z"
-      }
-    ],
-    "2025-12-07": [
-      {
-        "fileName": "2025-12-07_Villancicos_1765071346773.png",
-        "url": "/generated-images/2025-12/2025-12-07_Villancicos_1765071346773.png",
-        "theme": "Villancicos",
-        "dateKey": "2025-12-07",
-        "timestamp": 1765071346773,
-        "extension": "png",
-        "fileSize": 1057128,
-        "lastModified": "2026-04-03T01:38:58.096Z"
-      }
-    ],
-    "2025-12-08": [
-      {
-        "fileName": "2025-12-08_Galletas_1765157771700.png",
-        "url": "/generated-images/2025-12/2025-12-08_Galletas_1765157771700.png",
-        "theme": "Galletas",
-        "dateKey": "2025-12-08",
-        "timestamp": 1765157771700,
-        "extension": "png",
-        "fileSize": 548017,
-        "lastModified": "2026-04-03T01:38:58.097Z"
-      }
-    ],
-    "2025-12-09": [
-      {
-        "fileName": "2025-12-09_Calcetines_1765244164387.png",
-        "url": "/generated-images/2025-12/2025-12-09_Calcetines_1765244164387.png",
-        "theme": "Calcetines",
-        "dateKey": "2025-12-09",
-        "timestamp": 1765244164387,
-        "extension": "png",
-        "fileSize": 1097615,
-        "lastModified": "2026-04-03T01:38:58.098Z"
-      }
-    ],
-    "2025-12-10": [
-      {
-        "fileName": "2025-12-10_CoposNieve_1765330594302.png",
-        "url": "/generated-images/2025-12/2025-12-10_CoposNieve_1765330594302.png",
-        "theme": "CoposNieve",
-        "dateKey": "2025-12-10",
-        "timestamp": 1765330594302,
-        "extension": "png",
-        "fileSize": 1254651,
-        "lastModified": "2026-04-03T01:38:58.099Z"
-      }
-    ],
-    "2025-12-11": [
-      {
-        "fileName": "2025-12-11_Trineo_1765416970990.png",
-        "url": "/generated-images/2025-12/2025-12-11_Trineo_1765416970990.png",
-        "theme": "Trineo",
-        "dateKey": "2025-12-11",
-        "timestamp": 1765416970990,
-        "extension": "png",
-        "fileSize": 511593,
-        "lastModified": "2026-04-03T01:38:58.100Z"
-      }
-    ],
-    "2025-12-12": [
-      {
-        "fileName": "2025-12-12_Supermercado_1765503367732.png",
-        "url": "/generated-images/2025-12/2025-12-12_Supermercado_1765503367732.png",
-        "theme": "Supermercado",
-        "dateKey": "2025-12-12",
-        "timestamp": 1765503367732,
-        "extension": "png",
-        "fileSize": 1339395,
-        "lastModified": "2026-04-03T01:38:58.102Z"
-      }
-    ],
-    "2025-12-13": [
-      {
-        "fileName": "2025-12-13_PajarosInvierno_1765589738951.png",
-        "url": "/generated-images/2025-12/2025-12-13_PajarosInvierno_1765589738951.png",
-        "theme": "PajarosInvierno",
-        "dateKey": "2025-12-13",
-        "timestamp": 1765589738951,
-        "extension": "png",
-        "fileSize": 1162433,
-        "lastModified": "2026-04-03T01:38:58.103Z"
-      }
-    ],
-    "2025-12-14": [
-      {
-        "fileName": "2025-12-14_NieveJugando_1765676150242.png",
-        "url": "/generated-images/2025-12/2025-12-14_NieveJugando_1765676150242.png",
-        "theme": "NieveJugando",
-        "dateKey": "2025-12-14",
-        "timestamp": 1765676150242,
-        "extension": "png",
-        "fileSize": 1182296,
-        "lastModified": "2026-04-03T01:38:58.104Z"
-      }
-    ],
-    "2025-12-15": [
-      {
-        "fileName": "2025-12-15_MuecaNavidad_1765762622179.png",
-        "url": "/generated-images/2025-12/2025-12-15_MuecaNavidad_1765762622179.png",
-        "theme": "MuecaNavidad",
-        "dateKey": "2025-12-15",
-        "timestamp": 1765762622179,
-        "extension": "png",
-        "fileSize": 663994,
-        "lastModified": "2026-04-03T01:38:58.105Z"
-      }
-    ],
-    "2025-12-16": [
-      {
-        "fileName": "2025-12-16_CoronaNavidad_1765848969247.png",
-        "url": "/generated-images/2025-12/2025-12-16_CoronaNavidad_1765848969247.png",
-        "theme": "CoronaNavidad",
-        "dateKey": "2025-12-16",
-        "timestamp": 1765848969247,
-        "extension": "png",
-        "fileSize": 540068,
-        "lastModified": "2026-04-03T01:38:58.107Z"
-      }
-    ],
-    "2025-12-17": [
-      {
-        "fileName": "2025-12-17_Ciervo_1765935388222.png",
-        "url": "/generated-images/2025-12/2025-12-17_Ciervo_1765935388222.png",
-        "theme": "Ciervo",
-        "dateKey": "2025-12-17",
-        "timestamp": 1765935388222,
-        "extension": "png",
-        "fileSize": 1247146,
-        "lastModified": "2026-04-03T01:38:58.108Z"
-      }
-    ],
-    "2025-12-18": [
-      {
-        "fileName": "2025-12-18_ChocolateCaliente_1766021755244.png",
-        "url": "/generated-images/2025-12/2025-12-18_ChocolateCaliente_1766021755244.png",
-        "theme": "ChocolateCaliente",
-        "dateKey": "2025-12-18",
-        "timestamp": 1766021755244,
-        "extension": "png",
-        "fileSize": 380543,
-        "lastModified": "2026-04-03T01:38:58.109Z"
-      }
-    ],
-    "2025-12-19": [
-      {
-        "fileName": "2025-12-19_BastonDulce_1766108157252.png",
-        "url": "/generated-images/2025-12/2025-12-19_BastonDulce_1766108157252.png",
-        "theme": "BastonDulce",
-        "dateKey": "2025-12-19",
-        "timestamp": 1766108157252,
-        "extension": "png",
-        "fileSize": 500960,
-        "lastModified": "2026-04-03T01:38:58.111Z"
-      }
-    ],
-    "2025-12-20": [
-      {
-        "fileName": "2025-12-20_CartaSanta_1766194509742.png",
-        "url": "/generated-images/2025-12/2025-12-20_CartaSanta_1766194509742.png",
-        "theme": "CartaSanta",
-        "dateKey": "2025-12-20",
-        "timestamp": 1766194509742,
-        "extension": "png",
-        "fileSize": 579540,
-        "lastModified": "2026-04-03T01:38:58.113Z"
-      }
-    ],
-    "2025-12-21": [
-      {
-        "fileName": "2025-12-21_NocheBuena_1766280969572.png",
-        "url": "/generated-images/2025-12/2025-12-21_NocheBuena_1766280969572.png",
-        "theme": "NocheBuena",
-        "dateKey": "2025-12-21",
-        "timestamp": 1766280969572,
-        "extension": "png",
-        "fileSize": 1174323,
-        "lastModified": "2026-04-03T01:38:58.114Z"
-      }
-    ],
-    "2025-12-22": [
-      {
-        "fileName": "2025-12-22_Chimenea_1766367423790.png",
-        "url": "/generated-images/2025-12/2025-12-22_Chimenea_1766367423790.png",
-        "theme": "Chimenea",
-        "dateKey": "2025-12-22",
-        "timestamp": 1766367423790,
-        "extension": "png",
-        "fileSize": 1109336,
-        "lastModified": "2026-04-03T01:38:58.115Z"
-      }
-    ],
-    "2025-12-23": [
-      {
-        "fileName": "2025-12-23_VillancicoPareja_1766453791329.png",
-        "url": "/generated-images/2025-12/2025-12-23_VillancicoPareja_1766453791329.png",
-        "theme": "VillancicoPareja",
-        "dateKey": "2025-12-23",
-        "timestamp": 1766453791329,
-        "extension": "png",
-        "fileSize": 512077,
-        "lastModified": "2026-04-03T01:38:58.116Z"
-      }
-    ],
-    "2025-12-24": [
-      {
-        "fileName": "2025-12-24_PapInvierno_1766540163014.png",
-        "url": "/generated-images/2025-12/2025-12-24_PapInvierno_1766540163014.png",
-        "theme": "PapInvierno",
-        "dateKey": "2025-12-24",
-        "timestamp": 1766540163014,
-        "extension": "png",
-        "fileSize": 684272,
-        "lastModified": "2026-04-03T01:38:58.118Z"
-      }
-    ],
-    "2025-12-25": [
-      {
-        "fileName": "2025-12-25_RegalosParque_1766626616060.png",
-        "url": "/generated-images/2025-12/2025-12-25_RegalosParque_1766626616060.png",
-        "theme": "RegalosParque",
-        "dateKey": "2025-12-25",
-        "timestamp": 1766626616060,
-        "extension": "png",
-        "fileSize": 1039385,
-        "lastModified": "2026-04-03T01:38:58.118Z"
-      }
-    ],
-    "2025-12-26": [
-      {
-        "fileName": "2025-12-26_FinAo_1766712966880.png",
-        "url": "/generated-images/2025-12/2025-12-26_FinAo_1766712966880.png",
-        "theme": "FinAo",
-        "dateKey": "2025-12-26",
-        "timestamp": 1766712966880,
-        "extension": "png",
-        "fileSize": 1426421,
-        "lastModified": "2026-04-03T01:38:58.120Z"
-      }
-    ],
-    "2025-12-27": [
-      {
-        "fileName": "2025-12-27_RelojMedianoche_1766799365873.png",
-        "url": "/generated-images/2025-12/2025-12-27_RelojMedianoche_1766799365873.png",
-        "theme": "RelojMedianoche",
-        "dateKey": "2025-12-27",
-        "timestamp": 1766799365873,
-        "extension": "png",
-        "fileSize": 1216086,
-        "lastModified": "2026-04-03T01:38:58.121Z"
-      }
-    ],
-    "2025-12-28": [
-      {
-        "fileName": "2025-12-28_Brindis_1767028282050.png",
-        "url": "/generated-images/2025-12/2025-12-28_Brindis_1767028282050.png",
-        "theme": "Brindis",
-        "dateKey": "2025-12-28",
-        "timestamp": 1767028282050,
-        "extension": "png",
-        "fileSize": 565327,
-        "lastModified": "2026-04-03T01:38:58.123Z"
-      }
-    ],
-    "2025-12-29": [
-      {
-        "fileName": "2025-12-29_FuegosArtificiales_1767028303560.png",
-        "url": "/generated-images/2025-12/2025-12-29_FuegosArtificiales_1767028303560.png",
-        "theme": "FuegosArtificiales",
-        "dateKey": "2025-12-29",
-        "timestamp": 1767028303560,
-        "extension": "png",
-        "fileSize": 1305848,
-        "lastModified": "2026-04-03T01:38:58.124Z"
-      }
-    ],
-    "2025-12-30": [
-      {
-        "fileName": "2025-12-30_Calendario_1767058592828.png",
-        "url": "/generated-images/2025-12/2025-12-30_Calendario_1767058592828.png",
-        "theme": "Calendario",
-        "dateKey": "2025-12-30",
-        "timestamp": 1767058592828,
-        "extension": "png",
-        "fileSize": 1144914,
-        "lastModified": "2026-04-03T01:38:58.125Z"
-      }
-    ],
-    "2025-12-31": [
-      {
-        "fileName": "2025-12-31_Nmeros2026_1767144963949.png",
-        "url": "/generated-images/2025-12/2025-12-31_Nmeros2026_1767144963949.png",
-        "theme": "Nmeros2026",
-        "dateKey": "2025-12-31",
-        "timestamp": 1767144963949,
-        "extension": "png",
-        "fileSize": 819640,
-        "lastModified": "2026-04-03T01:38:58.126Z"
-      }
-    ],
-    "2026-01-01": [
-      {
-        "fileName": "2026-01-01_Nmeros2026_1767231467676.png",
-        "url": "/generated-images/2026-01/2026-01-01_Nmeros2026_1767231467676.png",
-        "theme": "Nmeros2026",
-        "dateKey": "2026-01-01",
-        "timestamp": 1767231467676,
-        "extension": "png",
-        "fileSize": 1207759,
-        "lastModified": "2026-04-03T01:38:58.127Z"
-      }
-    ],
-    "2026-01-02": [
-      {
-        "fileName": "2026-01-02_PaisajeNevado_1767317797333.png",
-        "url": "/generated-images/2026-01/2026-01-02_PaisajeNevado_1767317797333.png",
-        "theme": "PaisajeNevado",
-        "dateKey": "2026-01-02",
-        "timestamp": 1767317797333,
-        "extension": "png",
-        "fileSize": 491520,
-        "lastModified": "2026-04-03T01:38:58.128Z"
-      }
-    ],
-    "2026-01-03": [
-      {
-        "fileName": "2026-01-03_CoposNieve_1767404152178.png",
-        "url": "/generated-images/2026-01/2026-01-03_CoposNieve_1767404152178.png",
-        "theme": "CoposNieve",
-        "dateKey": "2026-01-03",
-        "timestamp": 1767404152178,
-        "extension": "png",
-        "fileSize": 1180081,
-        "lastModified": "2026-04-03T01:38:58.129Z"
-      }
-    ],
-    "2026-01-04": [
-      {
-        "fileName": "2026-01-04_MuecoNieve_1767490606651.png",
-        "url": "/generated-images/2026-01/2026-01-04_MuecoNieve_1767490606651.png",
-        "theme": "MuecoNieve",
-        "dateKey": "2026-01-04",
-        "timestamp": 1767490606651,
-        "extension": "png",
-        "fileSize": 450452,
-        "lastModified": "2026-04-03T01:38:58.130Z"
-      }
-    ],
-    "2026-01-05": [
-      {
-        "fileName": "2026-01-05_MandalaNaturaleza_1767577072641.png",
-        "url": "/generated-images/2026-01/2026-01-05_MandalaNaturaleza_1767577072641.png",
-        "theme": "MandalaNaturaleza",
-        "dateKey": "2026-01-05",
-        "timestamp": 1767577072641,
-        "extension": "png",
-        "fileSize": 1564637,
-        "lastModified": "2026-04-03T01:38:58.132Z"
-      }
-    ],
-    "2026-01-06": [
-      {
-        "fileName": "2026-01-06_ReyesMagos_1767663407106.png",
-        "url": "/generated-images/2026-01/2026-01-06_ReyesMagos_1767663407106.png",
-        "theme": "ReyesMagos",
-        "dateKey": "2026-01-06",
-        "timestamp": 1767663407106,
-        "extension": "png",
-        "fileSize": 540953,
-        "lastModified": "2026-04-03T01:38:58.133Z"
-      }
-    ],
-    "2026-01-07": [
-      {
-        "fileName": "2026-01-07_CasaInvierno_1767749785597.png",
-        "url": "/generated-images/2026-01/2026-01-07_CasaInvierno_1767749785597.png",
-        "theme": "CasaInvierno",
-        "dateKey": "2026-01-07",
-        "timestamp": 1767749785597,
-        "extension": "png",
-        "fileSize": 467045,
-        "lastModified": "2026-04-03T01:38:58.134Z"
-      }
-    ],
-    "2026-01-08": [
-      {
-        "fileName": "2026-01-08_AmigosT_1767836174004.png",
-        "url": "/generated-images/2026-01/2026-01-08_AmigosT_1767836174004.png",
-        "theme": "AmigosT",
-        "dateKey": "2026-01-08",
-        "timestamp": 1767836174004,
-        "extension": "png",
-        "fileSize": 1064383,
-        "lastModified": "2026-04-03T01:38:58.135Z"
-      }
-    ],
-    "2026-01-09": [
-      {
-        "fileName": "2026-01-09_PatioNevado_1767922602231.png",
-        "url": "/generated-images/2026-01/2026-01-09_PatioNevado_1767922602231.png",
-        "theme": "PatioNevado",
-        "dateKey": "2026-01-09",
-        "timestamp": 1767922602231,
-        "extension": "png",
-        "fileSize": 1086318,
-        "lastModified": "2026-04-03T01:38:58.136Z"
-      }
-    ],
-    "2026-01-10": [
-      {
-        "fileName": "2026-01-10_MandalaAnimales_1768008974280.png",
-        "url": "/generated-images/2026-01/2026-01-10_MandalaAnimales_1768008974280.png",
-        "theme": "MandalaAnimales",
-        "dateKey": "2026-01-10",
-        "timestamp": 1768008974280,
-        "extension": "png",
-        "fileSize": 1278555,
-        "lastModified": "2026-04-03T01:38:58.137Z"
-      }
-    ],
-    "2026-01-11": [
-      {
-        "fileName": "2026-01-11_Biblioteca_1768095410017.png",
-        "url": "/generated-images/2026-01/2026-01-11_Biblioteca_1768095410017.png",
-        "theme": "Biblioteca",
-        "dateKey": "2026-01-11",
-        "timestamp": 1768095410017,
-        "extension": "png",
-        "fileSize": 1639983,
-        "lastModified": "2026-04-03T01:38:58.139Z"
-      }
-    ],
-    "2026-01-12": [
-      {
-        "fileName": "2026-01-12_LagoInvierno_1768181839526.png",
-        "url": "/generated-images/2026-01/2026-01-12_LagoInvierno_1768181839526.png",
-        "theme": "LagoInvierno",
-        "dateKey": "2026-01-12",
-        "timestamp": 1768181839526,
-        "extension": "png",
-        "fileSize": 1108488,
-        "lastModified": "2026-04-03T01:38:58.140Z"
-      }
-    ],
-    "2026-01-13": [
-      {
-        "fileName": "2026-01-13_Cocina_1768268176330.png",
-        "url": "/generated-images/2026-01/2026-01-13_Cocina_1768268176330.png",
-        "theme": "Cocina",
-        "dateKey": "2026-01-13",
-        "timestamp": 1768268176330,
-        "extension": "png",
-        "fileSize": 1427763,
-        "lastModified": "2026-04-03T01:38:58.141Z"
-      }
-    ],
-    "2026-01-14": [
-      {
-        "fileName": "2026-01-14_CafAmigos_1768354610620.png",
-        "url": "/generated-images/2026-01/2026-01-14_CafAmigos_1768354610620.png",
-        "theme": "CafAmigos",
-        "dateKey": "2026-01-14",
-        "timestamp": 1768354610620,
-        "extension": "png",
-        "fileSize": 1109086,
-        "lastModified": "2026-04-03T01:38:58.142Z"
-      }
-    ],
-    "2026-01-15": [
-      {
-        "fileName": "2026-01-15_Esqu_1768440996688.png",
-        "url": "/generated-images/2026-01/2026-01-15_Esqu_1768440996688.png",
-        "theme": "Esqu",
-        "dateKey": "2026-01-15",
-        "timestamp": 1768440996688,
-        "extension": "png",
-        "fileSize": 646531,
-        "lastModified": "2026-04-03T01:38:58.143Z"
-      }
-    ],
-    "2026-01-16": [
-      {
-        "fileName": "2026-01-16_MandalaFloral_1768527399434.png",
-        "url": "/generated-images/2026-01/2026-01-16_MandalaFloral_1768527399434.png",
-        "theme": "MandalaFloral",
-        "dateKey": "2026-01-16",
-        "timestamp": 1768527399434,
-        "extension": "png",
-        "fileSize": 1358995,
-        "lastModified": "2026-04-03T01:38:58.144Z"
-      }
-    ],
-    "2026-01-17": [
-      {
-        "fileName": "2026-01-17_SalaEstar_1768613748062.png",
-        "url": "/generated-images/2026-01/2026-01-17_SalaEstar_1768613748062.png",
-        "theme": "SalaEstar",
-        "dateKey": "2026-01-17",
-        "timestamp": 1768613748062,
-        "extension": "png",
-        "fileSize": 528836,
-        "lastModified": "2026-04-03T01:38:58.146Z"
-      }
-    ],
-    "2026-01-18": [
-      {
-        "fileName": "2026-01-18_AnimalesBosque_1768700197510.png",
-        "url": "/generated-images/2026-01/2026-01-18_AnimalesBosque_1768700197510.png",
-        "theme": "AnimalesBosque",
-        "dateKey": "2026-01-18",
-        "timestamp": 1768700197510,
-        "extension": "png",
-        "fileSize": 1287379,
-        "lastModified": "2026-04-03T01:38:58.147Z"
-      }
-    ],
-    "2026-01-19": [
-      {
-        "fileName": "2026-01-19_TCaliente_1768786631531.png",
-        "url": "/generated-images/2026-01/2026-01-19_TCaliente_1768786631531.png",
-        "theme": "TCaliente",
-        "dateKey": "2026-01-19",
-        "timestamp": 1768786631531,
-        "extension": "png",
-        "fileSize": 496435,
-        "lastModified": "2026-04-03T01:38:58.148Z"
-      }
-    ],
-    "2026-01-20": [
-      {
-        "fileName": "2026-01-20_Patinaje_1768873000659.png",
-        "url": "/generated-images/2026-01/2026-01-20_Patinaje_1768873000659.png",
-        "theme": "Patinaje",
-        "dateKey": "2026-01-20",
-        "timestamp": 1768873000659,
-        "extension": "png",
-        "fileSize": 551517,
-        "lastModified": "2026-04-03T01:38:58.149Z"
-      }
-    ],
-    "2026-01-21": [
-      {
-        "fileName": "2026-01-21_MandalaInvierno_1768959443459.png",
-        "url": "/generated-images/2026-01/2026-01-21_MandalaInvierno_1768959443459.png",
-        "theme": "MandalaInvierno",
-        "dateKey": "2026-01-21",
-        "timestamp": 1768959443459,
-        "extension": "png",
-        "fileSize": 1548178,
-        "lastModified": "2026-04-03T01:38:58.151Z"
-      }
-    ],
-    "2026-01-22": [
-      {
-        "fileName": "2026-01-22_Chimenea_1769045809735.png",
-        "url": "/generated-images/2026-01/2026-01-22_Chimenea_1769045809735.png",
-        "theme": "Chimenea",
-        "dateKey": "2026-01-22",
-        "timestamp": 1769045809735,
-        "extension": "png",
-        "fileSize": 1123236,
-        "lastModified": "2026-04-03T01:38:58.152Z"
-      }
-    ],
-    "2026-01-23": [
-      {
-        "fileName": "2026-01-23_Ciervo_1769132211420.png",
-        "url": "/generated-images/2026-01/2026-01-23_Ciervo_1769132211420.png",
-        "theme": "Ciervo",
-        "dateKey": "2026-01-23",
-        "timestamp": 1769132211420,
-        "extension": "png",
-        "fileSize": 1153439,
-        "lastModified": "2026-04-03T01:38:58.153Z"
-      }
-    ],
-    "2026-01-24": [
-      {
-        "fileName": "2026-01-24_JardnInvierno_1769218570693.png",
-        "url": "/generated-images/2026-01/2026-01-24_JardnInvierno_1769218570693.png",
-        "theme": "JardnInvierno",
-        "dateKey": "2026-01-24",
-        "timestamp": 1769218570693,
-        "extension": "png",
-        "fileSize": 557627,
-        "lastModified": "2026-04-03T01:38:58.154Z"
-      }
-    ],
-    "2026-01-25": [
-      {
-        "fileName": "2026-01-25_AmigosJuego_1769305027879.png",
-        "url": "/generated-images/2026-01/2026-01-25_AmigosJuego_1769305027879.png",
-        "theme": "AmigosJuego",
-        "dateKey": "2026-01-25",
-        "timestamp": 1769305027879,
-        "extension": "png",
-        "fileSize": 1130337,
-        "lastModified": "2026-04-03T01:38:58.155Z"
-      }
-    ],
-    "2026-01-26": [
-      {
-        "fileName": "2026-01-26_ChocolateCaliente_1769391477848.png",
-        "url": "/generated-images/2026-01/2026-01-26_ChocolateCaliente_1769391477848.png",
-        "theme": "ChocolateCaliente",
-        "dateKey": "2026-01-26",
-        "timestamp": 1769391477848,
-        "extension": "png",
-        "fileSize": 609185,
-        "lastModified": "2026-04-03T01:38:58.156Z"
-      }
-    ],
-    "2026-01-27": [
-      {
-        "fileName": "2026-01-27_MandalaNaturaleza2_1769477820550.png",
-        "url": "/generated-images/2026-01/2026-01-27_MandalaNaturaleza2_1769477820550.png",
-        "theme": "MandalaNaturaleza2",
-        "dateKey": "2026-01-27",
-        "timestamp": 1769477820550,
-        "extension": "png",
-        "fileSize": 1387739,
-        "lastModified": "2026-04-03T01:38:58.157Z"
-      }
-    ],
-    "2026-01-28": [
-      {
-        "fileName": "2026-01-28_CalendarioEnero_1769564232919.png",
-        "url": "/generated-images/2026-01/2026-01-28_CalendarioEnero_1769564232919.png",
-        "theme": "CalendarioEnero",
-        "dateKey": "2026-01-28",
-        "timestamp": 1769564232919,
-        "extension": "png",
-        "fileSize": 598737,
-        "lastModified": "2026-04-03T01:38:58.160Z"
-      }
-    ],
-    "2026-01-29": [
-      {
-        "fileName": "2026-01-29_NieveJugando_1769650674938.png",
-        "url": "/generated-images/2026-01/2026-01-29_NieveJugando_1769650674938.png",
-        "theme": "NieveJugando",
-        "dateKey": "2026-01-29",
-        "timestamp": 1769650674938,
-        "extension": "png",
-        "fileSize": 737580,
-        "lastModified": "2026-04-03T01:38:58.161Z"
-      }
-    ],
-    "2026-01-30": [
-      {
-        "fileName": "2026-01-30_FuegosInvierno_1769737138713.png",
-        "url": "/generated-images/2026-01/2026-01-30_FuegosInvierno_1769737138713.png",
-        "theme": "FuegosInvierno",
-        "dateKey": "2026-01-30",
-        "timestamp": 1769737138713,
-        "extension": "png",
-        "fileSize": 1581710,
-        "lastModified": "2026-04-03T01:38:58.162Z"
-      }
-    ],
-    "2026-01-31": [
-      {
-        "fileName": "2026-01-31_DesayunoCozy_1769823458798.png",
-        "url": "/generated-images/2026-01/2026-01-31_DesayunoCozy_1769823458798.png",
-        "theme": "DesayunoCozy",
-        "dateKey": "2026-01-31",
-        "timestamp": 1769823458798,
-        "extension": "png",
-        "fileSize": 1123951,
-        "lastModified": "2026-04-03T01:38:58.163Z"
-      }
-    ],
-    "2026-02-01": [
-      {
-        "fileName": "2026-02-01_Perrito_1769909890697.png",
-        "url": "/generated-images/2026-02/2026-02-01_Perrito_1769909890697.png",
-        "theme": "Perrito",
-        "dateKey": "2026-02-01",
-        "timestamp": 1769909890697,
-        "extension": "png",
-        "fileSize": 401764,
-        "lastModified": "2026-04-03T01:38:58.164Z"
-      }
-    ],
-    "2026-02-02": [
-      {
-        "fileName": "2026-02-02_Gatito_1769996370512.png",
-        "url": "/generated-images/2026-02/2026-02-02_Gatito_1769996370512.png",
-        "theme": "Gatito",
-        "dateKey": "2026-02-02",
-        "timestamp": 1769996370512,
-        "extension": "png",
-        "fileSize": 536481,
-        "lastModified": "2026-04-03T01:38:58.165Z"
-      }
-    ],
-    "2026-02-03": [
-      {
-        "fileName": "2026-02-03_Lectura_1770082751922.png",
-        "url": "/generated-images/2026-02/2026-02-03_Lectura_1770082751922.png",
-        "theme": "Lectura",
-        "dateKey": "2026-02-03",
-        "timestamp": 1770082751922,
-        "extension": "png",
-        "fileSize": 1184483,
-        "lastModified": "2026-04-03T01:38:58.166Z"
-      }
-    ],
-    "2026-02-04": [
-      {
-        "fileName": "2026-02-04_PicnicInvierno_1770169118129.png",
-        "url": "/generated-images/2026-02/2026-02-04_PicnicInvierno_1770169118129.png",
-        "theme": "PicnicInvierno",
-        "dateKey": "2026-02-04",
-        "timestamp": 1770169118129,
-        "extension": "png",
-        "fileSize": 1376259,
-        "lastModified": "2026-04-03T01:38:58.167Z"
-      }
-    ],
-    "2026-02-05": [
-      {
-        "fileName": "2026-02-05_MandalaFlores_1770293759361.png",
-        "url": "/generated-images/2026-02/2026-02-05_MandalaFlores_1770293759361.png",
-        "theme": "MandalaFlores",
-        "dateKey": "2026-02-05",
-        "timestamp": 1770293759361,
-        "extension": "png",
-        "fileSize": 1258589,
-        "lastModified": "2026-04-03T01:38:58.169Z"
-      }
-    ],
-    "2026-02-07": [
-      {
-        "fileName": "2026-02-07_CasaAcogedora_1770428281947.png",
-        "url": "/generated-images/2026-02/2026-02-07_CasaAcogedora_1770428281947.png",
-        "theme": "CasaAcogedora",
-        "dateKey": "2026-02-07",
-        "timestamp": 1770428281947,
-        "extension": "png",
-        "fileSize": 1267312,
-        "lastModified": "2026-04-03T01:38:58.170Z"
-      }
-    ],
-    "2026-02-08": [
-      {
-        "fileName": "2026-02-08_TTarde_1770514762588.png",
-        "url": "/generated-images/2026-02/2026-02-08_TTarde_1770514762588.png",
-        "theme": "TTarde",
-        "dateKey": "2026-02-08",
-        "timestamp": 1770514762588,
-        "extension": "png",
-        "fileSize": 583846,
-        "lastModified": "2026-04-03T01:38:58.172Z"
-      }
-    ],
-    "2026-02-09": [
-      {
-        "fileName": "2026-02-09_CoraznValentn_1770601187522.png",
-        "url": "/generated-images/2026-02/2026-02-09_CoraznValentn_1770601187522.png",
-        "theme": "CoraznValentn",
-        "dateKey": "2026-02-09",
-        "timestamp": 1770601187522,
-        "extension": "png",
-        "fileSize": 1344927,
-        "lastModified": "2026-04-03T01:38:58.173Z"
-      }
-    ],
-    "2026-02-10": [
-      {
-        "fileName": "2026-02-10_PerritoDormiln_1770687641936.png",
-        "url": "/generated-images/2026-02/2026-02-10_PerritoDormiln_1770687641936.png",
-        "theme": "PerritoDormiln",
-        "dateKey": "2026-02-10",
-        "timestamp": 1770687641936,
-        "extension": "png",
-        "fileSize": 375230,
-        "lastModified": "2026-04-03T01:38:58.173Z"
-      }
-    ],
-    "2026-02-11": [
-      {
-        "fileName": "2026-02-11_GatoTaza_1770774020765.png",
-        "url": "/generated-images/2026-02/2026-02-11_GatoTaza_1770774020765.png",
-        "theme": "GatoTaza",
-        "dateKey": "2026-02-11",
-        "timestamp": 1770774020765,
-        "extension": "png",
-        "fileSize": 444350,
-        "lastModified": "2026-04-03T01:38:58.174Z"
-      }
-    ],
-    "2026-02-12": [
-      {
-        "fileName": "2026-02-12_Hojas_1770860386437.png",
-        "url": "/generated-images/2026-02/2026-02-12_Hojas_1770860386437.png",
-        "theme": "Hojas",
-        "dateKey": "2026-02-12",
-        "timestamp": 1770860386437,
-        "extension": "png",
-        "fileSize": 576498,
-        "lastModified": "2026-04-03T01:38:58.176Z"
-      }
-    ],
-    "2026-02-13": [
-      {
-        "fileName": "2026-02-13_Estudio_1770946771292.png",
-        "url": "/generated-images/2026-02/2026-02-13_Estudio_1770946771292.png",
-        "theme": "Estudio",
-        "dateKey": "2026-02-13",
-        "timestamp": 1770946771292,
-        "extension": "png",
-        "fileSize": 583000,
-        "lastModified": "2026-04-03T01:38:58.178Z"
-      }
-    ],
-    "2026-02-14": [
-      {
-        "fileName": "2026-02-14_LecturaNio_1771033119702.png",
-        "url": "/generated-images/2026-02/2026-02-14_LecturaNio_1771033119702.png",
-        "theme": "LecturaNio",
-        "dateKey": "2026-02-14",
-        "timestamp": 1771033119702,
-        "extension": "png",
-        "fileSize": 589393,
-        "lastModified": "2026-04-03T01:38:58.179Z"
-      }
-    ],
-    "2026-02-15": [
-      {
-        "fileName": "2026-02-15_MandalaCorazn_1771119528641.png",
-        "url": "/generated-images/2026-02/2026-02-15_MandalaCorazn_1771119528641.png",
-        "theme": "MandalaCorazn",
-        "dateKey": "2026-02-15",
-        "timestamp": 1771119528641,
-        "extension": "png",
-        "fileSize": 1290551,
-        "lastModified": "2026-04-03T01:38:58.181Z"
-      }
-    ],
-    "2026-02-16": [
-      {
-        "fileName": "2026-02-16_AmigosChoc_1771205955865.png",
-        "url": "/generated-images/2026-02/2026-02-16_AmigosChoc_1771205955865.png",
-        "theme": "AmigosChoc",
-        "dateKey": "2026-02-16",
-        "timestamp": 1771205955865,
-        "extension": "png",
-        "fileSize": 1192204,
-        "lastModified": "2026-04-03T01:38:58.182Z"
-      }
-    ],
-    "2026-02-17": [
-      {
-        "fileName": "2026-02-17_PerritoInvierno_1771292345861.png",
-        "url": "/generated-images/2026-02/2026-02-17_PerritoInvierno_1771292345861.png",
-        "theme": "PerritoInvierno",
-        "dateKey": "2026-02-17",
-        "timestamp": 1771292345861,
-        "extension": "png",
-        "fileSize": 551778,
-        "lastModified": "2026-04-03T01:38:58.183Z"
-      }
-    ],
-    "2026-02-18": [
-      {
-        "fileName": "2026-02-18_GatitoSueo_1771378759690.png",
-        "url": "/generated-images/2026-02/2026-02-18_GatitoSueo_1771378759690.png",
-        "theme": "GatitoSueo",
-        "dateKey": "2026-02-18",
-        "timestamp": 1771378759690,
-        "extension": "png",
-        "fileSize": 409538,
-        "lastModified": "2026-04-03T01:38:58.183Z"
-      }
-    ],
-    "2026-02-19": [
-      {
-        "fileName": "2026-02-19_ChocolateTaza_1771465141612.png",
-        "url": "/generated-images/2026-02/2026-02-19_ChocolateTaza_1771465141612.png",
-        "theme": "ChocolateTaza",
-        "dateKey": "2026-02-19",
-        "timestamp": 1771465141612,
-        "extension": "png",
-        "fileSize": 401691,
-        "lastModified": "2026-04-03T01:38:58.185Z"
-      }
-    ],
-    "2026-02-20": [
-      {
-        "fileName": "2026-02-20_MandalaSuave_1771551564007.png",
-        "url": "/generated-images/2026-02/2026-02-20_MandalaSuave_1771551564007.png",
-        "theme": "MandalaSuave",
-        "dateKey": "2026-02-20",
-        "timestamp": 1771551564007,
-        "extension": "png",
-        "fileSize": 1420458,
-        "lastModified": "2026-04-03T01:38:58.186Z"
-      }
-    ],
-    "2026-02-21": [
-      {
-        "fileName": "2026-02-21_SillnAcogedor_1771637878659.png",
-        "url": "/generated-images/2026-02/2026-02-21_SillnAcogedor_1771637878659.png",
-        "theme": "SillnAcogedor",
-        "dateKey": "2026-02-21",
-        "timestamp": 1771637878659,
-        "extension": "png",
-        "fileSize": 631758,
-        "lastModified": "2026-04-03T01:38:58.188Z"
-      }
-    ],
-    "2026-02-22": [
-      {
-        "fileName": "2026-02-22_PerritoAmigos_1771724302669.png",
-        "url": "/generated-images/2026-02/2026-02-22_PerritoAmigos_1771724302669.png",
-        "theme": "PerritoAmigos",
-        "dateKey": "2026-02-22",
-        "timestamp": 1771724302669,
-        "extension": "png",
-        "fileSize": 1409077,
-        "lastModified": "2026-04-03T01:38:58.189Z"
-      }
-    ],
-    "2026-02-23": [
-      {
-        "fileName": "2026-02-23_GatoVentana_1771810767049.png",
-        "url": "/generated-images/2026-02/2026-02-23_GatoVentana_1771810767049.png",
-        "theme": "GatoVentana",
-        "dateKey": "2026-02-23",
-        "timestamp": 1771810767049,
-        "extension": "png",
-        "fileSize": 795710,
-        "lastModified": "2026-04-03T01:38:58.190Z"
-      }
-    ],
-    "2026-02-24": [
-      {
-        "fileName": "2026-02-24_TClido_1771897156465.png",
-        "url": "/generated-images/2026-02/2026-02-24_TClido_1771897156465.png",
-        "theme": "TClido",
-        "dateKey": "2026-02-24",
-        "timestamp": 1771897156465,
-        "extension": "png",
-        "fileSize": 563553,
-        "lastModified": "2026-04-03T01:38:58.191Z"
-      }
-    ],
-    "2026-02-25": [
-      {
-        "fileName": "2026-02-25_AmigosMerienda_1771983518147.png",
-        "url": "/generated-images/2026-02/2026-02-25_AmigosMerienda_1771983518147.png",
-        "theme": "AmigosMerienda",
-        "dateKey": "2026-02-25",
-        "timestamp": 1771983518147,
-        "extension": "png",
-        "fileSize": 1163837,
-        "lastModified": "2026-04-03T01:38:58.192Z"
-      }
-    ],
-    "2026-02-26": [
-      {
-        "fileName": "2026-02-26_MandalaAnimales_1772069918167.png",
-        "url": "/generated-images/2026-02/2026-02-26_MandalaAnimales_1772069918167.png",
-        "theme": "MandalaAnimales",
-        "dateKey": "2026-02-26",
-        "timestamp": 1772069918167,
-        "extension": "png",
-        "fileSize": 1470012,
-        "lastModified": "2026-04-03T01:38:58.194Z"
-      }
-    ],
-    "2026-02-27": [
-      {
-        "fileName": "2026-02-27_Estudio_creativo_1772156337487.png",
-        "url": "/generated-images/2026-02/2026-02-27_Estudio_creativo_1772156337487.png",
-        "theme": "Estudio_creativo",
-        "dateKey": "2026-02-27",
-        "timestamp": 1772156337487,
-        "extension": "png",
-        "fileSize": 1178602,
-        "lastModified": "2026-04-03T01:38:58.196Z"
-      }
-    ],
-    "2026-02-28": [
-      {
-        "fileName": "2026-02-28_DesayunoCozy_1772242641937.png",
-        "url": "/generated-images/2026-02/2026-02-28_DesayunoCozy_1772242641937.png",
-        "theme": "DesayunoCozy",
-        "dateKey": "2026-02-28",
-        "timestamp": 1772242641937,
-        "extension": "png",
-        "fileSize": 667662,
-        "lastModified": "2026-04-03T01:38:58.198Z"
-      }
-    ],
-    "2026-03-01": [
-      {
-        "fileName": "2026-03-01_MandalaFlores_1772329091663.png",
-        "url": "/generated-images/2026-03/2026-03-01_MandalaFlores_1772329091663.png",
-        "theme": "MandalaFlores",
-        "dateKey": "2026-03-01",
-        "timestamp": 1772329091663,
-        "extension": "png",
-        "fileSize": 1260365,
-        "lastModified": "2026-04-03T01:38:58.199Z"
-      }
-    ],
-    "2026-03-02": [
-      {
-        "fileName": "2026-03-02_Unicornio_1772415574674.png",
-        "url": "/generated-images/2026-03/2026-03-02_Unicornio_1772415574674.png",
-        "theme": "Unicornio",
-        "dateKey": "2026-03-02",
-        "timestamp": 1772415574674,
-        "extension": "png",
-        "fileSize": 544963,
-        "lastModified": "2026-04-03T01:38:58.201Z"
-      }
-    ],
-    "2026-03-03": [
-      {
-        "fileName": "2026-03-03_CafAmigos_1772501963423.png",
-        "url": "/generated-images/2026-03/2026-03-03_CafAmigos_1772501963423.png",
-        "theme": "CafAmigos",
-        "dateKey": "2026-03-03",
-        "timestamp": 1772501963423,
-        "extension": "png",
-        "fileSize": 1042858,
-        "lastModified": "2026-04-03T01:38:58.202Z"
-      }
-    ],
-    "2026-03-04": [
-      {
-        "fileName": "2026-03-04_DinosaurioAmigable_1772588321655.png",
-        "url": "/generated-images/2026-03/2026-03-04_DinosaurioAmigable_1772588321655.png",
-        "theme": "DinosaurioAmigable",
-        "dateKey": "2026-03-04",
-        "timestamp": 1772588321655,
-        "extension": "png",
-        "fileSize": 581929,
-        "lastModified": "2026-04-03T01:38:58.203Z"
-      }
-    ],
-    "2026-03-05": [
-      {
-        "fileName": "2026-03-05_TejidoCozy_1772674737019.png",
-        "url": "/generated-images/2026-03/2026-03-05_TejidoCozy_1772674737019.png",
-        "theme": "TejidoCozy",
-        "dateKey": "2026-03-05",
-        "timestamp": 1772674737019,
-        "extension": "png",
-        "fileSize": 1186556,
-        "lastModified": "2026-04-03T01:38:58.205Z"
-      }
-    ],
-    "2026-03-06": [
-      {
-        "fileName": "2026-03-06_PatioCozy_1772761132818.png",
-        "url": "/generated-images/2026-03/2026-03-06_PatioCozy_1772761132818.png",
-        "theme": "PatioCozy",
-        "dateKey": "2026-03-06",
-        "timestamp": 1772761132818,
-        "extension": "png",
-        "fileSize": 1365536,
-        "lastModified": "2026-04-03T01:38:58.206Z"
-      }
-    ],
-    "2026-03-07": [
-      {
-        "fileName": "2026-03-07_MandalaAnimales_1772847483359.png",
-        "url": "/generated-images/2026-03/2026-03-07_MandalaAnimales_1772847483359.png",
-        "theme": "MandalaAnimales",
-        "dateKey": "2026-03-07",
-        "timestamp": 1772847483359,
-        "extension": "png",
-        "fileSize": 1258042,
-        "lastModified": "2026-04-03T01:38:58.207Z"
-      }
-    ],
-    "2026-03-08": [
-      {
-        "fileName": "2026-03-08_PicnicInterior_1772933910899.png",
-        "url": "/generated-images/2026-03/2026-03-08_PicnicInterior_1772933910899.png",
-        "theme": "PicnicInterior",
-        "dateKey": "2026-03-08",
-        "timestamp": 1772933910899,
-        "extension": "png",
-        "fileSize": 1138551,
-        "lastModified": "2026-04-03T01:38:58.209Z"
-      }
-    ],
-    "2026-03-09": [
-      {
-        "fileName": "2026-03-09_StPatrick_1773020355409.png",
-        "url": "/generated-images/2026-03/2026-03-09_StPatrick_1773020355409.png",
-        "theme": "StPatrick",
-        "dateKey": "2026-03-09",
-        "timestamp": 1773020355409,
-        "extension": "png",
-        "fileSize": 433022,
-        "lastModified": "2026-04-03T01:38:58.210Z"
-      }
-    ],
-    "2026-03-10": [
-      {
-        "fileName": "2026-03-10_Cohete_1773106718213.png",
-        "url": "/generated-images/2026-03/2026-03-10_Cohete_1773106718213.png",
-        "theme": "Cohete",
-        "dateKey": "2026-03-10",
-        "timestamp": 1773106718213,
-        "extension": "png",
-        "fileSize": 562827,
-        "lastModified": "2026-04-03T01:38:58.211Z"
-      }
-    ],
-    "2026-03-11": [
-      {
-        "fileName": "2026-03-11_Astronauta_1773193107263.png",
-        "url": "/generated-images/2026-03/2026-03-11_Astronauta_1773193107263.png",
-        "theme": "Astronauta",
-        "dateKey": "2026-03-11",
-        "timestamp": 1773193107263,
-        "extension": "png",
-        "fileSize": 545300,
-        "lastModified": "2026-04-03T01:38:58.212Z"
-      }
-    ],
-    "2026-03-12": [
-      {
-        "fileName": "2026-03-12_DragnPequeo_1773279595254.png",
-        "url": "/generated-images/2026-03/2026-03-12_DragnPequeo_1773279595254.png",
-        "theme": "DragnPequeo",
-        "dateKey": "2026-03-12",
-        "timestamp": 1773279595254,
-        "extension": "png",
-        "fileSize": 1326112,
-        "lastModified": "2026-04-03T01:38:58.213Z"
-      }
-    ],
-    "2026-03-13": [
-      {
-        "fileName": "2026-03-13_VentanaCozy_1773365924240.png",
-        "url": "/generated-images/2026-03/2026-03-13_VentanaCozy_1773365924240.png",
-        "theme": "VentanaCozy",
-        "dateKey": "2026-03-13",
-        "timestamp": 1773365924240,
-        "extension": "png",
-        "fileSize": 690531,
-        "lastModified": "2026-04-03T01:38:58.215Z"
-      }
-    ],
-    "2026-03-14": [
-      {
-        "fileName": "2026-03-14_TConLibro_1773452289680.png",
-        "url": "/generated-images/2026-03/2026-03-14_TConLibro_1773452289680.png",
-        "theme": "TConLibro",
-        "dateKey": "2026-03-14",
-        "timestamp": 1773452289680,
-        "extension": "png",
-        "fileSize": 1123916,
-        "lastModified": "2026-04-03T01:38:58.216Z"
-      }
-    ],
-    "2026-03-15": [
-      {
-        "fileName": "2026-03-15_MandalaEspacio_1773538756485.png",
-        "url": "/generated-images/2026-03/2026-03-15_MandalaEspacio_1773538756485.png",
-        "theme": "MandalaEspacio",
-        "dateKey": "2026-03-15",
-        "timestamp": 1773538756485,
-        "extension": "png",
-        "fileSize": 1209729,
-        "lastModified": "2026-04-03T01:38:58.217Z"
-      }
-    ],
-    "2026-03-16": [
-      {
-        "fileName": "2026-03-16_Horno_1773625239152.png",
-        "url": "/generated-images/2026-03/2026-03-16_Horno_1773625239152.png",
-        "theme": "Horno",
-        "dateKey": "2026-03-16",
-        "timestamp": 1773625239152,
-        "extension": "png",
-        "fileSize": 1390431,
-        "lastModified": "2026-04-03T01:38:58.219Z"
-      }
-    ],
-    "2026-03-17": [
-      {
-        "fileName": "2026-03-17_DinosaurioBosque_1773711537994.png",
-        "url": "/generated-images/2026-03/2026-03-17_DinosaurioBosque_1773711537994.png",
-        "theme": "DinosaurioBosque",
-        "dateKey": "2026-03-17",
-        "timestamp": 1773711537994,
-        "extension": "png",
-        "fileSize": 1391519,
-        "lastModified": "2026-04-03T01:38:58.220Z"
-      }
-    ],
-    "2026-03-18": [
-      {
-        "fileName": "2026-03-18_MandalaPrimavera_1773797974448.png",
-        "url": "/generated-images/2026-03/2026-03-18_MandalaPrimavera_1773797974448.png",
-        "theme": "MandalaPrimavera",
-        "dateKey": "2026-03-18",
-        "timestamp": 1773797974448,
-        "extension": "png",
-        "fileSize": 1554456,
-        "lastModified": "2026-04-03T01:38:58.221Z"
-      }
-    ],
-    "2026-03-19": [
-      {
-        "fileName": "2026-03-19_JardnPrimavera_1773884390182.png",
-        "url": "/generated-images/2026-03/2026-03-19_JardnPrimavera_1773884390182.png",
-        "theme": "JardnPrimavera",
-        "dateKey": "2026-03-19",
-        "timestamp": 1773884390182,
-        "extension": "png",
-        "fileSize": 1625620,
-        "lastModified": "2026-04-03T01:38:58.223Z"
-      }
-    ],
-    "2026-03-20": [
-      {
-        "fileName": "2026-03-20_ConejoFantstico_1773970737595.png",
-        "url": "/generated-images/2026-03/2026-03-20_ConejoFantstico_1773970737595.png",
-        "theme": "ConejoFantstico",
-        "dateKey": "2026-03-20",
-        "timestamp": 1773970737595,
-        "extension": "png",
-        "fileSize": 1362167,
-        "lastModified": "2026-04-03T01:38:58.224Z"
-      }
-    ],
-    "2026-03-21": [
-      {
-        "fileName": "2026-03-21_BibliotecaPrimavera_1774057086670.png",
-        "url": "/generated-images/2026-03/2026-03-21_BibliotecaPrimavera_1774057086670.png",
-        "theme": "BibliotecaPrimavera",
-        "dateKey": "2026-03-21",
-        "timestamp": 1774057086670,
-        "extension": "png",
-        "fileSize": 1203578,
-        "lastModified": "2026-04-03T01:38:58.225Z"
-      }
-    ],
-    "2026-03-22": [
-      {
-        "fileName": "2026-03-22_UnicornioBosque_1774143519057.png",
-        "url": "/generated-images/2026-03/2026-03-22_UnicornioBosque_1774143519057.png",
-        "theme": "UnicornioBosque",
-        "dateKey": "2026-03-22",
-        "timestamp": 1774143519057,
-        "extension": "png",
-        "fileSize": 1345197,
-        "lastModified": "2026-04-03T01:38:58.227Z"
-      }
-    ],
-    "2026-03-23": [
-      {
-        "fileName": "2026-03-23_RincnT_1774229979756.png",
-        "url": "/generated-images/2026-03/2026-03-23_RincnT_1774229979756.png",
-        "theme": "RincnT",
-        "dateKey": "2026-03-23",
-        "timestamp": 1774229979756,
-        "extension": "png",
-        "fileSize": 601271,
-        "lastModified": "2026-04-03T01:38:58.228Z"
-      }
-    ],
-    "2026-03-24": [
-      {
-        "fileName": "2026-03-24_AmigosPrimavera_1774316346980.png",
-        "url": "/generated-images/2026-03/2026-03-24_AmigosPrimavera_1774316346980.png",
-        "theme": "AmigosPrimavera",
-        "dateKey": "2026-03-24",
-        "timestamp": 1774316346980,
-        "extension": "png",
-        "fileSize": 1688326,
-        "lastModified": "2026-04-03T01:38:58.230Z"
-      }
-    ],
-    "2026-03-25": [
-      {
-        "fileName": "2026-03-25_MandalaAnimalesFantsticos_1774402766651.png",
-        "url": "/generated-images/2026-03/2026-03-25_MandalaAnimalesFantsticos_1774402766651.png",
-        "theme": "MandalaAnimalesFantsticos",
-        "dateKey": "2026-03-25",
-        "timestamp": 1774402766651,
-        "extension": "png",
-        "fileSize": 1338063,
-        "lastModified": "2026-04-03T01:38:58.231Z"
-      }
-    ],
-    "2026-03-26": [
-      {
-        "fileName": "2026-03-26_CoheteEspacio_1774489204007.png",
-        "url": "/generated-images/2026-03/2026-03-26_CoheteEspacio_1774489204007.png",
-        "theme": "CoheteEspacio",
-        "dateKey": "2026-03-26",
-        "timestamp": 1774489204007,
-        "extension": "png",
-        "fileSize": 1267736,
-        "lastModified": "2026-04-03T01:38:58.232Z"
-      }
-    ],
-    "2026-03-27": [
-      {
-        "fileName": "2026-03-27_PicnicPrimavera_1774575587209.png",
-        "url": "/generated-images/2026-03/2026-03-27_PicnicPrimavera_1774575587209.png",
-        "theme": "PicnicPrimavera",
-        "dateKey": "2026-03-27",
-        "timestamp": 1774575587209,
-        "extension": "png",
-        "fileSize": 1122317,
-        "lastModified": "2026-04-03T01:38:58.233Z"
-      }
-    ],
-    "2026-03-28": [
-      {
-        "fileName": "2026-03-28_JardnFlores_1774661950272.png",
-        "url": "/generated-images/2026-03/2026-03-28_JardnFlores_1774661950272.png",
-        "theme": "JardnFlores",
-        "dateKey": "2026-03-28",
-        "timestamp": 1774661950272,
-        "extension": "png",
-        "fileSize": 1831919,
-        "lastModified": "2026-04-03T01:38:58.235Z"
-      }
-    ],
-    "2026-03-29": [
-      {
-        "fileName": "2026-03-29_DinosaurioAmistoso_1774748301338.png",
-        "url": "/generated-images/2026-03/2026-03-29_DinosaurioAmistoso_1774748301338.png",
-        "theme": "DinosaurioAmistoso",
-        "dateKey": "2026-03-29",
-        "timestamp": 1774748301338,
-        "extension": "png",
-        "fileSize": 685092,
-        "lastModified": "2026-04-03T01:38:58.236Z"
-      }
-    ],
-    "2026-03-30": [
-      {
-        "fileName": "2026-03-30_MandalaFloresPrimavera_1774834813364.png",
-        "url": "/generated-images/2026-03/2026-03-30_MandalaFloresPrimavera_1774834813364.png",
-        "theme": "MandalaFloresPrimavera",
-        "dateKey": "2026-03-30",
-        "timestamp": 1774834813364,
-        "extension": "png",
-        "fileSize": 1496013,
-        "lastModified": "2026-04-03T01:38:58.238Z"
-      }
-    ],
-    "2026-03-31": [
-      {
-        "fileName": "2026-03-31_DesayunoPrimavera_1774921173205.png",
-        "url": "/generated-images/2026-03/2026-03-31_DesayunoPrimavera_1774921173205.png",
-        "theme": "DesayunoPrimavera",
-        "dateKey": "2026-03-31",
-        "timestamp": 1774921173205,
-        "extension": "png",
-        "fileSize": 680746,
-        "lastModified": "2026-04-03T01:38:58.239Z"
-      }
-    ],
-    "2026-04-01": [
-      {
-        "fileName": "2026-04-01_MandalaFlores_1775007569128.png",
-        "url": "/generated-images/2026-04/2026-04-01_MandalaFlores_1775007569128.png",
-        "theme": "MandalaFlores",
-        "dateKey": "2026-04-01",
-        "timestamp": 1775007569128,
-        "extension": "png",
-        "fileSize": 1486078,
-        "lastModified": "2026-04-03T01:38:58.240Z"
+    "2026-04-03": [
+      {
+        "fileName": "2026-04-03_CafAmigos_1775180361623.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-03_CafAmigos_1775180361623.png",
+        "theme": "CaféAmigos",
+        "dateKey": "2026-04-03",
+        "timestamp": 1775180361627,
+        "extension": "png",
+        "fileSize": 1042414,
+        "lastModified": "2026-04-03T01:39:21.627+00:00",
+        "storagePath": "2026-04/2026-04-03_CafAmigos_1775180361623.png"
       }
     ],
     "2026-04-02": [
       {
         "fileName": "2026-04-02_UnicornioBosque_1775094078132.png",
-        "url": "/generated-images/2026-04/2026-04-02_UnicornioBosque_1775094078132.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-02_UnicornioBosque_1775094078132.png",
         "theme": "UnicornioBosque",
         "dateKey": "2026-04-02",
-        "timestamp": 1775094078132,
+        "timestamp": 1775094078138,
         "extension": "png",
         "fileSize": 1188886,
-        "lastModified": "2026-04-03T01:38:58.241Z"
+        "lastModified": "2026-04-02T01:41:18.138+00:00",
+        "storagePath": "2026-04/2026-04-02_UnicornioBosque_1775094078132.png"
       }
     ],
-    "2026-04-03": [
+    "2026-04-01": [
       {
-        "fileName": "2026-04-03_CafAmigos_1775180361623.png",
-        "url": "/generated-images/2026-04/2026-04-03_CafAmigos_1775180361623.png",
-        "theme": "CafAmigos",
-        "dateKey": "2026-04-03",
-        "timestamp": 1775180361623,
+        "fileName": "2026-04-01_MandalaFlores_1775007569128.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-01_MandalaFlores_1775007569128.png",
+        "theme": "MandalaFlores",
+        "dateKey": "2026-04-01",
+        "timestamp": 1775007569138,
         "extension": "png",
-        "fileSize": 1042414,
-        "lastModified": "2026-04-03T01:39:21.626Z"
+        "fileSize": 1486078,
+        "lastModified": "2026-04-01T01:39:29.138+00:00",
+        "storagePath": "2026-04/2026-04-01_MandalaFlores_1775007569128.png"
+      }
+    ],
+    "2026-03-31": [
+      {
+        "fileName": "2026-03-31_DesayunoPrimavera_1774921173205.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-31_DesayunoPrimavera_1774921173205.png",
+        "theme": "DesayunoPrimavera",
+        "dateKey": "2026-03-31",
+        "timestamp": 1774921173213,
+        "extension": "png",
+        "fileSize": 680746,
+        "lastModified": "2026-03-31T01:39:33.213+00:00",
+        "storagePath": "2026-03/2026-03-31_DesayunoPrimavera_1774921173205.png"
+      }
+    ],
+    "2026-03-30": [
+      {
+        "fileName": "2026-03-30_MandalaFloresPrimavera_1774834813364.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-30_MandalaFloresPrimavera_1774834813364.png",
+        "theme": "MandalaFloresPrimavera",
+        "dateKey": "2026-03-30",
+        "timestamp": 1774834813371,
+        "extension": "png",
+        "fileSize": 1496013,
+        "lastModified": "2026-03-30T01:40:13.371+00:00",
+        "storagePath": "2026-03/2026-03-30_MandalaFloresPrimavera_1774834813364.png"
+      }
+    ],
+    "2026-03-29": [
+      {
+        "fileName": "2026-03-29_DinosaurioAmistoso_1774748301338.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-29_DinosaurioAmistoso_1774748301338.png",
+        "theme": "DinosaurioAmistoso",
+        "dateKey": "2026-03-29",
+        "timestamp": 1774748301348,
+        "extension": "png",
+        "fileSize": 685092,
+        "lastModified": "2026-03-29T01:38:21.348+00:00",
+        "storagePath": "2026-03/2026-03-29_DinosaurioAmistoso_1774748301338.png"
+      }
+    ],
+    "2026-03-28": [
+      {
+        "fileName": "2026-03-28_JardnFlores_1774661950272.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-28_JardnFlores_1774661950272.png",
+        "theme": "JardínFlores",
+        "dateKey": "2026-03-28",
+        "timestamp": 1774661950282,
+        "extension": "png",
+        "fileSize": 1831919,
+        "lastModified": "2026-03-28T01:39:10.282+00:00",
+        "storagePath": "2026-03/2026-03-28_JardnFlores_1774661950272.png"
+      }
+    ],
+    "2026-03-27": [
+      {
+        "fileName": "2026-03-27_PicnicPrimavera_1774575587209.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-27_PicnicPrimavera_1774575587209.png",
+        "theme": "PicnicPrimavera",
+        "dateKey": "2026-03-27",
+        "timestamp": 1774575587216,
+        "extension": "png",
+        "fileSize": 1122317,
+        "lastModified": "2026-03-27T01:39:47.216+00:00",
+        "storagePath": "2026-03/2026-03-27_PicnicPrimavera_1774575587209.png"
+      }
+    ],
+    "2026-03-26": [
+      {
+        "fileName": "2026-03-26_CoheteEspacio_1774489204007.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-26_CoheteEspacio_1774489204007.png",
+        "theme": "CoheteEspacio",
+        "dateKey": "2026-03-26",
+        "timestamp": 1774489204018,
+        "extension": "png",
+        "fileSize": 1267736,
+        "lastModified": "2026-03-26T01:40:04.018+00:00",
+        "storagePath": "2026-03/2026-03-26_CoheteEspacio_1774489204007.png"
+      }
+    ],
+    "2026-03-25": [
+      {
+        "fileName": "2026-03-25_MandalaAnimalesFantsticos_1774402766651.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-25_MandalaAnimalesFantsticos_1774402766651.png",
+        "theme": "MandalaAnimalesFantásticos",
+        "dateKey": "2026-03-25",
+        "timestamp": 1774402766666,
+        "extension": "png",
+        "fileSize": 1338063,
+        "lastModified": "2026-03-25T01:39:26.666+00:00",
+        "storagePath": "2026-03/2026-03-25_MandalaAnimalesFantsticos_1774402766651.png"
+      }
+    ],
+    "2026-03-24": [
+      {
+        "fileName": "2026-03-24_AmigosPrimavera_1774316346980.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-24_AmigosPrimavera_1774316346980.png",
+        "theme": "AmigosPrimavera",
+        "dateKey": "2026-03-24",
+        "timestamp": 1774316346994,
+        "extension": "png",
+        "fileSize": 1688326,
+        "lastModified": "2026-03-24T01:39:06.994+00:00",
+        "storagePath": "2026-03/2026-03-24_AmigosPrimavera_1774316346980.png"
+      }
+    ],
+    "2026-03-23": [
+      {
+        "fileName": "2026-03-23_RincnT_1774229979756.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-23_RincnT_1774229979756.png",
+        "theme": "RincónTé",
+        "dateKey": "2026-03-23",
+        "timestamp": 1774229979767,
+        "extension": "png",
+        "fileSize": 601271,
+        "lastModified": "2026-03-23T01:39:39.767+00:00",
+        "storagePath": "2026-03/2026-03-23_RincnT_1774229979756.png"
+      }
+    ],
+    "2026-03-22": [
+      {
+        "fileName": "2026-03-22_UnicornioBosque_1774143519057.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-22_UnicornioBosque_1774143519057.png",
+        "theme": "UnicornioBosque",
+        "dateKey": "2026-03-22",
+        "timestamp": 1774143519071,
+        "extension": "png",
+        "fileSize": 1345197,
+        "lastModified": "2026-03-22T01:38:39.071+00:00",
+        "storagePath": "2026-03/2026-03-22_UnicornioBosque_1774143519057.png"
+      }
+    ],
+    "2026-03-21": [
+      {
+        "fileName": "2026-03-21_BibliotecaPrimavera_1774057086670.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-21_BibliotecaPrimavera_1774057086670.png",
+        "theme": "BibliotecaPrimavera",
+        "dateKey": "2026-03-21",
+        "timestamp": 1774057086684,
+        "extension": "png",
+        "fileSize": 1203578,
+        "lastModified": "2026-03-21T01:38:06.684+00:00",
+        "storagePath": "2026-03/2026-03-21_BibliotecaPrimavera_1774057086670.png"
+      }
+    ],
+    "2026-03-20": [
+      {
+        "fileName": "2026-03-20_ConejoFantstico_1773970737595.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-20_ConejoFantstico_1773970737595.png",
+        "theme": "ConejoFantástico",
+        "dateKey": "2026-03-20",
+        "timestamp": 1773970737608,
+        "extension": "png",
+        "fileSize": 1362167,
+        "lastModified": "2026-03-20T01:38:57.608+00:00",
+        "storagePath": "2026-03/2026-03-20_ConejoFantstico_1773970737595.png"
+      }
+    ],
+    "2026-03-19": [
+      {
+        "fileName": "2026-03-19_JardnPrimavera_1773884390182.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-19_JardnPrimavera_1773884390182.png",
+        "theme": "JardínPrimavera",
+        "dateKey": "2026-03-19",
+        "timestamp": 1773884390196,
+        "extension": "png",
+        "fileSize": 1625620,
+        "lastModified": "2026-03-19T01:39:50.196+00:00",
+        "storagePath": "2026-03/2026-03-19_JardnPrimavera_1773884390182.png"
+      }
+    ],
+    "2026-03-18": [
+      {
+        "fileName": "2026-03-18_MandalaPrimavera_1773797974448.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-18_MandalaPrimavera_1773797974448.png",
+        "theme": "MandalaPrimavera",
+        "dateKey": "2026-03-18",
+        "timestamp": 1773797974463,
+        "extension": "png",
+        "fileSize": 1554456,
+        "lastModified": "2026-03-18T01:39:34.463+00:00",
+        "storagePath": "2026-03/2026-03-18_MandalaPrimavera_1773797974448.png"
+      }
+    ],
+    "2026-03-17": [
+      {
+        "fileName": "2026-03-17_DinosaurioBosque_1773711537994.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-17_DinosaurioBosque_1773711537994.png",
+        "theme": "DinosaurioBosque",
+        "dateKey": "2026-03-17",
+        "timestamp": 1773711538007,
+        "extension": "png",
+        "fileSize": 1391519,
+        "lastModified": "2026-03-17T01:38:58.007+00:00",
+        "storagePath": "2026-03/2026-03-17_DinosaurioBosque_1773711537994.png"
+      }
+    ],
+    "2026-03-16": [
+      {
+        "fileName": "2026-03-16_Horno_1773625239152.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-16_Horno_1773625239152.png",
+        "theme": "Horno",
+        "dateKey": "2026-03-16",
+        "timestamp": 1773625239158,
+        "extension": "png",
+        "fileSize": 1390431,
+        "lastModified": "2026-03-16T01:40:39.158+00:00",
+        "storagePath": "2026-03/2026-03-16_Horno_1773625239152.png"
+      }
+    ],
+    "2026-03-15": [
+      {
+        "fileName": "2026-03-15_MandalaEspacio_1773538756485.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-15_MandalaEspacio_1773538756485.png",
+        "theme": "MandalaEspacio",
+        "dateKey": "2026-03-15",
+        "timestamp": 1773538756490,
+        "extension": "png",
+        "fileSize": 1209729,
+        "lastModified": "2026-03-15T01:39:16.49+00:00",
+        "storagePath": "2026-03/2026-03-15_MandalaEspacio_1773538756485.png"
+      }
+    ],
+    "2026-03-14": [
+      {
+        "fileName": "2026-03-14_TConLibro_1773452289680.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-14_TConLibro_1773452289680.png",
+        "theme": "TéConLibro",
+        "dateKey": "2026-03-14",
+        "timestamp": 1773452289686,
+        "extension": "png",
+        "fileSize": 1123916,
+        "lastModified": "2026-03-14T01:38:09.686+00:00",
+        "storagePath": "2026-03/2026-03-14_TConLibro_1773452289680.png"
+      }
+    ],
+    "2026-03-13": [
+      {
+        "fileName": "2026-03-13_VentanaCozy_1773365924240.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-13_VentanaCozy_1773365924240.png",
+        "theme": "VentanaCozy",
+        "dateKey": "2026-03-13",
+        "timestamp": 1773365924247,
+        "extension": "png",
+        "fileSize": 690531,
+        "lastModified": "2026-03-13T01:38:44.247+00:00",
+        "storagePath": "2026-03/2026-03-13_VentanaCozy_1773365924240.png"
+      }
+    ],
+    "2026-03-12": [
+      {
+        "fileName": "2026-03-12_DragnPequeo_1773279595254.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-12_DragnPequeo_1773279595254.png",
+        "theme": "DragónPequeño",
+        "dateKey": "2026-03-12",
+        "timestamp": 1773279595259,
+        "extension": "png",
+        "fileSize": 1326112,
+        "lastModified": "2026-03-12T01:39:55.259+00:00",
+        "storagePath": "2026-03/2026-03-12_DragnPequeo_1773279595254.png"
+      }
+    ],
+    "2026-03-11": [
+      {
+        "fileName": "2026-03-11_Astronauta_1773193107263.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-11_Astronauta_1773193107263.png",
+        "theme": "Astronauta",
+        "dateKey": "2026-03-11",
+        "timestamp": 1773193107272,
+        "extension": "png",
+        "fileSize": 545300,
+        "lastModified": "2026-03-11T01:38:27.272+00:00",
+        "storagePath": "2026-03/2026-03-11_Astronauta_1773193107263.png"
+      }
+    ],
+    "2026-03-10": [
+      {
+        "fileName": "2026-03-10_Cohete_1773106718213.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-10_Cohete_1773106718213.png",
+        "theme": "Cohete",
+        "dateKey": "2026-03-10",
+        "timestamp": 1773106718222,
+        "extension": "png",
+        "fileSize": 562827,
+        "lastModified": "2026-03-10T01:38:38.222+00:00",
+        "storagePath": "2026-03/2026-03-10_Cohete_1773106718213.png"
+      }
+    ],
+    "2026-03-09": [
+      {
+        "fileName": "2026-03-09_StPatrick_1773020355409.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-09_StPatrick_1773020355409.png",
+        "theme": "StPatrick",
+        "dateKey": "2026-03-09",
+        "timestamp": 1773020355415,
+        "extension": "png",
+        "fileSize": 433022,
+        "lastModified": "2026-03-09T01:39:15.415+00:00",
+        "storagePath": "2026-03/2026-03-09_StPatrick_1773020355409.png"
+      }
+    ],
+    "2026-03-08": [
+      {
+        "fileName": "2026-03-08_PicnicInterior_1772933910899.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-08_PicnicInterior_1772933910899.png",
+        "theme": "PicnicInterior",
+        "dateKey": "2026-03-08",
+        "timestamp": 1772933910910,
+        "extension": "png",
+        "fileSize": 1138551,
+        "lastModified": "2026-03-08T01:38:30.91+00:00",
+        "storagePath": "2026-03/2026-03-08_PicnicInterior_1772933910899.png"
+      }
+    ],
+    "2026-03-07": [
+      {
+        "fileName": "2026-03-07_MandalaAnimales_1772847483359.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-07_MandalaAnimales_1772847483359.png",
+        "theme": "MandalaAnimales",
+        "dateKey": "2026-03-07",
+        "timestamp": 1772847483372,
+        "extension": "png",
+        "fileSize": 1258042,
+        "lastModified": "2026-03-07T01:38:03.372+00:00",
+        "storagePath": "2026-03/2026-03-07_MandalaAnimales_1772847483359.png"
+      }
+    ],
+    "2026-03-06": [
+      {
+        "fileName": "2026-03-06_PatioCozy_1772761132818.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-06_PatioCozy_1772761132818.png",
+        "theme": "PatioCozy",
+        "dateKey": "2026-03-06",
+        "timestamp": 1772761132832,
+        "extension": "png",
+        "fileSize": 1365536,
+        "lastModified": "2026-03-06T01:38:52.832+00:00",
+        "storagePath": "2026-03/2026-03-06_PatioCozy_1772761132818.png"
+      }
+    ],
+    "2026-03-05": [
+      {
+        "fileName": "2026-03-05_TejidoCozy_1772674737019.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-05_TejidoCozy_1772674737019.png",
+        "theme": "TejidoCozy",
+        "dateKey": "2026-03-05",
+        "timestamp": 1772674737033,
+        "extension": "png",
+        "fileSize": 1186556,
+        "lastModified": "2026-03-05T01:38:57.033+00:00",
+        "storagePath": "2026-03/2026-03-05_TejidoCozy_1772674737019.png"
+      }
+    ],
+    "2026-03-04": [
+      {
+        "fileName": "2026-03-04_DinosaurioAmigable_1772588321655.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-04_DinosaurioAmigable_1772588321655.png",
+        "theme": "DinosaurioAmigable",
+        "dateKey": "2026-03-04",
+        "timestamp": 1772588321665,
+        "extension": "png",
+        "fileSize": 581929,
+        "lastModified": "2026-03-04T01:38:41.665+00:00",
+        "storagePath": "2026-03/2026-03-04_DinosaurioAmigable_1772588321655.png"
+      }
+    ],
+    "2026-03-03": [
+      {
+        "fileName": "2026-03-03_CafAmigos_1772501963423.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-03_CafAmigos_1772501963423.png",
+        "theme": "CaféAmigos",
+        "dateKey": "2026-03-03",
+        "timestamp": 1772501963429,
+        "extension": "png",
+        "fileSize": 1042858,
+        "lastModified": "2026-03-03T01:39:23.429+00:00",
+        "storagePath": "2026-03/2026-03-03_CafAmigos_1772501963423.png"
+      }
+    ],
+    "2026-03-02": [
+      {
+        "fileName": "2026-03-02_Unicornio_1772415574674.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-02_Unicornio_1772415574674.png",
+        "theme": "Unicornio",
+        "dateKey": "2026-03-02",
+        "timestamp": 1772415574683,
+        "extension": "png",
+        "fileSize": 544963,
+        "lastModified": "2026-03-02T01:39:34.683+00:00",
+        "storagePath": "2026-03/2026-03-02_Unicornio_1772415574674.png"
+      }
+    ],
+    "2026-03-01": [
+      {
+        "fileName": "2026-03-01_MandalaFlores_1772329091663.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-03/2026-03-01_MandalaFlores_1772329091663.png",
+        "theme": "MandalaFlores",
+        "dateKey": "2026-03-01",
+        "timestamp": 1772329091673,
+        "extension": "png",
+        "fileSize": 1260365,
+        "lastModified": "2026-03-01T01:38:11.673+00:00",
+        "storagePath": "2026-03/2026-03-01_MandalaFlores_1772329091663.png"
+      }
+    ],
+    "2026-02-28": [
+      {
+        "fileName": "2026-02-28_DesayunoCozy_1772242641937.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-28_DesayunoCozy_1772242641937.png",
+        "theme": "DesayunoCozy",
+        "dateKey": "2026-02-28",
+        "timestamp": 1772242641942,
+        "extension": "png",
+        "fileSize": 667662,
+        "lastModified": "2026-02-28T01:37:21.942+00:00",
+        "storagePath": "2026-02/2026-02-28_DesayunoCozy_1772242641937.png"
+      }
+    ],
+    "2026-02-27": [
+      {
+        "fileName": "2026-02-27_Estudio_creativo_1772156337487.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-27_Estudio_creativo_1772156337487.png",
+        "theme": "Estudio creativo",
+        "dateKey": "2026-02-27",
+        "timestamp": 1772156337501,
+        "extension": "png",
+        "fileSize": 1178602,
+        "lastModified": "2026-02-27T01:38:57.501+00:00",
+        "storagePath": "2026-02/2026-02-27_Estudio_creativo_1772156337487.png"
+      }
+    ],
+    "2026-02-26": [
+      {
+        "fileName": "2026-02-26_MandalaAnimales_1772069918167.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-26_MandalaAnimales_1772069918167.png",
+        "theme": "MandalaAnimales",
+        "dateKey": "2026-02-26",
+        "timestamp": 1772069918181,
+        "extension": "png",
+        "fileSize": 1470012,
+        "lastModified": "2026-02-26T01:38:38.181+00:00",
+        "storagePath": "2026-02/2026-02-26_MandalaAnimales_1772069918167.png"
+      }
+    ],
+    "2026-02-25": [
+      {
+        "fileName": "2026-02-25_AmigosMerienda_1771983518147.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-25_AmigosMerienda_1771983518147.png",
+        "theme": "AmigosMerienda",
+        "dateKey": "2026-02-25",
+        "timestamp": 1771983518158,
+        "extension": "png",
+        "fileSize": 1163837,
+        "lastModified": "2026-02-25T01:38:38.158+00:00",
+        "storagePath": "2026-02/2026-02-25_AmigosMerienda_1771983518147.png"
+      }
+    ],
+    "2026-02-24": [
+      {
+        "fileName": "2026-02-24_TClido_1771897156465.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-24_TClido_1771897156465.png",
+        "theme": "TéCálido",
+        "dateKey": "2026-02-24",
+        "timestamp": 1771897156471,
+        "extension": "png",
+        "fileSize": 563553,
+        "lastModified": "2026-02-24T01:39:16.471+00:00",
+        "storagePath": "2026-02/2026-02-24_TClido_1771897156465.png"
+      }
+    ],
+    "2026-02-23": [
+      {
+        "fileName": "2026-02-23_GatoVentana_1771810767049.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-23_GatoVentana_1771810767049.png",
+        "theme": "GatoVentana",
+        "dateKey": "2026-02-23",
+        "timestamp": 1771810767052,
+        "extension": "png",
+        "fileSize": 795710,
+        "lastModified": "2026-02-23T01:39:27.052+00:00",
+        "storagePath": "2026-02/2026-02-23_GatoVentana_1771810767049.png"
+      }
+    ],
+    "2026-02-22": [
+      {
+        "fileName": "2026-02-22_PerritoAmigos_1771724302669.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-22_PerritoAmigos_1771724302669.png",
+        "theme": "PerritoAmigos",
+        "dateKey": "2026-02-22",
+        "timestamp": 1771724302682,
+        "extension": "png",
+        "fileSize": 1409077,
+        "lastModified": "2026-02-22T01:38:22.682+00:00",
+        "storagePath": "2026-02/2026-02-22_PerritoAmigos_1771724302669.png"
+      }
+    ],
+    "2026-02-21": [
+      {
+        "fileName": "2026-02-21_SillnAcogedor_1771637878659.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-21_SillnAcogedor_1771637878659.png",
+        "theme": "SillónAcogedor",
+        "dateKey": "2026-02-21",
+        "timestamp": 1771637878669,
+        "extension": "png",
+        "fileSize": 631758,
+        "lastModified": "2026-02-21T01:37:58.669+00:00",
+        "storagePath": "2026-02/2026-02-21_SillnAcogedor_1771637878659.png"
+      }
+    ],
+    "2026-02-20": [
+      {
+        "fileName": "2026-02-20_MandalaSuave_1771551564007.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-20_MandalaSuave_1771551564007.png",
+        "theme": "MandalaSuave",
+        "dateKey": "2026-02-20",
+        "timestamp": 1771551564020,
+        "extension": "png",
+        "fileSize": 1420458,
+        "lastModified": "2026-02-20T01:39:24.02+00:00",
+        "storagePath": "2026-02/2026-02-20_MandalaSuave_1771551564007.png"
+      }
+    ],
+    "2026-02-19": [
+      {
+        "fileName": "2026-02-19_ChocolateTaza_1771465141612.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-19_ChocolateTaza_1771465141612.png",
+        "theme": "ChocolateTaza",
+        "dateKey": "2026-02-19",
+        "timestamp": 1771465141614,
+        "extension": "png",
+        "fileSize": 401691,
+        "lastModified": "2026-02-19T01:39:01.614+00:00",
+        "storagePath": "2026-02/2026-02-19_ChocolateTaza_1771465141612.png"
+      }
+    ],
+    "2026-02-18": [
+      {
+        "fileName": "2026-02-18_GatitoSueo_1771378759690.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-18_GatitoSueo_1771378759690.png",
+        "theme": "GatitoSueño",
+        "dateKey": "2026-02-18",
+        "timestamp": 1771378759696,
+        "extension": "png",
+        "fileSize": 409538,
+        "lastModified": "2026-02-18T01:39:19.696+00:00",
+        "storagePath": "2026-02/2026-02-18_GatitoSueo_1771378759690.png"
+      }
+    ],
+    "2026-02-17": [
+      {
+        "fileName": "2026-02-17_PerritoInvierno_1771292345861.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-17_PerritoInvierno_1771292345861.png",
+        "theme": "PerritoInvierno",
+        "dateKey": "2026-02-17",
+        "timestamp": 1771292345864,
+        "extension": "png",
+        "fileSize": 551778,
+        "lastModified": "2026-02-17T01:39:05.864+00:00",
+        "storagePath": "2026-02/2026-02-17_PerritoInvierno_1771292345861.png"
+      }
+    ],
+    "2026-02-16": [
+      {
+        "fileName": "2026-02-16_AmigosChoc_1771205955865.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-16_AmigosChoc_1771205955865.png",
+        "theme": "AmigosChoc",
+        "dateKey": "2026-02-16",
+        "timestamp": 1771205955879,
+        "extension": "png",
+        "fileSize": 1192204,
+        "lastModified": "2026-02-16T01:39:15.879+00:00",
+        "storagePath": "2026-02/2026-02-16_AmigosChoc_1771205955865.png"
+      }
+    ],
+    "2026-02-15": [
+      {
+        "fileName": "2026-02-15_MandalaCorazn_1771119528641.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-15_MandalaCorazn_1771119528641.png",
+        "theme": "MandalaCorazón",
+        "dateKey": "2026-02-15",
+        "timestamp": 1771119528654,
+        "extension": "png",
+        "fileSize": 1290551,
+        "lastModified": "2026-02-15T01:38:48.654+00:00",
+        "storagePath": "2026-02/2026-02-15_MandalaCorazn_1771119528641.png"
+      }
+    ],
+    "2026-02-14": [
+      {
+        "fileName": "2026-02-14_LecturaNio_1771033119702.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-14_LecturaNio_1771033119702.png",
+        "theme": "LecturaNiño",
+        "dateKey": "2026-02-14",
+        "timestamp": 1771033119705,
+        "extension": "png",
+        "fileSize": 589393,
+        "lastModified": "2026-02-14T01:38:39.705+00:00",
+        "storagePath": "2026-02/2026-02-14_LecturaNio_1771033119702.png"
+      }
+    ],
+    "2026-02-13": [
+      {
+        "fileName": "2026-02-13_Estudio_1770946771292.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-13_Estudio_1770946771292.png",
+        "theme": "Estudio",
+        "dateKey": "2026-02-13",
+        "timestamp": 1770946771294,
+        "extension": "png",
+        "fileSize": 583000,
+        "lastModified": "2026-02-13T01:39:31.294+00:00",
+        "storagePath": "2026-02/2026-02-13_Estudio_1770946771292.png"
+      }
+    ],
+    "2026-02-12": [
+      {
+        "fileName": "2026-02-12_Hojas_1770860386437.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-12_Hojas_1770860386437.png",
+        "theme": "Hojas",
+        "dateKey": "2026-02-12",
+        "timestamp": 1770860386443,
+        "extension": "png",
+        "fileSize": 576498,
+        "lastModified": "2026-02-12T01:39:46.443+00:00",
+        "storagePath": "2026-02/2026-02-12_Hojas_1770860386437.png"
+      }
+    ],
+    "2026-02-11": [
+      {
+        "fileName": "2026-02-11_GatoTaza_1770774020765.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-11_GatoTaza_1770774020765.png",
+        "theme": "GatoTaza",
+        "dateKey": "2026-02-11",
+        "timestamp": 1770774020771,
+        "extension": "png",
+        "fileSize": 444350,
+        "lastModified": "2026-02-11T01:40:20.771+00:00",
+        "storagePath": "2026-02/2026-02-11_GatoTaza_1770774020765.png"
+      }
+    ],
+    "2026-02-10": [
+      {
+        "fileName": "2026-02-10_PerritoDormiln_1770687641936.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-10_PerritoDormiln_1770687641936.png",
+        "theme": "PerritoDormilón",
+        "dateKey": "2026-02-10",
+        "timestamp": 1770687641938,
+        "extension": "png",
+        "fileSize": 375230,
+        "lastModified": "2026-02-10T01:40:41.938+00:00",
+        "storagePath": "2026-02/2026-02-10_PerritoDormiln_1770687641936.png"
+      }
+    ],
+    "2026-02-09": [
+      {
+        "fileName": "2026-02-09_CoraznValentn_1770601187522.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-09_CoraznValentn_1770601187522.png",
+        "theme": "CorazónValentín",
+        "dateKey": "2026-02-09",
+        "timestamp": 1770601187535,
+        "extension": "png",
+        "fileSize": 1344927,
+        "lastModified": "2026-02-09T01:39:47.535+00:00",
+        "storagePath": "2026-02/2026-02-09_CoraznValentn_1770601187522.png"
+      }
+    ],
+    "2026-02-08": [
+      {
+        "fileName": "2026-02-08_TTarde_1770514762588.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-08_TTarde_1770514762588.png",
+        "theme": "TéTarde",
+        "dateKey": "2026-02-08",
+        "timestamp": 1770514762595,
+        "extension": "png",
+        "fileSize": 583846,
+        "lastModified": "2026-02-08T01:39:22.595+00:00",
+        "storagePath": "2026-02/2026-02-08_TTarde_1770514762588.png"
+      }
+    ],
+    "2026-02-07": [
+      {
+        "fileName": "2026-02-07_CasaAcogedora_1770428281947.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-07_CasaAcogedora_1770428281947.png",
+        "theme": "CasaAcogedora",
+        "dateKey": "2026-02-07",
+        "timestamp": 1770428281953,
+        "extension": "png",
+        "fileSize": 1267312,
+        "lastModified": "2026-02-07T01:38:01.953+00:00",
+        "storagePath": "2026-02/2026-02-07_CasaAcogedora_1770428281947.png"
+      }
+    ],
+    "2026-02-05": [
+      {
+        "fileName": "2026-02-05_MandalaFlores_1770293759361.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-05_MandalaFlores_1770293759361.png",
+        "theme": "MandalaFlores",
+        "dateKey": "2026-02-05",
+        "timestamp": 1770293759373,
+        "extension": "png",
+        "fileSize": 1258589,
+        "lastModified": "2026-02-05T12:15:59.373+00:00",
+        "storagePath": "2026-02/2026-02-05_MandalaFlores_1770293759361.png"
+      }
+    ],
+    "2026-02-04": [
+      {
+        "fileName": "2026-02-04_PicnicInvierno_1770169118129.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-04_PicnicInvierno_1770169118129.png",
+        "theme": "PicnicInvierno",
+        "dateKey": "2026-02-04",
+        "timestamp": 1770169118141,
+        "extension": "png",
+        "fileSize": 1376259,
+        "lastModified": "2026-02-04T01:38:38.141+00:00",
+        "storagePath": "2026-02/2026-02-04_PicnicInvierno_1770169118129.png"
+      }
+    ],
+    "2026-02-03": [
+      {
+        "fileName": "2026-02-03_Lectura_1770082751922.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-03_Lectura_1770082751922.png",
+        "theme": "Lectura",
+        "dateKey": "2026-02-03",
+        "timestamp": 1770082751934,
+        "extension": "png",
+        "fileSize": 1184483,
+        "lastModified": "2026-02-03T01:39:11.934+00:00",
+        "storagePath": "2026-02/2026-02-03_Lectura_1770082751922.png"
+      }
+    ],
+    "2026-02-02": [
+      {
+        "fileName": "2026-02-02_Gatito_1769996370512.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-02_Gatito_1769996370512.png",
+        "theme": "Gatito",
+        "dateKey": "2026-02-02",
+        "timestamp": 1769996370514,
+        "extension": "png",
+        "fileSize": 536481,
+        "lastModified": "2026-02-02T01:39:30.514+00:00",
+        "storagePath": "2026-02/2026-02-02_Gatito_1769996370512.png"
+      }
+    ],
+    "2026-02-01": [
+      {
+        "fileName": "2026-02-01_Perrito_1769909890697.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-02/2026-02-01_Perrito_1769909890697.png",
+        "theme": "Perrito",
+        "dateKey": "2026-02-01",
+        "timestamp": 1769909890704,
+        "extension": "png",
+        "fileSize": 401764,
+        "lastModified": "2026-02-01T01:38:10.704+00:00",
+        "storagePath": "2026-02/2026-02-01_Perrito_1769909890697.png"
+      }
+    ],
+    "2026-01-31": [
+      {
+        "fileName": "2026-01-31_DesayunoCozy_1769823458798.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-31_DesayunoCozy_1769823458798.png",
+        "theme": "DesayunoCozy",
+        "dateKey": "2026-01-31",
+        "timestamp": 1769823458808,
+        "extension": "png",
+        "fileSize": 1123951,
+        "lastModified": "2026-01-31T01:37:38.808+00:00",
+        "storagePath": "2026-01/2026-01-31_DesayunoCozy_1769823458798.png"
+      }
+    ],
+    "2026-01-30": [
+      {
+        "fileName": "2026-01-30_FuegosInvierno_1769737138713.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-30_FuegosInvierno_1769737138713.png",
+        "theme": "FuegosInvierno",
+        "dateKey": "2026-01-30",
+        "timestamp": 1769737138729,
+        "extension": "png",
+        "fileSize": 1581710,
+        "lastModified": "2026-01-30T01:38:58.729+00:00",
+        "storagePath": "2026-01/2026-01-30_FuegosInvierno_1769737138713.png"
+      }
+    ],
+    "2026-01-29": [
+      {
+        "fileName": "2026-01-29_NieveJugando_1769650674938.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-29_NieveJugando_1769650674938.png",
+        "theme": "NieveJugando",
+        "dateKey": "2026-01-29",
+        "timestamp": 1769650674948,
+        "extension": "png",
+        "fileSize": 737580,
+        "lastModified": "2026-01-29T01:37:54.948+00:00",
+        "storagePath": "2026-01/2026-01-29_NieveJugando_1769650674938.png"
+      }
+    ],
+    "2026-01-28": [
+      {
+        "fileName": "2026-01-28_CalendarioEnero_1769564232919.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-28_CalendarioEnero_1769564232919.png",
+        "theme": "CalendarioEnero",
+        "dateKey": "2026-01-28",
+        "timestamp": 1769564232929,
+        "extension": "png",
+        "fileSize": 598737,
+        "lastModified": "2026-01-28T01:37:12.929+00:00",
+        "storagePath": "2026-01/2026-01-28_CalendarioEnero_1769564232919.png"
+      }
+    ],
+    "2026-01-27": [
+      {
+        "fileName": "2026-01-27_MandalaNaturaleza2_1769477820550.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-27_MandalaNaturaleza2_1769477820550.png",
+        "theme": "MandalaNaturaleza2",
+        "dateKey": "2026-01-27",
+        "timestamp": 1769477820563,
+        "extension": "png",
+        "fileSize": 1387739,
+        "lastModified": "2026-01-27T01:37:00.563+00:00",
+        "storagePath": "2026-01/2026-01-27_MandalaNaturaleza2_1769477820550.png"
+      }
+    ],
+    "2026-01-26": [
+      {
+        "fileName": "2026-01-26_ChocolateCaliente_1769391477848.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-26_ChocolateCaliente_1769391477848.png",
+        "theme": "ChocolateCaliente",
+        "dateKey": "2026-01-26",
+        "timestamp": 1769391477858,
+        "extension": "png",
+        "fileSize": 609185,
+        "lastModified": "2026-01-26T01:37:57.858+00:00",
+        "storagePath": "2026-01/2026-01-26_ChocolateCaliente_1769391477848.png"
+      }
+    ],
+    "2026-01-25": [
+      {
+        "fileName": "2026-01-25_AmigosJuego_1769305027879.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-25_AmigosJuego_1769305027879.png",
+        "theme": "AmigosJuego",
+        "dateKey": "2026-01-25",
+        "timestamp": 1769305027885,
+        "extension": "png",
+        "fileSize": 1130337,
+        "lastModified": "2026-01-25T01:37:07.885+00:00",
+        "storagePath": "2026-01/2026-01-25_AmigosJuego_1769305027879.png"
+      }
+    ],
+    "2026-01-24": [
+      {
+        "fileName": "2026-01-24_JardnInvierno_1769218570693.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-24_JardnInvierno_1769218570693.png",
+        "theme": "JardínInvierno",
+        "dateKey": "2026-01-24",
+        "timestamp": 1769218570696,
+        "extension": "png",
+        "fileSize": 557627,
+        "lastModified": "2026-01-24T01:36:10.696+00:00",
+        "storagePath": "2026-01/2026-01-24_JardnInvierno_1769218570693.png"
+      }
+    ],
+    "2026-01-23": [
+      {
+        "fileName": "2026-01-23_Ciervo_1769132211420.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-23_Ciervo_1769132211420.png",
+        "theme": "Ciervo",
+        "dateKey": "2026-01-23",
+        "timestamp": 1769132211426,
+        "extension": "png",
+        "fileSize": 1153439,
+        "lastModified": "2026-01-23T01:36:51.426+00:00",
+        "storagePath": "2026-01/2026-01-23_Ciervo_1769132211420.png"
+      }
+    ],
+    "2026-01-22": [
+      {
+        "fileName": "2026-01-22_Chimenea_1769045809735.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-22_Chimenea_1769045809735.png",
+        "theme": "Chimenea",
+        "dateKey": "2026-01-22",
+        "timestamp": 1769045809745,
+        "extension": "png",
+        "fileSize": 1123236,
+        "lastModified": "2026-01-22T01:36:49.745+00:00",
+        "storagePath": "2026-01/2026-01-22_Chimenea_1769045809735.png"
+      }
+    ],
+    "2026-01-21": [
+      {
+        "fileName": "2026-01-21_MandalaInvierno_1768959443459.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-21_MandalaInvierno_1768959443459.png",
+        "theme": "MandalaInvierno",
+        "dateKey": "2026-01-21",
+        "timestamp": 1768959443473,
+        "extension": "png",
+        "fileSize": 1548178,
+        "lastModified": "2026-01-21T01:37:23.473+00:00",
+        "storagePath": "2026-01/2026-01-21_MandalaInvierno_1768959443459.png"
+      }
+    ],
+    "2026-01-20": [
+      {
+        "fileName": "2026-01-20_Patinaje_1768873000659.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-20_Patinaje_1768873000659.png",
+        "theme": "Patinaje",
+        "dateKey": "2026-01-20",
+        "timestamp": 1768873000668,
+        "extension": "png",
+        "fileSize": 551517,
+        "lastModified": "2026-01-20T01:36:40.668+00:00",
+        "storagePath": "2026-01/2026-01-20_Patinaje_1768873000659.png"
+      }
+    ],
+    "2026-01-19": [
+      {
+        "fileName": "2026-01-19_TCaliente_1768786631531.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-19_TCaliente_1768786631531.png",
+        "theme": "TéCaliente",
+        "dateKey": "2026-01-19",
+        "timestamp": 1768786631537,
+        "extension": "png",
+        "fileSize": 496435,
+        "lastModified": "2026-01-19T01:37:11.537+00:00",
+        "storagePath": "2026-01/2026-01-19_TCaliente_1768786631531.png"
+      }
+    ],
+    "2026-01-18": [
+      {
+        "fileName": "2026-01-18_AnimalesBosque_1768700197510.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-18_AnimalesBosque_1768700197510.png",
+        "theme": "AnimalesBosque",
+        "dateKey": "2026-01-18",
+        "timestamp": 1768700197523,
+        "extension": "png",
+        "fileSize": 1287379,
+        "lastModified": "2026-01-18T01:36:37.523+00:00",
+        "storagePath": "2026-01/2026-01-18_AnimalesBosque_1768700197510.png"
+      }
+    ],
+    "2026-01-17": [
+      {
+        "fileName": "2026-01-17_SalaEstar_1768613748062.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-17_SalaEstar_1768613748062.png",
+        "theme": "SalaEstar",
+        "dateKey": "2026-01-17",
+        "timestamp": 1768613748065,
+        "extension": "png",
+        "fileSize": 528836,
+        "lastModified": "2026-01-17T01:35:48.065+00:00",
+        "storagePath": "2026-01/2026-01-17_SalaEstar_1768613748062.png"
+      }
+    ],
+    "2026-01-16": [
+      {
+        "fileName": "2026-01-16_MandalaFloral_1768527399434.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-16_MandalaFloral_1768527399434.png",
+        "theme": "MandalaFloral",
+        "dateKey": "2026-01-16",
+        "timestamp": 1768527399448,
+        "extension": "png",
+        "fileSize": 1358995,
+        "lastModified": "2026-01-16T01:36:39.448+00:00",
+        "storagePath": "2026-01/2026-01-16_MandalaFloral_1768527399434.png"
+      }
+    ],
+    "2026-01-15": [
+      {
+        "fileName": "2026-01-15_Esqu_1768440996688.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-15_Esqu_1768440996688.png",
+        "theme": "Esquí",
+        "dateKey": "2026-01-15",
+        "timestamp": 1768440996698,
+        "extension": "png",
+        "fileSize": 646531,
+        "lastModified": "2026-01-15T01:36:36.698+00:00",
+        "storagePath": "2026-01/2026-01-15_Esqu_1768440996688.png"
+      }
+    ],
+    "2026-01-14": [
+      {
+        "fileName": "2026-01-14_CafAmigos_1768354610620.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-14_CafAmigos_1768354610620.png",
+        "theme": "CaféAmigos",
+        "dateKey": "2026-01-14",
+        "timestamp": 1768354610631,
+        "extension": "png",
+        "fileSize": 1109086,
+        "lastModified": "2026-01-14T01:36:50.631+00:00",
+        "storagePath": "2026-01/2026-01-14_CafAmigos_1768354610620.png"
+      }
+    ],
+    "2026-01-13": [
+      {
+        "fileName": "2026-01-13_Cocina_1768268176330.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-13_Cocina_1768268176330.png",
+        "theme": "Cocina",
+        "dateKey": "2026-01-13",
+        "timestamp": 1768268176344,
+        "extension": "png",
+        "fileSize": 1427763,
+        "lastModified": "2026-01-13T01:36:16.344+00:00",
+        "storagePath": "2026-01/2026-01-13_Cocina_1768268176330.png"
+      }
+    ],
+    "2026-01-12": [
+      {
+        "fileName": "2026-01-12_LagoInvierno_1768181839526.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-12_LagoInvierno_1768181839526.png",
+        "theme": "LagoInvierno",
+        "dateKey": "2026-01-12",
+        "timestamp": 1768181839538,
+        "extension": "png",
+        "fileSize": 1108488,
+        "lastModified": "2026-01-12T01:37:19.538+00:00",
+        "storagePath": "2026-01/2026-01-12_LagoInvierno_1768181839526.png"
+      }
+    ],
+    "2026-01-11": [
+      {
+        "fileName": "2026-01-11_Biblioteca_1768095410017.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-11_Biblioteca_1768095410017.png",
+        "theme": "Biblioteca",
+        "dateKey": "2026-01-11",
+        "timestamp": 1768095410031,
+        "extension": "png",
+        "fileSize": 1639983,
+        "lastModified": "2026-01-11T01:36:50.031+00:00",
+        "storagePath": "2026-01/2026-01-11_Biblioteca_1768095410017.png"
+      }
+    ],
+    "2026-01-10": [
+      {
+        "fileName": "2026-01-10_MandalaAnimales_1768008974280.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-10_MandalaAnimales_1768008974280.png",
+        "theme": "MandalaAnimales",
+        "dateKey": "2026-01-10",
+        "timestamp": 1768008974293,
+        "extension": "png",
+        "fileSize": 1278555,
+        "lastModified": "2026-01-10T01:36:14.293+00:00",
+        "storagePath": "2026-01/2026-01-10_MandalaAnimales_1768008974280.png"
+      }
+    ],
+    "2026-01-09": [
+      {
+        "fileName": "2026-01-09_PatioNevado_1767922602231.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-09_PatioNevado_1767922602231.png",
+        "theme": "PatioNevado",
+        "dateKey": "2026-01-09",
+        "timestamp": 1767922602236,
+        "extension": "png",
+        "fileSize": 1086318,
+        "lastModified": "2026-01-09T01:36:42.236+00:00",
+        "storagePath": "2026-01/2026-01-09_PatioNevado_1767922602231.png"
+      }
+    ],
+    "2026-01-08": [
+      {
+        "fileName": "2026-01-08_AmigosT_1767836174004.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-08_AmigosT_1767836174004.png",
+        "theme": "AmigosTé",
+        "dateKey": "2026-01-08",
+        "timestamp": 1767836174008,
+        "extension": "png",
+        "fileSize": 1064383,
+        "lastModified": "2026-01-08T01:36:14.008+00:00",
+        "storagePath": "2026-01/2026-01-08_AmigosT_1767836174004.png"
+      }
+    ],
+    "2026-01-07": [
+      {
+        "fileName": "2026-01-07_CasaInvierno_1767749785597.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-07_CasaInvierno_1767749785597.png",
+        "theme": "CasaInvierno",
+        "dateKey": "2026-01-07",
+        "timestamp": 1767749785604,
+        "extension": "png",
+        "fileSize": 467045,
+        "lastModified": "2026-01-07T01:36:25.604+00:00",
+        "storagePath": "2026-01/2026-01-07_CasaInvierno_1767749785597.png"
+      }
+    ],
+    "2026-01-06": [
+      {
+        "fileName": "2026-01-06_ReyesMagos_1767663407106.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-06_ReyesMagos_1767663407106.png",
+        "theme": "ReyesMagos",
+        "dateKey": "2026-01-06",
+        "timestamp": 1767663407109,
+        "extension": "png",
+        "fileSize": 540953,
+        "lastModified": "2026-01-06T01:36:47.109+00:00",
+        "storagePath": "2026-01/2026-01-06_ReyesMagos_1767663407106.png"
+      }
+    ],
+    "2026-01-05": [
+      {
+        "fileName": "2026-01-05_MandalaNaturaleza_1767577072641.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-05_MandalaNaturaleza_1767577072641.png",
+        "theme": "MandalaNaturaleza",
+        "dateKey": "2026-01-05",
+        "timestamp": 1767577072655,
+        "extension": "png",
+        "fileSize": 1564637,
+        "lastModified": "2026-01-05T01:37:52.655+00:00",
+        "storagePath": "2026-01/2026-01-05_MandalaNaturaleza_1767577072641.png"
+      }
+    ],
+    "2026-01-04": [
+      {
+        "fileName": "2026-01-04_MuecoNieve_1767490606651.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-04_MuecoNieve_1767490606651.png",
+        "theme": "MuñecoNieve",
+        "dateKey": "2026-01-04",
+        "timestamp": 1767490606660,
+        "extension": "png",
+        "fileSize": 450452,
+        "lastModified": "2026-01-04T01:36:46.66+00:00",
+        "storagePath": "2026-01/2026-01-04_MuecoNieve_1767490606651.png"
+      }
+    ],
+    "2026-01-03": [
+      {
+        "fileName": "2026-01-03_CoposNieve_1767404152178.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-03_CoposNieve_1767404152178.png",
+        "theme": "CoposNieve",
+        "dateKey": "2026-01-03",
+        "timestamp": 1767404152185,
+        "extension": "png",
+        "fileSize": 1180081,
+        "lastModified": "2026-01-03T01:35:52.185+00:00",
+        "storagePath": "2026-01/2026-01-03_CoposNieve_1767404152178.png"
+      }
+    ],
+    "2026-01-02": [
+      {
+        "fileName": "2026-01-02_PaisajeNevado_1767317797333.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-02_PaisajeNevado_1767317797333.png",
+        "theme": "PaisajeNevado",
+        "dateKey": "2026-01-02",
+        "timestamp": 1767317797335,
+        "extension": "png",
+        "fileSize": 491520,
+        "lastModified": "2026-01-02T01:36:37.335+00:00",
+        "storagePath": "2026-01/2026-01-02_PaisajeNevado_1767317797333.png"
+      }
+    ],
+    "2026-01-01": [
+      {
+        "fileName": "2026-01-01_Nmeros2026_1767231467676.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-01/2026-01-01_Nmeros2026_1767231467676.png",
+        "theme": "Números2026",
+        "dateKey": "2026-01-01",
+        "timestamp": 1767231467687,
+        "extension": "png",
+        "fileSize": 1207759,
+        "lastModified": "2026-01-01T01:37:47.687+00:00",
+        "storagePath": "2026-01/2026-01-01_Nmeros2026_1767231467676.png"
+      }
+    ],
+    "2025-12-31": [
+      {
+        "fileName": "2025-12-31_Nmeros2026_1767144963949.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-31_Nmeros2026_1767144963949.png",
+        "theme": "Números2026",
+        "dateKey": "2025-12-31",
+        "timestamp": 1767144963952,
+        "extension": "png",
+        "fileSize": 819640,
+        "lastModified": "2025-12-31T01:36:03.952+00:00",
+        "storagePath": "2025-12/2025-12-31_Nmeros2026_1767144963949.png"
+      }
+    ],
+    "2025-12-30": [
+      {
+        "fileName": "2025-12-30_Calendario_1767058592828.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-30_Calendario_1767058592828.png",
+        "theme": "Calendario",
+        "dateKey": "2025-12-30",
+        "timestamp": 1767058592834,
+        "extension": "png",
+        "fileSize": 1144914,
+        "lastModified": "2025-12-30T01:36:32.834+00:00",
+        "storagePath": "2025-12/2025-12-30_Calendario_1767058592828.png"
+      }
+    ],
+    "2025-12-29": [
+      {
+        "fileName": "2025-12-29_FuegosArtificiales_1767028303560.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-29_FuegosArtificiales_1767028303560.png",
+        "theme": "FuegosArtificiales",
+        "dateKey": "2025-12-29",
+        "timestamp": 1767028303562,
+        "extension": "png",
+        "fileSize": 1305848,
+        "lastModified": "2025-12-29T17:11:43.562+00:00",
+        "storagePath": "2025-12/2025-12-29_FuegosArtificiales_1767028303560.png"
+      }
+    ],
+    "2025-12-28": [
+      {
+        "fileName": "2025-12-28_Brindis_1767028282050.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-28_Brindis_1767028282050.png",
+        "theme": "Brindis",
+        "dateKey": "2025-12-28",
+        "timestamp": 1767028282052,
+        "extension": "png",
+        "fileSize": 565327,
+        "lastModified": "2025-12-29T17:11:22.052+00:00",
+        "storagePath": "2025-12/2025-12-28_Brindis_1767028282050.png"
+      }
+    ],
+    "2025-12-27": [
+      {
+        "fileName": "2025-12-27_RelojMedianoche_1766799365873.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-27_RelojMedianoche_1766799365873.png",
+        "theme": "RelojMedianoche",
+        "dateKey": "2025-12-27",
+        "timestamp": 1766799365886,
+        "extension": "png",
+        "fileSize": 1216086,
+        "lastModified": "2025-12-27T01:36:05.886+00:00",
+        "storagePath": "2025-12/2025-12-27_RelojMedianoche_1766799365873.png"
+      }
+    ],
+    "2025-12-26": [
+      {
+        "fileName": "2025-12-26_FinAo_1766712966880.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-26_FinAo_1766712966880.png",
+        "theme": "FinAño",
+        "dateKey": "2025-12-26",
+        "timestamp": 1766712966893,
+        "extension": "png",
+        "fileSize": 1426421,
+        "lastModified": "2025-12-26T01:36:06.893+00:00",
+        "storagePath": "2025-12/2025-12-26_FinAo_1766712966880.png"
+      }
+    ],
+    "2025-12-25": [
+      {
+        "fileName": "2025-12-25_RegalosParque_1766626616060.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-25_RegalosParque_1766626616060.png",
+        "theme": "RegalosParque",
+        "dateKey": "2025-12-25",
+        "timestamp": 1766626616064,
+        "extension": "png",
+        "fileSize": 1039385,
+        "lastModified": "2025-12-25T01:36:56.064+00:00",
+        "storagePath": "2025-12/2025-12-25_RegalosParque_1766626616060.png"
+      }
+    ],
+    "2025-12-24": [
+      {
+        "fileName": "2025-12-24_PapInvierno_1766540163014.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-24_PapInvierno_1766540163014.png",
+        "theme": "PapáInvierno",
+        "dateKey": "2025-12-24",
+        "timestamp": 1766540163021,
+        "extension": "png",
+        "fileSize": 684272,
+        "lastModified": "2025-12-24T01:36:03.021+00:00",
+        "storagePath": "2025-12/2025-12-24_PapInvierno_1766540163014.png"
+      }
+    ],
+    "2025-12-23": [
+      {
+        "fileName": "2025-12-23_VillancicoPareja_1766453791329.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-23_VillancicoPareja_1766453791329.png",
+        "theme": "VillancicoPareja",
+        "dateKey": "2025-12-23",
+        "timestamp": 1766453791335,
+        "extension": "png",
+        "fileSize": 512077,
+        "lastModified": "2025-12-23T01:36:31.335+00:00",
+        "storagePath": "2025-12/2025-12-23_VillancicoPareja_1766453791329.png"
+      }
+    ],
+    "2025-12-22": [
+      {
+        "fileName": "2025-12-22_Chimenea_1766367423790.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-22_Chimenea_1766367423790.png",
+        "theme": "Chimenea",
+        "dateKey": "2025-12-22",
+        "timestamp": 1766367423795,
+        "extension": "png",
+        "fileSize": 1109336,
+        "lastModified": "2025-12-22T01:37:03.795+00:00",
+        "storagePath": "2025-12/2025-12-22_Chimenea_1766367423790.png"
+      }
+    ],
+    "2025-12-21": [
+      {
+        "fileName": "2025-12-21_NocheBuena_1766280969572.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-21_NocheBuena_1766280969572.png",
+        "theme": "NocheBuena",
+        "dateKey": "2025-12-21",
+        "timestamp": 1766280969578,
+        "extension": "png",
+        "fileSize": 1174323,
+        "lastModified": "2025-12-21T01:36:09.578+00:00",
+        "storagePath": "2025-12/2025-12-21_NocheBuena_1766280969572.png"
+      }
+    ],
+    "2025-12-20": [
+      {
+        "fileName": "2025-12-20_CartaSanta_1766194509742.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-20_CartaSanta_1766194509742.png",
+        "theme": "CartaSanta",
+        "dateKey": "2025-12-20",
+        "timestamp": 1766194509751,
+        "extension": "png",
+        "fileSize": 579540,
+        "lastModified": "2025-12-20T01:35:09.751+00:00",
+        "storagePath": "2025-12/2025-12-20_CartaSanta_1766194509742.png"
+      }
+    ],
+    "2025-12-19": [
+      {
+        "fileName": "2025-12-19_BastonDulce_1766108157252.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-19_BastonDulce_1766108157252.png",
+        "theme": "BastonDulce",
+        "dateKey": "2025-12-19",
+        "timestamp": 1766108157261,
+        "extension": "png",
+        "fileSize": 500960,
+        "lastModified": "2025-12-19T01:35:57.261+00:00",
+        "storagePath": "2025-12/2025-12-19_BastonDulce_1766108157252.png"
+      }
+    ],
+    "2025-12-18": [
+      {
+        "fileName": "2025-12-18_ChocolateCaliente_1766021755244.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-18_ChocolateCaliente_1766021755244.png",
+        "theme": "ChocolateCaliente",
+        "dateKey": "2025-12-18",
+        "timestamp": 1766021755246,
+        "extension": "png",
+        "fileSize": 380543,
+        "lastModified": "2025-12-18T01:35:55.246+00:00",
+        "storagePath": "2025-12/2025-12-18_ChocolateCaliente_1766021755244.png"
+      }
+    ],
+    "2025-12-17": [
+      {
+        "fileName": "2025-12-17_Ciervo_1765935388222.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-17_Ciervo_1765935388222.png",
+        "theme": "Ciervo",
+        "dateKey": "2025-12-17",
+        "timestamp": 1765935388228,
+        "extension": "png",
+        "fileSize": 1247146,
+        "lastModified": "2025-12-17T01:36:28.228+00:00",
+        "storagePath": "2025-12/2025-12-17_Ciervo_1765935388222.png"
+      }
+    ],
+    "2025-12-16": [
+      {
+        "fileName": "2025-12-16_CoronaNavidad_1765848969247.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-16_CoronaNavidad_1765848969247.png",
+        "theme": "CoronaNavidad",
+        "dateKey": "2025-12-16",
+        "timestamp": 1765848969256,
+        "extension": "png",
+        "fileSize": 540068,
+        "lastModified": "2025-12-16T01:36:09.256+00:00",
+        "storagePath": "2025-12/2025-12-16_CoronaNavidad_1765848969247.png"
+      }
+    ],
+    "2025-12-15": [
+      {
+        "fileName": "2025-12-15_MuecaNavidad_1765762622179.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-15_MuecaNavidad_1765762622179.png",
+        "theme": "MuñecaNavidad",
+        "dateKey": "2025-12-15",
+        "timestamp": 1765762622188,
+        "extension": "png",
+        "fileSize": 663994,
+        "lastModified": "2025-12-15T01:37:02.188+00:00",
+        "storagePath": "2025-12/2025-12-15_MuecaNavidad_1765762622179.png"
+      }
+    ],
+    "2025-12-14": [
+      {
+        "fileName": "2025-12-14_NieveJugando_1765676150242.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-14_NieveJugando_1765676150242.png",
+        "theme": "NieveJugando",
+        "dateKey": "2025-12-14",
+        "timestamp": 1765676150248,
+        "extension": "png",
+        "fileSize": 1182296,
+        "lastModified": "2025-12-14T01:35:50.248+00:00",
+        "storagePath": "2025-12/2025-12-14_NieveJugando_1765676150242.png"
+      }
+    ],
+    "2025-12-13": [
+      {
+        "fileName": "2025-12-13_PajarosInvierno_1765589738951.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-13_PajarosInvierno_1765589738951.png",
+        "theme": "PajarosInvierno",
+        "dateKey": "2025-12-13",
+        "timestamp": 1765589738960,
+        "extension": "png",
+        "fileSize": 1162433,
+        "lastModified": "2025-12-13T01:35:38.96+00:00",
+        "storagePath": "2025-12/2025-12-13_PajarosInvierno_1765589738951.png"
+      }
+    ],
+    "2025-12-12": [
+      {
+        "fileName": "2025-12-12_Supermercado_1765503367732.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-12_Supermercado_1765503367732.png",
+        "theme": "Supermercado",
+        "dateKey": "2025-12-12",
+        "timestamp": 1765503367745,
+        "extension": "png",
+        "fileSize": 1339395,
+        "lastModified": "2025-12-12T01:36:07.745+00:00",
+        "storagePath": "2025-12/2025-12-12_Supermercado_1765503367732.png"
+      }
+    ],
+    "2025-12-11": [
+      {
+        "fileName": "2025-12-11_Trineo_1765416970990.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-11_Trineo_1765416970990.png",
+        "theme": "Trineo",
+        "dateKey": "2025-12-11",
+        "timestamp": 1765416970992,
+        "extension": "png",
+        "fileSize": 511593,
+        "lastModified": "2025-12-11T01:36:10.992+00:00",
+        "storagePath": "2025-12/2025-12-11_Trineo_1765416970990.png"
+      }
+    ],
+    "2025-12-10": [
+      {
+        "fileName": "2025-12-10_CoposNieve_1765330594302.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-10_CoposNieve_1765330594302.png",
+        "theme": "CoposNieve",
+        "dateKey": "2025-12-10",
+        "timestamp": 1765330594308,
+        "extension": "png",
+        "fileSize": 1254651,
+        "lastModified": "2025-12-10T01:36:34.308+00:00",
+        "storagePath": "2025-12/2025-12-10_CoposNieve_1765330594302.png"
+      }
+    ],
+    "2025-12-09": [
+      {
+        "fileName": "2025-12-09_Calcetines_1765244164387.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-09_Calcetines_1765244164387.png",
+        "theme": "Calcetines",
+        "dateKey": "2025-12-09",
+        "timestamp": 1765244164391,
+        "extension": "png",
+        "fileSize": 1097615,
+        "lastModified": "2025-12-09T01:36:04.391+00:00",
+        "storagePath": "2025-12/2025-12-09_Calcetines_1765244164387.png"
+      }
+    ],
+    "2025-12-08": [
+      {
+        "fileName": "2025-12-08_Galletas_1765157771700.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-08_Galletas_1765157771700.png",
+        "theme": "Galletas",
+        "dateKey": "2025-12-08",
+        "timestamp": 1765157771708,
+        "extension": "png",
+        "fileSize": 548017,
+        "lastModified": "2025-12-08T01:36:11.708+00:00",
+        "storagePath": "2025-12/2025-12-08_Galletas_1765157771700.png"
+      }
+    ],
+    "2025-12-07": [
+      {
+        "fileName": "2025-12-07_Villancicos_1765071346773.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-07_Villancicos_1765071346773.png",
+        "theme": "Villancicos",
+        "dateKey": "2025-12-07",
+        "timestamp": 1765071346782,
+        "extension": "png",
+        "fileSize": 1057128,
+        "lastModified": "2025-12-07T01:35:46.782+00:00",
+        "storagePath": "2025-12/2025-12-07_Villancicos_1765071346773.png"
+      }
+    ],
+    "2025-12-06": [
+      {
+        "fileName": "2025-12-06_CasaNevada_1764984899784.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-06_CasaNevada_1764984899784.png",
+        "theme": "CasaNevada",
+        "dateKey": "2025-12-06",
+        "timestamp": 1764984899793,
+        "extension": "png",
+        "fileSize": 574010,
+        "lastModified": "2025-12-06T01:34:59.793+00:00",
+        "storagePath": "2025-12/2025-12-06_CasaNevada_1764984899784.png"
+      }
+    ],
+    "2025-12-05": [
+      {
+        "fileName": "2025-12-05_Renos_1764898548795.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-05_Renos_1764898548795.png",
+        "theme": "Renos",
+        "dateKey": "2025-12-05",
+        "timestamp": 1764898548806,
+        "extension": "png",
+        "fileSize": 688627,
+        "lastModified": "2025-12-05T01:35:48.806+00:00",
+        "storagePath": "2025-12/2025-12-05_Renos_1764898548795.png"
+      }
+    ],
+    "2025-12-04": [
+      {
+        "fileName": "2025-12-04_Santa_1764812154457.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-04_Santa_1764812154457.png",
+        "theme": "Santa",
+        "dateKey": "2025-12-04",
+        "timestamp": 1764812154470,
+        "extension": "png",
+        "fileSize": 1296014,
+        "lastModified": "2025-12-04T01:35:54.47+00:00",
+        "storagePath": "2025-12/2025-12-04_Santa_1764812154457.png"
+      }
+    ],
+    "2025-12-03": [
+      {
+        "fileName": "2025-12-03_MuecoNieve_1764725730778.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-03_MuecoNieve_1764725730778.png",
+        "theme": "MuñecoNieve",
+        "dateKey": "2025-12-03",
+        "timestamp": 1764725730785,
+        "extension": "png",
+        "fileSize": 725599,
+        "lastModified": "2025-12-03T01:35:30.785+00:00",
+        "storagePath": "2025-12/2025-12-03_MuecoNieve_1764725730778.png"
+      }
+    ],
+    "2025-12-02": [
+      {
+        "fileName": "2025-12-02_Regalos_1764639338940.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-02_Regalos_1764639338940.png",
+        "theme": "Regalos",
+        "dateKey": "2025-12-02",
+        "timestamp": 1764639338949,
+        "extension": "png",
+        "fileSize": 446468,
+        "lastModified": "2025-12-02T01:35:38.949+00:00",
+        "storagePath": "2025-12/2025-12-02_Regalos_1764639338940.png"
+      }
+    ],
+    "2025-12-01": [
+      {
+        "fileName": "2025-12-01_rbolNavidad_1764553038889.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-12/2025-12-01_rbolNavidad_1764553038889.png",
+        "theme": "ÁrbolNavidad",
+        "dateKey": "2025-12-01",
+        "timestamp": 1764553038895,
+        "extension": "png",
+        "fileSize": 485610,
+        "lastModified": "2025-12-01T01:37:18.895+00:00",
+        "storagePath": "2025-12/2025-12-01_rbolNavidad_1764553038889.png"
+      }
+    ],
+    "2025-11-30": [
+      {
+        "fileName": "2025-11-30_Lluvia_1764466546544.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-30_Lluvia_1764466546544.png",
+        "theme": "Lluvia",
+        "dateKey": "2025-11-30",
+        "timestamp": 1764466546554,
+        "extension": "png",
+        "fileSize": 526421,
+        "lastModified": "2025-11-30T01:35:46.554+00:00",
+        "storagePath": "2025-11/2025-11-30_Lluvia_1764466546544.png"
+      }
+    ],
+    "2025-11-29": [
+      {
+        "fileName": "2025-11-29_Princesa_1764380091919.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-29_Princesa_1764380091919.png",
+        "theme": "Princesa",
+        "dateKey": "2025-11-29",
+        "timestamp": 1764380091933,
+        "extension": "png",
+        "fileSize": 1827331,
+        "lastModified": "2025-11-29T01:34:51.933+00:00",
+        "storagePath": "2025-11/2025-11-29_Princesa_1764380091919.png"
+      }
+    ],
+    "2025-11-28": [
+      {
+        "fileName": "2025-11-28_Bicicleta_1764293727604.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-28_Bicicleta_1764293727604.png",
+        "theme": "Bicicleta",
+        "dateKey": "2025-11-28",
+        "timestamp": 1764293727614,
+        "extension": "png",
+        "fileSize": 619059,
+        "lastModified": "2025-11-28T01:35:27.614+00:00",
+        "storagePath": "2025-11/2025-11-28_Bicicleta_1764293727604.png"
+      }
+    ],
+    "2025-11-27": [
+      {
+        "fileName": "2025-11-27_Mercado_1764207312598.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-27_Mercado_1764207312598.png",
+        "theme": "Mercado",
+        "dateKey": "2025-11-27",
+        "timestamp": 1764207312612,
+        "extension": "png",
+        "fileSize": 1229147,
+        "lastModified": "2025-11-27T01:35:12.612+00:00",
+        "storagePath": "2025-11/2025-11-27_Mercado_1764207312598.png"
+      }
+    ],
+    "2025-11-26": [
+      {
+        "fileName": "2025-11-26_Comida_1764120932256.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-26_Comida_1764120932256.png",
+        "theme": "Comida",
+        "dateKey": "2025-11-26",
+        "timestamp": 1764120932259,
+        "extension": "png",
+        "fileSize": 658340,
+        "lastModified": "2025-11-26T01:35:32.259+00:00",
+        "storagePath": "2025-11/2025-11-26_Comida_1764120932256.png"
+      }
+    ],
+    "2025-11-25": [
+      {
+        "fileName": "2025-11-25_Familia_1764034545950.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-25_Familia_1764034545950.png",
+        "theme": "Familia",
+        "dateKey": "2025-11-25",
+        "timestamp": 1764034545963,
+        "extension": "png",
+        "fileSize": 1596043,
+        "lastModified": "2025-11-25T01:35:45.963+00:00",
+        "storagePath": "2025-11/2025-11-25_Familia_1764034545950.png"
+      }
+    ],
+    "2025-11-24": [
+      {
+        "fileName": "2025-11-24_Escuela_1763948183821.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-24_Escuela_1763948183821.png",
+        "theme": "Escuela",
+        "dateKey": "2025-11-24",
+        "timestamp": 1763948183830,
+        "extension": "png",
+        "fileSize": 995605,
+        "lastModified": "2025-11-24T01:36:23.83+00:00",
+        "storagePath": "2025-11/2025-11-24_Escuela_1763948183821.png"
+      }
+    ],
+    "2025-11-23": [
+      {
+        "fileName": "2025-11-23_NiosJugando_1763861753200.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-23_NiosJugando_1763861753200.png",
+        "theme": "NiñosJugando",
+        "dateKey": "2025-11-23",
+        "timestamp": 1763861753213,
+        "extension": "png",
+        "fileSize": 1359582,
+        "lastModified": "2025-11-23T01:35:53.213+00:00",
+        "storagePath": "2025-11/2025-11-23_NiosJugando_1763861753200.png"
+      }
+    ],
+    "2025-11-22": [
+      {
+        "fileName": "2025-11-22_Conejo_1763775284899.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-22_Conejo_1763775284899.png",
+        "theme": "Conejo",
+        "dateKey": "2025-11-22",
+        "timestamp": 1763775284914,
+        "extension": "png",
+        "fileSize": 1397923,
+        "lastModified": "2025-11-22T01:34:44.914+00:00",
+        "storagePath": "2025-11/2025-11-22_Conejo_1763775284899.png"
+      }
+    ],
+    "2025-11-21": [
+      {
+        "fileName": "2025-11-21_Nido_1763688920867.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-21_Nido_1763688920867.png",
+        "theme": "Nido",
+        "dateKey": "2025-11-21",
+        "timestamp": 1763688920876,
+        "extension": "png",
+        "fileSize": 505971,
+        "lastModified": "2025-11-21T01:35:20.876+00:00",
+        "storagePath": "2025-11/2025-11-21_Nido_1763688920867.png"
+      }
+    ],
+    "2025-11-20": [
+      {
+        "fileName": "2025-11-20_Pjaros_1763602535159.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-20_Pjaros_1763602535159.png",
+        "theme": "Pájaros",
+        "dateKey": "2025-11-20",
+        "timestamp": 1763602535161,
+        "extension": "png",
+        "fileSize": 418782,
+        "lastModified": "2025-11-20T01:35:35.161+00:00",
+        "storagePath": "2025-11/2025-11-20_Pjaros_1763602535159.png"
+      }
+    ],
+    "2025-11-19": [
+      {
+        "fileName": "2025-11-19_Camino_1763516141210.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-19_Camino_1763516141210.png",
+        "theme": "Camino",
+        "dateKey": "2025-11-19",
+        "timestamp": 1763516141217,
+        "extension": "png",
+        "fileSize": 1432848,
+        "lastModified": "2025-11-19T01:35:41.217+00:00",
+        "storagePath": "2025-11/2025-11-19_Camino_1763516141210.png"
+      }
+    ],
+    "2025-11-18": [
+      {
+        "fileName": "2025-11-18_CasaRural_1763429713880.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-18_CasaRural_1763429713880.png",
+        "theme": "CasaRural",
+        "dateKey": "2025-11-18",
+        "timestamp": 1763429713886,
+        "extension": "png",
+        "fileSize": 476683,
+        "lastModified": "2025-11-18T01:35:13.886+00:00",
+        "storagePath": "2025-11/2025-11-18_CasaRural_1763429713880.png"
+      }
+    ],
+    "2025-11-17": [
+      {
+        "fileName": "2025-11-17_Verduras_1763343359403.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-17_Verduras_1763343359403.png",
+        "theme": "Verduras",
+        "dateKey": "2025-11-17",
+        "timestamp": 1763343359409,
+        "extension": "png",
+        "fileSize": 1251821,
+        "lastModified": "2025-11-17T01:35:59.409+00:00",
+        "storagePath": "2025-11/2025-11-17_Verduras_1763343359403.png"
+      }
+    ],
+    "2025-11-16": [
+      {
+        "fileName": "2025-11-16_Frutas_1763256924246.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-16_Frutas_1763256924246.png",
+        "theme": "Frutas",
+        "dateKey": "2025-11-16",
+        "timestamp": 1763256924255,
+        "extension": "png",
+        "fileSize": 595865,
+        "lastModified": "2025-11-16T01:35:24.255+00:00",
+        "storagePath": "2025-11/2025-11-16_Frutas_1763256924246.png"
+      }
+    ],
+    "2025-11-15": [
+      {
+        "fileName": "2025-11-15_Campo_1763170494783.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-15_Campo_1763170494783.png",
+        "theme": "Campo",
+        "dateKey": "2025-11-15",
+        "timestamp": 1763170494796,
+        "extension": "png",
+        "fileSize": 1438217,
+        "lastModified": "2025-11-15T01:34:54.796+00:00",
+        "storagePath": "2025-11/2025-11-15_Campo_1763170494783.png"
+      }
+    ],
+    "2025-11-14": [
+      {
+        "fileName": "2025-11-14_Caballo_1763084129287.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-14_Caballo_1763084129287.png",
+        "theme": "Caballo",
+        "dateKey": "2025-11-14",
+        "timestamp": 1763084129290,
+        "extension": "png",
+        "fileSize": 766566,
+        "lastModified": "2025-11-14T01:35:29.29+00:00",
+        "storagePath": "2025-11/2025-11-14_Caballo_1763084129287.png"
+      }
+    ],
+    "2025-11-13": [
+      {
+        "fileName": "2025-11-13_Gallinas_1762997719436.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-13_Gallinas_1762997719436.png",
+        "theme": "Gallinas",
+        "dateKey": "2025-11-13",
+        "timestamp": 1762997719448,
+        "extension": "png",
+        "fileSize": 1200913,
+        "lastModified": "2025-11-13T01:35:19.448+00:00",
+        "storagePath": "2025-11/2025-11-13_Gallinas_1762997719436.png"
+      }
+    ],
+    "2025-11-12": [
+      {
+        "fileName": "2025-11-12_Granja_1762911322668.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-12_Granja_1762911322668.png",
+        "theme": "Granja",
+        "dateKey": "2025-11-12",
+        "timestamp": 1762911322683,
+        "extension": "png",
+        "fileSize": 1168794,
+        "lastModified": "2025-11-12T01:35:22.683+00:00",
+        "storagePath": "2025-11/2025-11-12_Granja_1762911322668.png"
+      }
+    ],
+    "2025-11-11": [
+      {
+        "fileName": "2025-11-11_Montaa_1762824944365.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-11_Montaa_1762824944365.png",
+        "theme": "Montaña",
+        "dateKey": "2025-11-11",
+        "timestamp": 1762824944367,
+        "extension": "png",
+        "fileSize": 436928,
+        "lastModified": "2025-11-11T01:35:44.367+00:00",
+        "storagePath": "2025-11/2025-11-11_Montaa_1762824944365.png"
+      }
+    ],
+    "2025-11-10": [
+      {
+        "fileName": "2025-11-10_Lago_1762738560793.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-10_Lago_1762738560793.png",
+        "theme": "Lago",
+        "dateKey": "2025-11-10",
+        "timestamp": 1762738560799,
+        "extension": "png",
+        "fileSize": 563857,
+        "lastModified": "2025-11-10T01:36:00.799+00:00",
+        "storagePath": "2025-11/2025-11-10_Lago_1762738560793.png"
+      }
+    ],
+    "2025-11-09": [
+      {
+        "fileName": "2025-11-09_Fogata_1762652096989.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-09_Fogata_1762652096989.png",
+        "theme": "Fogata",
+        "dateKey": "2025-11-09",
+        "timestamp": 1762652096992,
+        "extension": "png",
+        "fileSize": 563895,
+        "lastModified": "2025-11-09T01:34:56.992+00:00",
+        "storagePath": "2025-11/2025-11-09_Fogata_1762652096989.png"
+      }
+    ],
+    "2025-11-08": [
+      {
+        "fileName": "2025-11-08_Castaas_1762565662442.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-08_Castaas_1762565662442.png",
+        "theme": "Castañas",
+        "dateKey": "2025-11-08",
+        "timestamp": 1762565662449,
+        "extension": "png",
+        "fileSize": 1049544,
+        "lastModified": "2025-11-08T01:34:22.449+00:00",
+        "storagePath": "2025-11/2025-11-08_Castaas_1762565662442.png"
+      }
+    ],
+    "2025-11-07": [
+      {
+        "fileName": "2025-11-07_Setas_1762479291578.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-07_Setas_1762479291578.png",
+        "theme": "Setas",
+        "dateKey": "2025-11-07",
+        "timestamp": 1762479291584,
+        "extension": "png",
+        "fileSize": 1346997,
+        "lastModified": "2025-11-07T01:34:51.584+00:00",
+        "storagePath": "2025-11/2025-11-07_Setas_1762479291578.png"
+      }
+    ],
+    "2025-11-06": [
+      {
+        "fileName": "2025-11-06_TazaT_1762392925775.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-06_TazaT_1762392925775.png",
+        "theme": "TazaTé",
+        "dateKey": "2025-11-06",
+        "timestamp": 1762392925784,
+        "extension": "png",
+        "fileSize": 584226,
+        "lastModified": "2025-11-06T01:35:25.784+00:00",
+        "storagePath": "2025-11/2025-11-06_TazaT_1762392925775.png"
+      }
+    ],
+    "2025-11-05": [
+      {
+        "fileName": "2025-11-05_Cocina_1762306534178.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-05_Cocina_1762306534178.png",
+        "theme": "Cocina",
+        "dateKey": "2025-11-05",
+        "timestamp": 1762306534189,
+        "extension": "png",
+        "fileSize": 1010230,
+        "lastModified": "2025-11-05T01:35:34.189+00:00",
+        "storagePath": "2025-11/2025-11-05_Cocina_1762306534178.png"
+      }
+    ],
+    "2025-11-04": [
+      {
+        "fileName": "2025-11-04_Zorro_1762220106345.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-04_Zorro_1762220106345.png",
+        "theme": "Zorro",
+        "dateKey": "2025-11-04",
+        "timestamp": 1762220106354,
+        "extension": "png",
+        "fileSize": 636726,
+        "lastModified": "2025-11-04T01:35:06.354+00:00",
+        "storagePath": "2025-11/2025-11-04_Zorro_1762220106345.png"
+      }
+    ],
+    "2025-11-03": [
+      {
+        "fileName": "2025-11-03_Ardilla_1762133762508.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-03_Ardilla_1762133762508.png",
+        "theme": "Ardilla",
+        "dateKey": "2025-11-03",
+        "timestamp": 1762133762516,
+        "extension": "png",
+        "fileSize": 447808,
+        "lastModified": "2025-11-03T01:36:02.516+00:00",
+        "storagePath": "2025-11/2025-11-03_Ardilla_1762133762508.png"
+      }
+    ],
+    "2025-11-02": [
+      {
+        "fileName": "2025-11-02_Bosque_1762047317661.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-02_Bosque_1762047317661.png",
+        "theme": "Bosque",
+        "dateKey": "2025-11-02",
+        "timestamp": 1762047317667,
+        "extension": "png",
+        "fileSize": 1373904,
+        "lastModified": "2025-11-02T01:35:17.667+00:00",
+        "storagePath": "2025-11/2025-11-02_Bosque_1762047317661.png"
+      }
+    ],
+    "2025-11-01": [
+      {
+        "fileName": "2025-11-01_Hojas_1761960902294.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-11/2025-11-01_Hojas_1761960902294.png",
+        "theme": "Hojas",
+        "dateKey": "2025-11-01",
+        "timestamp": 1761960902305,
+        "extension": "png",
+        "fileSize": 589912,
+        "lastModified": "2025-11-01T01:35:02.305+00:00",
+        "storagePath": "2025-11/2025-11-01_Hojas_1761960902294.png"
+      }
+    ],
+    "2025-10-31": [
+      {
+        "fileName": "2025-10-31_Sombras_1761874505490.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-31_Sombras_1761874505490.png",
+        "theme": "Sombras",
+        "dateKey": "2025-10-31",
+        "timestamp": 1761874505504,
+        "extension": "png",
+        "fileSize": 499151,
+        "lastModified": "2025-10-31T01:35:05.504+00:00",
+        "storagePath": "2025-10/2025-10-31_Sombras_1761874505490.png"
+      }
+    ],
+    "2025-10-30": [
+      {
+        "fileName": "2025-10-30_Corazn_1761788139694.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-30_Corazn_1761788139694.png",
+        "theme": "Corazón",
+        "dateKey": "2025-10-30",
+        "timestamp": 1761788139702,
+        "extension": "png",
+        "fileSize": 335766,
+        "lastModified": "2025-10-30T01:35:39.702+00:00",
+        "storagePath": "2025-10/2025-10-30_Corazn_1761788139694.png"
+      }
+    ],
+    "2025-10-29": [
+      {
+        "fileName": "2025-10-29_Espritu_1761701731936.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-29_Espritu_1761701731936.png",
+        "theme": "Espíritu",
+        "dateKey": "2025-10-29",
+        "timestamp": 1761701731951,
+        "extension": "png",
+        "fileSize": 1831549,
+        "lastModified": "2025-10-29T01:35:31.951+00:00",
+        "storagePath": "2025-10/2025-10-29_Espritu_1761701731936.png"
+      }
+    ],
+    "2025-10-28": [
+      {
+        "fileName": "2025-10-28_Mscara_1761615297655.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-28_Mscara_1761615297655.png",
+        "theme": "Máscara",
+        "dateKey": "2025-10-28",
+        "timestamp": 1761615297665,
+        "extension": "png",
+        "fileSize": 1123188,
+        "lastModified": "2025-10-28T01:34:57.665+00:00",
+        "storagePath": "2025-10/2025-10-28_Mscara_1761615297655.png"
+      }
+    ],
+    "2025-10-27": [
+      {
+        "fileName": "2025-10-27_Bebida_1761528959878.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-27_Bebida_1761528959878.png",
+        "theme": "Bebida",
+        "dateKey": "2025-10-27",
+        "timestamp": 1761528959887,
+        "extension": "png",
+        "fileSize": 479523,
+        "lastModified": "2025-10-27T01:35:59.887+00:00",
+        "storagePath": "2025-10/2025-10-27_Bebida_1761528959878.png"
+      }
+    ],
+    "2025-10-26": [
+      {
+        "fileName": "2025-10-26_Espantapjaros_1761442516297.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-26_Espantapjaros_1761442516297.png",
+        "theme": "Espantapájaros",
+        "dateKey": "2025-10-26",
+        "timestamp": 1761442516301,
+        "extension": "png",
+        "fileSize": 1048128,
+        "lastModified": "2025-10-26T01:35:16.301+00:00",
+        "storagePath": "2025-10/2025-10-26_Espantapjaros_1761442516297.png"
+      }
+    ],
+    "2025-10-25": [
+      {
+        "fileName": "2025-10-25_Telaraa_1761356072457.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-25_Telaraa_1761356072457.png",
+        "theme": "Telaraña",
+        "dateKey": "2025-10-25",
+        "timestamp": 1761356072469,
+        "extension": "png",
+        "fileSize": 1368555,
+        "lastModified": "2025-10-25T01:34:32.469+00:00",
+        "storagePath": "2025-10/2025-10-25_Telaraa_1761356072457.png"
+      }
+    ],
+    "2025-10-24": [
+      {
+        "fileName": "2025-10-24_Ratas_1761269692079.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-24_Ratas_1761269692079.png",
+        "theme": "Ratas",
+        "dateKey": "2025-10-24",
+        "timestamp": 1761269692090,
+        "extension": "png",
+        "fileSize": 613383,
+        "lastModified": "2025-10-24T01:34:52.09+00:00",
+        "storagePath": "2025-10/2025-10-24_Ratas_1761269692079.png"
+      }
+    ],
+    "2025-10-23": [
+      {
+        "fileName": "2025-10-23_Casa_1761183284544.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-23_Casa_1761183284544.png",
+        "theme": "Casa",
+        "dateKey": "2025-10-23",
+        "timestamp": 1761183284550,
+        "extension": "png",
+        "fileSize": 1137441,
+        "lastModified": "2025-10-23T01:34:44.55+00:00",
+        "storagePath": "2025-10/2025-10-23_Casa_1761183284544.png"
+      }
+    ],
+    "2025-10-22": [
+      {
+        "fileName": "2025-10-22_HombreLobo_1761096939543.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-22_HombreLobo_1761096939543.png",
+        "theme": "HombreLobo",
+        "dateKey": "2025-10-22",
+        "timestamp": 1761096939545,
+        "extension": "png",
+        "fileSize": 464961,
+        "lastModified": "2025-10-22T01:35:39.545+00:00",
+        "storagePath": "2025-10/2025-10-22_HombreLobo_1761096939543.png"
+      }
+    ],
+    "2025-10-21": [
+      {
+        "fileName": "2025-10-21_Bosque_1761010493638.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-21_Bosque_1761010493638.png",
+        "theme": "Bosque",
+        "dateKey": "2025-10-21",
+        "timestamp": 1761010493650,
+        "extension": "png",
+        "fileSize": 1320063,
+        "lastModified": "2025-10-21T01:34:53.65+00:00",
+        "storagePath": "2025-10/2025-10-21_Bosque_1761010493638.png"
+      }
+    ],
+    "2025-10-20": [
+      {
+        "fileName": "2025-10-20_Calavera_1760928387315.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-20_Calavera_1760928387315.png",
+        "theme": "Calavera",
+        "dateKey": "2025-10-20",
+        "timestamp": 1760928387328,
+        "extension": "png",
+        "fileSize": 1494124,
+        "lastModified": "2025-10-20T02:46:27.328+00:00",
+        "storagePath": "2025-10/2025-10-20_Calavera_1760928387315.png"
+      }
+    ],
+    "2025-10-19": [
+      {
+        "fileName": "2025-10-19_Bho_1760842036550.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-19_Bho_1760842036550.png",
+        "theme": "Búho",
+        "dateKey": "2025-10-19",
+        "timestamp": 1760842036553,
+        "extension": "png",
+        "fileSize": 610784,
+        "lastModified": "2025-10-19T02:47:16.553+00:00",
+        "storagePath": "2025-10/2025-10-19_Bho_1760842036550.png"
+      }
+    ],
+    "2025-10-18": [
+      {
+        "fileName": "2025-10-18_Caramelos_1760753989065.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-18_Caramelos_1760753989065.png",
+        "theme": "Caramelos",
+        "dateKey": "2025-10-18",
+        "timestamp": 1760753989079,
+        "extension": "png",
+        "fileSize": 1539229,
+        "lastModified": "2025-10-18T02:19:49.079+00:00",
+        "storagePath": "2025-10/2025-10-18_Caramelos_1760753989065.png"
+      }
+    ],
+    "2025-10-17": [
+      {
+        "fileName": "2025-10-17_Velas_1760667926230.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-17_Velas_1760667926230.png",
+        "theme": "Velas",
+        "dateKey": "2025-10-17",
+        "timestamp": 1760667926236,
+        "extension": "png",
+        "fileSize": 442778,
+        "lastModified": "2025-10-17T02:25:26.236+00:00",
+        "storagePath": "2025-10/2025-10-17_Velas_1760667926230.png"
+      }
+    ],
+    "2025-10-16": [
+      {
+        "fileName": "2025-10-16_Cementerio_1760581556847.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-16_Cementerio_1760581556847.png",
+        "theme": "Cementerio",
+        "dateKey": "2025-10-16",
+        "timestamp": 1760581556856,
+        "extension": "png",
+        "fileSize": 612078,
+        "lastModified": "2025-10-16T02:25:56.856+00:00",
+        "storagePath": "2025-10/2025-10-16_Cementerio_1760581556847.png"
+      }
+    ],
+    "2025-10-15": [
+      {
+        "fileName": "2025-10-15_Luna_1760495237121.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-15_Luna_1760495237121.png",
+        "theme": "Luna",
+        "dateKey": "2025-10-15",
+        "timestamp": 1760495237131,
+        "extension": "png",
+        "fileSize": 485056,
+        "lastModified": "2025-10-15T02:27:17.131+00:00",
+        "storagePath": "2025-10/2025-10-15_Luna_1760495237121.png"
+      }
+    ],
+    "2025-10-14": [
+      {
+        "fileName": "2025-10-14_Monstruo_1760408647917.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-14_Monstruo_1760408647917.png",
+        "theme": "Monstruo",
+        "dateKey": "2025-10-14",
+        "timestamp": 1760408647928,
+        "extension": "png",
+        "fileSize": 697857,
+        "lastModified": "2025-10-14T02:24:07.928+00:00",
+        "storagePath": "2025-10/2025-10-14_Monstruo_1760408647917.png"
+      }
+    ],
+    "2025-10-13": [
+      {
+        "fileName": "2025-10-13_Caldero_1760323317765.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-13_Caldero_1760323317765.png",
+        "theme": "Caldero",
+        "dateKey": "2025-10-13",
+        "timestamp": 1760323317775,
+        "extension": "png",
+        "fileSize": 570354,
+        "lastModified": "2025-10-13T02:41:57.775+00:00",
+        "storagePath": "2025-10/2025-10-13_Caldero_1760323317765.png"
+      }
+    ],
+    "2025-10-12": [
+      {
+        "fileName": "2025-10-12_Escoba_1760235989807.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-12_Escoba_1760235989807.png",
+        "theme": "Escoba",
+        "dateKey": "2025-10-12",
+        "timestamp": 1760235989818,
+        "extension": "png",
+        "fileSize": 562992,
+        "lastModified": "2025-10-12T02:26:29.818+00:00",
+        "storagePath": "2025-10/2025-10-12_Escoba_1760235989807.png"
+      }
+    ],
+    "2025-10-11": [
+      {
+        "fileName": "2025-10-11_Momia_1760149135816.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-11_Momia_1760149135816.png",
+        "theme": "Momia",
+        "dateKey": "2025-10-11",
+        "timestamp": 1760149135828,
+        "extension": "png",
+        "fileSize": 1367959,
+        "lastModified": "2025-10-11T02:18:55.828+00:00",
+        "storagePath": "2025-10/2025-10-11_Momia_1760149135816.png"
+      }
+    ],
+    "2025-10-10": [
+      {
+        "fileName": "2025-10-10_Zombie_1760063029908.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-10_Zombie_1760063029908.png",
+        "theme": "Zombie",
+        "dateKey": "2025-10-10",
+        "timestamp": 1760063029918,
+        "extension": "png",
+        "fileSize": 691648,
+        "lastModified": "2025-10-10T02:23:49.918+00:00",
+        "storagePath": "2025-10/2025-10-10_Zombie_1760063029908.png"
+      }
+    ],
+    "2025-10-09": [
+      {
+        "fileName": "2025-10-09_Castillo_1759976627555.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-09_Castillo_1759976627555.png",
+        "theme": "Castillo",
+        "dateKey": "2025-10-09",
+        "timestamp": 1759976627565,
+        "extension": "png",
+        "fileSize": 1172415,
+        "lastModified": "2025-10-09T02:23:47.565+00:00",
+        "storagePath": "2025-10/2025-10-09_Castillo_1759976627555.png"
+      }
+    ],
+    "2025-10-08": [
+      {
+        "fileName": "2025-10-08_Sombrero_1759890105357.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-08_Sombrero_1759890105357.png",
+        "theme": "Sombrero",
+        "dateKey": "2025-10-08",
+        "timestamp": 1759890105363,
+        "extension": "png",
+        "fileSize": 414926,
+        "lastModified": "2025-10-08T02:21:45.363+00:00",
+        "storagePath": "2025-10/2025-10-08_Sombrero_1759890105357.png"
+      }
+    ],
+    "2025-10-07": [
+      {
+        "fileName": "2025-10-07_Gato_1759803731750.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-07_Gato_1759803731750.png",
+        "theme": "Gato",
+        "dateKey": "2025-10-07",
+        "timestamp": 1759803731759,
+        "extension": "png",
+        "fileSize": 596917,
+        "lastModified": "2025-10-07T02:22:11.759+00:00",
+        "storagePath": "2025-10/2025-10-07_Gato_1759803731750.png"
+      }
+    ],
+    "2025-10-06": [
+      {
+        "fileName": "2025-10-06_Araa_1759717479557.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-06_Araa_1759717479557.png",
+        "theme": "Araña",
+        "dateKey": "2025-10-06",
+        "timestamp": 1759717479567,
+        "extension": "png",
+        "fileSize": 650662,
+        "lastModified": "2025-10-06T02:24:39.567+00:00",
+        "storagePath": "2025-10/2025-10-06_Araa_1759717479557.png"
+      }
+    ],
+    "2025-10-05": [
+      {
+        "fileName": "2025-10-05_Esqueleto_1759632026038.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-05_Esqueleto_1759632026038.png",
+        "theme": "Esqueleto",
+        "dateKey": "2025-10-05",
+        "timestamp": 1759632026047,
+        "extension": "png",
+        "fileSize": 524450,
+        "lastModified": "2025-10-05T02:40:26.047+00:00",
+        "storagePath": "2025-10/2025-10-05_Esqueleto_1759632026038.png"
+      }
+    ],
+    "2025-10-04": [
+      {
+        "fileName": "2025-10-04_Bruja_1759544167318.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-04_Bruja_1759544167318.png",
+        "theme": "Bruja",
+        "dateKey": "2025-10-04",
+        "timestamp": 1759544167326,
+        "extension": "png",
+        "fileSize": 697330,
+        "lastModified": "2025-10-04T02:16:07.326+00:00",
+        "storagePath": "2025-10/2025-10-04_Bruja_1759544167318.png"
+      }
+    ],
+    "2025-10-03": [
+      {
+        "fileName": "2025-10-03_Fantasma_1759458058234.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-03_Fantasma_1759458058234.png",
+        "theme": "Fantasma",
+        "dateKey": "2025-10-03",
+        "timestamp": 1759458058239,
+        "extension": "png",
+        "fileSize": 1136975,
+        "lastModified": "2025-10-03T02:20:58.239+00:00",
+        "storagePath": "2025-10/2025-10-03_Fantasma_1759458058234.png"
+      }
+    ],
+    "2025-10-02": [
+      {
+        "fileName": "2025-10-02_Murcilago_1759371667546.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-02_Murcilago_1759371667546.png",
+        "theme": "Murciélago",
+        "dateKey": "2025-10-02",
+        "timestamp": 1759371667551,
+        "extension": "png",
+        "fileSize": 1247535,
+        "lastModified": "2025-10-02T02:21:07.551+00:00",
+        "storagePath": "2025-10/2025-10-02_Murcilago_1759371667546.png"
+      }
+    ],
+    "2025-10-01": [
+      {
+        "fileName": "2025-10-01_Calabaza_1759286619367.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-10/2025-10-01_Calabaza_1759286619367.png",
+        "theme": "Calabaza",
+        "dateKey": "2025-10-01",
+        "timestamp": 1759286619377,
+        "extension": "png",
+        "fileSize": 1288871,
+        "lastModified": "2025-10-01T02:43:39.377+00:00",
+        "storagePath": "2025-10/2025-10-01_Calabaza_1759286619367.png"
+      }
+    ],
+    "2025-09-30": [
+      {
+        "fileName": "2025-09-30_ArcoirisCole2_1759198919861.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-09/2025-09-30_ArcoirisCole2_1759198919861.png",
+        "theme": "ArcoirisCole2",
+        "dateKey": "2025-09-30",
+        "timestamp": 1759198919867,
+        "extension": "png",
+        "fileSize": 1260724,
+        "lastModified": "2025-09-30T02:21:59.867+00:00",
+        "storagePath": "2025-09/2025-09-30_ArcoirisCole2_1759198919861.png"
+      }
+    ],
+    "2025-09-29": [
+      {
+        "fileName": "2025-09-29_FiestaMagica_1759179517908.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2025-09/2025-09-29_FiestaMagica_1759179517908.png",
+        "theme": "FiestaMagica",
+        "dateKey": "2025-09-29",
+        "timestamp": 1759179517919,
+        "extension": "png",
+        "fileSize": 1639143,
+        "lastModified": "2025-09-29T20:58:37.919+00:00",
+        "storagePath": "2025-09/2025-09-29_FiestaMagica_1759179517908.png"
       }
     ]
   },
   "daysByMonth": {
-    "2025-09": [
-      "2025-09-29",
-      "2025-09-30"
-    ],
-    "2025-10": [
-      "2025-10-01",
-      "2025-10-02",
-      "2025-10-03",
-      "2025-10-04",
-      "2025-10-05",
-      "2025-10-06",
-      "2025-10-07",
-      "2025-10-08",
-      "2025-10-09",
-      "2025-10-10",
-      "2025-10-11",
-      "2025-10-12",
-      "2025-10-13",
-      "2025-10-14",
-      "2025-10-15",
-      "2025-10-16",
-      "2025-10-17",
-      "2025-10-18",
-      "2025-10-19",
-      "2025-10-20",
-      "2025-10-21",
-      "2025-10-22",
-      "2025-10-23",
-      "2025-10-24",
-      "2025-10-25",
-      "2025-10-26",
-      "2025-10-27",
-      "2025-10-28",
-      "2025-10-29",
-      "2025-10-30",
-      "2025-10-31"
-    ],
-    "2025-11": [
-      "2025-11-01",
-      "2025-11-02",
-      "2025-11-03",
-      "2025-11-04",
-      "2025-11-05",
-      "2025-11-06",
-      "2025-11-07",
-      "2025-11-08",
-      "2025-11-09",
-      "2025-11-10",
-      "2025-11-11",
-      "2025-11-12",
-      "2025-11-13",
-      "2025-11-14",
-      "2025-11-15",
-      "2025-11-16",
-      "2025-11-17",
-      "2025-11-18",
-      "2025-11-19",
-      "2025-11-20",
-      "2025-11-21",
-      "2025-11-22",
-      "2025-11-23",
-      "2025-11-24",
-      "2025-11-25",
-      "2025-11-26",
-      "2025-11-27",
-      "2025-11-28",
-      "2025-11-29",
-      "2025-11-30"
-    ],
-    "2025-12": [
-      "2025-12-01",
-      "2025-12-02",
-      "2025-12-03",
-      "2025-12-04",
-      "2025-12-05",
-      "2025-12-06",
-      "2025-12-07",
-      "2025-12-08",
-      "2025-12-09",
-      "2025-12-10",
-      "2025-12-11",
-      "2025-12-12",
-      "2025-12-13",
-      "2025-12-14",
-      "2025-12-15",
-      "2025-12-16",
-      "2025-12-17",
-      "2025-12-18",
-      "2025-12-19",
-      "2025-12-20",
-      "2025-12-21",
-      "2025-12-22",
-      "2025-12-23",
-      "2025-12-24",
-      "2025-12-25",
-      "2025-12-26",
-      "2025-12-27",
-      "2025-12-28",
-      "2025-12-29",
-      "2025-12-30",
-      "2025-12-31"
-    ],
-    "2026-01": [
-      "2026-01-01",
-      "2026-01-02",
-      "2026-01-03",
-      "2026-01-04",
-      "2026-01-05",
-      "2026-01-06",
-      "2026-01-07",
-      "2026-01-08",
-      "2026-01-09",
-      "2026-01-10",
-      "2026-01-11",
-      "2026-01-12",
-      "2026-01-13",
-      "2026-01-14",
-      "2026-01-15",
-      "2026-01-16",
-      "2026-01-17",
-      "2026-01-18",
-      "2026-01-19",
-      "2026-01-20",
-      "2026-01-21",
-      "2026-01-22",
-      "2026-01-23",
-      "2026-01-24",
-      "2026-01-25",
-      "2026-01-26",
-      "2026-01-27",
-      "2026-01-28",
-      "2026-01-29",
-      "2026-01-30",
-      "2026-01-31"
-    ],
-    "2026-02": [
-      "2026-02-01",
-      "2026-02-02",
-      "2026-02-03",
-      "2026-02-04",
-      "2026-02-05",
-      "2026-02-07",
-      "2026-02-08",
-      "2026-02-09",
-      "2026-02-10",
-      "2026-02-11",
-      "2026-02-12",
-      "2026-02-13",
-      "2026-02-14",
-      "2026-02-15",
-      "2026-02-16",
-      "2026-02-17",
-      "2026-02-18",
-      "2026-02-19",
-      "2026-02-20",
-      "2026-02-21",
-      "2026-02-22",
-      "2026-02-23",
-      "2026-02-24",
-      "2026-02-25",
-      "2026-02-26",
-      "2026-02-27",
-      "2026-02-28"
+    "2026-04": [
+      "2026-04-01",
+      "2026-04-02",
+      "2026-04-03"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2432,12 +2459,172 @@
       "2026-03-30",
       "2026-03-31"
     ],
-    "2026-04": [
-      "2026-04-01",
-      "2026-04-02",
-      "2026-04-03"
+    "2026-02": [
+      "2026-02-01",
+      "2026-02-02",
+      "2026-02-03",
+      "2026-02-04",
+      "2026-02-05",
+      "2026-02-07",
+      "2026-02-08",
+      "2026-02-09",
+      "2026-02-10",
+      "2026-02-11",
+      "2026-02-12",
+      "2026-02-13",
+      "2026-02-14",
+      "2026-02-15",
+      "2026-02-16",
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20",
+      "2026-02-21",
+      "2026-02-22",
+      "2026-02-23",
+      "2026-02-24",
+      "2026-02-25",
+      "2026-02-26",
+      "2026-02-27",
+      "2026-02-28"
+    ],
+    "2026-01": [
+      "2026-01-01",
+      "2026-01-02",
+      "2026-01-03",
+      "2026-01-04",
+      "2026-01-05",
+      "2026-01-06",
+      "2026-01-07",
+      "2026-01-08",
+      "2026-01-09",
+      "2026-01-10",
+      "2026-01-11",
+      "2026-01-12",
+      "2026-01-13",
+      "2026-01-14",
+      "2026-01-15",
+      "2026-01-16",
+      "2026-01-17",
+      "2026-01-18",
+      "2026-01-19",
+      "2026-01-20",
+      "2026-01-21",
+      "2026-01-22",
+      "2026-01-23",
+      "2026-01-24",
+      "2026-01-25",
+      "2026-01-26",
+      "2026-01-27",
+      "2026-01-28",
+      "2026-01-29",
+      "2026-01-30",
+      "2026-01-31"
+    ],
+    "2025-12": [
+      "2025-12-01",
+      "2025-12-02",
+      "2025-12-03",
+      "2025-12-04",
+      "2025-12-05",
+      "2025-12-06",
+      "2025-12-07",
+      "2025-12-08",
+      "2025-12-09",
+      "2025-12-10",
+      "2025-12-11",
+      "2025-12-12",
+      "2025-12-13",
+      "2025-12-14",
+      "2025-12-15",
+      "2025-12-16",
+      "2025-12-17",
+      "2025-12-18",
+      "2025-12-19",
+      "2025-12-20",
+      "2025-12-21",
+      "2025-12-22",
+      "2025-12-23",
+      "2025-12-24",
+      "2025-12-25",
+      "2025-12-26",
+      "2025-12-27",
+      "2025-12-28",
+      "2025-12-29",
+      "2025-12-30",
+      "2025-12-31"
+    ],
+    "2025-11": [
+      "2025-11-01",
+      "2025-11-02",
+      "2025-11-03",
+      "2025-11-04",
+      "2025-11-05",
+      "2025-11-06",
+      "2025-11-07",
+      "2025-11-08",
+      "2025-11-09",
+      "2025-11-10",
+      "2025-11-11",
+      "2025-11-12",
+      "2025-11-13",
+      "2025-11-14",
+      "2025-11-15",
+      "2025-11-16",
+      "2025-11-17",
+      "2025-11-18",
+      "2025-11-19",
+      "2025-11-20",
+      "2025-11-21",
+      "2025-11-22",
+      "2025-11-23",
+      "2025-11-24",
+      "2025-11-25",
+      "2025-11-26",
+      "2025-11-27",
+      "2025-11-28",
+      "2025-11-29",
+      "2025-11-30"
+    ],
+    "2025-10": [
+      "2025-10-01",
+      "2025-10-02",
+      "2025-10-03",
+      "2025-10-04",
+      "2025-10-05",
+      "2025-10-06",
+      "2025-10-07",
+      "2025-10-08",
+      "2025-10-09",
+      "2025-10-10",
+      "2025-10-11",
+      "2025-10-12",
+      "2025-10-13",
+      "2025-10-14",
+      "2025-10-15",
+      "2025-10-16",
+      "2025-10-17",
+      "2025-10-18",
+      "2025-10-19",
+      "2025-10-20",
+      "2025-10-21",
+      "2025-10-22",
+      "2025-10-23",
+      "2025-10-24",
+      "2025-10-25",
+      "2025-10-26",
+      "2025-10-27",
+      "2025-10-28",
+      "2025-10-29",
+      "2025-10-30",
+      "2025-10-31"
+    ],
+    "2025-09": [
+      "2025-09-29",
+      "2025-09-30"
     ]
   },
   "totalImages": 186,
-  "totalDays": 186
+  "totalDays": 186,
+  "source": "supabase"
 }

@@ -8,22 +8,16 @@
 import 'dotenv/config';
 
 import { GoogleGenAI } from '@google/genai';
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { Buffer } from 'buffer';
 import process from 'process';
 import { DAILY_PROMPTS } from '../src/data/daily-prompts.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { supabaseAdmin, uploadDailyImage, upsertDailyImageRow, DAILY_IMAGES_TABLE } from './lib/supabase-admin.js';
 
 class DailyImageGenerator {
   constructor() {
     this.apiKey = process.env.VITE_GEMINI_API_KEY;
     this.genAI = null;
     this.model = 'gemini-2.5-flash-image'; // ✅ Modelo estable (preview deprecado 15-Jan-2026)
-    this.baseDir = path.resolve(__dirname, '../public/generated-images');
     this.initializeGemini();
   }
 
@@ -73,15 +67,6 @@ GENERATE A BLACK AND WHITE COLORING PAGE IMAGE:
 - Cartoon style
 
 IMPORTANT: Generate the actual image file now, do not describe it.`;
-  }
-
-  // Ensure directory exists
-  async ensureDir(dirPath) {
-    try {
-      await fs.access(dirPath);
-    } catch {
-      await fs.mkdir(dirPath, { recursive: true });
-    }
   }
 
   // Generate image with Gemini
@@ -173,72 +158,76 @@ IMPORTANT: Generate the actual image file now, do not describe it.`;
     }
   }
 
-  // Save image and metadata
+  // Sube la imagen a Supabase Storage y upserta metadata en daily_images.
+  // Fuente única de verdad: Supabase. Nada se escribe al FS del repo.
   async saveImage(imageData, promptData, targetDate) {
     const dateKey = targetDate.toISOString().split('T')[0];
     const [year, month] = dateKey.split('-');
-    const monthDir = path.join(this.baseDir, `${year}-${month}`);
+    const yearMonth = `${year}-${month}`;
 
-    // Ensure directory exists
-    await this.ensureDir(monthDir);
-
-    // Create filename
     const timestamp = Date.now();
     const cleanTheme = promptData.tematica.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').substring(0, 30);
     const fileName = `${dateKey}_${cleanTheme}_${timestamp}.png`;
+    const storagePath = `${yearMonth}/${fileName}`;
 
-    // Save image
     const imageBuffer = Buffer.from(imageData.data, 'base64');
-    const imagePath = path.join(monthDir, fileName);
-    await fs.writeFile(imagePath, imageBuffer);
+    const savedAt = new Date().toISOString();
 
-    // Save metadata
-    const metadataPath = path.join(monthDir, `${path.parse(fileName).name}.json`);
-    const metadata = {
-      fileName,
-      dateKey,
-      prompt: promptData.prompt_es,
+    console.log('☁️  Subiendo a Supabase Storage...');
+    const publicUrl = await uploadDailyImage({ buffer: imageBuffer, storagePath });
+    console.log(`☁️  PNG subido: ${publicUrl}`);
+
+    await upsertDailyImageRow({
+      date_key: dateKey,
+      file_name: fileName,
+      storage_path: storagePath,
+      public_url: publicUrl,
       tematica: promptData.tematica,
       difficulty: promptData.difficulty,
-      dayOfYear: promptData.day,
-      savedAt: new Date().toISOString(),
-      fileSize: imageBuffer.length,
-      source: 'github-action'
-    };
-
-    await fs.writeFile(metadataPath, JSON.stringify(metadata, null, 2));
-
-    console.log(`💾 Imagen guardada: ${imagePath}`);
-    console.log(`📋 Metadata guardada: ${metadataPath}`);
+      prompt: promptData.prompt_es,
+      day_of_year: promptData.day,
+      file_size: imageBuffer.length,
+      source: 'github-action',
+      generated_at: savedAt,
+      metadata: {},
+    });
+    console.log(`☁️  Fila daily_images upserted para ${dateKey}`);
 
     return {
-      imagePath,
-      metadataPath,
       fileName,
-      metadata
+      publicUrl,
+      storagePath,
+      metadata: {
+        fileName,
+        dateKey,
+        prompt: promptData.prompt_es,
+        tematica: promptData.tematica,
+        difficulty: promptData.difficulty,
+        dayOfYear: promptData.day,
+        savedAt,
+        fileSize: imageBuffer.length,
+        source: 'github-action',
+      },
     };
   }
 
-  // Check if image already exists for today
+  // Check if image already exists in Supabase for this date
   async checkExistingImage(targetDate) {
     const dateKey = targetDate.toISOString().split('T')[0];
-    const [year, month] = dateKey.split('-');
-    const monthDir = path.join(this.baseDir, `${year}-${month}`);
+    const { data, error } = await supabaseAdmin
+      .from(DAILY_IMAGES_TABLE)
+      .select('file_name')
+      .eq('date_key', dateKey)
+      .maybeSingle();
 
-    try {
-      const files = await fs.readdir(monthDir);
-      const existingImage = files.find(file =>
-        file.includes(dateKey) && !file.endsWith('.json')
-      );
-
-      if (existingImage) {
-        console.log(`📸 Imagen ya existe para ${dateKey}: ${existingImage}`);
-        return true;
-      }
-    } catch {
-      // Directory doesn't exist, no existing image
+    if (error) {
+      console.warn(`⚠️  No se pudo comprobar imagen existente en BD: ${error.message}`);
+      return false; // ante la duda, generar
     }
-
+    if (data) {
+      console.log(`📸 Imagen ya existe para ${dateKey}: ${data.file_name}`);
+      return true;
+    }
     return false;
   }
 

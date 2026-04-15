@@ -1,6 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import staticImageService from '../services/staticImageService';
 
 const StructuredData = ({ todayTheme, selectedDate, dayImageStatus }) => {
+  const [imageUrl, setImageUrl] = useState(null);
+
+  // Resolver URL real de la imagen del día (Supabase o fallback estático)
+  useEffect(() => {
+    if (dayImageStatus !== 'loaded') {
+      setImageUrl(null);
+      return;
+    }
+    const dateKey = selectedDate || new Date().toISOString().split('T')[0];
+    staticImageService.getImageForDate(dateKey)
+      .then(info => setImageUrl(info?.url ?? null))
+      .catch(() => setImageUrl(null));
+  }, [selectedDate, dayImageStatus]);
+
   useEffect(() => {
     // Remover structured data anterior si existe
     const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
@@ -60,10 +75,11 @@ const StructuredData = ({ todayTheme, selectedDate, dayImageStatus }) => {
       "keywords": `${todayTheme}, dibujos para colorear, colorear online, IA, inteligencia artificial`
     };
 
-    // Agregar imagen si está disponible
-    if (dayImageStatus === 'loaded') {
-      const imageFileName = `${currentDate}_${todayTheme?.replace(/\s+/g, '')}_${Date.now()}`;
-      creativeWorkSchema.image = `https://coloreveryday.vercel.app/generated-images/${currentDate.substring(0, 7)}/${imageFileName}.png`;
+    // Agregar imagen si está disponible (URL real resuelta desde Supabase/estático)
+    if (imageUrl) {
+      creativeWorkSchema.image = imageUrl.startsWith('http')
+        ? imageUrl
+        : `https://coloreveryday.vercel.app${imageUrl}`;
     }
 
     // Schema.org para la organización
@@ -97,7 +113,7 @@ const StructuredData = ({ todayTheme, selectedDate, dayImageStatus }) => {
       const scripts = document.querySelectorAll('script[type="application/ld+json"]');
       scripts.forEach(script => script.remove());
     };
-  }, [todayTheme, selectedDate, dayImageStatus]);
+  }, [todayTheme, selectedDate, dayImageStatus, imageUrl]);
 
   // Este componente no renderiza nada visible
   return null;

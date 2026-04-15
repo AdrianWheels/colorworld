@@ -35,18 +35,23 @@ jobs:
     - name: Generate today's image
       env:
         VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       run: node scripts/generate-daily-image.js
       
-    - name: Update images index
+    - name: Update images index (desde Supabase)
+      env:
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       run: node scripts/update-images-index.js
-      
+
     - name: Generate sitemap
       run: node scripts/generate-sitemap.js
-      
+
     - name: Commit and push if changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add public/generated-images/ src/data/daily-prompts.js public/sitemap.xml
-        git diff --staged --quiet || git commit -m "🎨 Generate daily image for $(date +'%Y-%m-%d'), sync prompts, update index and sitemap"
+        git add src/data/daily-prompts.js public/sitemap.xml public/generated-images/images-index.json
+        git diff --staged --quiet || git commit -m "🎨 Daily image for $(date +'%Y-%m-%d'), sync prompts + sitemap"
         git push
