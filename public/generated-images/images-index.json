@@ -1,6 +1,162 @@
 {
-  "lastUpdated": "2026-04-15T12:34:23.605Z",
+  "lastUpdated": "2026-04-15T12:44:13.441Z",
   "images": {
+    "2026-04-15": [
+      {
+        "fileName": "2026-04-15_ConejoPascua_1776217187617.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-15_ConejoPascua_1776217187617.png",
+        "theme": "ConejoPascua",
+        "dateKey": "2026-04-15",
+        "timestamp": 1776217187620,
+        "extension": "png",
+        "fileSize": 756591,
+        "lastModified": "2026-04-15T01:39:47.62+00:00",
+        "storagePath": "2026-04/2026-04-15_ConejoPascua_1776217187617.png"
+      }
+    ],
+    "2026-04-14": [
+      {
+        "fileName": "2026-04-14_JardnPrimavera_1776130760794.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-14_JardnPrimavera_1776130760794.png",
+        "theme": "JardínPrimavera",
+        "dateKey": "2026-04-14",
+        "timestamp": 1776130760807,
+        "extension": "png",
+        "fileSize": 1596805,
+        "lastModified": "2026-04-14T01:39:20.807+00:00",
+        "storagePath": "2026-04/2026-04-14_JardnPrimavera_1776130760794.png"
+      }
+    ],
+    "2026-04-13": [
+      {
+        "fileName": "2026-04-13_MandalaPrimavera_1776044438693.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-13_MandalaPrimavera_1776044438693.png",
+        "theme": "MandalaPrimavera",
+        "dateKey": "2026-04-13",
+        "timestamp": 1776044438703,
+        "extension": "png",
+        "fileSize": 1360760,
+        "lastModified": "2026-04-13T01:40:38.703+00:00",
+        "storagePath": "2026-04/2026-04-13_MandalaPrimavera_1776044438693.png"
+      }
+    ],
+    "2026-04-12": [
+      {
+        "fileName": "2026-04-12_DinosaurioBosque_1775957938276.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-12_DinosaurioBosque_1775957938276.png",
+        "theme": "DinosaurioBosque",
+        "dateKey": "2026-04-12",
+        "timestamp": 1775957938291,
+        "extension": "png",
+        "fileSize": 1629731,
+        "lastModified": "2026-04-12T01:38:58.291+00:00",
+        "storagePath": "2026-04/2026-04-12_DinosaurioBosque_1775957938276.png"
+      }
+    ],
+    "2026-04-11": [
+      {
+        "fileName": "2026-04-11_Horno_1775871578844.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-11_Horno_1775871578844.png",
+        "theme": "Horno",
+        "dateKey": "2026-04-11",
+        "timestamp": 1775871578853,
+        "extension": "png",
+        "fileSize": 1192731,
+        "lastModified": "2026-04-11T01:39:38.853+00:00",
+        "storagePath": "2026-04/2026-04-11_Horno_1775871578844.png"
+      }
+    ],
+    "2026-04-10": [
+      {
+        "fileName": "2026-04-10_Astronauta_1775785251662.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-10_Astronauta_1775785251662.png",
+        "theme": "Astronauta",
+        "dateKey": "2026-04-10",
+        "timestamp": 1775785251674,
+        "extension": "png",
+        "fileSize": 1221192,
+        "lastModified": "2026-04-10T01:40:51.674+00:00",
+        "storagePath": "2026-04/2026-04-10_Astronauta_1775785251662.png"
+      }
+    ],
+    "2026-04-09": [
+      {
+        "fileName": "2026-04-09_Cohete_1775698809242.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-09_Cohete_1775698809242.png",
+        "theme": "Cohete",
+        "dateKey": "2026-04-09",
+        "timestamp": 1775698809244,
+        "extension": "png",
+        "fileSize": 447685,
+        "lastModified": "2026-04-09T01:40:09.244+00:00",
+        "storagePath": "2026-04/2026-04-09_Cohete_1775698809242.png"
+      }
+    ],
+    "2026-04-08": [
+      {
+        "fileName": "2026-04-08_BibliotecaAcogedora_1775612403625.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-08_BibliotecaAcogedora_1775612403625.png",
+        "theme": "BibliotecaAcogedora",
+        "dateKey": "2026-04-08",
+        "timestamp": 1775612403634,
+        "extension": "png",
+        "fileSize": 1165439,
+        "lastModified": "2026-04-08T01:40:03.634+00:00",
+        "storagePath": "2026-04/2026-04-08_BibliotecaAcogedora_1775612403625.png"
+      }
+    ],
+    "2026-04-07": [
+      {
+        "fileName": "2026-04-07_MandalaAnimales_1775526010960.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-07_MandalaAnimales_1775526010960.png",
+        "theme": "MandalaAnimales",
+        "dateKey": "2026-04-07",
+        "timestamp": 1775526010973,
+        "extension": "png",
+        "fileSize": 1472826,
+        "lastModified": "2026-04-07T01:40:10.973+00:00",
+        "storagePath": "2026-04/2026-04-07_MandalaAnimales_1775526010960.png"
+      }
+    ],
+    "2026-04-06": [
+      {
+        "fileName": "2026-04-06_PicnicInterior_1775439616741.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-06_PicnicInterior_1775439616741.png",
+        "theme": "PicnicInterior",
+        "dateKey": "2026-04-06",
+        "timestamp": 1775439616754,
+        "extension": "png",
+        "fileSize": 1350241,
+        "lastModified": "2026-04-06T01:40:16.754+00:00",
+        "storagePath": "2026-04/2026-04-06_PicnicInterior_1775439616741.png"
+      }
+    ],
+    "2026-04-05": [
+      {
+        "fileName": "2026-04-05_TejidoCozy_1775353093459.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-05_TejidoCozy_1775353093459.png",
+        "theme": "TejidoCozy",
+        "dateKey": "2026-04-05",
+        "timestamp": 1775353093464,
+        "extension": "png",
+        "fileSize": 1272548,
+        "lastModified": "2026-04-05T01:38:13.464+00:00",
+        "storagePath": "2026-04/2026-04-05_TejidoCozy_1775353093459.png"
+      }
+    ],
+    "2026-04-04": [
+      {
+        "fileName": "2026-04-04_DragnPequeo_1775266737150.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-04_DragnPequeo_1775266737150.png",
+        "theme": "DragónPequeño",
+        "dateKey": "2026-04-04",
+        "timestamp": 1775266737164,
+        "extension": "png",
+        "fileSize": 1470175,
+        "lastModified": "2026-04-04T01:38:57.164+00:00",
+        "storagePath": "2026-04/2026-04-04_DragnPequeo_1775266737150.png"
+      }
+    ],
     "2026-04-03": [
       {
         "fileName": "2026-04-03_CafAmigos_1775180361623.png",
@@ -2424,7 +2580,19 @@
     "2026-04": [
       "2026-04-01",
       "2026-04-02",
-      "2026-04-03"
+      "2026-04-03",
+      "2026-04-04",
+      "2026-04-05",
+      "2026-04-06",
+      "2026-04-07",
+      "2026-04-08",
+      "2026-04-09",
+      "2026-04-10",
+      "2026-04-11",
+      "2026-04-12",
+      "2026-04-13",
+      "2026-04-14",
+      "2026-04-15"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2624,7 +2792,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 186,
-  "totalDays": 186,
+  "totalImages": 198,
+  "totalDays": 198,
   "source": "supabase"
 }
