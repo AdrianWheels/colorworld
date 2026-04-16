@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-15T12:44:13.441Z",
+  "lastUpdated": "2026-04-16T15:45:29.579Z",
   "images": {
+    "2026-04-16": [
+      {
+        "fileName": "2026-04-16_HuevosDecorados_1776354327427.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-16_HuevosDecorados_1776354327427.png",
+        "theme": "HuevosDecorados",
+        "dateKey": "2026-04-16",
+        "timestamp": 1776354327429,
+        "extension": "png",
+        "fileSize": 861486,
+        "lastModified": "2026-04-16T15:45:27.429+00:00",
+        "storagePath": "2026-04/2026-04-16_HuevosDecorados_1776354327427.png"
+      }
+    ],
     "2026-04-15": [
       {
         "fileName": "2026-04-15_ConejoPascua_1776217187617.png",
@@ -2592,7 +2605,8 @@
       "2026-04-12",
       "2026-04-13",
       "2026-04-14",
-      "2026-04-15"
+      "2026-04-15",
+      "2026-04-16"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2792,7 +2806,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 198,
-  "totalDays": 198,
+  "totalImages": 199,
+  "totalDays": 199,
   "source": "supabase"
 }
