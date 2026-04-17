@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-16T15:45:29.579Z",
+  "lastUpdated": "2026-04-17T01:39:43.622Z",
   "images": {
+    "2026-04-17": [
+      {
+        "fileName": "2026-04-17_MandalaHuevos_1776389981681.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-17_MandalaHuevos_1776389981681.png",
+        "theme": "MandalaHuevos",
+        "dateKey": "2026-04-17",
+        "timestamp": 1776389981686,
+        "extension": "png",
+        "fileSize": 1518057,
+        "lastModified": "2026-04-17T01:39:41.686+00:00",
+        "storagePath": "2026-04/2026-04-17_MandalaHuevos_1776389981681.png"
+      }
+    ],
     "2026-04-16": [
       {
         "fileName": "2026-04-16_HuevosDecorados_1776354327427.png",
@@ -2606,7 +2619,8 @@
       "2026-04-13",
       "2026-04-14",
       "2026-04-15",
-      "2026-04-16"
+      "2026-04-16",
+      "2026-04-17"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2806,7 +2820,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 199,
-  "totalDays": 199,
+  "totalImages": 200,
+  "totalDays": 200,
   "source": "supabase"
 }
