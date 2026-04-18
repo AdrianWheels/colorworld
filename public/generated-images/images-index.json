@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-17T01:39:43.622Z",
+  "lastUpdated": "2026-04-18T01:39:55.081Z",
   "images": {
+    "2026-04-18": [
+      {
+        "fileName": "2026-04-18_BibliotecaPrimavera_1776476393084.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-18_BibliotecaPrimavera_1776476393084.png",
+        "theme": "BibliotecaPrimavera",
+        "dateKey": "2026-04-18",
+        "timestamp": 1776476393088,
+        "extension": "png",
+        "fileSize": 1415314,
+        "lastModified": "2026-04-18T01:39:53.088+00:00",
+        "storagePath": "2026-04/2026-04-18_BibliotecaPrimavera_1776476393084.png"
+      }
+    ],
     "2026-04-17": [
       {
         "fileName": "2026-04-17_MandalaHuevos_1776389981681.png",
@@ -2620,7 +2633,8 @@
       "2026-04-14",
       "2026-04-15",
       "2026-04-16",
-      "2026-04-17"
+      "2026-04-17",
+      "2026-04-18"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2820,7 +2834,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 200,
-  "totalDays": 200,
+  "totalImages": 201,
+  "totalDays": 201,
   "source": "supabase"
 }
