@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-19T01:39:29.959Z",
+  "lastUpdated": "2026-04-20T01:40:23.896Z",
   "images": {
+    "2026-04-20": [
+      {
+        "fileName": "2026-04-20_GenteTejiendo_1776649221465.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-20_GenteTejiendo_1776649221465.png",
+        "theme": "GenteTejiendo",
+        "dateKey": "2026-04-20",
+        "timestamp": 1776649221467,
+        "extension": "png",
+        "fileSize": 580015,
+        "lastModified": "2026-04-20T01:40:21.467+00:00",
+        "storagePath": "2026-04/2026-04-20_GenteTejiendo_1776649221465.png"
+      }
+    ],
     "2026-04-19": [
       {
         "fileName": "2026-04-19_PicnicPrimavera_1776562768445.png",
@@ -2648,7 +2661,8 @@
       "2026-04-16",
       "2026-04-17",
       "2026-04-18",
-      "2026-04-19"
+      "2026-04-19",
+      "2026-04-20"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2848,7 +2862,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 202,
-  "totalDays": 202,
+  "totalImages": 203,
+  "totalDays": 203,
   "source": "supabase"
 }
