@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-20T01:40:23.896Z",
+  "lastUpdated": "2026-04-21T01:39:57.072Z",
   "images": {
+    "2026-04-21": [
+      {
+        "fileName": "2026-04-21_MandalaAnimalesFantsticos_1776735595054.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-21_MandalaAnimalesFantsticos_1776735595054.png",
+        "theme": "MandalaAnimalesFantásticos",
+        "dateKey": "2026-04-21",
+        "timestamp": 1776735595059,
+        "extension": "png",
+        "fileSize": 1719651,
+        "lastModified": "2026-04-21T01:39:55.059+00:00",
+        "storagePath": "2026-04/2026-04-21_MandalaAnimalesFantsticos_1776735595054.png"
+      }
+    ],
     "2026-04-20": [
       {
         "fileName": "2026-04-20_GenteTejiendo_1776649221465.png",
@@ -2662,7 +2675,8 @@
       "2026-04-17",
       "2026-04-18",
       "2026-04-19",
-      "2026-04-20"
+      "2026-04-20",
+      "2026-04-21"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2862,7 +2876,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 203,
-  "totalDays": 203,
+  "totalImages": 204,
+  "totalDays": 204,
   "source": "supabase"
 }
