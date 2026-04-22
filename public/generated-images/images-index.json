@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-21T01:39:57.072Z",
+  "lastUpdated": "2026-04-22T01:40:22.816Z",
   "images": {
+    "2026-04-22": [
+      {
+        "fileName": "2026-04-22_TerrazaAcogedora_1776822013801.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-22_TerrazaAcogedora_1776822013801.png",
+        "theme": "TerrazaAcogedora",
+        "dateKey": "2026-04-22",
+        "timestamp": 1776822013804,
+        "extension": "png",
+        "fileSize": 1114380,
+        "lastModified": "2026-04-22T01:40:13.804+00:00",
+        "storagePath": "2026-04/2026-04-22_TerrazaAcogedora_1776822013801.png"
+      }
+    ],
     "2026-04-21": [
       {
         "fileName": "2026-04-21_MandalaAnimalesFantsticos_1776735595054.png",
@@ -2676,7 +2689,8 @@
       "2026-04-18",
       "2026-04-19",
       "2026-04-20",
-      "2026-04-21"
+      "2026-04-21",
+      "2026-04-22"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2876,7 +2890,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 204,
-  "totalDays": 204,
+  "totalImages": 205,
+  "totalDays": 205,
   "source": "supabase"
 }
