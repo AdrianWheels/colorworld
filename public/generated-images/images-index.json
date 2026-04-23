@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-22T01:40:22.816Z",
+  "lastUpdated": "2026-04-23T01:40:00.029Z",
   "images": {
+    "2026-04-23": [
+      {
+        "fileName": "2026-04-23_DragnJardn_1776908398079.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-04/2026-04-23_DragnJardn_1776908398079.png",
+        "theme": "DragónJardín",
+        "dateKey": "2026-04-23",
+        "timestamp": 1776908398083,
+        "extension": "png",
+        "fileSize": 1195778,
+        "lastModified": "2026-04-23T01:39:58.083+00:00",
+        "storagePath": "2026-04/2026-04-23_DragnJardn_1776908398079.png"
+      }
+    ],
     "2026-04-22": [
       {
         "fileName": "2026-04-22_TerrazaAcogedora_1776822013801.png",
@@ -2690,7 +2703,8 @@
       "2026-04-19",
       "2026-04-20",
       "2026-04-21",
-      "2026-04-22"
+      "2026-04-22",
+      "2026-04-23"
     ],
     "2026-03": [
       "2026-03-01",
@@ -2890,7 +2904,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 205,
-  "totalDays": 205,
+  "totalImages": 206,
+  "totalDays": 206,
   "source": "supabase"
 }
