@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-04-30T01:41:39.476Z",
+  "lastUpdated": "2026-05-01T01:41:48.137Z",
   "images": {
+    "2026-05-01": [
+      {
+        "fileName": "2026-05-01_MandalaGeometrico_1777599705605.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-01_MandalaGeometrico_1777599705605.png",
+        "theme": "MandalaGeometrico",
+        "dateKey": "2026-05-01",
+        "timestamp": 1777599705609,
+        "extension": "png",
+        "fileSize": 1434936,
+        "lastModified": "2026-05-01T01:41:45.609+00:00",
+        "storagePath": "2026-05/2026-05-01_MandalaGeometrico_1777599705605.png"
+      }
+    ],
     "2026-04-30": [
       {
         "fileName": "2026-04-30_DesayunoMontaa_1777513296980.png",
@@ -2772,6 +2785,9 @@
     ]
   },
   "daysByMonth": {
+    "2026-05": [
+      "2026-05-01"
+    ],
     "2026-04": [
       "2026-04-01",
       "2026-04-02",
@@ -3002,7 +3018,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 213,
-  "totalDays": 213,
+  "totalImages": 214,
+  "totalDays": 214,
   "source": "supabase"
 }
