@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-01T01:41:48.137Z",
+  "lastUpdated": "2026-05-02T01:40:10.941Z",
   "images": {
+    "2026-05-02": [
+      {
+        "fileName": "2026-05-02_Castillo_1777686008413.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-02_Castillo_1777686008413.png",
+        "theme": "Castillo",
+        "dateKey": "2026-05-02",
+        "timestamp": 1777686008416,
+        "extension": "png",
+        "fileSize": 1057841,
+        "lastModified": "2026-05-02T01:40:08.416+00:00",
+        "storagePath": "2026-05/2026-05-02_Castillo_1777686008413.png"
+      }
+    ],
     "2026-05-01": [
       {
         "fileName": "2026-05-01_MandalaGeometrico_1777599705605.png",
@@ -2786,7 +2799,8 @@
   },
   "daysByMonth": {
     "2026-05": [
-      "2026-05-01"
+      "2026-05-01",
+      "2026-05-02"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3018,7 +3032,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 214,
-  "totalDays": 214,
+  "totalImages": 215,
+  "totalDays": 215,
   "source": "supabase"
 }
