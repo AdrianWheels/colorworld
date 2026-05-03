@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-02T01:40:10.941Z",
+  "lastUpdated": "2026-05-03T01:40:21.655Z",
   "images": {
+    "2026-05-03": [
+      {
+        "fileName": "2026-05-03_GloboAerosttico_1777772419758.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-03_GloboAerosttico_1777772419758.png",
+        "theme": "GloboAerostático",
+        "dateKey": "2026-05-03",
+        "timestamp": 1777772419763,
+        "extension": "png",
+        "fileSize": 1195567,
+        "lastModified": "2026-05-03T01:40:19.763+00:00",
+        "storagePath": "2026-05/2026-05-03_GloboAerosttico_1777772419758.png"
+      }
+    ],
     "2026-05-02": [
       {
         "fileName": "2026-05-02_Castillo_1777686008413.png",
@@ -2800,7 +2813,8 @@
   "daysByMonth": {
     "2026-05": [
       "2026-05-01",
-      "2026-05-02"
+      "2026-05-02",
+      "2026-05-03"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3032,7 +3046,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 215,
-  "totalDays": 215,
+  "totalImages": 216,
+  "totalDays": 216,
   "source": "supabase"
 }
