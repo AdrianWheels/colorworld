@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-03T01:40:21.655Z",
+  "lastUpdated": "2026-05-04T01:42:07.922Z",
   "images": {
+    "2026-05-04": [
+      {
+        "fileName": "2026-05-04_Faro_1777858925731.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-04_Faro_1777858925731.png",
+        "theme": "Faro",
+        "dateKey": "2026-05-04",
+        "timestamp": 1777858925733,
+        "extension": "png",
+        "fileSize": 634971,
+        "lastModified": "2026-05-04T01:42:05.733+00:00",
+        "storagePath": "2026-05/2026-05-04_Faro_1777858925731.png"
+      }
+    ],
     "2026-05-03": [
       {
         "fileName": "2026-05-03_GloboAerosttico_1777772419758.png",
@@ -2814,7 +2827,8 @@
     "2026-05": [
       "2026-05-01",
       "2026-05-02",
-      "2026-05-03"
+      "2026-05-03",
+      "2026-05-04"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3046,7 +3060,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 216,
-  "totalDays": 216,
+  "totalImages": 217,
+  "totalDays": 217,
   "source": "supabase"
 }
