@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-05T01:40:46.445Z",
+  "lastUpdated": "2026-05-06T01:40:53.641Z",
   "images": {
+    "2026-05-06": [
+      {
+        "fileName": "2026-05-06_MandalaMontaa_1778031651322.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-06_MandalaMontaa_1778031651322.png",
+        "theme": "MandalaMontaña",
+        "dateKey": "2026-05-06",
+        "timestamp": 1778031651327,
+        "extension": "png",
+        "fileSize": 1300739,
+        "lastModified": "2026-05-06T01:40:51.327+00:00",
+        "storagePath": "2026-05/2026-05-06_MandalaMontaa_1778031651322.png"
+      }
+    ],
     "2026-05-05": [
       {
         "fileName": "2026-05-05_CincoDeMayo_1777945243879.png",
@@ -2842,7 +2855,8 @@
       "2026-05-02",
       "2026-05-03",
       "2026-05-04",
-      "2026-05-05"
+      "2026-05-05",
+      "2026-05-06"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3074,7 +3088,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 218,
-  "totalDays": 218,
+  "totalImages": 219,
+  "totalDays": 219,
   "source": "supabase"
 }
