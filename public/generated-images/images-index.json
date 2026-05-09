@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-08T01:41:57.325Z",
+  "lastUpdated": "2026-05-09T01:40:55.802Z",
   "images": {
+    "2026-05-09": [
+      {
+        "fileName": "2026-05-09_BibliotecaGigante_1778290854120.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-09_BibliotecaGigante_1778290854120.png",
+        "theme": "BibliotecaGigante",
+        "dateKey": "2026-05-09",
+        "timestamp": 1778290854125,
+        "extension": "png",
+        "fileSize": 1479876,
+        "lastModified": "2026-05-09T01:40:54.125+00:00",
+        "storagePath": "2026-05/2026-05-09_BibliotecaGigante_1778290854120.png"
+      }
+    ],
     "2026-05-08": [
       {
         "fileName": "2026-05-08_TrenMontaa_1778204515531.png",
@@ -2884,7 +2897,8 @@
       "2026-05-05",
       "2026-05-06",
       "2026-05-07",
-      "2026-05-08"
+      "2026-05-08",
+      "2026-05-09"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3116,7 +3130,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 221,
-  "totalDays": 221,
+  "totalImages": 222,
+  "totalDays": 222,
   "source": "supabase"
 }
