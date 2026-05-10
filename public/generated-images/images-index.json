@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-09T01:40:55.802Z",
+  "lastUpdated": "2026-05-10T01:40:40.977Z",
   "images": {
+    "2026-05-10": [
+      {
+        "fileName": "2026-05-10_MandalaEstrellas_1778377239299.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-10_MandalaEstrellas_1778377239299.png",
+        "theme": "MandalaEstrellas",
+        "dateKey": "2026-05-10",
+        "timestamp": 1778377239302,
+        "extension": "png",
+        "fileSize": 1186896,
+        "lastModified": "2026-05-10T01:40:39.302+00:00",
+        "storagePath": "2026-05/2026-05-10_MandalaEstrellas_1778377239299.png"
+      }
+    ],
     "2026-05-09": [
       {
         "fileName": "2026-05-09_BibliotecaGigante_1778290854120.png",
@@ -2898,7 +2911,8 @@
       "2026-05-06",
       "2026-05-07",
       "2026-05-08",
-      "2026-05-09"
+      "2026-05-09",
+      "2026-05-10"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3130,7 +3144,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 222,
-  "totalDays": 222,
+  "totalImages": 223,
+  "totalDays": 223,
   "source": "supabase"
 }
