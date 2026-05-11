@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-10T01:40:40.977Z",
+  "lastUpdated": "2026-05-11T01:42:37.797Z",
   "images": {
+    "2026-05-11": [
+      {
+        "fileName": "2026-05-11_Observatorio_1778463756390.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-11_Observatorio_1778463756390.png",
+        "theme": "Observatorio",
+        "dateKey": "2026-05-11",
+        "timestamp": 1778463756391,
+        "extension": "png",
+        "fileSize": 390340,
+        "lastModified": "2026-05-11T01:42:36.391+00:00",
+        "storagePath": "2026-05/2026-05-11_Observatorio_1778463756390.png"
+      }
+    ],
     "2026-05-10": [
       {
         "fileName": "2026-05-10_MandalaEstrellas_1778377239299.png",
@@ -2912,7 +2925,8 @@
       "2026-05-07",
       "2026-05-08",
       "2026-05-09",
-      "2026-05-10"
+      "2026-05-10",
+      "2026-05-11"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3144,7 +3158,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 223,
-  "totalDays": 223,
+  "totalImages": 224,
+  "totalDays": 224,
   "source": "supabase"
 }
