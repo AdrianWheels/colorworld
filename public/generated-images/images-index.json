@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-11T01:42:37.797Z",
+  "lastUpdated": "2026-05-12T01:41:16.098Z",
   "images": {
+    "2026-05-12": [
+      {
+        "fileName": "2026-05-12_PuenteRo_1778550074352.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-12_PuenteRo_1778550074352.png",
+        "theme": "PuenteRío",
+        "dateKey": "2026-05-12",
+        "timestamp": 1778550074357,
+        "extension": "png",
+        "fileSize": 1408394,
+        "lastModified": "2026-05-12T01:41:14.357+00:00",
+        "storagePath": "2026-05/2026-05-12_PuenteRo_1778550074352.png"
+      }
+    ],
     "2026-05-11": [
       {
         "fileName": "2026-05-11_Observatorio_1778463756390.png",
@@ -2926,7 +2939,8 @@
       "2026-05-08",
       "2026-05-09",
       "2026-05-10",
-      "2026-05-11"
+      "2026-05-11",
+      "2026-05-12"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3158,7 +3172,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 224,
-  "totalDays": 224,
+  "totalImages": 225,
+  "totalDays": 225,
   "source": "supabase"
 }
