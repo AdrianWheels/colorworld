@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-12T01:41:16.098Z",
+  "lastUpdated": "2026-05-13T01:43:09.644Z",
   "images": {
+    "2026-05-13": [
+      {
+        "fileName": "2026-05-13_DaMadre_1778636587230.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-13_DaMadre_1778636587230.png",
+        "theme": "DíaMadre",
+        "dateKey": "2026-05-13",
+        "timestamp": 1778636587232,
+        "extension": "png",
+        "fileSize": 532518,
+        "lastModified": "2026-05-13T01:43:07.232+00:00",
+        "storagePath": "2026-05/2026-05-13_DaMadre_1778636587230.png"
+      }
+    ],
     "2026-05-12": [
       {
         "fileName": "2026-05-12_PuenteRo_1778550074352.png",
@@ -2940,7 +2953,8 @@
       "2026-05-09",
       "2026-05-10",
       "2026-05-11",
-      "2026-05-12"
+      "2026-05-12",
+      "2026-05-13"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3172,7 +3186,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 225,
-  "totalDays": 225,
+  "totalImages": 226,
+  "totalDays": 226,
   "source": "supabase"
 }
