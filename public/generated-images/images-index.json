@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-13T01:43:09.644Z",
+  "lastUpdated": "2026-05-14T01:45:19.339Z",
   "images": {
+    "2026-05-14": [
+      {
+        "fileName": "2026-05-14_MandalaCastillo_1778723116987.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-14_MandalaCastillo_1778723116987.png",
+        "theme": "MandalaCastillo",
+        "dateKey": "2026-05-14",
+        "timestamp": 1778723116992,
+        "extension": "png",
+        "fileSize": 1398340,
+        "lastModified": "2026-05-14T01:45:16.992+00:00",
+        "storagePath": "2026-05/2026-05-14_MandalaCastillo_1778723116987.png"
+      }
+    ],
     "2026-05-13": [
       {
         "fileName": "2026-05-13_DaMadre_1778636587230.png",
@@ -2954,7 +2967,8 @@
       "2026-05-10",
       "2026-05-11",
       "2026-05-12",
-      "2026-05-13"
+      "2026-05-13",
+      "2026-05-14"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3186,7 +3200,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 226,
-  "totalDays": 226,
+  "totalImages": 227,
+  "totalDays": 227,
   "source": "supabase"
 }
