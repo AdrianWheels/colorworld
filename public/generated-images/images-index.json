@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-15T01:43:17.251Z",
+  "lastUpdated": "2026-05-16T01:41:16.462Z",
   "images": {
+    "2026-05-16": [
+      {
+        "fileName": "2026-05-16_Carrusel_1778895674525.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-16_Carrusel_1778895674525.png",
+        "theme": "Carrusel",
+        "dateKey": "2026-05-16",
+        "timestamp": 1778895674528,
+        "extension": "png",
+        "fileSize": 1192330,
+        "lastModified": "2026-05-16T01:41:14.528+00:00",
+        "storagePath": "2026-05/2026-05-16_Carrusel_1778895674525.png"
+      }
+    ],
     "2026-05-15": [
       {
         "fileName": "2026-05-15_JardnSecreto_1778809395755.png",
@@ -2982,7 +2995,8 @@
       "2026-05-12",
       "2026-05-13",
       "2026-05-14",
-      "2026-05-15"
+      "2026-05-15",
+      "2026-05-16"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3214,7 +3228,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 228,
-  "totalDays": 228,
+  "totalImages": 229,
+  "totalDays": 229,
   "source": "supabase"
 }
