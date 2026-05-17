@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-16T01:41:16.462Z",
+  "lastUpdated": "2026-05-17T01:41:28.300Z",
   "images": {
+    "2026-05-17": [
+      {
+        "fileName": "2026-05-17_PuestaSol_1778982087097.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-17_PuestaSol_1778982087097.png",
+        "theme": "PuestaSol",
+        "dateKey": "2026-05-17",
+        "timestamp": 1778982087099,
+        "extension": "png",
+        "fileSize": 417442,
+        "lastModified": "2026-05-17T01:41:27.099+00:00",
+        "storagePath": "2026-05/2026-05-17_PuestaSol_1778982087097.png"
+      }
+    ],
     "2026-05-16": [
       {
         "fileName": "2026-05-16_Carrusel_1778895674525.png",
@@ -2996,7 +3009,8 @@
       "2026-05-13",
       "2026-05-14",
       "2026-05-15",
-      "2026-05-16"
+      "2026-05-16",
+      "2026-05-17"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3228,7 +3242,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 229,
-  "totalDays": 229,
+  "totalImages": 230,
+  "totalDays": 230,
   "source": "supabase"
 }
