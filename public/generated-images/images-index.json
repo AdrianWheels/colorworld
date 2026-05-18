@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-17T01:41:28.300Z",
+  "lastUpdated": "2026-05-18T01:47:11.761Z",
   "images": {
+    "2026-05-18": [
+      {
+        "fileName": "2026-05-18_MandalaNaturaleza_1779068829294.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-18_MandalaNaturaleza_1779068829294.png",
+        "theme": "MandalaNaturaleza",
+        "dateKey": "2026-05-18",
+        "timestamp": 1779068829299,
+        "extension": "png",
+        "fileSize": 1530322,
+        "lastModified": "2026-05-18T01:47:09.299+00:00",
+        "storagePath": "2026-05/2026-05-18_MandalaNaturaleza_1779068829294.png"
+      }
+    ],
     "2026-05-17": [
       {
         "fileName": "2026-05-17_PuestaSol_1778982087097.png",
@@ -3010,7 +3023,8 @@
       "2026-05-14",
       "2026-05-15",
       "2026-05-16",
-      "2026-05-17"
+      "2026-05-17",
+      "2026-05-18"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3242,7 +3256,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 230,
-  "totalDays": 230,
+  "totalImages": 231,
+  "totalDays": 231,
   "source": "supabase"
 }
