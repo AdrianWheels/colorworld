@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-18T01:47:11.761Z",
+  "lastUpdated": "2026-05-19T01:46:00.229Z",
   "images": {
+    "2026-05-19": [
+      {
+        "fileName": "2026-05-19_PlayaRocas_1779155157670.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-19_PlayaRocas_1779155157670.png",
+        "theme": "PlayaRocas",
+        "dateKey": "2026-05-19",
+        "timestamp": 1779155157674,
+        "extension": "png",
+        "fileSize": 1293807,
+        "lastModified": "2026-05-19T01:45:57.674+00:00",
+        "storagePath": "2026-05/2026-05-19_PlayaRocas_1779155157670.png"
+      }
+    ],
     "2026-05-18": [
       {
         "fileName": "2026-05-18_MandalaNaturaleza_1779068829294.png",
@@ -3024,7 +3037,8 @@
       "2026-05-15",
       "2026-05-16",
       "2026-05-17",
-      "2026-05-18"
+      "2026-05-18",
+      "2026-05-19"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3256,7 +3270,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 231,
-  "totalDays": 231,
+  "totalImages": 232,
+  "totalDays": 232,
   "source": "supabase"
 }
