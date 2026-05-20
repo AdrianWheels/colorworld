@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-19T01:46:00.229Z",
+  "lastUpdated": "2026-05-20T01:47:01.973Z",
   "images": {
+    "2026-05-20": [
+      {
+        "fileName": "2026-05-20_Glaciar_1779241620109.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-20_Glaciar_1779241620109.png",
+        "theme": "Glaciar",
+        "dateKey": "2026-05-20",
+        "timestamp": 1779241620113,
+        "extension": "png",
+        "fileSize": 1257601,
+        "lastModified": "2026-05-20T01:47:00.113+00:00",
+        "storagePath": "2026-05/2026-05-20_Glaciar_1779241620109.png"
+      }
+    ],
     "2026-05-19": [
       {
         "fileName": "2026-05-19_PlayaRocas_1779155157670.png",
@@ -3038,7 +3051,8 @@
       "2026-05-16",
       "2026-05-17",
       "2026-05-18",
-      "2026-05-19"
+      "2026-05-19",
+      "2026-05-20"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3270,7 +3284,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 232,
-  "totalDays": 232,
+  "totalImages": 233,
+  "totalDays": 233,
   "source": "supabase"
 }
