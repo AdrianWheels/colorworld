@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-20T01:47:01.973Z",
+  "lastUpdated": "2026-05-21T01:45:53.030Z",
   "images": {
+    "2026-05-21": [
+      {
+        "fileName": "2026-05-21_PuenteColgante_1779327951265.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-21_PuenteColgante_1779327951265.png",
+        "theme": "PuenteColgante",
+        "dateKey": "2026-05-21",
+        "timestamp": 1779327951268,
+        "extension": "png",
+        "fileSize": 1237207,
+        "lastModified": "2026-05-21T01:45:51.268+00:00",
+        "storagePath": "2026-05/2026-05-21_PuenteColgante_1779327951265.png"
+      }
+    ],
     "2026-05-20": [
       {
         "fileName": "2026-05-20_Glaciar_1779241620109.png",
@@ -3052,7 +3065,8 @@
       "2026-05-17",
       "2026-05-18",
       "2026-05-19",
-      "2026-05-20"
+      "2026-05-20",
+      "2026-05-21"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3284,7 +3298,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 233,
-  "totalDays": 233,
+  "totalImages": 234,
+  "totalDays": 234,
   "source": "supabase"
 }
