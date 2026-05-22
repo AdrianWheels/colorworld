@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-21T01:45:53.030Z",
+  "lastUpdated": "2026-05-22T01:46:31.839Z",
   "images": {
+    "2026-05-22": [
+      {
+        "fileName": "2026-05-22_Mercadillo_1779414390482.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-22_Mercadillo_1779414390482.png",
+        "theme": "Mercadillo",
+        "dateKey": "2026-05-22",
+        "timestamp": 1779414390484,
+        "extension": "png",
+        "fileSize": 1088177,
+        "lastModified": "2026-05-22T01:46:30.484+00:00",
+        "storagePath": "2026-05/2026-05-22_Mercadillo_1779414390482.png"
+      }
+    ],
     "2026-05-21": [
       {
         "fileName": "2026-05-21_PuenteColgante_1779327951265.png",
@@ -3066,7 +3079,8 @@
       "2026-05-18",
       "2026-05-19",
       "2026-05-20",
-      "2026-05-21"
+      "2026-05-21",
+      "2026-05-22"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3298,7 +3312,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 234,
-  "totalDays": 234,
+  "totalImages": 235,
+  "totalDays": 235,
   "source": "supabase"
 }
