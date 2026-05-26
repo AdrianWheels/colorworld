@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-25T01:48:57.209Z",
+  "lastUpdated": "2026-05-26T01:43:59.657Z",
   "images": {
+    "2026-05-26": [
+      {
+        "fileName": "2026-05-26_TrenPuente_1779759837786.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-26_TrenPuente_1779759837786.png",
+        "theme": "TrenPuente",
+        "dateKey": "2026-05-26",
+        "timestamp": 1779759837791,
+        "extension": "png",
+        "fileSize": 1297604,
+        "lastModified": "2026-05-26T01:43:57.791+00:00",
+        "storagePath": "2026-05/2026-05-26_TrenPuente_1779759837786.png"
+      }
+    ],
     "2026-05-25": [
       {
         "fileName": "2026-05-25_CastilloColina_1779673735308.png",
@@ -3122,7 +3135,8 @@
       "2026-05-22",
       "2026-05-23",
       "2026-05-24",
-      "2026-05-25"
+      "2026-05-25",
+      "2026-05-26"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3354,7 +3368,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 238,
-  "totalDays": 238,
+  "totalImages": 239,
+  "totalDays": 239,
   "source": "supabase"
 }
