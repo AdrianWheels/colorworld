@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-26T01:43:59.657Z",
+  "lastUpdated": "2026-05-27T01:47:57.147Z",
   "images": {
+    "2026-05-27": [
+      {
+        "fileName": "2026-05-27_MontaaRo_1779846475498.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-27_MontaaRo_1779846475498.png",
+        "theme": "MontañaRío",
+        "dateKey": "2026-05-27",
+        "timestamp": 1779846475499,
+        "extension": "png",
+        "fileSize": 635348,
+        "lastModified": "2026-05-27T01:47:55.499+00:00",
+        "storagePath": "2026-05/2026-05-27_MontaaRo_1779846475498.png"
+      }
+    ],
     "2026-05-26": [
       {
         "fileName": "2026-05-26_TrenPuente_1779759837786.png",
@@ -3136,7 +3149,8 @@
       "2026-05-23",
       "2026-05-24",
       "2026-05-25",
-      "2026-05-26"
+      "2026-05-26",
+      "2026-05-27"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3368,7 +3382,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 239,
-  "totalDays": 239,
+  "totalImages": 240,
+  "totalDays": 240,
   "source": "supabase"
 }
