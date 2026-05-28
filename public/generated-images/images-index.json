@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-27T01:47:57.147Z",
+  "lastUpdated": "2026-05-28T01:41:43.023Z",
   "images": {
+    "2026-05-28": [
+      {
+        "fileName": "2026-05-28_JardnFaroles_1779932500774.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-28_JardnFaroles_1779932500774.png",
+        "theme": "JardínFaroles",
+        "dateKey": "2026-05-28",
+        "timestamp": 1779932500778,
+        "extension": "png",
+        "fileSize": 1511401,
+        "lastModified": "2026-05-28T01:41:40.778+00:00",
+        "storagePath": "2026-05/2026-05-28_JardnFaroles_1779932500774.png"
+      }
+    ],
     "2026-05-27": [
       {
         "fileName": "2026-05-27_MontaaRo_1779846475498.png",
@@ -3150,7 +3163,8 @@
       "2026-05-24",
       "2026-05-25",
       "2026-05-26",
-      "2026-05-27"
+      "2026-05-27",
+      "2026-05-28"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3382,7 +3396,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 240,
-  "totalDays": 240,
+  "totalImages": 241,
+  "totalDays": 241,
   "source": "supabase"
 }
