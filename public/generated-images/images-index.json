@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-28T01:41:43.023Z",
+  "lastUpdated": "2026-05-29T01:45:30.137Z",
   "images": {
+    "2026-05-29": [
+      {
+        "fileName": "2026-05-29_MandalaFiesta_1780019128172.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-29_MandalaFiesta_1780019128172.png",
+        "theme": "MandalaFiesta",
+        "dateKey": "2026-05-29",
+        "timestamp": 1780019128176,
+        "extension": "png",
+        "fileSize": 1402173,
+        "lastModified": "2026-05-29T01:45:28.176+00:00",
+        "storagePath": "2026-05/2026-05-29_MandalaFiesta_1780019128172.png"
+      }
+    ],
     "2026-05-28": [
       {
         "fileName": "2026-05-28_JardnFaroles_1779932500774.png",
@@ -3164,7 +3177,8 @@
       "2026-05-25",
       "2026-05-26",
       "2026-05-27",
-      "2026-05-28"
+      "2026-05-28",
+      "2026-05-29"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3396,7 +3410,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 241,
-  "totalDays": 241,
+  "totalImages": 242,
+  "totalDays": 242,
   "source": "supabase"
 }
