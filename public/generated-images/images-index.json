@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-29T01:45:30.137Z",
+  "lastUpdated": "2026-05-30T01:42:17.960Z",
   "images": {
+    "2026-05-30": [
+      {
+        "fileName": "2026-05-30_BibliotecaCastillo_1780105335469.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-30_BibliotecaCastillo_1780105335469.png",
+        "theme": "BibliotecaCastillo",
+        "dateKey": "2026-05-30",
+        "timestamp": 1780105335473,
+        "extension": "png",
+        "fileSize": 1552864,
+        "lastModified": "2026-05-30T01:42:15.473+00:00",
+        "storagePath": "2026-05/2026-05-30_BibliotecaCastillo_1780105335469.png"
+      }
+    ],
     "2026-05-29": [
       {
         "fileName": "2026-05-29_MandalaFiesta_1780019128172.png",
@@ -3178,7 +3191,8 @@
       "2026-05-26",
       "2026-05-27",
       "2026-05-28",
-      "2026-05-29"
+      "2026-05-29",
+      "2026-05-30"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3410,7 +3424,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 242,
-  "totalDays": 242,
+  "totalImages": 243,
+  "totalDays": 243,
   "source": "supabase"
 }
