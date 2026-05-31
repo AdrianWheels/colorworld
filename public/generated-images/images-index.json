@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-05-30T01:42:17.960Z",
+  "lastUpdated": "2026-05-31T01:48:03.475Z",
   "images": {
+    "2026-05-31": [
+      {
+        "fileName": "2026-05-31_DesayunoVerano_1780192082022.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-05/2026-05-31_DesayunoVerano_1780192082022.png",
+        "theme": "DesayunoVerano",
+        "dateKey": "2026-05-31",
+        "timestamp": 1780192082026,
+        "extension": "png",
+        "fileSize": 1162168,
+        "lastModified": "2026-05-31T01:48:02.026+00:00",
+        "storagePath": "2026-05/2026-05-31_DesayunoVerano_1780192082022.png"
+      }
+    ],
     "2026-05-30": [
       {
         "fileName": "2026-05-30_BibliotecaCastillo_1780105335469.png",
@@ -3192,7 +3205,8 @@
       "2026-05-27",
       "2026-05-28",
       "2026-05-29",
-      "2026-05-30"
+      "2026-05-30",
+      "2026-05-31"
     ],
     "2026-04": [
       "2026-04-01",
@@ -3424,7 +3438,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 243,
-  "totalDays": 243,
+  "totalImages": 244,
+  "totalDays": 244,
   "source": "supabase"
 }
