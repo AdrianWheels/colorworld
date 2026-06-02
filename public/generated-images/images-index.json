@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-01T01:53:03.798Z",
+  "lastUpdated": "2026-06-02T01:55:00.047Z",
   "images": {
+    "2026-06-02": [
+      {
+        "fileName": "2026-06-02_Playa_1780365298490.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-02_Playa_1780365298490.png",
+        "theme": "Playa",
+        "dateKey": "2026-06-02",
+        "timestamp": 1780365298492,
+        "extension": "png",
+        "fileSize": 650690,
+        "lastModified": "2026-06-02T01:54:58.492+00:00",
+        "storagePath": "2026-06/2026-06-02_Playa_1780365298490.png"
+      }
+    ],
     "2026-06-01": [
       {
         "fileName": "2026-06-01_MandalaVerano_1780278780614.png",
@@ -3189,7 +3202,8 @@
   },
   "daysByMonth": {
     "2026-06": [
-      "2026-06-01"
+      "2026-06-01",
+      "2026-06-02"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3454,7 +3468,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 245,
-  "totalDays": 245,
+  "totalImages": 246,
+  "totalDays": 246,
   "source": "supabase"
 }
