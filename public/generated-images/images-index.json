@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-02T01:55:00.047Z",
+  "lastUpdated": "2026-06-03T01:58:51.506Z",
   "images": {
+    "2026-06-03": [
+      {
+        "fileName": "2026-06-03_PicnicParque_1780451929388.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-03_PicnicParque_1780451929388.png",
+        "theme": "PicnicParque",
+        "dateKey": "2026-06-03",
+        "timestamp": 1780451929390,
+        "extension": "png",
+        "fileSize": 640402,
+        "lastModified": "2026-06-03T01:58:49.39+00:00",
+        "storagePath": "2026-06/2026-06-03_PicnicParque_1780451929388.png"
+      }
+    ],
     "2026-06-02": [
       {
         "fileName": "2026-06-02_Playa_1780365298490.png",
@@ -3203,7 +3216,8 @@
   "daysByMonth": {
     "2026-06": [
       "2026-06-01",
-      "2026-06-02"
+      "2026-06-02",
+      "2026-06-03"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3468,7 +3482,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 246,
-  "totalDays": 246,
+  "totalImages": 247,
+  "totalDays": 247,
   "source": "supabase"
 }
