@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-03T01:58:51.506Z",
+  "lastUpdated": "2026-06-04T01:58:07.299Z",
   "images": {
+    "2026-06-04": [
+      {
+        "fileName": "2026-06-04_CarruselFeria_1780538285598.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-04_CarruselFeria_1780538285598.png",
+        "theme": "CarruselFeria",
+        "dateKey": "2026-06-04",
+        "timestamp": 1780538285602,
+        "extension": "png",
+        "fileSize": 1310749,
+        "lastModified": "2026-06-04T01:58:05.602+00:00",
+        "storagePath": "2026-06/2026-06-04_CarruselFeria_1780538285598.png"
+      }
+    ],
     "2026-06-03": [
       {
         "fileName": "2026-06-03_PicnicParque_1780451929388.png",
@@ -3217,7 +3230,8 @@
     "2026-06": [
       "2026-06-01",
       "2026-06-02",
-      "2026-06-03"
+      "2026-06-03",
+      "2026-06-04"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3482,7 +3496,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 247,
-  "totalDays": 247,
+  "totalImages": 248,
+  "totalDays": 248,
   "source": "supabase"
 }
