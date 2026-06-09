@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-08T01:53:07.994Z",
+  "lastUpdated": "2026-06-09T01:42:25.250Z",
   "images": {
+    "2026-06-09": [
+      {
+        "fileName": "2026-06-09_Helados_1780969343648.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-09_Helados_1780969343648.png",
+        "theme": "Helados",
+        "dateKey": "2026-06-09",
+        "timestamp": 1780969343650,
+        "extension": "png",
+        "fileSize": 550107,
+        "lastModified": "2026-06-09T01:42:23.65+00:00",
+        "storagePath": "2026-06/2026-06-09_Helados_1780969343648.png"
+      }
+    ],
     "2026-06-08": [
       {
         "fileName": "2026-06-08_SombreroSol_1780883585187.png",
@@ -3287,7 +3300,8 @@
       "2026-06-05",
       "2026-06-06",
       "2026-06-07",
-      "2026-06-08"
+      "2026-06-08",
+      "2026-06-09"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3552,7 +3566,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 252,
-  "totalDays": 252,
+  "totalImages": 253,
+  "totalDays": 253,
   "source": "supabase"
 }
