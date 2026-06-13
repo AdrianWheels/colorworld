@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-12T01:53:34.555Z",
+  "lastUpdated": "2026-06-13T01:48:46.029Z",
   "images": {
+    "2026-06-13": [
+      {
+        "fileName": "2026-06-13_ParqueVerano_1781315324298.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-13_ParqueVerano_1781315324298.png",
+        "theme": "ParqueVerano",
+        "dateKey": "2026-06-13",
+        "timestamp": 1781315324304,
+        "extension": "png",
+        "fileSize": 1728834,
+        "lastModified": "2026-06-13T01:48:44.304+00:00",
+        "storagePath": "2026-06/2026-06-13_ParqueVerano_1781315324298.png"
+      }
+    ],
     "2026-06-12": [
       {
         "fileName": "2026-06-12_LecturaExterior_1781229211721.png",
@@ -3343,7 +3356,8 @@
       "2026-06-09",
       "2026-06-10",
       "2026-06-11",
-      "2026-06-12"
+      "2026-06-12",
+      "2026-06-13"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3608,7 +3622,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 256,
-  "totalDays": 256,
+  "totalImages": 257,
+  "totalDays": 257,
   "source": "supabase"
 }
