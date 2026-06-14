@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-13T01:48:46.029Z",
+  "lastUpdated": "2026-06-14T01:53:00.812Z",
   "images": {
+    "2026-06-14": [
+      {
+        "fileName": "2026-06-14_MandalaAnimalesVerano_1781401978594.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-14_MandalaAnimalesVerano_1781401978594.png",
+        "theme": "MandalaAnimalesVerano",
+        "dateKey": "2026-06-14",
+        "timestamp": 1781401978599,
+        "extension": "png",
+        "fileSize": 1715409,
+        "lastModified": "2026-06-14T01:52:58.599+00:00",
+        "storagePath": "2026-06/2026-06-14_MandalaAnimalesVerano_1781401978594.png"
+      }
+    ],
     "2026-06-13": [
       {
         "fileName": "2026-06-13_ParqueVerano_1781315324298.png",
@@ -3357,7 +3370,8 @@
       "2026-06-10",
       "2026-06-11",
       "2026-06-12",
-      "2026-06-13"
+      "2026-06-13",
+      "2026-06-14"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3622,7 +3636,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 257,
-  "totalDays": 257,
+  "totalImages": 258,
+  "totalDays": 258,
   "source": "supabase"
 }
