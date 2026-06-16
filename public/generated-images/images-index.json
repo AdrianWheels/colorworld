@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-15T01:55:46.949Z",
+  "lastUpdated": "2026-06-16T01:58:24.460Z",
   "images": {
+    "2026-06-16": [
+      {
+        "fileName": "2026-06-16_FarolaFeria_1781575103233.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-16_FarolaFeria_1781575103233.png",
+        "theme": "FarolaFeria",
+        "dateKey": "2026-06-16",
+        "timestamp": 1781575103238,
+        "extension": "png",
+        "fileSize": 1277151,
+        "lastModified": "2026-06-16T01:58:23.238+00:00",
+        "storagePath": "2026-06/2026-06-16_FarolaFeria_1781575103233.png"
+      }
+    ],
     "2026-06-15": [
       {
         "fileName": "2026-06-15_GlaciarVerano_1781488545430.png",
@@ -3385,7 +3398,8 @@
       "2026-06-12",
       "2026-06-13",
       "2026-06-14",
-      "2026-06-15"
+      "2026-06-15",
+      "2026-06-16"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3650,7 +3664,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 259,
-  "totalDays": 259,
+  "totalImages": 260,
+  "totalDays": 260,
   "source": "supabase"
 }
