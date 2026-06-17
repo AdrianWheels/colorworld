@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-16T01:58:24.460Z",
+  "lastUpdated": "2026-06-17T01:55:36.955Z",
   "images": {
+    "2026-06-17": [
+      {
+        "fileName": "2026-06-17_TrenVerano_1781661335374.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-17_TrenVerano_1781661335374.png",
+        "theme": "TrenVerano",
+        "dateKey": "2026-06-17",
+        "timestamp": 1781661335379,
+        "extension": "png",
+        "fileSize": 1169851,
+        "lastModified": "2026-06-17T01:55:35.379+00:00",
+        "storagePath": "2026-06/2026-06-17_TrenVerano_1781661335374.png"
+      }
+    ],
     "2026-06-16": [
       {
         "fileName": "2026-06-16_FarolaFeria_1781575103233.png",
@@ -3399,7 +3412,8 @@
       "2026-06-13",
       "2026-06-14",
       "2026-06-15",
-      "2026-06-16"
+      "2026-06-16",
+      "2026-06-17"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3664,7 +3678,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 260,
-  "totalDays": 260,
+  "totalImages": 261,
+  "totalDays": 261,
   "source": "supabase"
 }
