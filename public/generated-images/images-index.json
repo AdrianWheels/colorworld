@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-17T01:55:36.955Z",
+  "lastUpdated": "2026-06-18T01:56:35.857Z",
   "images": {
+    "2026-06-18": [
+      {
+        "fileName": "2026-06-18_MandalaCastillo_1781747793190.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-18_MandalaCastillo_1781747793190.png",
+        "theme": "MandalaCastillo",
+        "dateKey": "2026-06-18",
+        "timestamp": 1781747793196,
+        "extension": "png",
+        "fileSize": 2142896,
+        "lastModified": "2026-06-18T01:56:33.196+00:00",
+        "storagePath": "2026-06/2026-06-18_MandalaCastillo_1781747793190.png"
+      }
+    ],
     "2026-06-17": [
       {
         "fileName": "2026-06-17_TrenVerano_1781661335374.png",
@@ -3413,7 +3426,8 @@
       "2026-06-14",
       "2026-06-15",
       "2026-06-16",
-      "2026-06-17"
+      "2026-06-17",
+      "2026-06-18"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3678,7 +3692,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 261,
-  "totalDays": 261,
+  "totalImages": 262,
+  "totalDays": 262,
   "source": "supabase"
 }
