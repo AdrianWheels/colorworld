@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-19T02:01:37.078Z",
+  "lastUpdated": "2026-06-20T01:47:46.612Z",
   "images": {
+    "2026-06-20": [
+      {
+        "fileName": "2026-06-20_Atardecer_1781920065342.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-20_Atardecer_1781920065342.png",
+        "theme": "Atardecer",
+        "dateKey": "2026-06-20",
+        "timestamp": 1781920065346,
+        "extension": "png",
+        "fileSize": 1302031,
+        "lastModified": "2026-06-20T01:47:45.346+00:00",
+        "storagePath": "2026-06/2026-06-20_Atardecer_1781920065342.png"
+      }
+    ],
     "2026-06-19": [
       {
         "fileName": "2026-06-19_BicicletaVerano_1781834495282.png",
@@ -3441,7 +3454,8 @@
       "2026-06-16",
       "2026-06-17",
       "2026-06-18",
-      "2026-06-19"
+      "2026-06-19",
+      "2026-06-20"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3706,7 +3720,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 263,
-  "totalDays": 263,
+  "totalImages": 264,
+  "totalDays": 264,
   "source": "supabase"
 }
