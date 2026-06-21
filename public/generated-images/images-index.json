@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-20T01:47:46.612Z",
+  "lastUpdated": "2026-06-21T01:54:46.567Z",
   "images": {
+    "2026-06-21": [
+      {
+        "fileName": "2026-06-21_GenteTejiendo_1782006884183.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-21_GenteTejiendo_1782006884183.png",
+        "theme": "GenteTejiendo",
+        "dateKey": "2026-06-21",
+        "timestamp": 1782006884187,
+        "extension": "png",
+        "fileSize": 1312404,
+        "lastModified": "2026-06-21T01:54:44.187+00:00",
+        "storagePath": "2026-06/2026-06-21_GenteTejiendo_1782006884183.png"
+      }
+    ],
     "2026-06-20": [
       {
         "fileName": "2026-06-20_Atardecer_1781920065342.png",
@@ -3455,7 +3468,8 @@
       "2026-06-17",
       "2026-06-18",
       "2026-06-19",
-      "2026-06-20"
+      "2026-06-20",
+      "2026-06-21"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3720,7 +3734,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 264,
-  "totalDays": 264,
+  "totalImages": 265,
+  "totalDays": 265,
   "source": "supabase"
 }
