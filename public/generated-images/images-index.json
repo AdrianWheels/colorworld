@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-22T01:56:21.627Z",
+  "lastUpdated": "2026-06-23T01:45:32.738Z",
   "images": {
+    "2026-06-23": [
+      {
+        "fileName": "2026-06-23_PicnicPlaya_1782179129848.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-23_PicnicPlaya_1782179129848.png",
+        "theme": "PicnicPlaya",
+        "dateKey": "2026-06-23",
+        "timestamp": 1782179129850,
+        "extension": "png",
+        "fileSize": 1089349,
+        "lastModified": "2026-06-23T01:45:29.85+00:00",
+        "storagePath": "2026-06/2026-06-23_PicnicPlaya_1782179129848.png"
+      }
+    ],
     "2026-06-22": [
       {
         "fileName": "2026-06-22_MandalaSoles_1782093379712.png",
@@ -3483,7 +3496,8 @@
       "2026-06-19",
       "2026-06-20",
       "2026-06-21",
-      "2026-06-22"
+      "2026-06-22",
+      "2026-06-23"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3748,7 +3762,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 266,
-  "totalDays": 266,
+  "totalImages": 267,
+  "totalDays": 267,
   "source": "supabase"
 }
