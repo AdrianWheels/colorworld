@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-23T01:45:32.738Z",
+  "lastUpdated": "2026-06-24T01:44:39.497Z",
   "images": {
+    "2026-06-24": [
+      {
+        "fileName": "2026-06-24_BibliotecaVerano_1782265478089.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-24_BibliotecaVerano_1782265478089.png",
+        "theme": "BibliotecaVerano",
+        "dateKey": "2026-06-24",
+        "timestamp": 1782265478095,
+        "extension": "png",
+        "fileSize": 1834853,
+        "lastModified": "2026-06-24T01:44:38.095+00:00",
+        "storagePath": "2026-06/2026-06-24_BibliotecaVerano_1782265478089.png"
+      }
+    ],
     "2026-06-23": [
       {
         "fileName": "2026-06-23_PicnicPlaya_1782179129848.png",
@@ -3497,7 +3510,8 @@
       "2026-06-20",
       "2026-06-21",
       "2026-06-22",
-      "2026-06-23"
+      "2026-06-23",
+      "2026-06-24"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3762,7 +3776,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 267,
-  "totalDays": 267,
+  "totalImages": 268,
+  "totalDays": 268,
   "source": "supabase"
 }
