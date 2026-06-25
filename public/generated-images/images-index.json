@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-24T01:44:39.497Z",
+  "lastUpdated": "2026-06-25T01:47:09.233Z",
   "images": {
+    "2026-06-25": [
+      {
+        "fileName": "2026-06-25_CastilloFeria_1782352026390.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-25_CastilloFeria_1782352026390.png",
+        "theme": "CastilloFeria",
+        "dateKey": "2026-06-25",
+        "timestamp": 1782352026395,
+        "extension": "png",
+        "fileSize": 1331904,
+        "lastModified": "2026-06-25T01:47:06.395+00:00",
+        "storagePath": "2026-06/2026-06-25_CastilloFeria_1782352026390.png"
+      }
+    ],
     "2026-06-24": [
       {
         "fileName": "2026-06-24_BibliotecaVerano_1782265478089.png",
@@ -3511,7 +3524,8 @@
       "2026-06-21",
       "2026-06-22",
       "2026-06-23",
-      "2026-06-24"
+      "2026-06-24",
+      "2026-06-25"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3776,7 +3790,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 268,
-  "totalDays": 268,
+  "totalImages": 269,
+  "totalDays": 269,
   "source": "supabase"
 }
