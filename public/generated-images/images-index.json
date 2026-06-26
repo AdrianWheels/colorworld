@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-25T01:47:09.233Z",
+  "lastUpdated": "2026-06-26T01:48:52.797Z",
   "images": {
+    "2026-06-26": [
+      {
+        "fileName": "2026-06-26_MandalaMariposas_1782438531370.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-26_MandalaMariposas_1782438531370.png",
+        "theme": "MandalaMariposas",
+        "dateKey": "2026-06-26",
+        "timestamp": 1782438531375,
+        "extension": "png",
+        "fileSize": 1658237,
+        "lastModified": "2026-06-26T01:48:51.375+00:00",
+        "storagePath": "2026-06/2026-06-26_MandalaMariposas_1782438531370.png"
+      }
+    ],
     "2026-06-25": [
       {
         "fileName": "2026-06-25_CastilloFeria_1782352026390.png",
@@ -3525,7 +3538,8 @@
       "2026-06-22",
       "2026-06-23",
       "2026-06-24",
-      "2026-06-25"
+      "2026-06-25",
+      "2026-06-26"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3790,7 +3804,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 269,
-  "totalDays": 269,
+  "totalImages": 270,
+  "totalDays": 270,
   "source": "supabase"
 }
