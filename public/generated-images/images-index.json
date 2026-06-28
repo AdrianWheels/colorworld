@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-26T01:48:52.797Z",
+  "lastUpdated": "2026-06-28T01:47:48.313Z",
   "images": {
+    "2026-06-28": [
+      {
+        "fileName": "2026-06-28_DaPadre_1782611266702.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-28_DaPadre_1782611266702.png",
+        "theme": "DíaPadre",
+        "dateKey": "2026-06-28",
+        "timestamp": 1782611266707,
+        "extension": "png",
+        "fileSize": 1218421,
+        "lastModified": "2026-06-28T01:47:46.707+00:00",
+        "storagePath": "2026-06/2026-06-28_DaPadre_1782611266702.png"
+      }
+    ],
     "2026-06-26": [
       {
         "fileName": "2026-06-26_MandalaMariposas_1782438531370.png",
@@ -3539,7 +3552,8 @@
       "2026-06-23",
       "2026-06-24",
       "2026-06-25",
-      "2026-06-26"
+      "2026-06-26",
+      "2026-06-28"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3804,7 +3818,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 270,
-  "totalDays": 270,
+  "totalImages": 271,
+  "totalDays": 271,
   "source": "supabase"
 }
