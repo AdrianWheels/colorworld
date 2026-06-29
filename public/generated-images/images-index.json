@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-28T01:47:48.313Z",
+  "lastUpdated": "2026-06-29T01:50:23.217Z",
   "images": {
+    "2026-06-29": [
+      {
+        "fileName": "2026-06-29_AmigosVerano_1782697821068.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-29_AmigosVerano_1782697821068.png",
+        "theme": "AmigosVerano",
+        "dateKey": "2026-06-29",
+        "timestamp": 1782697821071,
+        "extension": "png",
+        "fileSize": 1063356,
+        "lastModified": "2026-06-29T01:50:21.071+00:00",
+        "storagePath": "2026-06/2026-06-29_AmigosVerano_1782697821068.png"
+      }
+    ],
     "2026-06-28": [
       {
         "fileName": "2026-06-28_DaPadre_1782611266702.png",
@@ -3553,7 +3566,8 @@
       "2026-06-24",
       "2026-06-25",
       "2026-06-26",
-      "2026-06-28"
+      "2026-06-28",
+      "2026-06-29"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3818,7 +3832,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 271,
-  "totalDays": 271,
+  "totalImages": 272,
+  "totalDays": 272,
   "source": "supabase"
 }
