@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-29T01:50:23.217Z",
+  "lastUpdated": "2026-06-30T01:47:10.832Z",
   "images": {
+    "2026-06-30": [
+      {
+        "fileName": "2026-06-30_MandalaFrutasVerano_1782784028210.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-06/2026-06-30_MandalaFrutasVerano_1782784028210.png",
+        "theme": "MandalaFrutasVerano",
+        "dateKey": "2026-06-30",
+        "timestamp": 1782784028214,
+        "extension": "png",
+        "fileSize": 1580419,
+        "lastModified": "2026-06-30T01:47:08.214+00:00",
+        "storagePath": "2026-06/2026-06-30_MandalaFrutasVerano_1782784028210.png"
+      }
+    ],
     "2026-06-29": [
       {
         "fileName": "2026-06-29_AmigosVerano_1782697821068.png",
@@ -3567,7 +3580,8 @@
       "2026-06-25",
       "2026-06-26",
       "2026-06-28",
-      "2026-06-29"
+      "2026-06-29",
+      "2026-06-30"
     ],
     "2026-05": [
       "2026-05-01",
@@ -3832,7 +3846,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 272,
-  "totalDays": 272,
+  "totalImages": 273,
+  "totalDays": 273,
   "source": "supabase"
 }
