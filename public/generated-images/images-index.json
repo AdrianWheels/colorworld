@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-30T01:47:10.832Z",
+  "lastUpdated": "2026-07-01T01:51:13.210Z",
   "images": {
+    "2026-07-01": [
+      {
+        "fileName": "2026-07-01_PlayaRayas_1782870671628.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-01_PlayaRayas_1782870671628.png",
+        "theme": "PlayaRayas",
+        "dateKey": "2026-07-01",
+        "timestamp": 1782870671630,
+        "extension": "png",
+        "fileSize": 543066,
+        "lastModified": "2026-07-01T01:51:11.63+00:00",
+        "storagePath": "2026-07/2026-07-01_PlayaRayas_1782870671628.png"
+      }
+    ],
     "2026-06-30": [
       {
         "fileName": "2026-06-30_MandalaFrutasVerano_1782784028210.png",
@@ -3552,6 +3565,9 @@
     ]
   },
   "daysByMonth": {
+    "2026-07": [
+      "2026-07-01"
+    ],
     "2026-06": [
       "2026-06-01",
       "2026-06-02",
@@ -3846,7 +3862,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 273,
-  "totalDays": 273,
+  "totalImages": 274,
+  "totalDays": 274,
   "source": "supabase"
 }
