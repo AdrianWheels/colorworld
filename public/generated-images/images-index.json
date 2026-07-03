@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-02T01:46:51.315Z",
+  "lastUpdated": "2026-07-03T01:38:54.874Z",
   "images": {
+    "2026-07-03": [
+      {
+        "fileName": "2026-07-03_SombreroSol_1783042733511.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-03_SombreroSol_1783042733511.png",
+        "theme": "SombreroSol",
+        "dateKey": "2026-07-03",
+        "timestamp": 1783042733513,
+        "extension": "png",
+        "fileSize": 1042597,
+        "lastModified": "2026-07-03T01:38:53.513+00:00",
+        "storagePath": "2026-07/2026-07-03_SombreroSol_1783042733511.png"
+      }
+    ],
     "2026-07-02": [
       {
         "fileName": "2026-07-02_MandalaVerano_1782956809600.png",
@@ -3580,7 +3593,8 @@
   "daysByMonth": {
     "2026-07": [
       "2026-07-01",
-      "2026-07-02"
+      "2026-07-02",
+      "2026-07-03"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3876,7 +3890,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 275,
-  "totalDays": 275,
+  "totalImages": 276,
+  "totalDays": 276,
   "source": "supabase"
 }
