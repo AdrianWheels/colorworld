@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-03T01:38:54.874Z",
+  "lastUpdated": "2026-07-04T01:39:13.760Z",
   "images": {
+    "2026-07-04": [
+      {
+        "fileName": "2026-07-04_DaIndependencia_1783129150794.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-04_DaIndependencia_1783129150794.png",
+        "theme": "DíaIndependencia",
+        "dateKey": "2026-07-04",
+        "timestamp": 1783129150796,
+        "extension": "png",
+        "fileSize": 603203,
+        "lastModified": "2026-07-04T01:39:10.796+00:00",
+        "storagePath": "2026-07/2026-07-04_DaIndependencia_1783129150794.png"
+      }
+    ],
     "2026-07-03": [
       {
         "fileName": "2026-07-03_SombreroSol_1783042733511.png",
@@ -3594,7 +3607,8 @@
     "2026-07": [
       "2026-07-01",
       "2026-07-02",
-      "2026-07-03"
+      "2026-07-03",
+      "2026-07-04"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3890,7 +3904,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 276,
-  "totalDays": 276,
+  "totalImages": 277,
+  "totalDays": 277,
   "source": "supabase"
 }
