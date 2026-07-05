@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-04T01:39:13.760Z",
+  "lastUpdated": "2026-07-05T01:39:05.675Z",
   "images": {
+    "2026-07-05": [
+      {
+        "fileName": "2026-07-05_PicnicVerano_1783215543367.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-05_PicnicVerano_1783215543367.png",
+        "theme": "PicnicVerano",
+        "dateKey": "2026-07-05",
+        "timestamp": 1783215543370,
+        "extension": "png",
+        "fileSize": 1106168,
+        "lastModified": "2026-07-05T01:39:03.37+00:00",
+        "storagePath": "2026-07/2026-07-05_PicnicVerano_1783215543367.png"
+      }
+    ],
     "2026-07-04": [
       {
         "fileName": "2026-07-04_DaIndependencia_1783129150794.png",
@@ -3608,7 +3621,8 @@
       "2026-07-01",
       "2026-07-02",
       "2026-07-03",
-      "2026-07-04"
+      "2026-07-04",
+      "2026-07-05"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3904,7 +3918,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 277,
-  "totalDays": 277,
+  "totalImages": 278,
+  "totalDays": 278,
   "source": "supabase"
 }
