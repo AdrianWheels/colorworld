@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-05T01:39:05.675Z",
+  "lastUpdated": "2026-07-06T01:40:31.708Z",
   "images": {
+    "2026-07-06": [
+      {
+        "fileName": "2026-07-06_CastilloArena_1783302029277.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-06_CastilloArena_1783302029277.png",
+        "theme": "CastilloArena",
+        "dateKey": "2026-07-06",
+        "timestamp": 1783302029278,
+        "extension": "png",
+        "fileSize": 524234,
+        "lastModified": "2026-07-06T01:40:29.278+00:00",
+        "storagePath": "2026-07/2026-07-06_CastilloArena_1783302029277.png"
+      }
+    ],
     "2026-07-05": [
       {
         "fileName": "2026-07-05_PicnicVerano_1783215543367.png",
@@ -3622,7 +3635,8 @@
       "2026-07-02",
       "2026-07-03",
       "2026-07-04",
-      "2026-07-05"
+      "2026-07-05",
+      "2026-07-06"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3918,7 +3932,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 278,
-  "totalDays": 278,
+  "totalImages": 279,
+  "totalDays": 279,
   "source": "supabase"
 }
