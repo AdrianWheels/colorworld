@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-07T01:39:18.939Z",
+  "lastUpdated": "2026-07-08T01:38:38.865Z",
   "images": {
+    "2026-07-08": [
+      {
+        "fileName": "2026-07-08_MandalaOlas_1783474716828.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-08_MandalaOlas_1783474716828.png",
+        "theme": "MandalaOlas",
+        "dateKey": "2026-07-08",
+        "timestamp": 1783474716832,
+        "extension": "png",
+        "fileSize": 1497641,
+        "lastModified": "2026-07-08T01:38:36.832+00:00",
+        "storagePath": "2026-07/2026-07-08_MandalaOlas_1783474716828.png"
+      }
+    ],
     "2026-07-07": [
       {
         "fileName": "2026-07-07_Helado_1783388355891.png",
@@ -3650,7 +3663,8 @@
       "2026-07-04",
       "2026-07-05",
       "2026-07-06",
-      "2026-07-07"
+      "2026-07-07",
+      "2026-07-08"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3946,7 +3960,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 280,
-  "totalDays": 280,
+  "totalImages": 281,
+  "totalDays": 281,
   "source": "supabase"
 }
