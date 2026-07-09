@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-08T01:38:38.865Z",
+  "lastUpdated": "2026-07-09T01:39:25.785Z",
   "images": {
+    "2026-07-09": [
+      {
+        "fileName": "2026-07-09_Barco_1783561164576.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-09_Barco_1783561164576.png",
+        "theme": "Barco",
+        "dateKey": "2026-07-09",
+        "timestamp": 1783561164577,
+        "extension": "png",
+        "fileSize": 360798,
+        "lastModified": "2026-07-09T01:39:24.577+00:00",
+        "storagePath": "2026-07/2026-07-09_Barco_1783561164576.png"
+      }
+    ],
     "2026-07-08": [
       {
         "fileName": "2026-07-08_MandalaOlas_1783474716828.png",
@@ -3664,7 +3677,8 @@
       "2026-07-05",
       "2026-07-06",
       "2026-07-07",
-      "2026-07-08"
+      "2026-07-08",
+      "2026-07-09"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3960,7 +3974,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 281,
-  "totalDays": 281,
+  "totalImages": 282,
+  "totalDays": 282,
   "source": "supabase"
 }
