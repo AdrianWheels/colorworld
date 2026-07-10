@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-09T01:39:25.785Z",
+  "lastUpdated": "2026-07-10T01:39:33.965Z",
   "images": {
+    "2026-07-10": [
+      {
+        "fileName": "2026-07-10_GloboViaje_1783647572051.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-10_GloboViaje_1783647572051.png",
+        "theme": "GloboViaje",
+        "dateKey": "2026-07-10",
+        "timestamp": 1783647572053,
+        "extension": "png",
+        "fileSize": 572362,
+        "lastModified": "2026-07-10T01:39:32.053+00:00",
+        "storagePath": "2026-07/2026-07-10_GloboViaje_1783647572051.png"
+      }
+    ],
     "2026-07-09": [
       {
         "fileName": "2026-07-09_Barco_1783561164576.png",
@@ -3678,7 +3691,8 @@
       "2026-07-06",
       "2026-07-07",
       "2026-07-08",
-      "2026-07-09"
+      "2026-07-09",
+      "2026-07-10"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3974,7 +3988,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 282,
-  "totalDays": 282,
+  "totalImages": 283,
+  "totalDays": 283,
   "source": "supabase"
 }
