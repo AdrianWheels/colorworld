@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-10T01:39:33.965Z",
+  "lastUpdated": "2026-07-11T01:38:34.252Z",
   "images": {
+    "2026-07-11": [
+      {
+        "fileName": "2026-07-11_Feria_1783733912358.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-11_Feria_1783733912358.png",
+        "theme": "Feria",
+        "dateKey": "2026-07-11",
+        "timestamp": 1783733912365,
+        "extension": "png",
+        "fileSize": 1601225,
+        "lastModified": "2026-07-11T01:38:32.365+00:00",
+        "storagePath": "2026-07/2026-07-11_Feria_1783733912358.png"
+      }
+    ],
     "2026-07-10": [
       {
         "fileName": "2026-07-10_GloboViaje_1783647572051.png",
@@ -3692,7 +3705,8 @@
       "2026-07-07",
       "2026-07-08",
       "2026-07-09",
-      "2026-07-10"
+      "2026-07-10",
+      "2026-07-11"
     ],
     "2026-06": [
       "2026-06-01",
@@ -3988,7 +4002,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 283,
-  "totalDays": 283,
+  "totalImages": 284,
+  "totalDays": 284,
   "source": "supabase"
 }
