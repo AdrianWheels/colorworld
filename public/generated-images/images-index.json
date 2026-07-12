@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-11T01:38:34.252Z",
+  "lastUpdated": "2026-07-12T01:38:11.472Z",
   "images": {
+    "2026-07-12": [
+      {
+        "fileName": "2026-07-12_AlgodnAzcar_1783820290073.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-12_AlgodnAzcar_1783820290073.png",
+        "theme": "AlgodónAzúcar",
+        "dateKey": "2026-07-12",
+        "timestamp": 1783820290076,
+        "extension": "png",
+        "fileSize": 1063533,
+        "lastModified": "2026-07-12T01:38:10.076+00:00",
+        "storagePath": "2026-07/2026-07-12_AlgodnAzcar_1783820290073.png"
+      }
+    ],
     "2026-07-11": [
       {
         "fileName": "2026-07-11_Feria_1783733912358.png",
@@ -3706,7 +3719,8 @@
       "2026-07-08",
       "2026-07-09",
       "2026-07-10",
-      "2026-07-11"
+      "2026-07-11",
+      "2026-07-12"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4002,7 +4016,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 284,
-  "totalDays": 284,
+  "totalImages": 285,
+  "totalDays": 285,
   "source": "supabase"
 }
