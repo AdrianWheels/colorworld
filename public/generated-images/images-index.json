@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-12T01:38:11.472Z",
+  "lastUpdated": "2026-07-13T01:39:47.786Z",
   "images": {
+    "2026-07-13": [
+      {
+        "fileName": "2026-07-13_MandalaFrutas_1783906784906.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-13_MandalaFrutas_1783906784906.png",
+        "theme": "MandalaFrutas",
+        "dateKey": "2026-07-13",
+        "timestamp": 1783906784912,
+        "extension": "png",
+        "fileSize": 1465946,
+        "lastModified": "2026-07-13T01:39:44.912+00:00",
+        "storagePath": "2026-07/2026-07-13_MandalaFrutas_1783906784906.png"
+      }
+    ],
     "2026-07-12": [
       {
         "fileName": "2026-07-12_AlgodnAzcar_1783820290073.png",
@@ -3720,7 +3733,8 @@
       "2026-07-09",
       "2026-07-10",
       "2026-07-11",
-      "2026-07-12"
+      "2026-07-12",
+      "2026-07-13"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4016,7 +4030,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 285,
-  "totalDays": 285,
+  "totalImages": 286,
+  "totalDays": 286,
   "source": "supabase"
 }
