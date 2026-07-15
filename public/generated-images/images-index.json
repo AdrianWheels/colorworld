@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-14T01:37:56.208Z",
+  "lastUpdated": "2026-07-15T01:37:58.361Z",
   "images": {
+    "2026-07-15": [
+      {
+        "fileName": "2026-07-15_BibliotecaExterior_1784079475491.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-15_BibliotecaExterior_1784079475491.png",
+        "theme": "BibliotecaExterior",
+        "dateKey": "2026-07-15",
+        "timestamp": 1784079475495,
+        "extension": "png",
+        "fileSize": 1509503,
+        "lastModified": "2026-07-15T01:37:55.495+00:00",
+        "storagePath": "2026-07/2026-07-15_BibliotecaExterior_1784079475491.png"
+      }
+    ],
     "2026-07-14": [
       {
         "fileName": "2026-07-14_TrenVerano_1783993073647.png",
@@ -3748,7 +3761,8 @@
       "2026-07-11",
       "2026-07-12",
       "2026-07-13",
-      "2026-07-14"
+      "2026-07-14",
+      "2026-07-15"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4044,7 +4058,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 287,
-  "totalDays": 287,
+  "totalImages": 288,
+  "totalDays": 288,
   "source": "supabase"
 }
