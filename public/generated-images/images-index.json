@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-18T01:37:22.564Z",
+  "lastUpdated": "2026-07-19T01:38:08.280Z",
   "images": {
+    "2026-07-19": [
+      {
+        "fileName": "2026-07-19_Bicicleta_1784425086657.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-19_Bicicleta_1784425086657.png",
+        "theme": "Bicicleta",
+        "dateKey": "2026-07-19",
+        "timestamp": 1784425086661,
+        "extension": "png",
+        "fileSize": 1603035,
+        "lastModified": "2026-07-19T01:38:06.661+00:00",
+        "storagePath": "2026-07/2026-07-19_Bicicleta_1784425086657.png"
+      }
+    ],
     "2026-07-18": [
       {
         "fileName": "2026-07-18_JardnVerano_1784338639558.png",
@@ -3804,7 +3817,8 @@
       "2026-07-15",
       "2026-07-16",
       "2026-07-17",
-      "2026-07-18"
+      "2026-07-18",
+      "2026-07-19"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4100,7 +4114,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 291,
-  "totalDays": 291,
+  "totalImages": 292,
+  "totalDays": 292,
   "source": "supabase"
 }
