@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-23T01:39:04.160Z",
+  "lastUpdated": "2026-07-24T01:38:12.210Z",
   "images": {
+    "2026-07-24": [
+      {
+        "fileName": "2026-07-24_CastilloVerano_1784857089551.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-24_CastilloVerano_1784857089551.png",
+        "theme": "CastilloVerano",
+        "dateKey": "2026-07-24",
+        "timestamp": 1784857089555,
+        "extension": "png",
+        "fileSize": 1840487,
+        "lastModified": "2026-07-24T01:38:09.555+00:00",
+        "storagePath": "2026-07/2026-07-24_CastilloVerano_1784857089551.png"
+      }
+    ],
     "2026-07-23": [
       {
         "fileName": "2026-07-23_AmigosVerano_1784770741532.png",
@@ -3874,7 +3887,8 @@
       "2026-07-20",
       "2026-07-21",
       "2026-07-22",
-      "2026-07-23"
+      "2026-07-23",
+      "2026-07-24"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4170,7 +4184,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 296,
-  "totalDays": 296,
+  "totalImages": 297,
+  "totalDays": 297,
   "source": "supabase"
 }
