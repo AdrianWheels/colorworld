@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-24T01:38:12.210Z",
+  "lastUpdated": "2026-07-25T01:38:50.279Z",
   "images": {
+    "2026-07-25": [
+      {
+        "fileName": "2026-07-25_MandalaMariposas_1784943527709.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-25_MandalaMariposas_1784943527709.png",
+        "theme": "MandalaMariposas",
+        "dateKey": "2026-07-25",
+        "timestamp": 1784943527714,
+        "extension": "png",
+        "fileSize": 1624197,
+        "lastModified": "2026-07-25T01:38:47.714+00:00",
+        "storagePath": "2026-07/2026-07-25_MandalaMariposas_1784943527709.png"
+      }
+    ],
     "2026-07-24": [
       {
         "fileName": "2026-07-24_CastilloVerano_1784857089551.png",
@@ -3888,7 +3901,8 @@
       "2026-07-21",
       "2026-07-22",
       "2026-07-23",
-      "2026-07-24"
+      "2026-07-24",
+      "2026-07-25"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4184,7 +4198,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 297,
-  "totalDays": 297,
+  "totalImages": 298,
+  "totalDays": 298,
   "source": "supabase"
 }
