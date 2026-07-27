@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-26T01:38:06.570Z",
+  "lastUpdated": "2026-07-27T01:39:40.532Z",
   "images": {
+    "2026-07-27": [
+      {
+        "fileName": "2026-07-27_FarolaPlaya_1785116378187.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-27_FarolaPlaya_1785116378187.png",
+        "theme": "FarolaPlaya",
+        "dateKey": "2026-07-27",
+        "timestamp": 1785116378190,
+        "extension": "png",
+        "fileSize": 1051162,
+        "lastModified": "2026-07-27T01:39:38.19+00:00",
+        "storagePath": "2026-07/2026-07-27_FarolaPlaya_1785116378187.png"
+      }
+    ],
     "2026-07-26": [
       {
         "fileName": "2026-07-26_BarcoVela_1785029884454.png",
@@ -3916,7 +3929,8 @@
       "2026-07-23",
       "2026-07-24",
       "2026-07-25",
-      "2026-07-26"
+      "2026-07-26",
+      "2026-07-27"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4212,7 +4226,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 299,
-  "totalDays": 299,
+  "totalImages": 300,
+  "totalDays": 300,
   "source": "supabase"
 }
