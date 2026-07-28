@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-27T01:39:40.532Z",
+  "lastUpdated": "2026-07-28T01:37:24.906Z",
   "images": {
+    "2026-07-28": [
+      {
+        "fileName": "2026-07-28_HeladoFeria_1785202641929.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-28_HeladoFeria_1785202641929.png",
+        "theme": "HeladoFeria",
+        "dateKey": "2026-07-28",
+        "timestamp": 1785202641934,
+        "extension": "png",
+        "fileSize": 1377780,
+        "lastModified": "2026-07-28T01:37:21.934+00:00",
+        "storagePath": "2026-07/2026-07-28_HeladoFeria_1785202641929.png"
+      }
+    ],
     "2026-07-27": [
       {
         "fileName": "2026-07-27_FarolaPlaya_1785116378187.png",
@@ -3930,7 +3943,8 @@
       "2026-07-24",
       "2026-07-25",
       "2026-07-26",
-      "2026-07-27"
+      "2026-07-27",
+      "2026-07-28"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4226,7 +4240,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 300,
-  "totalDays": 300,
+  "totalImages": 301,
+  "totalDays": 301,
   "source": "supabase"
 }
