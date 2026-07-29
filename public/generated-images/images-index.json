@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-28T01:37:24.906Z",
+  "lastUpdated": "2026-07-29T01:38:03.487Z",
   "images": {
+    "2026-07-29": [
+      {
+        "fileName": "2026-07-29_MandalaViaje_1785289081611.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-29_MandalaViaje_1785289081611.png",
+        "theme": "MandalaViaje",
+        "dateKey": "2026-07-29",
+        "timestamp": 1785289081615,
+        "extension": "png",
+        "fileSize": 1632362,
+        "lastModified": "2026-07-29T01:38:01.615+00:00",
+        "storagePath": "2026-07/2026-07-29_MandalaViaje_1785289081611.png"
+      }
+    ],
     "2026-07-28": [
       {
         "fileName": "2026-07-28_HeladoFeria_1785202641929.png",
@@ -3944,7 +3957,8 @@
       "2026-07-25",
       "2026-07-26",
       "2026-07-27",
-      "2026-07-28"
+      "2026-07-28",
+      "2026-07-29"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4240,7 +4254,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 301,
-  "totalDays": 301,
+  "totalImages": 302,
+  "totalDays": 302,
   "source": "supabase"
 }
