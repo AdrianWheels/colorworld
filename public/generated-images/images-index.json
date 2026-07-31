@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-30T01:37:47.881Z",
+  "lastUpdated": "2026-07-31T01:39:10.981Z",
   "images": {
+    "2026-07-31": [
+      {
+        "fileName": "2026-07-31_AmigosPicnic_1785461949238.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-07/2026-07-31_AmigosPicnic_1785461949238.png",
+        "theme": "AmigosPicnic",
+        "dateKey": "2026-07-31",
+        "timestamp": 1785461949242,
+        "extension": "png",
+        "fileSize": 1307723,
+        "lastModified": "2026-07-31T01:39:09.242+00:00",
+        "storagePath": "2026-07/2026-07-31_AmigosPicnic_1785461949238.png"
+      }
+    ],
     "2026-07-30": [
       {
         "fileName": "2026-07-30_PlayaAtardecer_1785375465152.png",
@@ -3972,7 +3985,8 @@
       "2026-07-27",
       "2026-07-28",
       "2026-07-29",
-      "2026-07-30"
+      "2026-07-30",
+      "2026-07-31"
     ],
     "2026-06": [
       "2026-06-01",
@@ -4268,7 +4282,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 303,
-  "totalDays": 303,
+  "totalImages": 304,
+  "totalDays": 304,
   "source": "supabase"
 }
