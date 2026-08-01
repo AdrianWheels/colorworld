@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-31T01:39:10.981Z",
+  "lastUpdated": "2026-08-01T01:39:01.469Z",
   "images": {
+    "2026-08-01": [
+      {
+        "fileName": "2026-08-01_PlayaSombrillas_1785548338485.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-01_PlayaSombrillas_1785548338485.png",
+        "theme": "PlayaSombrillas",
+        "dateKey": "2026-08-01",
+        "timestamp": 1785548338489,
+        "extension": "png",
+        "fileSize": 1148061,
+        "lastModified": "2026-08-01T01:38:58.489+00:00",
+        "storagePath": "2026-08/2026-08-01_PlayaSombrillas_1785548338485.png"
+      }
+    ],
     "2026-07-31": [
       {
         "fileName": "2026-07-31_AmigosPicnic_1785461949238.png",
@@ -3955,6 +3968,9 @@
     ]
   },
   "daysByMonth": {
+    "2026-08": [
+      "2026-08-01"
+    ],
     "2026-07": [
       "2026-07-01",
       "2026-07-02",
@@ -4282,7 +4298,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 304,
-  "totalDays": 304,
+  "totalImages": 305,
+  "totalDays": 305,
   "source": "supabase"
 }
