@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-01T01:39:01.469Z",
+  "lastUpdated": "2026-08-02T01:38:31.139Z",
   "images": {
+    "2026-08-02": [
+      {
+        "fileName": "2026-08-02_MandalaVerano_1785634709319.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-02_MandalaVerano_1785634709319.png",
+        "theme": "MandalaVerano",
+        "dateKey": "2026-08-02",
+        "timestamp": 1785634709324,
+        "extension": "png",
+        "fileSize": 1487111,
+        "lastModified": "2026-08-02T01:38:29.324+00:00",
+        "storagePath": "2026-08/2026-08-02_MandalaVerano_1785634709319.png"
+      }
+    ],
     "2026-08-01": [
       {
         "fileName": "2026-08-01_PlayaSombrillas_1785548338485.png",
@@ -3969,7 +3982,8 @@
   },
   "daysByMonth": {
     "2026-08": [
-      "2026-08-01"
+      "2026-08-01",
+      "2026-08-02"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4298,7 +4312,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 305,
-  "totalDays": 305,
+  "totalImages": 306,
+  "totalDays": 306,
   "source": "supabase"
 }
