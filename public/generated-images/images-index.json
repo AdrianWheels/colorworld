@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-03T01:39:43.204Z",
+  "lastUpdated": "2026-08-04T01:38:42.243Z",
   "images": {
+    "2026-08-04": [
+      {
+        "fileName": "2026-08-04_Feria_1785807519262.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-04_Feria_1785807519262.png",
+        "theme": "Feria",
+        "dateKey": "2026-08-04",
+        "timestamp": 1785807519265,
+        "extension": "png",
+        "fileSize": 1341263,
+        "lastModified": "2026-08-04T01:38:39.265+00:00",
+        "storagePath": "2026-08/2026-08-04_Feria_1785807519262.png"
+      }
+    ],
     "2026-08-03": [
       {
         "fileName": "2026-08-03_CastilloArena_1785721181063.png",
@@ -3997,7 +4010,8 @@
     "2026-08": [
       "2026-08-01",
       "2026-08-02",
-      "2026-08-03"
+      "2026-08-03",
+      "2026-08-04"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4326,7 +4340,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 307,
-  "totalDays": 307,
+  "totalImages": 308,
+  "totalDays": 308,
   "source": "supabase"
 }
