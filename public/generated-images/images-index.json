@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-05T01:37:12.566Z",
+  "lastUpdated": "2026-08-06T01:38:05.764Z",
   "images": {
+    "2026-08-06": [
+      {
+        "fileName": "2026-08-06_Helados_1785980283763.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-06_Helados_1785980283763.png",
+        "theme": "Helados",
+        "dateKey": "2026-08-06",
+        "timestamp": 1785980283765,
+        "extension": "png",
+        "fileSize": 600974,
+        "lastModified": "2026-08-06T01:38:03.765+00:00",
+        "storagePath": "2026-08/2026-08-06_Helados_1785980283763.png"
+      }
+    ],
     "2026-08-05": [
       {
         "fileName": "2026-08-05_AlgodnAzcar_1785893829787.png",
@@ -4025,7 +4038,8 @@
       "2026-08-02",
       "2026-08-03",
       "2026-08-04",
-      "2026-08-05"
+      "2026-08-05",
+      "2026-08-06"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4354,7 +4368,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 309,
-  "totalDays": 309,
+  "totalImages": 310,
+  "totalDays": 310,
   "source": "supabase"
 }
