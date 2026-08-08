@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-07T01:49:43.022Z",
+  "lastUpdated": "2026-08-08T01:34:31.528Z",
   "images": {
+    "2026-08-08": [
+      {
+        "fileName": "2026-08-08_BarcoVela_1786152869756.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-08_BarcoVela_1786152869756.png",
+        "theme": "BarcoVela",
+        "dateKey": "2026-08-08",
+        "timestamp": 1786152869758,
+        "extension": "png",
+        "fileSize": 404759,
+        "lastModified": "2026-08-08T01:34:29.758+00:00",
+        "storagePath": "2026-08/2026-08-08_BarcoVela_1786152869756.png"
+      }
+    ],
     "2026-08-07": [
       {
         "fileName": "2026-08-07_MandalaAnimales_1786067381654.png",
@@ -4053,7 +4066,8 @@
       "2026-08-04",
       "2026-08-05",
       "2026-08-06",
-      "2026-08-07"
+      "2026-08-07",
+      "2026-08-08"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4382,7 +4396,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 311,
-  "totalDays": 311,
+  "totalImages": 312,
+  "totalDays": 312,
   "source": "supabase"
 }
