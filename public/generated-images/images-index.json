@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-10T01:35:03.717Z",
+  "lastUpdated": "2026-08-11T01:34:52.790Z",
   "images": {
+    "2026-08-11": [
+      {
+        "fileName": "2026-08-11_MandalaFrutas_1786412090970.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-11_MandalaFrutas_1786412090970.png",
+        "theme": "MandalaFrutas",
+        "dateKey": "2026-08-11",
+        "timestamp": 1786412090974,
+        "extension": "png",
+        "fileSize": 1391889,
+        "lastModified": "2026-08-11T01:34:50.974+00:00",
+        "storagePath": "2026-08/2026-08-11_MandalaFrutas_1786412090970.png"
+      }
+    ],
     "2026-08-10": [
       {
         "fileName": "2026-08-10_BibliotecaExterior_1786325700881.png",
@@ -4095,7 +4108,8 @@
       "2026-08-07",
       "2026-08-08",
       "2026-08-09",
-      "2026-08-10"
+      "2026-08-10",
+      "2026-08-11"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4424,7 +4438,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 314,
-  "totalDays": 314,
+  "totalImages": 315,
+  "totalDays": 315,
   "source": "supabase"
 }
