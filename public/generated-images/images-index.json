@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-14T01:35:15.146Z",
+  "lastUpdated": "2026-08-15T01:32:33.475Z",
   "images": {
+    "2026-08-15": [
+      {
+        "fileName": "2026-08-15_Faro_1786757552008.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-15_Faro_1786757552008.png",
+        "theme": "Faro",
+        "dateKey": "2026-08-15",
+        "timestamp": 1786757552010,
+        "extension": "png",
+        "fileSize": 617806,
+        "lastModified": "2026-08-15T01:32:32.01+00:00",
+        "storagePath": "2026-08/2026-08-15_Faro_1786757552008.png"
+      }
+    ],
     "2026-08-14": [
       {
         "fileName": "2026-08-14_MandalaOlas_1786671312523.png",
@@ -4151,7 +4164,8 @@
       "2026-08-11",
       "2026-08-12",
       "2026-08-13",
-      "2026-08-14"
+      "2026-08-14",
+      "2026-08-15"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4480,7 +4494,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 318,
-  "totalDays": 318,
+  "totalImages": 319,
+  "totalDays": 319,
   "source": "supabase"
 }
