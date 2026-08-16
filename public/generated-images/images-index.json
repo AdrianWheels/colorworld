@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-15T01:32:33.475Z",
+  "lastUpdated": "2026-08-16T01:32:39.754Z",
   "images": {
+    "2026-08-16": [
+      {
+        "fileName": "2026-08-16_AmigosVerano_1786843958065.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-16_AmigosVerano_1786843958065.png",
+        "theme": "AmigosVerano",
+        "dateKey": "2026-08-16",
+        "timestamp": 1786843958066,
+        "extension": "png",
+        "fileSize": 448441,
+        "lastModified": "2026-08-16T01:32:38.066+00:00",
+        "storagePath": "2026-08/2026-08-16_AmigosVerano_1786843958065.png"
+      }
+    ],
     "2026-08-15": [
       {
         "fileName": "2026-08-15_Faro_1786757552008.png",
@@ -4165,7 +4178,8 @@
       "2026-08-12",
       "2026-08-13",
       "2026-08-14",
-      "2026-08-15"
+      "2026-08-15",
+      "2026-08-16"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4494,7 +4508,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 319,
-  "totalDays": 319,
+  "totalImages": 320,
+  "totalDays": 320,
   "source": "supabase"
 }
