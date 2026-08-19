@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-18T01:32:26.251Z",
+  "lastUpdated": "2026-08-19T01:32:31.885Z",
   "images": {
+    "2026-08-19": [
+      {
+        "fileName": "2026-08-19_TrenVerano_1787103149895.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-19_TrenVerano_1787103149895.png",
+        "theme": "TrenVerano",
+        "dateKey": "2026-08-19",
+        "timestamp": 1787103149899,
+        "extension": "png",
+        "fileSize": 1316164,
+        "lastModified": "2026-08-19T01:32:29.899+00:00",
+        "storagePath": "2026-08/2026-08-19_TrenVerano_1787103149895.png"
+      }
+    ],
     "2026-08-18": [
       {
         "fileName": "2026-08-18_MandalaMariposas_1787016743535.png",
@@ -4207,7 +4220,8 @@
       "2026-08-15",
       "2026-08-16",
       "2026-08-17",
-      "2026-08-18"
+      "2026-08-18",
+      "2026-08-19"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4536,7 +4550,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 322,
-  "totalDays": 322,
+  "totalImages": 323,
+  "totalDays": 323,
   "source": "supabase"
 }
