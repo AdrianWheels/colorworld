@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-20T01:32:43.071Z",
+  "lastUpdated": "2026-08-21T01:33:00.865Z",
   "images": {
+    "2026-08-21": [
+      {
+        "fileName": "2026-08-21_GlaciarVerano_1787275978408.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-21_GlaciarVerano_1787275978408.png",
+        "theme": "GlaciarVerano",
+        "dateKey": "2026-08-21",
+        "timestamp": 1787275978409,
+        "extension": "png",
+        "fileSize": 702235,
+        "lastModified": "2026-08-21T01:32:58.409+00:00",
+        "storagePath": "2026-08/2026-08-21_GlaciarVerano_1787275978408.png"
+      }
+    ],
     "2026-08-20": [
       {
         "fileName": "2026-08-20_TerrazaVerano_1787189560527.png",
@@ -4235,7 +4248,8 @@
       "2026-08-17",
       "2026-08-18",
       "2026-08-19",
-      "2026-08-20"
+      "2026-08-20",
+      "2026-08-21"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4564,7 +4578,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 324,
-  "totalDays": 324,
+  "totalImages": 325,
+  "totalDays": 325,
   "source": "supabase"
 }
