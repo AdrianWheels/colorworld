@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-24T01:32:59.627Z",
+  "lastUpdated": "2026-08-25T01:32:24.628Z",
   "images": {
+    "2026-08-25": [
+      {
+        "fileName": "2026-08-25_PlayaAtardecer_1787621542537.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-25_PlayaAtardecer_1787621542537.png",
+        "theme": "PlayaAtardecer",
+        "dateKey": "2026-08-25",
+        "timestamp": 1787621542541,
+        "extension": "png",
+        "fileSize": 1488589,
+        "lastModified": "2026-08-25T01:32:22.541+00:00",
+        "storagePath": "2026-08/2026-08-25_PlayaAtardecer_1787621542537.png"
+      }
+    ],
     "2026-08-24": [
       {
         "fileName": "2026-08-24_MandalaCastillo_1787535176880.png",
@@ -4291,7 +4304,8 @@
       "2026-08-21",
       "2026-08-22",
       "2026-08-23",
-      "2026-08-24"
+      "2026-08-24",
+      "2026-08-25"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4620,7 +4634,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 328,
-  "totalDays": 328,
+  "totalImages": 329,
+  "totalDays": 329,
   "source": "supabase"
 }
