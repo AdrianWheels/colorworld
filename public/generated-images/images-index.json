@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-28T03:48:11.420Z",
+  "lastUpdated": "2026-08-29T01:14:41.839Z",
   "images": {
+    "2026-08-29": [
+      {
+        "fileName": "2026-08-29_PaseoMontaa_1787966079316.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-29_PaseoMontaa_1787966079316.png",
+        "theme": "PaseoMontaña",
+        "dateKey": "2026-08-29",
+        "timestamp": 1787966079321,
+        "extension": "png",
+        "fileSize": 1438485,
+        "lastModified": "2026-08-29T01:14:39.321+00:00",
+        "storagePath": "2026-08/2026-08-29_PaseoMontaa_1787966079316.png"
+      }
+    ],
     "2026-08-28": [
       {
         "fileName": "2026-08-28_MandalaSoles_1787888889694.png",
@@ -4347,7 +4360,8 @@
       "2026-08-25",
       "2026-08-26",
       "2026-08-27",
-      "2026-08-28"
+      "2026-08-28",
+      "2026-08-29"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4676,7 +4690,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 332,
-  "totalDays": 332,
+  "totalImages": 333,
+  "totalDays": 333,
   "source": "supabase"
 }
