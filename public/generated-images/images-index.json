@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-29T01:14:41.839Z",
+  "lastUpdated": "2026-08-30T01:26:11.806Z",
   "images": {
+    "2026-08-30": [
+      {
+        "fileName": "2026-08-30_FeriaNocturna_1788053169910.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-30_FeriaNocturna_1788053169910.png",
+        "theme": "FeriaNocturna",
+        "dateKey": "2026-08-30",
+        "timestamp": 1788053169915,
+        "extension": "png",
+        "fileSize": 1357287,
+        "lastModified": "2026-08-30T01:26:09.915+00:00",
+        "storagePath": "2026-08/2026-08-30_FeriaNocturna_1788053169910.png"
+      }
+    ],
     "2026-08-29": [
       {
         "fileName": "2026-08-29_PaseoMontaa_1787966079316.png",
@@ -4361,7 +4374,8 @@
       "2026-08-26",
       "2026-08-27",
       "2026-08-28",
-      "2026-08-29"
+      "2026-08-29",
+      "2026-08-30"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4690,7 +4704,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 333,
-  "totalDays": 333,
+  "totalImages": 334,
+  "totalDays": 334,
   "source": "supabase"
 }
