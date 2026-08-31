@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-30T01:26:11.806Z",
+  "lastUpdated": "2026-08-31T01:29:42.877Z",
   "images": {
+    "2026-08-31": [
+      {
+        "fileName": "2026-08-31_HeladoFeria_1788139781169.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-08/2026-08-31_HeladoFeria_1788139781169.png",
+        "theme": "HeladoFeria",
+        "dateKey": "2026-08-31",
+        "timestamp": 1788139781173,
+        "extension": "png",
+        "fileSize": 1403612,
+        "lastModified": "2026-08-31T01:29:41.173+00:00",
+        "storagePath": "2026-08/2026-08-31_HeladoFeria_1788139781169.png"
+      }
+    ],
     "2026-08-30": [
       {
         "fileName": "2026-08-30_FeriaNocturna_1788053169910.png",
@@ -4375,7 +4388,8 @@
       "2026-08-27",
       "2026-08-28",
       "2026-08-29",
-      "2026-08-30"
+      "2026-08-30",
+      "2026-08-31"
     ],
     "2026-07": [
       "2026-07-01",
@@ -4704,7 +4718,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 334,
-  "totalDays": 334,
+  "totalImages": 335,
+  "totalDays": 335,
   "source": "supabase"
 }
