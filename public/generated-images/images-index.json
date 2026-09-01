@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-08-31T01:29:42.877Z",
+  "lastUpdated": "2026-09-01T01:33:52.512Z",
   "images": {
+    "2026-09-01": [
+      {
+        "fileName": "2026-09-01_VueltaColeMagica_1788226430386.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-01_VueltaColeMagica_1788226430386.png",
+        "theme": "VueltaColeMagica",
+        "dateKey": "2026-09-01",
+        "timestamp": 1788226430390,
+        "extension": "png",
+        "fileSize": 1577972,
+        "lastModified": "2026-09-01T01:33:50.39+00:00",
+        "storagePath": "2026-09/2026-09-01_VueltaColeMagica_1788226430386.png"
+      }
+    ],
     "2026-08-31": [
       {
         "fileName": "2026-08-31_HeladoFeria_1788139781169.png",
@@ -4358,6 +4371,9 @@
     ]
   },
   "daysByMonth": {
+    "2026-09": [
+      "2026-09-01"
+    ],
     "2026-08": [
       "2026-08-01",
       "2026-08-02",
@@ -4718,7 +4734,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 335,
-  "totalDays": 335,
+  "totalImages": 336,
+  "totalDays": 336,
   "source": "supabase"
 }
