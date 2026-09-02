@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-01T01:33:52.512Z",
+  "lastUpdated": "2026-09-02T01:24:34.462Z",
   "images": {
+    "2026-09-02": [
+      {
+        "fileName": "2026-09-02_AulaArteMagica_1788312272374.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-02_AulaArteMagica_1788312272374.png",
+        "theme": "AulaArteMagica",
+        "dateKey": "2026-09-02",
+        "timestamp": 1788312272378,
+        "extension": "png",
+        "fileSize": 1685721,
+        "lastModified": "2026-09-02T01:24:32.378+00:00",
+        "storagePath": "2026-09/2026-09-02_AulaArteMagica_1788312272374.png"
+      }
+    ],
     "2026-09-01": [
       {
         "fileName": "2026-09-01_VueltaColeMagica_1788226430386.png",
@@ -4372,7 +4385,8 @@
   },
   "daysByMonth": {
     "2026-09": [
-      "2026-09-01"
+      "2026-09-01",
+      "2026-09-02"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4734,7 +4748,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 336,
-  "totalDays": 336,
+  "totalImages": 337,
+  "totalDays": 337,
   "source": "supabase"
 }
