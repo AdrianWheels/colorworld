@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-02T01:24:34.462Z",
+  "lastUpdated": "2026-09-03T01:30:14.924Z",
   "images": {
+    "2026-09-03": [
+      {
+        "fileName": "2026-09-03_BibliotecaEncantada_1788399012042.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-03_BibliotecaEncantada_1788399012042.png",
+        "theme": "BibliotecaEncantada",
+        "dateKey": "2026-09-03",
+        "timestamp": 1788399012046,
+        "extension": "png",
+        "fileSize": 1685783,
+        "lastModified": "2026-09-03T01:30:12.046+00:00",
+        "storagePath": "2026-09/2026-09-03_BibliotecaEncantada_1788399012042.png"
+      }
+    ],
     "2026-09-02": [
       {
         "fileName": "2026-09-02_AulaArteMagica_1788312272374.png",
@@ -4386,7 +4399,8 @@
   "daysByMonth": {
     "2026-09": [
       "2026-09-01",
-      "2026-09-02"
+      "2026-09-02",
+      "2026-09-03"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4748,7 +4762,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 337,
-  "totalDays": 337,
+  "totalImages": 338,
+  "totalDays": 338,
   "source": "supabase"
 }
