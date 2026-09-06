@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-05T01:21:25.481Z",
+  "lastUpdated": "2026-09-06T01:27:04.120Z",
   "images": {
+    "2026-09-06": [
+      {
+        "fileName": "2026-09-06_LaboratorioMagico_1788658022319.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-06_LaboratorioMagico_1788658022319.png",
+        "theme": "LaboratorioMagico",
+        "dateKey": "2026-09-06",
+        "timestamp": 1788658022323,
+        "extension": "png",
+        "fileSize": 1602788,
+        "lastModified": "2026-09-06T01:27:02.323+00:00",
+        "storagePath": "2026-09/2026-09-06_LaboratorioMagico_1788658022319.png"
+      }
+    ],
     "2026-09-05": [
       {
         "fileName": "2026-09-05_MandalaEscuela_1788571283432.png",
@@ -4428,7 +4441,8 @@
       "2026-09-02",
       "2026-09-03",
       "2026-09-04",
-      "2026-09-05"
+      "2026-09-05",
+      "2026-09-06"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4790,7 +4804,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 340,
-  "totalDays": 340,
+  "totalImages": 341,
+  "totalDays": 341,
   "source": "supabase"
 }
