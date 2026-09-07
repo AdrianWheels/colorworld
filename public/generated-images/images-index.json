@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-06T01:27:04.120Z",
+  "lastUpdated": "2026-09-07T01:29:01.543Z",
   "images": {
+    "2026-09-07": [
+      {
+        "fileName": "2026-09-07_JardinUnicornio_1788744539498.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-07_JardinUnicornio_1788744539498.png",
+        "theme": "JardinUnicornio",
+        "dateKey": "2026-09-07",
+        "timestamp": 1788744539503,
+        "extension": "png",
+        "fileSize": 1464923,
+        "lastModified": "2026-09-07T01:28:59.503+00:00",
+        "storagePath": "2026-09/2026-09-07_JardinUnicornio_1788744539498.png"
+      }
+    ],
     "2026-09-06": [
       {
         "fileName": "2026-09-06_LaboratorioMagico_1788658022319.png",
@@ -4442,7 +4455,8 @@
       "2026-09-03",
       "2026-09-04",
       "2026-09-05",
-      "2026-09-06"
+      "2026-09-06",
+      "2026-09-07"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4804,7 +4818,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 341,
-  "totalDays": 341,
+  "totalImages": 342,
+  "totalDays": 342,
   "source": "supabase"
 }
