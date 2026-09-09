@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-08T01:25:30.959Z",
+  "lastUpdated": "2026-09-09T01:26:34.552Z",
   "images": {
+    "2026-09-09": [
+      {
+        "fileName": "2026-09-09_MandalaArcoiris_1788917192652.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-09_MandalaArcoiris_1788917192652.png",
+        "theme": "MandalaArcoiris",
+        "dateKey": "2026-09-09",
+        "timestamp": 1788917192656,
+        "extension": "png",
+        "fileSize": 1589898,
+        "lastModified": "2026-09-09T01:26:32.656+00:00",
+        "storagePath": "2026-09/2026-09-09_MandalaArcoiris_1788917192652.png"
+      }
+    ],
     "2026-09-08": [
       {
         "fileName": "2026-09-08_TallerCreativo_1788830727972.png",
@@ -4470,7 +4483,8 @@
       "2026-09-05",
       "2026-09-06",
       "2026-09-07",
-      "2026-09-08"
+      "2026-09-08",
+      "2026-09-09"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4832,7 +4846,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 343,
-  "totalDays": 343,
+  "totalImages": 344,
+  "totalDays": 344,
   "source": "supabase"
 }
