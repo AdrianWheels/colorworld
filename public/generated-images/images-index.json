@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-10T01:23:25.647Z",
+  "lastUpdated": "2026-09-11T01:23:06.992Z",
   "images": {
+    "2026-09-11": [
+      {
+        "fileName": "2026-09-11_FiestaBiblioteca_1789089785306.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-11_FiestaBiblioteca_1789089785306.png",
+        "theme": "FiestaBiblioteca",
+        "dateKey": "2026-09-11",
+        "timestamp": 1789089785310,
+        "extension": "png",
+        "fileSize": 1830404,
+        "lastModified": "2026-09-11T01:23:05.31+00:00",
+        "storagePath": "2026-09/2026-09-11_FiestaBiblioteca_1789089785306.png"
+      }
+    ],
     "2026-09-10": [
       {
         "fileName": "2026-09-10_PaseoMagico_1789003403672.png",
@@ -4498,7 +4511,8 @@
       "2026-09-07",
       "2026-09-08",
       "2026-09-09",
-      "2026-09-10"
+      "2026-09-10",
+      "2026-09-11"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4860,7 +4874,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 345,
-  "totalDays": 345,
+  "totalImages": 346,
+  "totalDays": 346,
   "source": "supabase"
 }
