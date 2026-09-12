@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-11T01:23:06.992Z",
+  "lastUpdated": "2026-09-12T01:20:55.787Z",
   "images": {
+    "2026-09-12": [
+      {
+        "fileName": "2026-09-12_PatioDeportes_1789176051802.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-12_PatioDeportes_1789176051802.png",
+        "theme": "PatioDeportes",
+        "dateKey": "2026-09-12",
+        "timestamp": 1789176051803,
+        "extension": "png",
+        "fileSize": 540878,
+        "lastModified": "2026-09-12T01:20:51.803+00:00",
+        "storagePath": "2026-09/2026-09-12_PatioDeportes_1789176051802.png"
+      }
+    ],
     "2026-09-11": [
       {
         "fileName": "2026-09-11_FiestaBiblioteca_1789089785306.png",
@@ -4512,7 +4525,8 @@
       "2026-09-08",
       "2026-09-09",
       "2026-09-10",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-12"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4874,7 +4888,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 346,
-  "totalDays": 346,
+  "totalImages": 347,
+  "totalDays": 347,
   "source": "supabase"
 }
