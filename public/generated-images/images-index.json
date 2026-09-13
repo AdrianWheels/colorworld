@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-12T01:20:55.787Z",
+  "lastUpdated": "2026-09-13T01:29:03.959Z",
   "images": {
+    "2026-09-13": [
+      {
+        "fileName": "2026-09-13_MandalaMagica2_1789262940828.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-13_MandalaMagica2_1789262940828.png",
+        "theme": "MandalaMagica2",
+        "dateKey": "2026-09-13",
+        "timestamp": 1789262940832,
+        "extension": "png",
+        "fileSize": 1553544,
+        "lastModified": "2026-09-13T01:29:00.832+00:00",
+        "storagePath": "2026-09/2026-09-13_MandalaMagica2_1789262940828.png"
+      }
+    ],
     "2026-09-12": [
       {
         "fileName": "2026-09-12_PatioDeportes_1789176051802.png",
@@ -4526,7 +4539,8 @@
       "2026-09-09",
       "2026-09-10",
       "2026-09-11",
-      "2026-09-12"
+      "2026-09-12",
+      "2026-09-13"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4888,7 +4902,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 347,
-  "totalDays": 347,
+  "totalImages": 348,
+  "totalDays": 348,
   "source": "supabase"
 }
