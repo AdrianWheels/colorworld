@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-14T01:30:39.835Z",
+  "lastUpdated": "2026-09-15T01:27:57.267Z",
   "images": {
+    "2026-09-15": [
+      {
+        "fileName": "2026-09-15_AulaTecnologica_1789435674380.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-15_AulaTecnologica_1789435674380.png",
+        "theme": "AulaTecnologica",
+        "dateKey": "2026-09-15",
+        "timestamp": 1789435674384,
+        "extension": "png",
+        "fileSize": 1593769,
+        "lastModified": "2026-09-15T01:27:54.384+00:00",
+        "storagePath": "2026-09/2026-09-15_AulaTecnologica_1789435674380.png"
+      }
+    ],
     "2026-09-14": [
       {
         "fileName": "2026-09-14_ArcoirisCole_1789349438126.png",
@@ -4554,7 +4567,8 @@
       "2026-09-11",
       "2026-09-12",
       "2026-09-13",
-      "2026-09-14"
+      "2026-09-14",
+      "2026-09-15"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4916,7 +4930,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 349,
-  "totalDays": 349,
+  "totalImages": 350,
+  "totalDays": 350,
   "source": "supabase"
 }
