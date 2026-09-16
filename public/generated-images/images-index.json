@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-15T01:27:57.267Z",
+  "lastUpdated": "2026-09-16T01:25:46.051Z",
   "images": {
+    "2026-09-16": [
+      {
+        "fileName": "2026-09-16_MandalaBosque_1789521943809.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-16_MandalaBosque_1789521943809.png",
+        "theme": "MandalaBosque",
+        "dateKey": "2026-09-16",
+        "timestamp": 1789521943813,
+        "extension": "png",
+        "fileSize": 1544803,
+        "lastModified": "2026-09-16T01:25:43.813+00:00",
+        "storagePath": "2026-09/2026-09-16_MandalaBosque_1789521943809.png"
+      }
+    ],
     "2026-09-15": [
       {
         "fileName": "2026-09-15_AulaTecnologica_1789435674380.png",
@@ -4568,7 +4581,8 @@
       "2026-09-12",
       "2026-09-13",
       "2026-09-14",
-      "2026-09-15"
+      "2026-09-15",
+      "2026-09-16"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4930,7 +4944,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 350,
-  "totalDays": 350,
+  "totalImages": 351,
+  "totalDays": 351,
   "source": "supabase"
 }
