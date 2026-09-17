@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-16T01:25:46.051Z",
+  "lastUpdated": "2026-09-17T01:26:08.072Z",
   "images": {
+    "2026-09-17": [
+      {
+        "fileName": "2026-09-17_UnicornioJardnCole_1789608365297.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-17_UnicornioJardnCole_1789608365297.png",
+        "theme": "UnicornioJardínCole",
+        "dateKey": "2026-09-17",
+        "timestamp": 1789608365301,
+        "extension": "png",
+        "fileSize": 1310913,
+        "lastModified": "2026-09-17T01:26:05.301+00:00",
+        "storagePath": "2026-09/2026-09-17_UnicornioJardnCole_1789608365297.png"
+      }
+    ],
     "2026-09-16": [
       {
         "fileName": "2026-09-16_MandalaBosque_1789521943809.png",
@@ -4582,7 +4595,8 @@
       "2026-09-13",
       "2026-09-14",
       "2026-09-15",
-      "2026-09-16"
+      "2026-09-16",
+      "2026-09-17"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4944,7 +4958,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 351,
-  "totalDays": 351,
+  "totalImages": 352,
+  "totalDays": 352,
   "source": "supabase"
 }
