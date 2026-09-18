@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-17T01:26:08.072Z",
+  "lastUpdated": "2026-09-18T01:25:44.933Z",
   "images": {
+    "2026-09-18": [
+      {
+        "fileName": "2026-09-18_FiestaColeMagica_1789694742680.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-18_FiestaColeMagica_1789694742680.png",
+        "theme": "FiestaColeMagica",
+        "dateKey": "2026-09-18",
+        "timestamp": 1789694742685,
+        "extension": "png",
+        "fileSize": 1517508,
+        "lastModified": "2026-09-18T01:25:42.685+00:00",
+        "storagePath": "2026-09/2026-09-18_FiestaColeMagica_1789694742680.png"
+      }
+    ],
     "2026-09-17": [
       {
         "fileName": "2026-09-17_UnicornioJardnCole_1789608365297.png",
@@ -4596,7 +4609,8 @@
       "2026-09-14",
       "2026-09-15",
       "2026-09-16",
-      "2026-09-17"
+      "2026-09-17",
+      "2026-09-18"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4958,7 +4972,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 352,
-  "totalDays": 352,
+  "totalImages": 353,
+  "totalDays": 353,
   "source": "supabase"
 }
