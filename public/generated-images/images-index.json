@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-19T01:23:45.134Z",
+  "lastUpdated": "2026-09-20T01:28:40.495Z",
   "images": {
+    "2026-09-20": [
+      {
+        "fileName": "2026-09-20_MandalaEstrellas_1789867718250.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-20_MandalaEstrellas_1789867718250.png",
+        "theme": "MandalaEstrellas",
+        "dateKey": "2026-09-20",
+        "timestamp": 1789867718253,
+        "extension": "png",
+        "fileSize": 1090529,
+        "lastModified": "2026-09-20T01:28:38.253+00:00",
+        "storagePath": "2026-09/2026-09-20_MandalaEstrellas_1789867718250.png"
+      }
+    ],
     "2026-09-19": [
       {
         "fileName": "2026-09-19_PaseoCreativo_1789781023034.png",
@@ -4624,7 +4637,8 @@
       "2026-09-16",
       "2026-09-17",
       "2026-09-18",
-      "2026-09-19"
+      "2026-09-19",
+      "2026-09-20"
     ],
     "2026-08": [
       "2026-08-01",
@@ -4986,7 +5000,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 354,
-  "totalDays": 354,
+  "totalImages": 355,
+  "totalDays": 355,
   "source": "supabase"
 }
