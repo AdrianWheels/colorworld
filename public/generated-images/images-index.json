@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-22T01:25:27.755Z",
+  "lastUpdated": "2026-09-23T01:25:10.381Z",
   "images": {
+    "2026-09-23": [
+      {
+        "fileName": "2026-09-23_MandalaCuentos_1790126708674.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-23_MandalaCuentos_1790126708674.png",
+        "theme": "MandalaCuentos",
+        "dateKey": "2026-09-23",
+        "timestamp": 1790126708684,
+        "extension": "png",
+        "fileSize": 1823747,
+        "lastModified": "2026-09-23T01:25:08.684+00:00",
+        "storagePath": "2026-09/2026-09-23_MandalaCuentos_1790126708674.png"
+      }
+    ],
     "2026-09-22": [
       {
         "fileName": "2026-09-22_JardinMagico_1790040325521.png",
@@ -4666,7 +4679,8 @@
       "2026-09-19",
       "2026-09-20",
       "2026-09-21",
-      "2026-09-22"
+      "2026-09-22",
+      "2026-09-23"
     ],
     "2026-08": [
       "2026-08-01",
@@ -5028,7 +5042,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 357,
-  "totalDays": 357,
+  "totalImages": 358,
+  "totalDays": 358,
   "source": "supabase"
 }
