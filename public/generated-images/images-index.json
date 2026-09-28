@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-27T01:32:53.299Z",
+  "lastUpdated": "2026-09-28T01:35:50.316Z",
   "images": {
+    "2026-09-28": [
+      {
+        "fileName": "2026-09-28_TallerHechiceria_1790559348063.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-28_TallerHechiceria_1790559348063.png",
+        "theme": "TallerHechiceria",
+        "dateKey": "2026-09-28",
+        "timestamp": 1790559348068,
+        "extension": "png",
+        "fileSize": 1827521,
+        "lastModified": "2026-09-28T01:35:48.068+00:00",
+        "storagePath": "2026-09/2026-09-28_TallerHechiceria_1790559348063.png"
+      }
+    ],
     "2026-09-27": [
       {
         "fileName": "2026-09-27_MandalaUnicornio2_1790472771350.png",
@@ -4736,7 +4749,8 @@
       "2026-09-24",
       "2026-09-25",
       "2026-09-26",
-      "2026-09-27"
+      "2026-09-27",
+      "2026-09-28"
     ],
     "2026-08": [
       "2026-08-01",
@@ -5098,7 +5112,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 362,
-  "totalDays": 362,
+  "totalImages": 363,
+  "totalDays": 363,
   "source": "supabase"
 }
