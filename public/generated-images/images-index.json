@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-28T01:35:50.316Z",
+  "lastUpdated": "2026-09-29T01:30:37.318Z",
   "images": {
+    "2026-09-29": [
+      {
+        "fileName": "2026-09-29_FiestaMagica_1790645434619.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-29_FiestaMagica_1790645434619.png",
+        "theme": "FiestaMagica",
+        "dateKey": "2026-09-29",
+        "timestamp": 1790645434624,
+        "extension": "png",
+        "fileSize": 1720553,
+        "lastModified": "2026-09-29T01:30:34.624+00:00",
+        "storagePath": "2026-09/2026-09-29_FiestaMagica_1790645434619.png"
+      }
+    ],
     "2026-09-28": [
       {
         "fileName": "2026-09-28_TallerHechiceria_1790559348063.png",
@@ -4750,7 +4763,8 @@
       "2026-09-25",
       "2026-09-26",
       "2026-09-27",
-      "2026-09-28"
+      "2026-09-28",
+      "2026-09-29"
     ],
     "2026-08": [
       "2026-08-01",
@@ -5112,7 +5126,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 363,
-  "totalDays": 363,
+  "totalImages": 364,
+  "totalDays": 364,
   "source": "supabase"
 }
