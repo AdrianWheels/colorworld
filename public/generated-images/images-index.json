@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-29T01:30:37.318Z",
+  "lastUpdated": "2026-09-30T01:33:43.090Z",
   "images": {
+    "2026-09-30": [
+      {
+        "fileName": "2026-09-30_ArcoirisCole2_1790732020060.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-09/2026-09-30_ArcoirisCole2_1790732020060.png",
+        "theme": "ArcoirisCole2",
+        "dateKey": "2026-09-30",
+        "timestamp": 1790732020063,
+        "extension": "png",
+        "fileSize": 1255676,
+        "lastModified": "2026-09-30T01:33:40.063+00:00",
+        "storagePath": "2026-09/2026-09-30_ArcoirisCole2_1790732020060.png"
+      }
+    ],
     "2026-09-29": [
       {
         "fileName": "2026-09-29_FiestaMagica_1790645434619.png",
@@ -4764,7 +4777,8 @@
       "2026-09-26",
       "2026-09-27",
       "2026-09-28",
-      "2026-09-29"
+      "2026-09-29",
+      "2026-09-30"
     ],
     "2026-08": [
       "2026-08-01",
@@ -5126,7 +5140,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 364,
-  "totalDays": 364,
+  "totalImages": 365,
+  "totalDays": 365,
   "source": "supabase"
 }
