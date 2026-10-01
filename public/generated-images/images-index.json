@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-09-30T01:33:43.090Z",
+  "lastUpdated": "2026-10-01T01:41:37.275Z",
   "images": {
+    "2026-10-01": [
+      {
+        "fileName": "2026-10-01_Calabaza_1790818895389.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-01_Calabaza_1790818895389.png",
+        "theme": "Calabaza",
+        "dateKey": "2026-10-01",
+        "timestamp": 1790818895393,
+        "extension": "png",
+        "fileSize": 1244794,
+        "lastModified": "2026-10-01T01:41:35.393+00:00",
+        "storagePath": "2026-10/2026-10-01_Calabaza_1790818895389.png"
+      }
+    ],
     "2026-09-30": [
       {
         "fileName": "2026-09-30_ArcoirisCole2_1790732020060.png",
@@ -4748,6 +4761,9 @@
     ]
   },
   "daysByMonth": {
+    "2026-10": [
+      "2026-10-01"
+    ],
     "2026-09": [
       "2026-09-01",
       "2026-09-02",
@@ -5140,7 +5156,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 365,
-  "totalDays": 365,
+  "totalImages": 366,
+  "totalDays": 366,
   "source": "supabase"
 }
