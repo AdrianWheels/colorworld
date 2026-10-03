@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-02T01:31:46.437Z",
+  "lastUpdated": "2026-10-03T01:28:22.097Z",
   "images": {
+    "2026-10-03": [
+      {
+        "fileName": "2026-10-03_Fantasma_1790990900218.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-03_Fantasma_1790990900218.png",
+        "theme": "Fantasma",
+        "dateKey": "2026-10-03",
+        "timestamp": 1790990900222,
+        "extension": "png",
+        "fileSize": 1205625,
+        "lastModified": "2026-10-03T01:28:20.222+00:00",
+        "storagePath": "2026-10/2026-10-03_Fantasma_1790990900218.png"
+      }
+    ],
     "2026-10-02": [
       {
         "fileName": "2026-10-02_Murcilago_1790904703809.png",
@@ -4776,7 +4789,8 @@
   "daysByMonth": {
     "2026-10": [
       "2026-10-01",
-      "2026-10-02"
+      "2026-10-02",
+      "2026-10-03"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5170,7 +5184,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 367,
-  "totalDays": 367,
+  "totalImages": 368,
+  "totalDays": 368,
   "source": "supabase"
 }
