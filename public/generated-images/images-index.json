@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-03T01:28:22.097Z",
+  "lastUpdated": "2026-10-04T02:08:43.641Z",
   "images": {
+    "2026-10-04": [
+      {
+        "fileName": "2026-10-04_Bruja_1791079721054.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-04_Bruja_1791079721054.png",
+        "theme": "Bruja",
+        "dateKey": "2026-10-04",
+        "timestamp": 1791079721056,
+        "extension": "png",
+        "fileSize": 450495,
+        "lastModified": "2026-10-04T02:08:41.056+00:00",
+        "storagePath": "2026-10/2026-10-04_Bruja_1791079721054.png"
+      }
+    ],
     "2026-10-03": [
       {
         "fileName": "2026-10-03_Fantasma_1790990900218.png",
@@ -4790,7 +4803,8 @@
     "2026-10": [
       "2026-10-01",
       "2026-10-02",
-      "2026-10-03"
+      "2026-10-03",
+      "2026-10-04"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5184,7 +5198,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 368,
-  "totalDays": 368,
+  "totalImages": 369,
+  "totalDays": 369,
   "source": "supabase"
 }
