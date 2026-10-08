@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-07T01:35:46.799Z",
+  "lastUpdated": "2026-10-08T01:35:11.506Z",
   "images": {
+    "2026-10-08": [
+      {
+        "fileName": "2026-10-08_Sombrero_1791423309406.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-08_Sombrero_1791423309406.png",
+        "theme": "Sombrero",
+        "dateKey": "2026-10-08",
+        "timestamp": 1791423309408,
+        "extension": "png",
+        "fileSize": 1084545,
+        "lastModified": "2026-10-08T01:35:09.408+00:00",
+        "storagePath": "2026-10/2026-10-08_Sombrero_1791423309406.png"
+      }
+    ],
     "2026-10-07": [
       {
         "fileName": "2026-10-07_Gato_1791336944078.png",
@@ -4846,7 +4859,8 @@
       "2026-10-04",
       "2026-10-05",
       "2026-10-06",
-      "2026-10-07"
+      "2026-10-07",
+      "2026-10-08"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5240,7 +5254,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 372,
-  "totalDays": 372,
+  "totalImages": 373,
+  "totalDays": 373,
   "source": "supabase"
 }
