@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-08T01:35:11.506Z",
+  "lastUpdated": "2026-10-09T01:37:28.409Z",
   "images": {
+    "2026-10-09": [
+      {
+        "fileName": "2026-10-09_Castillo_1791509845873.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-09_Castillo_1791509845873.png",
+        "theme": "Castillo",
+        "dateKey": "2026-10-09",
+        "timestamp": 1791509845876,
+        "extension": "png",
+        "fileSize": 1256478,
+        "lastModified": "2026-10-09T01:37:25.876+00:00",
+        "storagePath": "2026-10/2026-10-09_Castillo_1791509845873.png"
+      }
+    ],
     "2026-10-08": [
       {
         "fileName": "2026-10-08_Sombrero_1791423309406.png",
@@ -4860,7 +4873,8 @@
       "2026-10-05",
       "2026-10-06",
       "2026-10-07",
-      "2026-10-08"
+      "2026-10-08",
+      "2026-10-09"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5254,7 +5268,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 373,
-  "totalDays": 373,
+  "totalImages": 374,
+  "totalDays": 374,
   "source": "supabase"
 }
