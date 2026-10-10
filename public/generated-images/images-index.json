@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-09T01:37:28.409Z",
+  "lastUpdated": "2026-10-10T01:34:36.410Z",
   "images": {
+    "2026-10-10": [
+      {
+        "fileName": "2026-10-10_Zombie_1791596074829.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-10_Zombie_1791596074829.png",
+        "theme": "Zombie",
+        "dateKey": "2026-10-10",
+        "timestamp": 1791596074831,
+        "extension": "png",
+        "fileSize": 609825,
+        "lastModified": "2026-10-10T01:34:34.831+00:00",
+        "storagePath": "2026-10/2026-10-10_Zombie_1791596074829.png"
+      }
+    ],
     "2026-10-09": [
       {
         "fileName": "2026-10-09_Castillo_1791509845873.png",
@@ -4874,7 +4887,8 @@
       "2026-10-06",
       "2026-10-07",
       "2026-10-08",
-      "2026-10-09"
+      "2026-10-09",
+      "2026-10-10"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5268,7 +5282,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 374,
-  "totalDays": 374,
+  "totalImages": 375,
+  "totalDays": 375,
   "source": "supabase"
 }
