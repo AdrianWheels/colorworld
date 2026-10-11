@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-10T01:34:36.410Z",
+  "lastUpdated": "2026-10-11T01:39:02.201Z",
   "images": {
+    "2026-10-11": [
+      {
+        "fileName": "2026-10-11_Momia_1791682739404.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-11_Momia_1791682739404.png",
+        "theme": "Momia",
+        "dateKey": "2026-10-11",
+        "timestamp": 1791682739408,
+        "extension": "png",
+        "fileSize": 1348897,
+        "lastModified": "2026-10-11T01:38:59.408+00:00",
+        "storagePath": "2026-10/2026-10-11_Momia_1791682739404.png"
+      }
+    ],
     "2026-10-10": [
       {
         "fileName": "2026-10-10_Zombie_1791596074829.png",
@@ -4888,7 +4901,8 @@
       "2026-10-07",
       "2026-10-08",
       "2026-10-09",
-      "2026-10-10"
+      "2026-10-10",
+      "2026-10-11"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5282,7 +5296,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 375,
-  "totalDays": 375,
+  "totalImages": 376,
+  "totalDays": 376,
   "source": "supabase"
 }
