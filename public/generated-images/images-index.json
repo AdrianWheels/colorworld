@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-11T01:39:02.201Z",
+  "lastUpdated": "2026-10-12T01:46:04.980Z",
   "images": {
+    "2026-10-12": [
+      {
+        "fileName": "2026-10-12_Escoba_1791769562915.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-12_Escoba_1791769562915.png",
+        "theme": "Escoba",
+        "dateKey": "2026-10-12",
+        "timestamp": 1791769562916,
+        "extension": "png",
+        "fileSize": 429560,
+        "lastModified": "2026-10-12T01:46:02.916+00:00",
+        "storagePath": "2026-10/2026-10-12_Escoba_1791769562915.png"
+      }
+    ],
     "2026-10-11": [
       {
         "fileName": "2026-10-11_Momia_1791682739404.png",
@@ -4902,7 +4915,8 @@
       "2026-10-08",
       "2026-10-09",
       "2026-10-10",
-      "2026-10-11"
+      "2026-10-11",
+      "2026-10-12"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5296,7 +5310,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 376,
-  "totalDays": 376,
+  "totalImages": 377,
+  "totalDays": 377,
   "source": "supabase"
 }
