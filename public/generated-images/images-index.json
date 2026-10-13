@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-12T01:46:04.980Z",
+  "lastUpdated": "2026-10-13T01:39:35.297Z",
   "images": {
+    "2026-10-13": [
+      {
+        "fileName": "2026-10-13_Caldero_1791855573202.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-13_Caldero_1791855573202.png",
+        "theme": "Caldero",
+        "dateKey": "2026-10-13",
+        "timestamp": 1791855573204,
+        "extension": "png",
+        "fileSize": 1065657,
+        "lastModified": "2026-10-13T01:39:33.204+00:00",
+        "storagePath": "2026-10/2026-10-13_Caldero_1791855573202.png"
+      }
+    ],
     "2026-10-12": [
       {
         "fileName": "2026-10-12_Escoba_1791769562915.png",
@@ -4916,7 +4929,8 @@
       "2026-10-09",
       "2026-10-10",
       "2026-10-11",
-      "2026-10-12"
+      "2026-10-12",
+      "2026-10-13"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5310,7 +5324,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 377,
-  "totalDays": 377,
+  "totalImages": 378,
+  "totalDays": 378,
   "source": "supabase"
 }
