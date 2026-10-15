@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-14T01:23:36.912Z",
+  "lastUpdated": "2026-10-15T01:23:06.927Z",
   "images": {
+    "2026-10-15": [
+      {
+        "fileName": "2026-10-15_Luna_1792027384400.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-15_Luna_1792027384400.png",
+        "theme": "Luna",
+        "dateKey": "2026-10-15",
+        "timestamp": 1792027384401,
+        "extension": "png",
+        "fileSize": 372374,
+        "lastModified": "2026-10-15T01:23:04.401+00:00",
+        "storagePath": "2026-10/2026-10-15_Luna_1792027384400.png"
+      }
+    ],
     "2026-10-14": [
       {
         "fileName": "2026-10-14_Monstruo_1791941015689.png",
@@ -4944,7 +4957,8 @@
       "2026-10-11",
       "2026-10-12",
       "2026-10-13",
-      "2026-10-14"
+      "2026-10-14",
+      "2026-10-15"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5338,7 +5352,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 379,
-  "totalDays": 379,
+  "totalImages": 380,
+  "totalDays": 380,
   "source": "supabase"
 }
