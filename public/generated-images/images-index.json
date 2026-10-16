@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-15T01:23:06.927Z",
+  "lastUpdated": "2026-10-16T01:22:00.123Z",
   "images": {
+    "2026-10-16": [
+      {
+        "fileName": "2026-10-16_Cementerio_1792113717903.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-16_Cementerio_1792113717903.png",
+        "theme": "Cementerio",
+        "dateKey": "2026-10-16",
+        "timestamp": 1792113717908,
+        "extension": "png",
+        "fileSize": 1493240,
+        "lastModified": "2026-10-16T01:21:57.908+00:00",
+        "storagePath": "2026-10/2026-10-16_Cementerio_1792113717903.png"
+      }
+    ],
     "2026-10-15": [
       {
         "fileName": "2026-10-15_Luna_1792027384400.png",
@@ -4958,7 +4971,8 @@
       "2026-10-12",
       "2026-10-13",
       "2026-10-14",
-      "2026-10-15"
+      "2026-10-15",
+      "2026-10-16"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5352,7 +5366,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 380,
-  "totalDays": 380,
+  "totalImages": 381,
+  "totalDays": 381,
   "source": "supabase"
 }
