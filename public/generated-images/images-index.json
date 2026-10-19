@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-18T01:25:46.691Z",
+  "lastUpdated": "2026-10-19T01:28:58.189Z",
   "images": {
+    "2026-10-19": [
+      {
+        "fileName": "2026-10-19_Bho_1792373336253.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-19_Bho_1792373336253.png",
+        "theme": "Búho",
+        "dateKey": "2026-10-19",
+        "timestamp": 1792373336256,
+        "extension": "png",
+        "fileSize": 1188073,
+        "lastModified": "2026-10-19T01:28:56.256+00:00",
+        "storagePath": "2026-10/2026-10-19_Bho_1792373336253.png"
+      }
+    ],
     "2026-10-18": [
       {
         "fileName": "2026-10-18_Caramelos_1792286744604.png",
@@ -5000,7 +5013,8 @@
       "2026-10-15",
       "2026-10-16",
       "2026-10-17",
-      "2026-10-18"
+      "2026-10-18",
+      "2026-10-19"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5394,7 +5408,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 383,
-  "totalDays": 383,
+  "totalImages": 384,
+  "totalDays": 384,
   "source": "supabase"
 }
