@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-19T01:28:58.189Z",
+  "lastUpdated": "2026-10-20T01:24:32.234Z",
   "images": {
+    "2026-10-20": [
+      {
+        "fileName": "2026-10-20_Calavera_1792459469970.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-20_Calavera_1792459469970.png",
+        "theme": "Calavera",
+        "dateKey": "2026-10-20",
+        "timestamp": 1792459469974,
+        "extension": "png",
+        "fileSize": 1211877,
+        "lastModified": "2026-10-20T01:24:29.974+00:00",
+        "storagePath": "2026-10/2026-10-20_Calavera_1792459469970.png"
+      }
+    ],
     "2026-10-19": [
       {
         "fileName": "2026-10-19_Bho_1792373336253.png",
@@ -5014,7 +5027,8 @@
       "2026-10-16",
       "2026-10-17",
       "2026-10-18",
-      "2026-10-19"
+      "2026-10-19",
+      "2026-10-20"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5408,7 +5422,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 384,
-  "totalDays": 384,
+  "totalImages": 385,
+  "totalDays": 385,
   "source": "supabase"
 }
