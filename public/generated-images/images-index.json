@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-21T01:25:51.962Z",
+  "lastUpdated": "2026-10-22T01:23:51.091Z",
   "images": {
+    "2026-10-22": [
+      {
+        "fileName": "2026-10-22_HombreLobo_1792632229138.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-22_HombreLobo_1792632229138.png",
+        "theme": "HombreLobo",
+        "dateKey": "2026-10-22",
+        "timestamp": 1792632229141,
+        "extension": "png",
+        "fileSize": 676822,
+        "lastModified": "2026-10-22T01:23:49.141+00:00",
+        "storagePath": "2026-10/2026-10-22_HombreLobo_1792632229138.png"
+      }
+    ],
     "2026-10-21": [
       {
         "fileName": "2026-10-21_Bosque_1792545949236.png",
@@ -5042,7 +5055,8 @@
       "2026-10-18",
       "2026-10-19",
       "2026-10-20",
-      "2026-10-21"
+      "2026-10-21",
+      "2026-10-22"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5436,7 +5450,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 386,
-  "totalDays": 386,
+  "totalImages": 387,
+  "totalDays": 387,
   "source": "supabase"
 }
