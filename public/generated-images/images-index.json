@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-22T01:23:51.091Z",
+  "lastUpdated": "2026-10-23T01:27:09.129Z",
   "images": {
+    "2026-10-23": [
+      {
+        "fileName": "2026-10-23_Casa_1792718827173.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-23_Casa_1792718827173.png",
+        "theme": "Casa",
+        "dateKey": "2026-10-23",
+        "timestamp": 1792718827175,
+        "extension": "png",
+        "fileSize": 1307374,
+        "lastModified": "2026-10-23T01:27:07.175+00:00",
+        "storagePath": "2026-10/2026-10-23_Casa_1792718827173.png"
+      }
+    ],
     "2026-10-22": [
       {
         "fileName": "2026-10-22_HombreLobo_1792632229138.png",
@@ -5056,7 +5069,8 @@
       "2026-10-19",
       "2026-10-20",
       "2026-10-21",
-      "2026-10-22"
+      "2026-10-22",
+      "2026-10-23"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5450,7 +5464,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 387,
-  "totalDays": 387,
+  "totalImages": 388,
+  "totalDays": 388,
   "source": "supabase"
 }
