@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-23T01:27:09.129Z",
+  "lastUpdated": "2026-10-24T01:24:04.924Z",
   "images": {
+    "2026-10-24": [
+      {
+        "fileName": "2026-10-24_Ratas_1792805043025.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-24_Ratas_1792805043025.png",
+        "theme": "Ratas",
+        "dateKey": "2026-10-24",
+        "timestamp": 1792805043026,
+        "extension": "png",
+        "fileSize": 733038,
+        "lastModified": "2026-10-24T01:24:03.026+00:00",
+        "storagePath": "2026-10/2026-10-24_Ratas_1792805043025.png"
+      }
+    ],
     "2026-10-23": [
       {
         "fileName": "2026-10-23_Casa_1792718827173.png",
@@ -5070,7 +5083,8 @@
       "2026-10-20",
       "2026-10-21",
       "2026-10-22",
-      "2026-10-23"
+      "2026-10-23",
+      "2026-10-24"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5464,7 +5478,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 388,
-  "totalDays": 388,
+  "totalImages": 389,
+  "totalDays": 389,
   "source": "supabase"
 }
