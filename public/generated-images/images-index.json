@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-24T01:24:04.924Z",
+  "lastUpdated": "2026-10-25T01:26:27.018Z",
   "images": {
+    "2026-10-25": [
+      {
+        "fileName": "2026-10-25_Telaraa_1792891584641.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-25_Telaraa_1792891584641.png",
+        "theme": "Telaraña",
+        "dateKey": "2026-10-25",
+        "timestamp": 1792891584642,
+        "extension": "png",
+        "fileSize": 1064928,
+        "lastModified": "2026-10-25T01:26:24.642+00:00",
+        "storagePath": "2026-10/2026-10-25_Telaraa_1792891584641.png"
+      }
+    ],
     "2026-10-24": [
       {
         "fileName": "2026-10-24_Ratas_1792805043025.png",
@@ -5084,7 +5097,8 @@
       "2026-10-21",
       "2026-10-22",
       "2026-10-23",
-      "2026-10-24"
+      "2026-10-24",
+      "2026-10-25"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5478,7 +5492,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 389,
-  "totalDays": 389,
+  "totalImages": 390,
+  "totalDays": 390,
   "source": "supabase"
 }
