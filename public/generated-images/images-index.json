@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-25T01:26:27.018Z",
+  "lastUpdated": "2026-10-26T01:29:29.327Z",
   "images": {
+    "2026-10-26": [
+      {
+        "fileName": "2026-10-26_Espantapjaros_1792978167270.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-26_Espantapjaros_1792978167270.png",
+        "theme": "Espantapájaros",
+        "dateKey": "2026-10-26",
+        "timestamp": 1792978167271,
+        "extension": "png",
+        "fileSize": 1383462,
+        "lastModified": "2026-10-26T01:29:27.271+00:00",
+        "storagePath": "2026-10/2026-10-26_Espantapjaros_1792978167270.png"
+      }
+    ],
     "2026-10-25": [
       {
         "fileName": "2026-10-25_Telaraa_1792891584641.png",
@@ -5098,7 +5111,8 @@
       "2026-10-22",
       "2026-10-23",
       "2026-10-24",
-      "2026-10-25"
+      "2026-10-25",
+      "2026-10-26"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5492,7 +5506,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 390,
-  "totalDays": 390,
+  "totalImages": 391,
+  "totalDays": 391,
   "source": "supabase"
 }
