@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-27T01:29:41.236Z",
+  "lastUpdated": "2026-10-28T01:12:05.229Z",
   "images": {
+    "2026-10-28": [
+      {
+        "fileName": "2026-10-28_Mscara_1793149923193.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-28_Mscara_1793149923193.png",
+        "theme": "Máscara",
+        "dateKey": "2026-10-28",
+        "timestamp": 1793149923195,
+        "extension": "png",
+        "fileSize": 1190184,
+        "lastModified": "2026-10-28T01:12:03.195+00:00",
+        "storagePath": "2026-10/2026-10-28_Mscara_1793149923193.png"
+      }
+    ],
     "2026-10-27": [
       {
         "fileName": "2026-10-27_Bebida_1793064578499.png",
@@ -5126,7 +5139,8 @@
       "2026-10-24",
       "2026-10-25",
       "2026-10-26",
-      "2026-10-27"
+      "2026-10-27",
+      "2026-10-28"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5520,7 +5534,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 392,
-  "totalDays": 392,
+  "totalImages": 393,
+  "totalDays": 393,
   "source": "supabase"
 }
