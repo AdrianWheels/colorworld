@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-28T01:12:05.229Z",
+  "lastUpdated": "2026-10-29T01:11:53.980Z",
   "images": {
+    "2026-10-29": [
+      {
+        "fileName": "2026-10-29_Espritu_1793236312238.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-29_Espritu_1793236312238.png",
+        "theme": "Espíritu",
+        "dateKey": "2026-10-29",
+        "timestamp": 1793236312240,
+        "extension": "png",
+        "fileSize": 1772203,
+        "lastModified": "2026-10-29T01:11:52.24+00:00",
+        "storagePath": "2026-10/2026-10-29_Espritu_1793236312238.png"
+      }
+    ],
     "2026-10-28": [
       {
         "fileName": "2026-10-28_Mscara_1793149923193.png",
@@ -5140,7 +5153,8 @@
       "2026-10-25",
       "2026-10-26",
       "2026-10-27",
-      "2026-10-28"
+      "2026-10-28",
+      "2026-10-29"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5534,7 +5548,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 393,
-  "totalDays": 393,
+  "totalImages": 394,
+  "totalDays": 394,
   "source": "supabase"
 }
