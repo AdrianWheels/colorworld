@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-29T01:11:53.980Z",
+  "lastUpdated": "2026-10-30T01:12:48.032Z",
   "images": {
+    "2026-10-30": [
+      {
+        "fileName": "2026-10-30_Corazn_1793322765786.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-30_Corazn_1793322765786.png",
+        "theme": "Corazón",
+        "dateKey": "2026-10-30",
+        "timestamp": 1793322765787,
+        "extension": "png",
+        "fileSize": 352169,
+        "lastModified": "2026-10-30T01:12:45.787+00:00",
+        "storagePath": "2026-10/2026-10-30_Corazn_1793322765786.png"
+      }
+    ],
     "2026-10-29": [
       {
         "fileName": "2026-10-29_Espritu_1793236312238.png",
@@ -5154,7 +5167,8 @@
       "2026-10-26",
       "2026-10-27",
       "2026-10-28",
-      "2026-10-29"
+      "2026-10-29",
+      "2026-10-30"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5548,7 +5562,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 394,
-  "totalDays": 394,
+  "totalImages": 395,
+  "totalDays": 395,
   "source": "supabase"
 }
