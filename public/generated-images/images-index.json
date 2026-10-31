@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-30T01:12:48.032Z",
+  "lastUpdated": "2026-10-31T01:09:15.532Z",
   "images": {
+    "2026-10-31": [
+      {
+        "fileName": "2026-10-31_Sombras_1793408953000.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-10/2026-10-31_Sombras_1793408953000.png",
+        "theme": "Sombras",
+        "dateKey": "2026-10-31",
+        "timestamp": 1793408953002,
+        "extension": "png",
+        "fileSize": 1403973,
+        "lastModified": "2026-10-31T01:09:13.002+00:00",
+        "storagePath": "2026-10/2026-10-31_Sombras_1793408953000.png"
+      }
+    ],
     "2026-10-30": [
       {
         "fileName": "2026-10-30_Corazn_1793322765786.png",
@@ -5168,7 +5181,8 @@
       "2026-10-27",
       "2026-10-28",
       "2026-10-29",
-      "2026-10-30"
+      "2026-10-30",
+      "2026-10-31"
     ],
     "2026-09": [
       "2026-09-01",
@@ -5562,7 +5576,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 395,
-  "totalDays": 395,
+  "totalImages": 396,
+  "totalDays": 396,
   "source": "supabase"
 }
