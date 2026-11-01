@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-10-31T01:09:15.532Z",
+  "lastUpdated": "2026-11-01T01:09:38.307Z",
   "images": {
+    "2026-11-01": [
+      {
+        "fileName": "2026-11-01_Hojas_1793495376686.png",
+        "url": "https://enwrbnhlvbjnbxgxghev.supabase.co/storage/v1/object/public/daily-images/2026-11/2026-11-01_Hojas_1793495376686.png",
+        "theme": "Hojas",
+        "dateKey": "2026-11-01",
+        "timestamp": 1793495376687,
+        "extension": "png",
+        "fileSize": 1145879,
+        "lastModified": "2026-11-01T01:09:36.687+00:00",
+        "storagePath": "2026-11/2026-11-01_Hojas_1793495376686.png"
+      }
+    ],
     "2026-10-31": [
       {
         "fileName": "2026-10-31_Sombras_1793408953000.png",
@@ -5151,6 +5164,9 @@
     ]
   },
   "daysByMonth": {
+    "2026-11": [
+      "2026-11-01"
+    ],
     "2026-10": [
       "2026-10-01",
       "2026-10-02",
@@ -5576,7 +5592,7 @@
       "2025-09-30"
     ]
   },
-  "totalImages": 396,
-  "totalDays": 396,
+  "totalImages": 397,
+  "totalDays": 397,
   "source": "supabase"
 }
